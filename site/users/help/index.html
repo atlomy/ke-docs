@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-help/README" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Help Entry Format — Authoring Guide | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/help/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Help Entry Format — Authoring Guide | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Audience: Authors contributing to the researcher help substrate (docs team,"><meta data-rh="true" property="og:description" content="Audience: Authors contributing to the researcher help substrate (docs team,"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/help/"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Help Entry Format — Authoring Guide","item":"https://atlomy.github.io/ke-docs/users/help/"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/superadmin/">Platform Admins</a><a class="navbar__item navbar__link" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/"><span title="Researcher Guide" class="linkLabel_WmDU">Researcher Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/accessibility"><span title="Accessibility" class="linkLabel_WmDU">Accessibility</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/adding-and-editing-rows"><span title="Adding and Editing Rows" class="linkLabel_WmDU">Adding and Editing Rows</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible menu__list-item-collapsible--active"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" aria-current="page" href="/ke-docs/users/help/"><span title="Help Entry Format — Authoring Guide" class="categoryLinkLabel_W154">Help Entry Format — Authoring Guide</span></a><button aria-label="Collapse sidebar category &#x27;Help Entry Format — Authoring Guide&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/build-from-empty"><span title="Build a knowledge environment from scratch without importing" class="linkLabel_WmDU">Build a knowledge environment from scratch without importing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/make-field-required"><span title="Make a field required" class="linkLabel_WmDU">Make a field required</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/quick-search-vs-search-and-read"><span title="Choose between the quick search bar and Search &amp; Read" class="linkLabel_WmDU">Choose between the quick search bar and Search &amp; Read</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/rename-a-field-label"><span title="Rename a field label" class="linkLabel_WmDU">Rename a field label</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/saved-views-and-reimports"><span title="What happens to saved views after a re-import" class="linkLabel_WmDU">What happens to saved views after a re-import</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/share-a-search"><span title="Share a search so a colleague sees the same results" class="linkLabel_WmDU">Share a search so a colleague sees the same results</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/what-changed-after-reimport"><span title="Understand what changed after a re-import" class="linkLabel_WmDU">Understand what changed after a re-import</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/privacy-and-safety"><span title="Privacy and Safety" class="linkLabel_WmDU">Privacy and Safety</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/public-reader"><span title="Public Reader" class="linkLabel_WmDU">Public Reader</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/searching-and-reading"><span title="Searching and Reading" class="linkLabel_WmDU">Searching and Reading</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/tips-and-guidance"><span title="Tips and Guidance" class="linkLabel_WmDU">Tips and Guidance</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/workspace-walkthrough"><span title="Workspace Walkthrough" class="linkLabel_WmDU">Workspace Walkthrough</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Help Entry Format — Authoring Guide</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Help Entry Format — Authoring Guide</h1></header>
+<blockquote>
+<p><strong>Audience</strong>: Authors contributing to the researcher help substrate (docs team,
+engineers shipping researcher-visible behavior changes, AI agents authoring help
+content).
+<strong>Last aligned with platform state</strong>: 2026-06-11
+<strong>Platform version</strong>: V2 (pre-1.0)</p>
+<p>See <code>docs/superpowers/specs/0050-researcher-help-substrate/</code> for the full spec.</p>
+</blockquote>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-a-help-entry-is">What a help entry is<a href="#what-a-help-entry-is" class="hash-link" aria-label="Direct link to What a help entry is" title="Direct link to What a help entry is" translate="no">​</a></h2>
+<p>One entry = one researcher intent.  A help entry answers a specific task-shaped
+question (&quot;how do I make a field required?&quot;, &quot;what changed since my last
+import?&quot;) in the researcher&#x27;s own language.  It is <strong>not</strong> a feature overview,
+a release note, or an engineering description.</p>
+<p>Help entries are authored once and rendered to three surfaces:</p>
+<ol>
+<li class="">The workspace Help page (FAQ + guides list).</li>
+<li class="">In-product &quot;?&quot; affordances on the matching surface (via <code>help_keys</code> — see
+<code>docs/developer/architecture/help-key-contract.md</code>).</li>
+<li class="">The AI helper&#x27;s knowledge pack (consumed as structured, retrieval-ready
+units).</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="frontmatter-schema">Frontmatter schema<a href="#frontmatter-schema" class="hash-link" aria-label="Direct link to Frontmatter schema" title="Direct link to Frontmatter schema" translate="no">​</a></h2>
+<p>Every entry file MUST include all required fields.</p>
+<div class="language-markdown codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-markdown codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block punctuation" style="color:rgb(199, 146, 234)">---</span><span class="token front-matter-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule">id</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token front-matter-block front-matter yaml language-yaml"> kebab</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml">case</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml">unique</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml">id               </span><span class="token front-matter-block front-matter yaml language-yaml comment" style="color:rgb(105, 112, 152);font-style:italic"># required — matches filename (without .md)</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule">title</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml string" style="color:rgb(195, 232, 141)">&quot;Short task-shaped title&quot;</span><span class="token front-matter-block front-matter yaml language-yaml">       </span><span class="token front-matter-block front-matter yaml language-yaml comment" style="color:rgb(105, 112, 152);font-style:italic"># required — one sentence, action-first</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule">summary</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml string" style="color:rgb(195, 232, 141)">&quot;One plain sentence.&quot;</span><span class="token front-matter-block front-matter yaml language-yaml">         </span><span class="token front-matter-block front-matter yaml language-yaml comment" style="color:rgb(105, 112, 152);font-style:italic"># required — card subtitle on the Help page</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule">group</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token front-matter-block front-matter yaml language-yaml"> data                            </span><span class="token front-matter-block front-matter yaml language-yaml comment" style="color:rgb(105, 112, 152);font-style:italic"># required — data | find | import (Help page grouping)</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule">intents</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token front-matter-block front-matter yaml language-yaml">                               </span><span class="token front-matter-block front-matter yaml language-yaml comment" style="color:rgb(105, 112, 152);font-style:italic"># required — minimum 3 retrieval phrases</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml">  </span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml string" style="color:rgb(195, 232, 141)">&quot;natural-language question or phrase a researcher would type&quot;</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml">  </span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml string" style="color:rgb(195, 232, 141)">&quot;alternate phrasing&quot;</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml">  </span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml string" style="color:rgb(195, 232, 141)">&quot;another variant&quot;</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule">help_keys</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token front-matter-block front-matter yaml language-yaml">                             </span><span class="token front-matter-block front-matter yaml language-yaml comment" style="color:rgb(105, 112, 152);font-style:italic"># required — dotted namespace IDs per helpKey contract</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml">  </span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml"> workspace.surface.concept          </span><span class="token front-matter-block front-matter yaml language-yaml comment" style="color:rgb(105, 112, 152);font-style:italic"># see help-key-contract.md for namespace rules</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule">audience</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token front-matter-block front-matter yaml language-yaml"> researcher                   </span><span class="token front-matter-block front-matter yaml language-yaml comment" style="color:rgb(105, 112, 152);font-style:italic"># required — always &quot;researcher&quot; for this tree</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule">related</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token front-matter-block front-matter yaml language-yaml">                               </span><span class="token front-matter-block front-matter yaml language-yaml comment" style="color:rgb(105, 112, 152);font-style:italic"># optional — sibling entry IDs (not filenames)</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block front-matter yaml language-yaml">  </span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml"> other</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml">entry</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:rgb(199, 146, 234)">-</span><span class="token front-matter-block front-matter yaml language-yaml">id</span><span class="token front-matter-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token front-matter-block"></span><span class="token front-matter-block punctuation" style="color:rgb(199, 146, 234)">---</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="field-rules">Field rules<a href="#field-rules" class="hash-link" aria-label="Direct link to Field rules" title="Direct link to Field rules" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Field</th><th>Rule</th></tr></thead><tbody><tr><td><code>id</code></td><td>Kebab-case slug; must match the filename without <code>.md</code>; globally unique across <code>docs/users/help/</code>. Never reuse a retired ID.</td></tr><tr><td><code>title</code></td><td>One concise sentence, action-first (&quot;Make a field required&quot;, &quot;Share a search&quot;). Use researcher vocabulary — never &quot;slot&quot;, &quot;tenant&quot; (for a person), or engineering terms.</td></tr><tr><td><code>summary</code></td><td>One plain sentence shown under the title on Help page cards and at the top of the reading pane / drawer. Same vocabulary rules as the title.</td></tr><tr><td><code>group</code></td><td>One of <code>data</code> (working with your data), <code>find</code> (finding and sharing), <code>import</code> (importing and updating). Drives the Help page&#x27;s collapsible groups — declared here, never inferred.</td></tr><tr><td><code>intents</code></td><td>Task-shaped phrases a researcher would type or speak. At least 3. They are the retrieval surface for FAQ search and the AI helper. Include common misspellings / alternate vocabulary. Do NOT duplicate the title verbatim as the first intent.</td></tr><tr><td><code>help_keys</code></td><td>Dotted namespace IDs per the helpKey contract (<code>&lt;surface&gt;.&lt;sub-surface&gt;.&lt;concept&gt;</code>). The entries here become rows in <code>help-manifest.json</code> at docs-site build. Use platform-canonical IDs — never tenant-specific names. If the entry describes a cross-surface concept, list all relevant anchors.</td></tr><tr><td><code>audience</code></td><td>Always <code>researcher</code> for entries in <code>docs/users/help/</code>. Entries for tenant-admin-only features live in <code>docs/tenant_admin/help/</code> (future).</td></tr><tr><td><code>related</code></td><td>Sibling entry IDs (not filenames, not URLs). Keep to entries the researcher would naturally reach next.</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="body-authoring-rules">Body authoring rules<a href="#body-authoring-rules" class="hash-link" aria-label="Direct link to Body authoring rules" title="Direct link to Body authoring rules" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="task-shaped-not-feature-shaped">Task-shaped, not feature-shaped<a href="#task-shaped-not-feature-shaped" class="hash-link" aria-label="Direct link to Task-shaped, not feature-shaped" title="Direct link to Task-shaped, not feature-shaped" translate="no">​</a></h3>
+<p>Write from the researcher&#x27;s goal, not from the platform&#x27;s internals.</p>
+<ul>
+<li class="">Good: &quot;When a field is required, a record cannot be saved while it is empty.&quot;</li>
+<li class="">Avoid: &quot;The <code>required</code> column in <code>TenantArchetypeFormConfig</code> is <code>RESEARCHER_OWNED</code>.&quot;</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="researcher-vocabulary">Researcher vocabulary<a href="#researcher-vocabulary" class="hash-link" aria-label="Direct link to Researcher vocabulary" title="Direct link to Researcher vocabulary" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Do not say</th><th>Say instead</th></tr></thead><tbody><tr><td>slot</td><td>field (or the field&#x27;s name, or &quot;this column&quot;)</td></tr><tr><td>tenant (for a person)</td><td>researcher, your team, your project</td></tr><tr><td>retired / deactivated</td><td>removed</td></tr><tr><td>restore (a retired column)</td><td>restored</td></tr><tr><td>comfort dial</td><td>autonomy setting</td></tr><tr><td>staged commit</td><td>review before write</td></tr><tr><td>archetype (as a code concept)</td><td>concept family (acceptable once with a plain definition)</td></tr><tr><td>MappingProject</td><td>import project</td></tr><tr><td>substrate, infra layer</td><td>the platform, the system</td></tr></tbody></table>
+<p>Do not use pilot codenames (e.g. the names of specific research projects or
+universities using the platform) anywhere in this tree. Use generic examples
+instead: &quot;a field called &#x27;Author&#x27;&quot;, &quot;a collection called &#x27;Manuscripts&#x27;&quot;, and
+so on.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="verbatim-label-examples">Verbatim-label examples<a href="#verbatim-label-examples" class="hash-link" aria-label="Direct link to Verbatim-label examples" title="Direct link to Verbatim-label examples" translate="no">​</a></h3>
+<p>When an example needs a field or collection name, use a plausible generic
+label — one the reader could substitute for their own (&quot;Author&quot;, &quot;Date of
+publication&quot;, &quot;Manuscripts&quot;).  The real display label renders as the
+researcher&#x27;s own vocabulary at runtime via the voice substrate (ADR-044).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="steps-must-be-checkable">Steps must be checkable<a href="#steps-must-be-checkable" class="hash-link" aria-label="Direct link to Steps must be checkable" title="Direct link to Steps must be checkable" translate="no">​</a></h3>
+<p>Each numbered step must correspond to a real UI action on a real surface
+(<code>/app/workspace/...</code>, <strong>Field Definitions</strong>, <strong>Search &amp; Read</strong>, the import
+wizard, etc.).  If a step is not yet in the product, either omit it or mark
+it explicitly as &quot;coming soon&quot; — do not describe aspirational behavior as
+shipped.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="deep-links">Deep-links<a href="#deep-links" class="hash-link" aria-label="Direct link to Deep-links" title="Direct link to Deep-links" translate="no">​</a></h3>
+<p>Where a step lands the researcher on a specific page, include the URL path
+as a parenthetical note: &quot;(Go to <strong>Field Definitions</strong> at <code>/app/workspace/ &lt;your-collection&gt;/field-definitions</code>.)&quot;  Omit the domain and any IDs.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="notes-and-caveats">Notes and caveats<a href="#notes-and-caveats" class="hash-link" aria-label="Direct link to Notes and caveats" title="Direct link to Notes and caveats" translate="no">​</a></h3>
+<p>Use a blockquote (<code>&gt;</code>) for a single important caveat:</p>
+<div class="language-markdown codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-markdown codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token blockquote punctuation" style="color:rgb(199, 146, 234)">&gt;</span><span class="token plain"> Your import never sets this for you — requiredness is always your choice.</span><br></div></code></pre></div></div>
+<p>Do not use blockquotes for normal body text.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="same-pr-gate">Same-PR gate<a href="#same-pr-gate" class="hash-link" aria-label="Direct link to Same-PR gate" title="Direct link to Same-PR gate" translate="no">​</a></h2>
+<p><strong>Every PR that ships a researcher-visible behavior change MUST include the
+matching help entry update in the same PR.</strong>  This is the Amendment 1
+culture gate from the 2026-05-25 docs strategy.  The PR reviewer checklist
+includes one line: &quot;Help entry added or updated for every researcher-visible
+change in this PR.&quot;</p>
+<p>If no researcher-visible behavior changed, no help entry is needed.  If the
+change is purely behind-the-scenes or affects only engineering surfaces,
+mark the PR description accordingly so reviewers know the check was
+considered.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="build-and-validation">Build and validation<a href="#build-and-validation" class="hash-link" aria-label="Direct link to Build and validation" title="Direct link to Build and validation" translate="no">​</a></h2>
+<p>The help entries are compiled by <code>scripts/build_help_entries.py</code>:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain"># Validate all entries (CI-safe):</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">python3 scripts/build_help_entries.py --check</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"># Build help-entries.json:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">python3 scripts/build_help_entries.py</span><br></div></code></pre></div></div>
+<p>In <code>--check</code> mode the script exits non-zero and lists ALL invalid files if
+any frontmatter field is missing, mistyped, or violates the rules above.</p>
+<p>The build compiles each body into a small block model (<code>body</code> in the JSON:
+paragraphs, sub-headings, numbered steps, bullet lists, note callouts, and
+tables) so the app renders entries without parsing markdown at runtime
+(Spec 0050 design §2).  Two structural rules: the leading <code># Title</code> heading
+is dropped (frontmatter <code>title</code> is canonical), and a <code>## Related</code> section is
+dropped (frontmatter <code>related:</code> is canonical — the surfaces render it as
+chips).  The raw markdown is kept alongside as <code>body_markdown</code> for the AI
+helper&#x27;s knowledge pack.</p>
+<p>The emitted <code>help-entries.json</code> lives at the repo root (or wherever the
+docs build pipeline picks it up) and is the single source consumed by:</p>
+<ul>
+<li class="">The workspace Help page (SPA route <code>/app/workspace/help</code>, served by the
+<code>help_entries</code> view at <code>/app/help/entries.json</code>).</li>
+<li class="">The contextual &quot;?&quot; affordances (<code>&lt;HelpRef helpKey=&quot;…&quot; /&gt;</code> resolves against
+the same compiled corpus in v1; <code>help-manifest.json</code> at docs-site build
+takes over when the publication pipeline lands).</li>
+<li class="">The AI helper&#x27;s knowledge pack.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><code>docs/superpowers/specs/0050-researcher-help-substrate/</code> — full spec</li>
+<li class=""><code>docs/developer/architecture/help-key-contract.md</code> — helpKey contract and
+namespace rules</li>
+<li class=""><code>docs/superpowers/plans/2026-05-25_docs-strategy.md</code> — Amendment 1
+(culture axis) and Tier-2/3 sequencing</li>
+<li class=""><code>scripts/build_help_entries.py</code> — build script and <code>--check</code> mode</li>
+<li class=""><code>docs/users/</code> — the researcher narrative docs this tree complements</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/users/adding-and-editing-rows"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Adding and Editing Rows</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/users/help/build-from-empty"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Build a knowledge environment from scratch without importing</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-a-help-entry-is" class="table-of-contents__link toc-highlight">What a help entry is</a></li><li><a href="#frontmatter-schema" class="table-of-contents__link toc-highlight">Frontmatter schema</a><ul><li><a href="#field-rules" class="table-of-contents__link toc-highlight">Field rules</a></li></ul></li><li><a href="#body-authoring-rules" class="table-of-contents__link toc-highlight">Body authoring rules</a><ul><li><a href="#task-shaped-not-feature-shaped" class="table-of-contents__link toc-highlight">Task-shaped, not feature-shaped</a></li><li><a href="#researcher-vocabulary" class="table-of-contents__link toc-highlight">Researcher vocabulary</a></li><li><a href="#verbatim-label-examples" class="table-of-contents__link toc-highlight">Verbatim-label examples</a></li><li><a href="#steps-must-be-checkable" class="table-of-contents__link toc-highlight">Steps must be checkable</a></li><li><a href="#deep-links" class="table-of-contents__link toc-highlight">Deep-links</a></li><li><a href="#notes-and-caveats" class="table-of-contents__link toc-highlight">Notes and caveats</a></li></ul></li><li><a href="#same-pr-gate" class="table-of-contents__link toc-highlight">Same-PR gate</a></li><li><a href="#build-and-validation" class="table-of-contents__link toc-highlight">Build and validation</a></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

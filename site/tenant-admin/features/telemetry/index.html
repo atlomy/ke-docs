@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-tenant_admin docs-version-current docs-doc-page docs-doc-id-features/telemetry" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Telemetry and Privacy | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/tenant-admin/features/telemetry"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-tenant_admin-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-tenant_admin-current"><meta data-rh="true" property="og:title" content="Telemetry and Privacy | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Audience prospective tenant institutions, Data Protection Officers, IRB reviewers."><meta data-rh="true" property="og:description" content="Audience prospective tenant institutions, Data Protection Officers, IRB reviewers."><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/tenant-admin/features/telemetry"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/tenant-admin/features/telemetry" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/tenant-admin/features/telemetry" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Telemetry and Privacy","item":"https://atlomy.github.io/ke-docs/tenant-admin/features/telemetry"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/superadmin/">Platform Admins</a><a class="navbar__item navbar__link" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/tenant-admin/"><span title="Tenant Administration" class="linkLabel_WmDU">Tenant Administration</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ke-docs/tenant-admin/features/ai-assisted-bootstrap"><span title="features" class="categoryLinkLabel_W154">features</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/ai-assisted-bootstrap"><span title="AI-Assisted Vocabulary Bootstrap" class="linkLabel_WmDU">AI-Assisted Vocabulary Bootstrap</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/citation-integrity"><span title="Citation Integrity and DOI Safety" class="linkLabel_WmDU">Citation Integrity and DOI Safety</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/data_import_wizard"><span title="Data Import Wizard" class="linkLabel_WmDU">Data Import Wizard</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/efficiency-tips"><span title="Efficiency Tips" class="linkLabel_WmDU">Efficiency Tips</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/entry_surface_readiness"><span title="Entry Surface Readiness" class="linkLabel_WmDU">Entry Surface Readiness</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/media_review_surface"><span title="Media Review Surface" class="linkLabel_WmDU">Media Review Surface</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/permissions-panel"><span title="Permissions Panel" class="linkLabel_WmDU">Permissions Panel</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/standards-and-citations"><span title="Standards and Citations" class="linkLabel_WmDU">Standards and Citations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/tenant-admin/features/telemetry"><span title="Telemetry and Privacy" class="linkLabel_WmDU">Telemetry and Privacy</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/vocabulary-grounding"><span title="Vocabulary Grounding" class="linkLabel_WmDU">Vocabulary Grounding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/voice-and-vocabulary"><span title="Voice and Vocabulary" class="linkLabel_WmDU">Voice and Vocabulary</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/tenant-admin/user_management"><span title="User and Access Management" class="linkLabel_WmDU">User and Access Management</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">features</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Telemetry and Privacy</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Telemetry and Privacy</h1></header>
+<blockquote>
+<p><strong>Audience</strong>: Tenant administrator; secondary readers: prospective tenant institutions, Data Protection Officers, IRB reviewers.
+<strong>Last aligned with platform state</strong>: 2026-05-25
+<strong>Platform version</strong>: V2 (pre-1.0)</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="purpose">Purpose<a href="#purpose" class="hash-link" aria-label="Direct link to Purpose" title="Direct link to Purpose" translate="no">​</a></h2>
+<p>The platform collects a deliberately small set of operational signals about how it runs — never a copy of your research content. This page tells you what those signals are, where they live, how long they are kept, what you control, and what to tell an institutional DPO or IRB. Read this when onboarding under a Data Processing Agreement, when an institution&#x27;s information-security team asks the standard onboarding questions, or before enabling any optional capture (the default posture is capture-off).</p>
+<p>The platform is GDPR-aligned by design; the collection posture meets EU university DPO and US academic-IRB expectations.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>AI-call records</strong> — per-call structured shape: task + model + version, tokens + latency, structured artifact, one-way hashes of prompt and response, refusal / escalation flag, prompt-injection classifier verdict. Substrate: ADR-016 + <code>epistemic/services/proposals/</code> · Maturity: Active · Limit: NOT recorded — raw prompt text, raw response text, end-user identity beyond platform pseudonym.</li>
+<li class=""><strong>Search-quality records</strong> — zero-result rate, aggregate query patterns (K≥5 only), cross-script statistics. Substrate: ADR-016 · Maturity: Active · Limit: raw query strings off by default; opt-in only with DPO sign-off captured in the configuration. K-anonymity floor (default 5; configurable to 11) suppresses long-tail queries. SSN/email/phone patterns are dropped entirely.</li>
+<li class=""><strong>Ingestion / pipeline records</strong> — tenant + source format, entity counts before / after, materializer outputs, error classes (not values), wall-clock duration. Substrate: ADR-016 + Spec 0011 import wizard ingestion telemetry · Maturity: Active · Limit: contains no personal data by construction; deliberately does not record raw source rows, filenames, staged paths, job ids, document/table names, or credential references.</li>
+<li class=""><strong>Decision-event records</strong> — reviewer reject / undo / post-apply edit / feedback-button signals on proposal review. Substrate: Spec 0018 + Spec 0030 + <code>epistemic/models.py</code> <code>DecisionEvent</code> · Maturity: Active · Limit: records proposal id, structured reason code, source signal, risk/review stratum, tenant-keyed HMAC proposal-shape fingerprint, optional batch counts. Does not record raw reviewer comments or free-form rationale.</li>
+<li class=""><strong>Tip-event records</strong> — <code>TipEvent</code> plus aggregate <code>tip_family_acceptance_ratios</code>; supports the <a class="" href="/ke-docs/tenant-admin/features/efficiency-tips">Efficiency Tips</a> surface. Substrate: Spec 0030 Phase 6.A–6.D + <code>TIP_AUTO_PAUSE</code> event type · Maturity: Active · Limit: k-anonymity-floor clamped via <code>TIP_ROLLUP_MIN_K</code> (R3 absorption, 2026-05-25); no per-researcher attribution.</li>
+<li class=""><strong>Vocabulary-pack consumption events</strong> — <code>VocabularyConsumptionEvent</code> for telemetry correlation. Substrate: ADR-044 D.3.14 (PR <code>fc0c3ba5</code>, 2026-05-25) · Maturity: Active · Limit: tenant-local; no content payload.</li>
+<li class=""><strong>Per-environment retention controls</strong> — <code>retention_overrides</code> JSONB on <code>Client</code> carries per-signal-class day counts shorter than platform defaults (cannot be longer). Substrate: ADR-016 · Maturity: Active · Limit: shorter than default only; the platform maximum is the ceiling.</li>
+<li class=""><strong><code>/admin/monitoring/telemetry/</code> panel</strong> — first tenant-admin telemetry UI; shows current-tenant signal counts, suggestion-quality bars, paused auto-apply categories, vocabulary-derived labels for how the system is learning. Substrate: Spec 0018 Sprint C tenant telemetry (PR <code>8b25fc58</code>, 2026-05-20) + threshold chart (PR <code>7b37fcb3</code>, 2026-05-21) · Maturity: Active · Limit: reads only tenant-local telemetry / ledger rows; never displays raw source rows, filenames, staged paths, credential references, tokens, or job ids.</li>
+<li class=""><strong><code>dump_telemetry</code> management command</strong> — tenant-scoped export to JSON Lines + signed manifest for GDPR Article 15 access requests. Substrate: ADR-016 · Maturity: Built · Limit: tenant-scoped; produces an audit-grade manifest.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="usability--how-you-use-it">Usability — how you use it<a href="#usability--how-you-use-it" class="hash-link" aria-label="Direct link to Usability — how you use it" title="Direct link to Usability — how you use it" translate="no">​</a></h2>
+<p>The day-to-day operator surface is <code>/admin/monitoring/telemetry/</code>. The configuration that controls capture lives on the <code>Client</code> row in the customers admin.</p>
+<ul>
+<li class=""><strong>Read what is happening in your environment</strong>: open <code>/admin/monitoring/telemetry/</code>. The page shows current-tenant signal counts, the suggestion-quality bars, paused auto-apply categories, and vocabulary-derived labels. Filter by time window, source format, signal class, success/failure.</li>
+<li class=""><strong>Configure retention shorter than default</strong>: edit the <code>Client</code> row&#x27;s <code>retention_overrides</code> JSONB to specify shorter day counts per signal class. The platform maximum is the ceiling; the overrides cannot exceed it.</li>
+<li class=""><strong>Enable opt-in raw search-query buffer</strong>: set <code>search_query_raw_optin = True</code> on the <code>Client</code> row with DPO sign-off captured. The buffer auto-deletes after 60 minutes idle, with a 24-hour absolute cap. After flush only hashed forms survive in the rollup table.</li>
+<li class=""><strong>Configure FERPA-compliant pseudonymous mode</strong>: set <code>is_used_for_coursework = True</code> to suppress identifiable per-user logging entirely.</li>
+<li class=""><strong>Set residency</strong>: <code>telemetry_residency = &quot;eu&quot; | &quot;us&quot; | &quot;default-strictest&quot;</code> on the <code>Client</code> row. Default is <code>default-strictest</code> (EU storage for mixed-affiliation environments).</li>
+<li class=""><strong>Honour a GDPR Article 15 access request</strong>: run <code>dump_telemetry --schema &lt;your_schema&gt;</code> to produce the JSON Lines + signed manifest export. Hand to the data subject.</li>
+<li class=""><strong>Honour a GDPR Article 17 erasure request</strong>: see the right-by-right table below; the active-session buffer is deleted on request; tenant-schema events are pseudonymised in-place; hashed K-anonymized rollups are retained as anonymous aggregates.</li>
+</ul>
+<p>The configurable axes summarised:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Attribute</th><th>What it does</th><th>Default</th></tr></thead><tbody><tr><td><code>is_used_for_coursework</code></td><td>Suppresses identifiable per-user logging entirely (FERPA pseudonymous mode).</td><td><code>False</code></td></tr><tr><td><code>telemetry_residency</code></td><td>Where telemetry is stored (<code>eu</code> / <code>us</code> / <code>default-strictest</code>).</td><td><code>default-strictest</code></td></tr><tr><td><code>search_query_raw_optin</code></td><td>Whether the active-session raw query buffer is enabled.</td><td><code>False</code></td></tr><tr><td><code>k_anonymity_threshold</code></td><td>Minimum query frequency to appear in the rollup; raise to 11 for stricter institutional requirements.</td><td><code>5</code></td></tr><tr><td><code>tips_enabled</code></td><td>Whether efficiency tips fire at all.</td><td><code>False</code></td></tr><tr><td><code>tips_telemetry_enabled</code></td><td>Whether tip events are captured separately from <code>tips_enabled</code>.</td><td><code>False</code></td></tr><tr><td><code>retention_overrides</code></td><td>Per-signal-class day counts shorter than platform defaults.</td><td>None</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="where-the-data-lives">Where the data lives<a href="#where-the-data-lives" class="hash-link" aria-label="Direct link to Where the data lives" title="Direct link to Where the data lives" translate="no">​</a></h3>
+<p>Each environment runs in its own database schema; PostgreSQL enforces the isolation. Telemetry honours it:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Data</th><th>Where it lives</th><th>Who can read it</th></tr></thead><tbody><tr><td>AI-call records (structured shape, hashes)</td><td>Your environment&#x27;s schema</td><td>You; platform team (read-only, for support)</td></tr><tr><td>Search query buffer (raw, opt-in, TTL&#x27;d)</td><td>Your environment&#x27;s schema</td><td>You; never the platform team</td></tr><tr><td>Hashed search rollup (always-on, K-anonymized)</td><td>Your environment&#x27;s schema</td><td>You; platform team only as anonymous aggregate</td></tr><tr><td>Ingestion-run records</td><td>Your environment&#x27;s schema</td><td>You; platform team (read-only)</td></tr><tr><td>Decision-event records</td><td>Your environment&#x27;s schema</td><td>You; platform team (read-only)</td></tr><tr><td>Cross-environment operational metrics (cost, latency, model name)</td><td>Public schema; never your content</td><td>Platform team only</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="retention-defaults">Retention defaults<a href="#retention-defaults" class="hash-link" aria-label="Direct link to Retention defaults" title="Direct link to Retention defaults" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Data</th><th>Default retention</th></tr></thead><tbody><tr><td>AI-call records (structured shape)</td><td>30 days verbatim, then 12 months as hashed/aggregate</td></tr><tr><td>Search query buffer (raw, opt-in)</td><td>60 minutes idle; 24 hours absolute cap</td></tr><tr><td>Search query rollup (hashed, K-anonymized)</td><td>30-day rolling window, re-aligned to the annual key rotation</td></tr><tr><td>Ingestion-run records</td><td>12 months</td></tr><tr><td>Validation / abuse audit (security-relevant)</td><td>2 years (GDPR Art. 17(3)(e) — defence of legal claims)</td></tr><tr><td>Confirmed prompt-injection raw bytes (S3 quarantine)</td><td>90 days; legal-hold flag for indefinite retention on specific incidents</td></tr></tbody></table>
+<p>These defaults are calibrated against ICO/EDPB operational-log guidance, ISO/IEC 27001:2022 control A.8.15, EU AI Act Article 19, and the relevant AI-provider Usage-Policy retention ceilings.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="gdpr-rights">GDPR rights<a href="#gdpr-rights" class="hash-link" aria-label="Direct link to GDPR rights" title="Direct link to GDPR rights" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Right</th><th>How the platform handles it</th></tr></thead><tbody><tr><td>Access (Art. 15)</td><td>Tenant-scoped <code>dump_telemetry</code> export — JSON Lines + signed manifest.</td></tr><tr><td>Rectification (Art. 16)</td><td>Not applicable to operational telemetry. For environment content, rectification flows through the standard editing surface.</td></tr><tr><td>Erasure (Art. 17)</td><td>Buffer purge: yes. Tenant-schema events: user-identifying rows pseudonymised in-place with a tombstone token (Art. 17(3)(b)/(e)). Hashed K-anonymized rollups: retained as anonymous aggregates (EDPB 2025 + Art. 17(3)(d)).</td></tr><tr><td>Restriction (Art. 18)</td><td>Per-user opt-out flag suppresses verbatim telemetry; anonymous aggregates preserved.</td></tr><tr><td>Portability (Art. 20)</td><td>Same export format as Article 15.</td></tr><tr><td>Object (Art. 21)</td><td>Per-user via opt-out flag; environment-level objection deconfigures the signal class entirely.</td></tr><tr><td>Automated decision-making (Art. 22)</td><td>The platform does not make automated decisions with legal or significant effects on data subjects. AI calls are advisory; researcher review gates any production change.</td></tr></tbody></table>
+<p>Lawful basis is Legitimate Interest (Art. 6(1)(f)) with documented LIA per signal class. DPIA runs before production capture; annual refresh; per-environment on request.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="third-party-exposure">Third-party exposure<a href="#third-party-exposure" class="hash-link" aria-label="Direct link to Third-party exposure" title="Direct link to Third-party exposure" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Third party</th><th>What they see</th></tr></thead><tbody><tr><td>AI provider (e.g. Anthropic when routed through AWS Bedrock)</td><td>Nothing. Bedrock is the trust boundary.</td></tr><tr><td>AWS</td><td>Bedrock invocation logging is OFF by default. AWS sees the API call envelope (model + IAM role + timestamp), not payload.</td></tr><tr><td>Platform team</td><td>Read-only access to your environment schema for support; full access to public-schema cross-environment metrics (cost, latency — never your content).</td></tr><tr><td>Anyone else</td><td>Nothing. No third-party analytics, advertising, or telemetry SaaS.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="offboarding">Offboarding<a href="#offboarding" class="hash-link" aria-label="Direct link to Offboarding" title="Direct link to Offboarding" translate="no">​</a></h3>
+<p>When an environment offboards: the schema is dropped (all payload deleted); hashed K-anonymized rollups are deleted with the schema; cross-environment operational metrics (cost, latency in the public schema) are retained for cost-history continuity, but the <code>tenant_id</code> is rewritten to a stable opaque hash. Non-default offboarding can delete the anonymous metric trail too; the trade-off is loss of platform-level cost-trend continuity for the windows that environment participated in.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td><code>/admin/monitoring/telemetry/</code> shows no signals</td><td>Capture is off (the default); or the relevant signal class is not yet wired in production</td><td>Enable capture per signal class with DPO sign-off captured. DecisionEvent capture paths (reject, undo, post-apply edit, feedback) are wired; LLM-call and search-quality production callers may be separately staged.</td></tr><tr><td>You see <code>ExternalCredentialUnavailable</code> in ingestion telemetry</td><td>A credential reference (AWS Secrets Manager or <code>ExternalServiceCredential</code>) resolved to an unavailable secret</td><td>Check the <code>ExternalServiceCredential</code> row and the AWS secret. The telemetry recorded an upload-boundary outcome only; no raw credential material is in the telemetry row.</td></tr><tr><td>A DPO asks for the LIA per signal class</td><td>The Legitimate Interest Assessment is per-signal-class</td><td>Provide the relevant section of ADR-016 + the documented LIA. For specific signal classes, the platform team can supply the LIA on request.</td></tr><tr><td>An institution requires AWS Sovereign Cloud residency</td><td>The platform supports it as a documented one-way door</td><td>Trigger configuration at first request from an environment whose contract requires it. The default residency is <code>default-strictest</code>.</td></tr><tr><td>A researcher exercises the right to be forgotten</td><td>Routing depends on the data class</td><td>Active-session buffer: DELETE rows for the session id. Tenant-schema events: pseudonymise in-place with the tombstone token. Hashed K-anonymized rollups: retained as anonymous aggregates (EDPB 2025 position).</td></tr><tr><td>You want to verify no raw queries are stored</td><td>The opt-in raw query buffer is off by default</td><td>Inspect the <code>Client</code> row&#x27;s <code>search_query_raw_optin</code> value. Confirm <code>False</code>. The hashed rollup is HMAC-SHA-256 with a per-environment key, rotated yearly.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Researcher tier</strong>: <a class="" href="/ke-docs/users/privacy-and-safety.md">Privacy and safety</a>.</li>
+<li class=""><strong>Tenant admin companions</strong>: <a class="" href="/ke-docs/tenant-admin/features/permissions-panel">Permissions Panel</a> — the audit tab and DPIA log; <a class="" href="/ke-docs/tenant-admin/features/efficiency-tips">Efficiency Tips</a> — the tip-event capture axis.</li>
+<li class=""><strong>Super admin / platform operator tier</strong>: <a class="" href="/ke-docs/superadmin/dpia-operations.md">DPIA operations</a>, <a class="" href="/ke-docs/superadmin/platform_monitoring.md">Platform monitoring</a>, <a class="" href="/ke-docs/superadmin/recommender-metrics.md">Recommender metrics</a>.</li>
+<li class=""><strong>Developer substrate</strong>: <a class="" href="/ke-docs/developer/architecture/adr/016-telemetry-substrate.md">ADR-016</a>, <a class="" href="/ke-docs/superpowers/specs/0018-decision-event-telemetry-and-permission-model/">Spec 0018</a>, <a class="" href="/ke-docs/superpowers/specs/0030-tip-recommendation-engine/">Spec 0030</a>.</li>
+<li class=""><strong>Regulatory baseline</strong>: <code>docs/research/2026-05-05_telemetry-compliance-research/01-regulatory-baseline.md</code>.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/tenant-admin/features/standards-and-citations"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Standards and Citations</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/tenant-admin/features/vocabulary-grounding"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Vocabulary Grounding</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#purpose" class="table-of-contents__link toc-highlight">Purpose</a></li><li><a href="#features" class="table-of-contents__link toc-highlight">Features</a></li><li><a href="#usability--how-you-use-it" class="table-of-contents__link toc-highlight">Usability — how you use it</a><ul><li><a href="#where-the-data-lives" class="table-of-contents__link toc-highlight">Where the data lives</a></li><li><a href="#retention-defaults" class="table-of-contents__link toc-highlight">Retention defaults</a></li><li><a href="#gdpr-rights" class="table-of-contents__link toc-highlight">GDPR rights</a></li><li><a href="#third-party-exposure" class="table-of-contents__link toc-highlight">Third-party exposure</a></li><li><a href="#offboarding" class="table-of-contents__link toc-highlight">Offboarding</a></li></ul></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

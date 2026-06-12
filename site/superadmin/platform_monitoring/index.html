@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-superadmin docs-version-current docs-doc-page docs-doc-id-platform_monitoring" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Platform Monitoring | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/superadmin/platform_monitoring"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-superadmin-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-superadmin-current"><meta data-rh="true" property="og:title" content="Platform Monitoring | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Audience: Super admin / platform operator"><meta data-rh="true" property="og:description" content="Audience: Super admin / platform operator"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/superadmin/platform_monitoring"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/superadmin/platform_monitoring" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/superadmin/platform_monitoring" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Platform Monitoring","item":"https://atlomy.github.io/ke-docs/superadmin/platform_monitoring"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/superadmin/">Platform Admins</a><a class="navbar__item navbar__link" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/"><span title="Super Admin Documentation" class="linkLabel_WmDU">Super Admin Documentation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/dpia-operations"><span title="DPIA Operations" class="linkLabel_WmDU">DPIA Operations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/federation-and-marketplace"><span title="Federation and Marketplace" class="linkLabel_WmDU">Federation and Marketplace</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/incident-operations"><span title="Incident Operations" class="linkLabel_WmDU">Incident Operations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/llm_providers_guide"><span title="LLM Providers Guide" class="linkLabel_WmDU">LLM Providers Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/ke-docs/superadmin/platform_monitoring"><span title="Platform Monitoring" class="linkLabel_WmDU">Platform Monitoring</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/recommender-metrics"><span title="Recommender Metrics" class="linkLabel_WmDU">Recommender Metrics</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/secrets-management"><span title="Secrets Management" class="linkLabel_WmDU">Secrets Management</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/tip-auto-pause"><span title="Tip Auto-Pause" class="linkLabel_WmDU">Tip Auto-Pause</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Platform Monitoring</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Platform Monitoring</h1></header>
+<blockquote>
+<p><strong>Audience</strong>: Super admin / platform operator
+<strong>Last aligned with platform state</strong>: 2026-05-25
+<strong>Platform version</strong>: V2 (pre-1.0)</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="purpose">Purpose<a href="#purpose" class="hash-link" aria-label="Direct link to Purpose" title="Direct link to Purpose" translate="no">​</a></h2>
+<p>The platform monitoring surface is the operator&#x27;s read-only window into how the platform is
+running across all tenants. It rolls up Import Wizard health, AI-assist call patterns,
+capture-failure incidents, recommender quality, tip rollups, and DPIA enablement audit rows
+into a single tabbed surface at <code>/admin/monitoring/platform/</code>, gated by
+<code>require_platform_staff(...)</code>. Read this when you are paged, when you are running a routine
+health sweep, or before any change to platform telemetry posture. The surface is operational —
+nothing here mutates tenant state, and nothing here displays tenant payload.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<p>Ordered by operational frequency — the first three are what most operator shifts touch.</p>
+<ul>
+<li class=""><strong>Operations tab</strong> — <code>?tab=operations</code> carries the capture-failure incident timeline,
+Bedrock invocation logging health card, and DPIA refresh trigger audit rows. Substrate:
+Spec 0018 Sprint C PRs #314, #315, #322 · Maturity: Built · Limit: read-only; ack contract
+is append-only.</li>
+<li class=""><strong>Incident timeline</strong> — <code>CaptureFailureIncidentCard</code> cards with append-only ack contract,
+density preference persisted at the telemetry root, and <code>PaPostureModal</code> Esc + click-outside
+dismissal. Substrate: Spec 0018 PRs #401-#404 · Maturity: Built · Limit: ack is append-only;
+un-ack creates a new row.</li>
+<li class=""><strong>Import Wizard operations</strong> — queued / running / stale counts, retry pressure, latest
+scheduler round, retention cleanup outcomes, parse / propose success-failure split, load
+probe evidence links. Substrate: PRs #344, #346, #350 + management commands
+<code>run_import_wizard_jobs</code>, <code>inspect_import_wizard_jobs</code>, <code>cleanup_import_wizard_artifacts</code>,
+<code>probe_import_wizard_jobs</code> · Maturity: Built · Limit: cross-tenant view shows opaque tenant
+refs only.</li>
+<li class=""><strong>Recommender metrics tab</strong> — <code>?tab=recommender</code> carries stratum-wide rejection-rate
+dashboards, low-prior shape-count lists, escalation timeline. Substrate: Spec 0018 PR #319
+(US-C.6) + PR #322 (US-C.7.3 payload-level schema-name obfuscation) · Maturity: Built ·
+Limit: K-anonymity floor (K=11 default per ADR-016 §A5) — cohorts below the floor are
+suppressed entirely. See <a class="" href="/ke-docs/superadmin/recommender-metrics">recommender-metrics.md</a>.</li>
+<li class=""><strong>Tip rollup view</strong> — weekly <code>PlatformEvent.EventType.TIP_ROLLUP</code> aggregates,
+auto-pause transitions per tip family, <code>TIP_ROLLUP_MIN_K</code> setting honoured with a
+non-LOCALHOST code-level clamp. Substrate: Spec 0030 Phase 6.C/D PR #422 +
+R3 (<code>TIP_ROLLUP_MIN_K</code>) + R4 (clamp in <code>atlomy/settings.py</code>) · Maturity: Built · Limit:
+cohorts below <code>TIP_ROLLUP_MIN_K</code> are suppressed; the clamp only raises the floor, never
+lowers it. See <a class="" href="/ke-docs/superadmin/tip-auto-pause">tip-auto-pause.md</a>.</li>
+<li class=""><strong>Public rollup freshness</strong> — <code>inspect_import_wizard_telemetry_rollups --json</code> reports
+stale rollup lanes, failure-rate warnings, and missing expected <code>import_wizard_*</code> commands
+with opaque tenant refs. Substrate: management command + Spec 0018 telemetry rollups ·
+Maturity: Built · Limit: public-schema aggregate; no payload-adjacent detail.</li>
+<li class=""><strong>Vocabulary startup linter</strong> — guard against tenant vocabulary in platform code, fires
+during Django startup. Substrate: Spec 0018 PR #321 ·
+Maturity: Built · Limit: structural guard — does not catch runtime concatenations.</li>
+<li class=""><strong>Receipt audit records</strong> — Stage 6 receipt and Stage 3 applied-card receipt audit-trail
+integration. Substrate: Spec 0018 PR #320 · Maturity: Built · Limit: receipts are aggregate;
+not a copy of the underlying decision payload.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="usability--how-you-use-it">Usability — how you use it<a href="#usability--how-you-use-it" class="hash-link" aria-label="Direct link to Usability — how you use it" title="Direct link to Usability — how you use it" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="routine-shift-sweep">Routine shift sweep<a href="#routine-shift-sweep" class="hash-link" aria-label="Direct link to Routine shift sweep" title="Direct link to Routine shift sweep" translate="no">​</a></h3>
+<ol>
+<li class="">Open <code>/admin/monitoring/platform/?tab=operations</code>. Scan the incident timeline for any open
+capture-failure cards. Triage each via the ack contract — see
+<a class="" href="/ke-docs/superadmin/incident-operations">incident-operations.md</a> for the ack workflow.</li>
+<li class="">Check the Bedrock invocation logging health card. If logging is degraded, the AI-assist
+surfaces still function but tenant-local telemetry will undercount; flag in the next
+handoff.</li>
+<li class="">Confirm the DPIA refresh trigger log shows no unacknowledged new-enablement rows. Any new
+row means a tenant just toggled DecisionEvent capture and the DPO needs to refresh that
+tenant&#x27;s DPIA before the captured stream is treated as DPA-covered.</li>
+<li class="">Switch to <code>?tab=recommender</code>. Scan the escalation timeline for stratum-wide rejection-rate
+spikes. Any spike past the calibration threshold is an operator-incident under ADR-035
+§4.1.1.1.</li>
+<li class="">Open the tip rollup view. Note any tip family that auto-paused since the last sweep; check
+the admin-review <code>PlatformEvent</code> row for the transition rationale.</li>
+<li class="">Run <code>python manage.py inspect_import_wizard_telemetry_rollups --json</code> from the
+<code>django_app</code> container. Stale rollup lanes or missing expected commands surface as warning
+entries; route to the owner per the opaque tenant ref.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pre-flight-before-changing-capture-posture">Pre-flight before changing capture posture<a href="#pre-flight-before-changing-capture-posture" class="hash-link" aria-label="Direct link to Pre-flight before changing capture posture" title="Direct link to Pre-flight before changing capture posture" translate="no">​</a></h3>
+<p>Do not toggle <code>TELEMETRY_CAPTURE_ENABLED</code> (global) or any per-tenant <code>TELEMETRY_CAPTURE</code>
+override without:</p>
+<ol>
+<li class="">Confirming the DPIA refresh trigger audit path is live (<code>?tab=operations</code> shows a recent
+entry from a known prior toggle, not blank).</li>
+<li class="">Confirming <code>PaPostureModal</code> is reachable — the posture-acknowledgment modal must intercept
+the toggle.</li>
+<li class="">Confirming the hash chain on <code>monitoring.PlatformEvent</code> is intact — the integrity check
+should report <code>ok</code> since the most recent integrity audit.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="red-lines--what-the-platform-tier-ui-must-not-display">Red lines — what the platform-tier UI must not display<a href="#red-lines--what-the-platform-tier-ui-must-not-display" class="hash-link" aria-label="Direct link to Red lines — what the platform-tier UI must not display" title="Direct link to Red lines — what the platform-tier UI must not display" translate="no">​</a></h3>
+<p>These rules are load-bearing. They are repeated and referenced from
+<a class="" href="/ke-docs/superadmin/incident-operations">incident-operations.md</a>,
+<a class="" href="/ke-docs/superadmin/recommender-metrics">recommender-metrics.md</a>, <a class="" href="/ke-docs/superadmin/tip-auto-pause">tip-auto-pause.md</a>,
+and <a class="" href="/ke-docs/superadmin/dpia-operations">dpia-operations.md</a>. Do not weaken or relocate them.</p>
+<ul>
+<li class="">No source rows, no filenames, no staged paths, no source identifiers.</li>
+<li class="">No document or table names, no job ids, no schema names.</li>
+<li class="">No credential names, no <code>secret_ref</code> values, no tokens, no URL userinfo.</li>
+<li class="">No raw prompts, no raw queries, no raw GraphQL or debug error payloads.</li>
+<li class="">Tenant identification is via opaque tenant ref only — never tenant name, never schema name.</li>
+<li class="">Cohorts below the K-anonymity floor are suppressed entirely; they do not render with an
+asterisk, they do not render at all.</li>
+</ul>
+<p>The public-schema aggregate layer must not become a shortcut around tenant isolation. If an
+operator needs payload-adjacent detail, they must enter the tenant boundary and use the
+tenant-local telemetry or import ledger.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p><strong>Symptom</strong>: Workspace search shows &quot;Search isn&#x27;t enabled for this workspace yet.&quot;
+(server-side: <code>UnratifiedSearchEngineError</code>).
+<strong>Likely cause</strong>: the tenant&#x27;s <code>TenantSearchProfile.is_ratified</code> is <code>False</code> — the
+ADR-011 production gate requires recorded Gate-1 / load / TCO evidence before a
+search engine serves production queries. This is the DESIGNED state for any tenant
+whose engine selection has not completed Task-8 ratification (as of 2026-06-10:
+every tenant). <strong>Fix (production)</strong>: run the engine re-evaluation per
+<code>docs/runbooks/adr011-task8-engine-reeval.md</code> and ratify with evidence — never set
+<code>is_ratified</code> by hand. <strong>Fix (local dev only)</strong>: set <code>KE_SEARCH_ALLOW_UNRATIFIED=1</code>
+in the environment (committed default OFF; read at process boot — restart the app).
+Also verify the tenant has an active <code>TenantMembership</code> for the user carrying the
+<code>can_review_proposals</code> capability — the search resolver checks membership and
+capability BEFORE the ratification gate, and freshly recreated tenants may lack
+seeded memberships (tenant-lifecycle gap, board Active item).</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Incident timeline shows a <code>capture-drop</code> card with rising event count, no
+obvious tenant signal.
+<strong>Likely cause</strong>: Per-tenant <code>TELEMETRY_CAPTURE</code> override toggled mid-flight, or redaction
+Lambda lag. <strong>Fix</strong>: Acknowledge the card with class <code>posture-toggle</code> (if the audit row
+matches) or <code>redaction-lag</code> (if Bedrock logging health is also degraded). Open the matching
+DPIA log row to confirm the toggle. <strong>Escalate</strong>: see
+<a class="" href="/ke-docs/superadmin/incident-operations">incident-operations.md</a> — <code>integrity-warning</code> class escalates to
+the security on-call.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Recommender tab shows a stratum-wide rejection-rate spike but no escalation
+row was written.
+<strong>Likely cause</strong>: The cohort fell below the K-anonymity floor mid-window — the spike is real
+but the cohort is now suppressed. <strong>Fix</strong>: Confirm by running the inspect command with an
+opaque tenant filter and checking whether the cohort count crossed K. If a tenant
+composition change is responsible, the escalation will fire on the next rollup window.
+<strong>Escalate</strong>: file under Spec 0018 §A.4 if recurring; the ADR-035 §4.1.1.1 path is the
+formal route.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: <code>inspect_import_wizard_telemetry_rollups --json</code> reports stale lanes for an
+opaque tenant ref. <strong>Likely cause</strong>: The tenant&#x27;s scheduler round is wedged or the rollup
+command did not run in the last window. <strong>Fix</strong>: Enter the tenant boundary and run
+<code>inspect_import_wizard_jobs</code> to confirm the wedge, then <code>run_import_wizard_jobs</code> to clear.
+<strong>Escalate</strong>: if the wedge persists past two scheduler rounds, page the Import Wizard
+owner.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Hash-chain integrity warning row appears in the incident timeline.
+<strong>Likely cause</strong>: An attempted mutation of an append-only row on <code>monitoring.PlatformEvent</code>
+was detected by the chain verifier (ADR-016 §3). <strong>Fix</strong>: Do not attempt to clear the
+warning. Capture the row reference and escalate immediately — this is an indicator of
+either a privileged-process bug or unauthorized DB access. <strong>Escalate</strong>: security on-call;
+do not push code changes touching <code>monitoring/</code> until cleared.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: DPIA refresh trigger log shows an enablement row but no acting admin user id.
+<strong>Likely cause</strong>: Audit row was written from a background management command rather than
+the admin UI — should not happen in normal flow. <strong>Fix</strong>: Verify the per-tenant
+<code>TELEMETRY_CAPTURE</code> override audit (Spec 0018 H.8); if the audit row is also missing the
+acting admin, treat as an integrity event. <strong>Escalate</strong>: security on-call.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Tip family auto-paused but <code>sample_n &lt; 5</code>.
+<strong>Likely cause</strong>: Auto-pause policy violation or stale read on the rolling window. <strong>Fix</strong>:
+See <a class="" href="/ke-docs/superadmin/tip-auto-pause">tip-auto-pause.md</a> troubleshooting — this is a known invariant
+violation. <strong>Escalate</strong>: Spec 0030 AC-11 owner.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/ke-docs/superadmin/">README.md</a> — super-admin landing.</li>
+<li class=""><a class="" href="/ke-docs/superadmin/incident-operations">incident-operations.md</a> — ack contract and incident triage.</li>
+<li class=""><a class="" href="/ke-docs/superadmin/recommender-metrics">recommender-metrics.md</a> — stratum-wide recommender dashboards.</li>
+<li class=""><a class="" href="/ke-docs/superadmin/tip-auto-pause">tip-auto-pause.md</a> — tip-family acceptance rollup and clamp.</li>
+<li class=""><a class="" href="/ke-docs/superadmin/dpia-operations">dpia-operations.md</a> — DPIA refresh trigger audit.</li>
+<li class=""><a class="" href="/ke-docs/superadmin/secrets-management">secrets-management.md</a> — credential reference substrate.</li>
+<li class=""><a class="" href="/ke-docs/developer/security/README.md">../developer/security/README.md</a> — security architecture index.</li>
+<li class="">ADR-016 — telemetry substrate (hash-chained <code>monitoring.PlatformEvent</code>, K-anonymity floor).</li>
+<li class="">Spec 0018 — DecisionEvent telemetry + permission model.</li>
+<li class="">Spec 0030 — tip recommendation engine.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/superadmin/llm_providers_guide"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">LLM Providers Guide</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/superadmin/recommender-metrics"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Recommender Metrics</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#purpose" class="table-of-contents__link toc-highlight">Purpose</a></li><li><a href="#features" class="table-of-contents__link toc-highlight">Features</a></li><li><a href="#usability--how-you-use-it" class="table-of-contents__link toc-highlight">Usability — how you use it</a><ul><li><a href="#routine-shift-sweep" class="table-of-contents__link toc-highlight">Routine shift sweep</a></li><li><a href="#pre-flight-before-changing-capture-posture" class="table-of-contents__link toc-highlight">Pre-flight before changing capture posture</a></li><li><a href="#red-lines--what-the-platform-tier-ui-must-not-display" class="table-of-contents__link toc-highlight">Red lines — what the platform-tier UI must not display</a></li></ul></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

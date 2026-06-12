@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-developer docs-version-current docs-doc-page docs-doc-id-architecture/adr/schema-concern-decomposition" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/developer/architecture/adr/schema-concern-decomposition"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-developer-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-developer-current"><meta data-rh="true" property="og:title" content="ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config | KE — Knowledge Environments"><meta data-rh="true" name="description" content="- Status: Accepted (2026-06-11) — owner rulings folded in (§&quot;Owner rulings&quot;); gen-1 column retirement executes behind the pre-launch audit gate (D5.4)"><meta data-rh="true" property="og:description" content="- Status: Accepted (2026-06-11) — owner rulings folded in (§&quot;Owner rulings&quot;); gen-1 column retirement executes behind the pre-launch audit gate (D5.4)"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/developer/architecture/adr/schema-concern-decomposition"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/adr/schema-concern-decomposition" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/adr/schema-concern-decomposition" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Architecture Decision Records (ADRs)","item":"https://atlomy.github.io/ke-docs/developer/architecture/adr/"},{"@type":"ListItem","position":2,"name":"ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config","item":"https://atlomy.github.io/ke-docs/developer/architecture/adr/schema-concern-decomposition"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/superadmin/">Platform Admins</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/"><span title="Developer Documentation" class="linkLabel_WmDU">Developer Documentation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/TESTING"><span title="Testing standards — Atlomy Atlas" class="linkLabel_WmDU">Testing standards — Atlomy Atlas</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/ai_schema_adaptation"><span title="Sprint 9 &amp; 10: Developer Guide" class="linkLabel_WmDU">Sprint 9 &amp; 10: Developer Guide</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ke-docs/developer/architecture/adr/"><span title="architecture" class="categoryLinkLabel_W154">architecture</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/ke-docs/developer/architecture/adr/"><span title="Architecture Decision Records (ADRs)" class="categoryLinkLabel_W154">Architecture Decision Records (ADRs)</span></a><button aria-label="Collapse sidebar category &#x27;Architecture Decision Records (ADRs)&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/epistemic-operational-separation"><span title="ADR-001: Epistemic vs Operational Interface Separation" class="linkLabel_WmDU">ADR-001: Epistemic vs Operational Interface Separation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/hybrid-ontology-relational-json"><span title="ADR-002: Hybrid Ontology (Relational + JSON)" class="linkLabel_WmDU">ADR-002: Hybrid Ontology (Relational + JSON)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/graphql-epistemic-contract"><span title="ADR-003: GraphQL as Epistemic Interface Contract" class="linkLabel_WmDU">ADR-003: GraphQL as Epistemic Interface Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-ontology-mapping"><span title="ADR-004: Tenant Ontology Mapping" class="linkLabel_WmDU">ADR-004: Tenant Ontology Mapping</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/react-integration-pattern"><span title="ADR-005: React Integration Pattern for Epistemic Applications" class="linkLabel_WmDU">ADR-005: React Integration Pattern for Epistemic Applications</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/archetype-capability-contracts"><span title="ADR-006: Archetype Capability Contracts" class="linkLabel_WmDU">ADR-006: Archetype Capability Contracts</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/sub-tenant-workspace"><span title="ADR-007: Sub-Tenant WorkSpace (editor-scoped data ownership)" class="linkLabel_WmDU">ADR-007: Sub-Tenant WorkSpace (editor-scoped data ownership)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-composition-rules-and-reviewer-guidance"><span title="ADR-008: Migration-Time Composition Rules + Reviewer-Authored Proposal Guidance" class="linkLabel_WmDU">ADR-008: Migration-Time Composition Rules + Reviewer-Authored Proposal Guidance</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/platform-native-entity-conventions-and-relationship-ux"><span title="ADR-009: Platform-Native Entity Conventions and Relationship UX" class="linkLabel_WmDU">ADR-009: Platform-Native Entity Conventions and Relationship UX</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-010"><span title="Parser-First, LLM-Second for Relationship Resolution" class="linkLabel_WmDU">Parser-First, LLM-Second for Relationship Resolution</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/search-engine-opensearch"><span title="ADR-011 — OpenSearch + ICU + Per-Language Analyzers as the Per-Tenant Search Engine" class="linkLabel_WmDU">ADR-011 — OpenSearch + ICU + Per-Language Analyzers as the Per-Tenant Search Engine</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-config-via-runtime-pipeline"><span title="ADR-012 — Tenant configuration flows through a runtime pipeline, never code" class="linkLabel_WmDU">ADR-012 — Tenant configuration flows through a runtime pipeline, never code</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-a-lemma-unify"><span title="ADR-013: Unify Tenant A Lemma → EpistemicEntity" class="linkLabel_WmDU">ADR-013: Unify Tenant A Lemma → EpistemicEntity</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-014a"><span title="In-Product AI Runtime — Single-Call LLM Assist Contract" class="linkLabel_WmDU">In-Product AI Runtime — Single-Call LLM Assist Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-admin-shell-native-react"><span title="ADR-015: Tenant Admin Shell as Native React Implementation of ADR-005&#x27;s Shared React Shell" class="linkLabel_WmDU">ADR-015: Tenant Admin Shell as Native React Implementation of ADR-005&#x27;s Shared React Shell</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/telemetry-substrate"><span title="ADR-016 — Telemetry substrate: hybrid storage, redact-before-log, hash-chained integrity" class="linkLabel_WmDU">ADR-016 — Telemetry substrate: hybrid storage, redact-before-log, hash-chained integrity</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/slot-config-manifest-contract-compiler"><span title="ADR-017: Slot Config as Tenant-Authoritative Manifest with Platform-Canonical Contract Compiler" class="linkLabel_WmDU">ADR-017: Slot Config as Tenant-Authoritative Manifest with Platform-Canonical Contract Compiler</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/retire-nocodb-and-data-wizard"><span title="ADR-018: Retire NocoDB integration + V1 data_wizard import surface" class="linkLabel_WmDU">ADR-018: Retire NocoDB integration + V1 data_wizard import surface</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/spa-reads-off-epistemic-entity"><span title="ADR-019: V1 SPA reads from EpistemicEntity via per-archetype views" class="linkLabel_WmDU">ADR-019: V1 SPA reads from EpistemicEntity via per-archetype views</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/attestation-walk-and-paired-editions"><span title="ADR-020: Generic projection contract — attestation walk + paired-editions + the platform-canonical-projection principle" class="linkLabel_WmDU">ADR-020: Generic projection contract — attestation walk + paired-editions + the platform-canonical-projection principle</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/media-as-research-artifact-and-embedded-convention-extractor"><span title="ADR-021: Media as research artifact + embedded-convention extractor pattern" class="linkLabel_WmDU">ADR-021: Media as research artifact + embedded-convention extractor pattern</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/media-architecture-v2-anchor-and-versioned-artifacts"><span title="ADR-022: Media architecture v2 — Anchor + ArtifactVersion + ClaimCluster + media as attestation_walk source-type" class="linkLabel_WmDU">ADR-022: Media architecture v2 — Anchor + ArtifactVersion + ClaimCluster + media as attestation_walk source-type</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/publication-and-persistent-identifiers"><span title="ADR-023: Publication &amp; Persistent Identifiers" class="linkLabel_WmDU">ADR-023: Publication &amp; Persistent Identifiers</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/web-annotation-viewers-and-iiif-content-search"><span title="ADR-024: Web Annotation viewers + IIIF Content Search + cross-artifact annotation UI" class="linkLabel_WmDU">ADR-024: Web Annotation viewers + IIIF Content Search + cross-artifact annotation UI</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/bibliographic-ecosystem-integration"><span title="ADR-025: Bibliographic ecosystem integration (Zotero + ORCID + Crossref + ROR)" class="linkLabel_WmDU">ADR-025: Bibliographic ecosystem integration (Zotero + ORCID + Crossref + ROR)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenancy-strategy-at-scale"><span title="ADR-026: Tenancy strategy at thousand-tenant scale" class="linkLabel_WmDU">ADR-026: Tenancy strategy at thousand-tenant scale</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/structured-propositional-substrate"><span title="ADR-027: Structured propositional substrate (Nanopublication-aligned)" class="linkLabel_WmDU">ADR-027: Structured propositional substrate (Nanopublication-aligned)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/editor-framework-plate-for-v2"><span title="ADR-028: Editor Framework — Plate for V2 (JSON-first to align with JSONB substrate)" class="linkLabel_WmDU">ADR-028: Editor Framework — Plate for V2 (JSON-first to align with JSONB substrate)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/projection-first-published-entry-layer"><span title="ADR-029: Projection-First Published Entry Layer" class="linkLabel_WmDU">ADR-029: Projection-First Published Entry Layer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/cidoc-linked-art-export-profile"><span title="ADR-030: CIDOC / Linked Art Export Profile Choice" class="linkLabel_WmDU">ADR-030: CIDOC / Linked Art Export Profile Choice</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/source-model-versioning-and-optimistic-concurrency"><span title="ADR-031: Source-Model Versioning And Optimistic Concurrency" class="linkLabel_WmDU">ADR-031: Source-Model Versioning And Optimistic Concurrency</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/capability-vocabulary-platform-contract"><span title="ADR-032: Capability Vocabulary As Platform Contract" class="linkLabel_WmDU">ADR-032: Capability Vocabulary As Platform Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-033"><span title="Comfort-Dial Apply Pipeline + Stratified-Prior Recommender" class="linkLabel_WmDU">Comfort-Dial Apply Pipeline + Stratified-Prior Recommender</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/wizard-staged-commit-and-import-template"><span title="ADR-034: Wizard Staged-Commit Semantics and ImportTemplate Entity" class="linkLabel_WmDU">ADR-034: Wizard Staged-Commit Semantics and ImportTemplate Entity</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-035"><span title="Tenant Contributor Permission Model" class="linkLabel_WmDU">Tenant Contributor Permission Model</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/workspace-operations-surface-split"><span title="ADR-036: Workspace and Operations Surface Split" class="linkLabel_WmDU">ADR-036: Workspace and Operations Surface Split</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-037-phase-a1-inline-coda-redis-amendment"><span title="Inline Coda Credential Moves from Session-Only to Short-TTL Ephemeral Redis (Spec 0040 T4d)" class="linkLabel_WmDU">Inline Coda Credential Moves from Session-Only to Short-TTL Ephemeral Redis (Spec 0040 T4d)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/slot-type-taxonomy"><span title="ADR-037: Slot-Type Taxonomy and Tenant Vocabulary Layer" class="linkLabel_WmDU">ADR-037: Slot-Type Taxonomy and Tenant Vocabulary Layer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/federated-preset-registry"><span title="ADR-038: Federated Preset Registry as Federation Contract" class="linkLabel_WmDU">ADR-038: Federated Preset Registry as Federation Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/platform-place-preset"><span title="ADR-039: Platform-canonical Place preset (platform-place/v1)" class="linkLabel_WmDU">ADR-039: Platform-canonical Place preset (platform-place/v1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/platform-period-preset"><span title="ADR-040: Platform-canonical Period preset (platform-period/v1)" class="linkLabel_WmDU">ADR-040: Platform-canonical Period preset (platform-period/v1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/spatial-substrate"><span title="ADR-041: Spatial substrate — PostGIS + GeoSPARQL + MapLibre GL JS" class="linkLabel_WmDU">ADR-041: Spatial substrate — PostGIS + GeoSPARQL + MapLibre GL JS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/layered-substrate-naming-and-tenant-prefix-retirement"><span title="ADR-042: Layered substrate naming and Tenant* prefix retirement" class="linkLabel_WmDU">ADR-042: Layered substrate naming and Tenant* prefix retirement</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/unified-federation-marketplace-pattern"><span title="ADR-043: Unified federation/marketplace pattern (Ingest + Alignment + Workspace)" class="linkLabel_WmDU">ADR-043: Unified federation/marketplace pattern (Ingest + Alignment + Workspace)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-044"><span title="Voice and vocabulary substrate" class="linkLabel_WmDU">Voice and vocabulary substrate</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-045"><span title="Chat-transcript retention regime for in-product AI chat surfaces" class="linkLabel_WmDU">Chat-transcript retention regime for in-product AI chat surfaces</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/workspace-operation-ledger-for-authoring-undo-redo"><span title="ADR 046: Workspace Operation Ledger For Authoring Undo/Redo" class="linkLabel_WmDU">ADR 046: Workspace Operation Ledger For Authoring Undo/Redo</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/publication-state-gate-and-archetype-general-versioning"><span title="ADR 047: Publication-State Gate for Public Reads + Archetype-General Post-Publish Versioning" class="linkLabel_WmDU">ADR 047: Publication-State Gate for Public Reads + Archetype-General Post-Publish Versioning</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/materialization-field-plan-resolver-and-restructure-materialization"><span title="ADR-048: Materialization field-plan resolver + RESTRUCTURE materialization (Spec 0034)" class="linkLabel_WmDU">ADR-048: Materialization field-plan resolver + RESTRUCTURE materialization (Spec 0034)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-049"><span title="Tenant Onboarding Provisions a Login-able, Permission-Scoped Initial Admin" class="linkLabel_WmDU">Tenant Onboarding Provisions a Login-able, Permission-Scoped Initial Admin</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-050"><span title="Platform vs Tenant Admin-Site Structural Separation" class="linkLabel_WmDU">Platform vs Tenant Admin-Site Structural Separation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-051"><span title="Capability Membership Identity Reconciliation (Tenant-Scoped)" class="linkLabel_WmDU">Capability Membership Identity Reconciliation (Tenant-Scoped)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-052"><span title="Per-Tenant User Identity is Load-Bearing; Global Identity Only as an SSO Add-On" class="linkLabel_WmDU">Per-Tenant User Identity is Load-Bearing; Global Identity Only as an SSO Add-On</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-053"><span title="Structure-Aware Archetype Classification with Conflict Surfacing" class="linkLabel_WmDU">Structure-Aware Archetype Classification with Conflict Surfacing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/import-pipeline-deployment-neutral-async-contract"><span title="ADR 054: Import Pipeline — Deployment-Neutral Async Contract" class="linkLabel_WmDU">ADR 054: Import Pipeline — Deployment-Neutral Async Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/evidence-gated-deferrals-must-instrument-their-trigger"><span title="ADR 055: Evidence-Gated Deferrals Must Instrument Their Un-Defer Trigger" class="linkLabel_WmDU">ADR 055: Evidence-Gated Deferrals Must Instrument Their Un-Defer Trigger</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/reference-cell-decode-resolve-or-preserve"><span title="ADR-056: Reference-Cell Decode Contract — Resolve-or-Preserve, Fail-Loud Only on Malformed Payloads" class="linkLabel_WmDU">ADR-056: Reference-Cell Decode Contract — Resolve-or-Preserve, Fail-Loud Only on Malformed Payloads</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/wizard-apply-conforms-to-capability-model"><span title="ADR-057: Import-Wizard Apply Flow Conforms to the ADR-035 Capability Model — Capability-Gated Terminal Apply + Batched Review" class="linkLabel_WmDU">ADR-057: Import-Wizard Apply Flow Conforms to the ADR-035 Capability Model — Capability-Gated Terminal Apply + Batched Review</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/edition-bibliography-collection-modeling"><span title="ADR 058: Edition-Bibliography Collection Modeling — Two canonical_type Collections vs One DOCUMENT Collection with frbr_level" class="linkLabel_WmDU">ADR 058: Edition-Bibliography Collection Modeling — Two canonical_type Collections vs One DOCUMENT Collection with frbr_level</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-lifecycle-cross-schema-fk-and-identity"><span title="ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key" class="linkLabel_WmDU">ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/developer/architecture/adr/schema-concern-decomposition"><span title="ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config" class="linkLabel_WmDU">ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr-037-ratification-brief"><span title="ADR-037 Ratification Brief" class="linkLabel_WmDU">ADR-037 Ratification Brief</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/api_layer"><span title="Architecture: API &amp; Authentication Layer" class="linkLabel_WmDU">Architecture: API &amp; Authentication Layer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/archetype_strategic_planning"><span title="Archetype Strategic Planning" class="linkLabel_WmDU">Archetype Strategic Planning</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy-tenant-restore-spec"><span title="Atlomy Tenant Restore Specification" class="linkLabel_WmDU">Atlomy Tenant Restore Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy-testing-readiness-plan"><span title="Atlomy Data Testing Readiness Plan" class="linkLabel_WmDU">Atlomy Data Testing Readiness Plan</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy_canonical_architecture_vision"><span title="KE (Knowledge Environments) Canonical Architecture Vision" class="linkLabel_WmDU">KE (Knowledge Environments) Canonical Architecture Vision</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/capability_contracts_strategic_value"><span title="Archetype Capability Contracts: Strategic Value" class="linkLabel_WmDU">Archetype Capability Contracts: Strategic Value</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/database_visualizer"><span title="Database Visualizer Architecture" class="linkLabel_WmDU">Database Visualizer Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/frontend"><span title="Architecture: Frontend Strategy (React 19 + Django)" class="linkLabel_WmDU">Architecture: Frontend Strategy (React 19 + Django)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/help-key-contract"><span title="helpKey contract — engineering spec" class="linkLabel_WmDU">helpKey contract — engineering spec</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/ke_admin_overlay"><span title="KE Admin Overlay — architecture" class="linkLabel_WmDU">KE Admin Overlay — architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/monitoring_architecture"><span title="Sprint 7: Platform-Wide Monitoring &amp; Observability" class="linkLabel_WmDU">Sprint 7: Platform-Wide Monitoring &amp; Observability</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/multi_tenancy"><span title="Multi-Tenancy Architecture" class="linkLabel_WmDU">Multi-Tenancy Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/multilingual_design"><span title="Multilingual Data Import - Design Principles" class="linkLabel_WmDU">Multilingual Data Import - Design Principles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/new_engineer_architectural_onboarding"><span title="New Engineer Architectural Onboarding" class="linkLabel_WmDU">New Engineer Architectural Onboarding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/permission-apply-model-simplification-review-2026-06-07"><span title="Permission / Apply-Model Simplification Review — 2026-06-07" class="linkLabel_WmDU">Permission / Apply-Model Simplification Review — 2026-06-07</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/platform_principles"><span title="KE (Knowledge Environments) Platform Principles" class="linkLabel_WmDU">KE (Knowledge Environments) Platform Principles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/production-infrastructure-requirements"><span title="Production Infrastructure Requirements (provider-neutral)" class="linkLabel_WmDU">Production Infrastructure Requirements (provider-neutral)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/rbac"><span title="Role-Based Access Control (RBAC) Architecture" class="linkLabel_WmDU">Role-Based Access Control (RBAC) Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/sprint13_preparation"><span title="Sprint 13 Preparation Guide: Archetype Definition" class="linkLabel_WmDU">Sprint 13 Preparation Guide: Archetype Definition</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/developer_guide"><span title="Developer Guide: Data Sync &amp; Monitoring Systems" class="linkLabel_WmDU">Developer Guide: Data Sync &amp; Monitoring Systems</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/knowledge_explorer"><span title="Sprint 13: Knowledge Explorer &amp; API Architecture" class="linkLabel_WmDU">Sprint 13: Knowledge Explorer &amp; API Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/platform_principles_enforcement"><span title="Platform-Principles Enforcement (Code Gates)" class="linkLabel_WmDU">Platform-Principles Enforcement (Code Gates)</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/ke-docs/developer/security/"><span title="Security Architecture" class="categoryLinkLabel_W154">Security Architecture</span></a><button aria-label="Expand sidebar category &#x27;Security Architecture&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/setup/Troubleshooting/troubleshooting_template_conflicts"><span title="setup" class="categoryLinkLabel_W154">setup</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/ui/design_system"><span title="ui" class="categoryLinkLabel_W154">ui</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">architecture</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/ke-docs/developer/architecture/adr/"><span>Architecture Decision Records (ADRs)</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config</h1></header>
+<ul>
+<li class=""><strong>Status</strong>: Accepted (2026-06-11) — owner rulings folded in (§&quot;Owner rulings&quot;); gen-1 column retirement executes behind the pre-launch audit gate (D5.4)</li>
+<li class=""><strong>Date</strong>: 2026-06-11</li>
+<li class=""><strong>Deciders</strong>: drafted by Claude (schema first-principles research lane); platform owner ratifies</li>
+<li class=""><strong>Context source</strong>: <code>docs/research/2026-06-11_slot-frame-archaeology.md</code> (slot-frame archaeology, owner-ratified finding) + <code>docs/research/2026-06-11_schema-architecture-first-principles.md</code> (full-layer interrogation, this ADR&#x27;s evidence body); the 2026-06-10/11 escorted live walk (display-field A/B/C conflation, unseeded search metadata); Spec 0047 owner pivot</li>
+<li class=""><strong>Related</strong>: ADR-004 (tenant ontology mapping), ADR-006 (capability contracts), ADR-012 (config via runtime pipeline), ADR-017 (slot config as tenant-authoritative manifest + §B identity ledger), ADR-019 (Lemma retirement), ADR-029 (projection-first published entries), ADR-031 (source-model versioning), ADR-033 (comfort-dial apply), ADR-037 (slot-type taxonomy), ADR-042 (substrate naming/rename arc), ADR-044 (vocabulary substrate), Spec 0009 Task 2 (search metadata), Spec 0046 (stream field bindings), Spec 0047 (workspace search/read), Spec 0049 (re-import-as-delta), decision log 2026-05-22 (&quot;slot&quot; dissolves from user-facing vocabulary), decision log 2026-06-02 (relationship rule_name derivation)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="context">Context<a href="#context" class="hash-link" aria-label="Direct link to Context" title="Direct link to Context" translate="no">​</a></h2>
+<p><code>TenantArchetypeFormConfig</code> was born on a single afternoon (2026-04-30, commit
+<code>2ffca228</code>) with help text declaring <code>slot_name</code> a &quot;Canonical slot in the
+archetype&#x27;s <strong>presentation contract</strong> (e.g., &#x27;title&#x27;, &#x27;subtitle&#x27;, &#x27;body&#x27;,
+&#x27;attestations&#x27;)&quot; and <code>label</code> &quot;defaults to slot_name humanised&quot;. The
+archaeology research established that this frame was <strong>written, not decided</strong>:
+no ADR ratified it, the platform inverted it within ~36 hours (the slot-config
+materializer made <code>slot_name</code> a slugified mirror of every tenant column), and
+every subsequent load-bearing decision moved away from it — ADR-017 reframed
+the table as the <em>tenant-authoritative manifest</em>, ADR-029/Spec 0022 relocated
+the real presentation contract into publication rules, ADR-037 ruled the
+curated canonical layer is the <em>type taxonomy</em>, never slot names.</p>
+<p>The owner then widened the question to the <strong>entire early schema layer</strong>. The
+first-principles research (companion doc) inventoried every model frozen by
+<code>atlomyapp/migrations/0001_initial.py</code> plus the epistemic substrate and found:</p>
+<ol>
+<li class="">The <strong>physical shape is right and already survived adversarial review</strong>:
+ADR-017&#x27;s v1 framing (&quot;slot configs become a projection of typed schema&quot;)
+was rejected in the 2026-05-07 three-source synthesis because the wide
+config-row manifest is the industry-canonical metadata-as-source primitive
+(Directus <code>directus_fields</code>, Salesforce metadata virtualization).</li>
+<li class="">The <strong>semantic layer drifted</strong>: five architectural generations appended
+columns without retiring the prior generation&#x27;s words. Beyond the four
+slot names, the research identified eight further conflations/defects
+(C1–C8): one column with two unrelated semantics (<code>display_field</code>); a
+default pointing at a retired storage layer (<code>source_layer=MODEL</code>); the
+type-taxonomy column named after a presentation concern (<code>widget</code>); three
+coexisting relationship-modeling generations; detection output and tenant
+policy sharing linguistic columns unprovenanced; search-metadata columns
+seeded on one import path and left null on the newer one; tenant
+vocabulary spread across four homes; and dual encodings of source-path
+roles inside the entry-surface config.</li>
+<li class="">External standards and SOTA tools (TEI ODD, CIDOC-CRM E41/E42, Wikibase
+Q/P-ids vs labels, Dublin Core, Omeka S resource templates, Directus,
+Airtable) <strong>converge</strong> on: field identity ≠ display label, everywhere;
+presentation roles never live on field identity; wide field-metadata rows
+decomposed by <em>column ownership</em>, not by table explosion.</li>
+<li class="">The live consequences are real, today: researchers see humanized platform
+slugs instead of their own column names (Spec 0047 facet labels); a
+tenant&#x27;s label fix is clobbered by the next re-import; the same archetype&#x27;s
+display field resolves first-wins-wrong across source tables.</li>
+</ol>
+<p>The PoC clock (generalisation milestone late August 2026; greenfield-but-
+time-boxed deployment) makes this the cheapest moment these fixes will ever
+have.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="decision">Decision<a href="#decision" class="hash-link" aria-label="Direct link to Decision" title="Direct link to Decision" translate="no">​</a></h2>
+<p>The platform ratifies a <strong>six-concern decomposition of the tenant schema
+layer</strong>, applied to the existing tables as named column semantics, defaults,
+and update disciplines — explicitly <strong>not</strong> as a physical re-architecture.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d1--the-six-concerns-and-their-carriers">D1 — The six concerns and their carriers<a href="#d1--the-six-concerns-and-their-carriers" class="hash-link" aria-label="Direct link to D1 — The six concerns and their carriers" title="Direct link to D1 — The six concerns and their carriers" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Concern</th><th>Carrier</th><th>Discipline</th></tr></thead><tbody><tr><td>1</td><td><strong>Field identity</strong></td><td><code>TenantArchetypeFormConfig.slot_name</code></td><td>Per-archetype, identifier-safe slug minted from the source column at import by <strong>one</strong> platform slugifier; <strong>immutable</strong> thereafter. Platform-canonical mechanics, tenant-specific values. Source-column renames create new identity through re-import review (Spec 0049); they never mutate <code>slot_name</code> in place. Slug collisions are detected and reported <strong>collect-all per import</strong> (fail-loud blast radius: report all collisions, do not abort on first).</td></tr><tr><td>2</td><td><strong>Tenant-facing label</strong></td><td><code>TenantArchetypeFormConfig.label</code></td><td>The tenant&#x27;s own vocabulary. <strong>Defaults to the verbatim source column name</strong> (D2 below). <code>RESEARCHER_OWNED</code>: never machine-overwritten after creation. Not unique, not platform-canonical.</td></tr><tr><td>3</td><td><strong>Storage mapping</strong></td><td><code>source_field</code> + <code>source_layer</code></td><td>Source-managed: refreshed on every re-import. <code>source_layer</code> default changes to <code>EPISTEMIC</code> (the <code>MODEL</code> default described the v1 Lemma layer retired in ADR-019 Phase 4).</td></tr><tr><td>4</td><td><strong>Presentation role</strong></td><td>Publication rules (<code>title_slot</code>, <code>subtitle_slot</code>, <code>summary_slot</code>, <code>card_slots</code>, <code>badge_slots</code> in <code>TenantEntrySurfaceConfig.selector_rules</code>) + Entry Surface roles + Spec 0046 stream <code>semantic_role</code> bindings</td><td>The real presentation contract, per ADR-029/Spec 0022/Spec 0046. The out-of-the-box scholarly page (title/subtitle/body/attestations) is a <strong>platform-shipped default role wiring</strong> — a guarantee that stays. The slot layer carries <strong>no</strong> presentation roles; slot names carry <strong>no</strong> presentation meaning.</td></tr><tr><td>5</td><td><strong>Archetype baseline / type</strong></td><td>ADR-006 capability contracts + ADR-037 SlotKind (the <code>widget</code> column) + Layer-2 modifiers + <code>TenantSlotPreset</code> + <code>complies_with</code> standards declarations</td><td>Platform vocabulary, tenant selections; SlotKind amendments remain ADR-037 Threshold-C events. <code>complies_with</code> is ratified as <strong>standards identity</strong> (the crosswalk hook the 2026-06-02 relationship-governance decision depends on), not a presentation accessory.</td></tr><tr><td>6</td><td><strong>Search &amp; linguistic config</strong></td><td>Per-slot flags (<code>searchable</code>, <code>facet</code>, <code>autocomplete_eligible</code>, <code>search_boost</code>, <code>script</code>, <code>language</code>, <code>accent_fold</code>, <code>multilingual</code>) + <code>TenantSearchProfile</code> (engine choice, shared schema) + per-role <code>search_engine</code> override</td><td>Placement reaffirmed (Spec 0009 Task 2: structural search capability is slot-level and tenant-overridable; engine/relevance stay profile/expert-level). Seeding fixed (D4); <code>null</code> reserved strictly for rows predating seeding.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d2--label-default-rule">D2 — Label-default rule<a href="#d2--label-default-rule" class="hash-link" aria-label="Direct link to D2 — Label-default rule" title="Direct link to D2 — Label-default rule" translate="no">​</a></h3>
+<p><strong>The tenant-facing label of an imported field defaults to the verbatim
+source column name</strong> — the tenant&#x27;s vocabulary exactly as authored, however
+ugly — and is tenant-overridable thereafter. Humanization
+(<code>slug.replace(&quot;_&quot;,&quot; &quot;).title()</code> and its ~10 duplicates) is permitted only as
+a last-resort fallback for genuinely empty/absent headers, via one shared
+helper. This supersedes &quot;defaults to slot_name humanised&quot;. (The platform
+already preserves the verbatim header in <code>ColumnHeaderSeed</code> &quot;as found&quot; —
+this rule aligns the label with evidence the schema already keeps.)</p>
+<p>No backfill mechanism exists or is needed (owner ruling, 2026-06-11): the
+platform is greenfield — every real tenant, including the original one,
+first imports at production launch, <em>after</em> this rule is in code, so every
+label is born verbatim. Pre-launch test environments are scrub-phase data
+and may be healed by hand or wiped.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d3--per-column-ownership-matrix-the-re-run-contract">D3 — Per-column ownership matrix (the re-run contract)<a href="#d3--per-column-ownership-matrix-the-re-run-contract" class="hash-link" aria-label="Direct link to D3 — Per-column ownership matrix (the re-run contract)" title="Direct link to D3 — Per-column ownership matrix (the re-run contract)" translate="no">​</a></h3>
+<p>Every <code>TenantArchetypeFormConfig</code> column is classified into exactly one of
+three ownership classes, encoded as a module-level constant that the
+slot-config materializer, the wizard field-plan resolver, and the re-import
+delta engine (Spec 0049) all read:</p>
+<p>Class names are <strong>behavior-first</strong> (owner ruling 2026-06-11: names must be
+self-explanatory to humans and AI agents, and consistent; &quot;researcher&quot;, not
+&quot;tenant&quot;, where a person is meant — &quot;tenant&quot; is infrastructure vocabulary):</p>
+<ul>
+<li class=""><strong><code>REFRESHED_FROM_SOURCE</code></strong> — every re-import overwrites; the source is
+the truth: <code>source_field</code>, <code>source_layer</code>.</li>
+<li class=""><strong><code>SET_ONCE_IF_EMPTY</code></strong> — the machine may fill a blank/default; it may
+never overwrite a real value: <code>widget</code>, <code>script</code>, <code>language</code>,
+<code>multilingual</code>, <code>searchable</code>, <code>facet</code>, <code>autocomplete_eligible</code>,
+<code>display_order</code>, <code>enum_options</code>.</li>
+<li class=""><strong><code>RESEARCHER_OWNED</code></strong> — never machine-written after creation: <code>label</code>,
+<code>help_text</code>, <code>required</code>, <code>accent_fold</code>, <code>search_boost</code>,
+<code>composition_template</code>, <code>composition_skip_empty</code>, <code>complies_with</code>,
+<code>multikey_kind</code>, <code>multikey_keys</code>, <code>numeric_format</code>, <code>currency_code</code>,
+<code>precision</code>, <code>text_role</code>, <code>media_kinds</code>, <code>relation_cardinality</code>,
+<code>lookup_for</code>, <code>target_field</code>, <code>target_archetypes</code>, <code>linkable</code>,
+<code>display_field</code>.</li>
+</ul>
+<p>Ratified per-column rulings (2026-06-11):</p>
+<ul>
+<li class=""><strong><code>display_order</code></strong> = <code>SET_ONCE_IF_EMPTY</code>. The initial value mirrors the
+source&#x27;s own column order; re-imports may append positions for newly
+arrived fields but never reshuffle the researcher&#x27;s layout. <em>Known defect
+folded in as an implementation task: the Coda import does not currently
+preserve the Coda table&#x27;s column order — fix the initial ordering.</em></li>
+<li class=""><strong><code>required</code></strong> = <code>RESEARCHER_OWNED</code>, <strong>no inference</strong>. The platform writes
+<code>False</code> at creation, full stop — a column being historically always-filled
+does not mean future records must fill it, and a wrong guess blocks data
+entry. Follow-up (owner): the <code>required</code> control must be properly surfaced
+to researchers — docs, tutorials, and the UI itself.</li>
+<li class=""><strong>Kind-change proposals</strong>: when a re-imported source&#x27;s typing changes
+(text→date after cleanup; single→list; values matching another table&#x27;s
+identities), the platform may <strong>propose</strong> a kind change through the
+existing restructure/review proposal queue — never auto-apply.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d3a--row-lifecycle-not-just-column-updates">D3a — Row lifecycle (not just column updates)<a href="#d3a--row-lifecycle-not-just-column-updates" class="hash-link" aria-label="Direct link to D3a — Row lifecycle (not just column updates)" title="Direct link to D3a — Row lifecycle (not just column updates)" translate="no">​</a></h3>
+<p>The matrix governs updates to a living row; dispositions govern the row
+itself:</p>
+<ul>
+<li class=""><strong>Column set aside at first import</strong> → no config row is created.</li>
+<li class=""><strong>Column set aside on a re-import</strong> (the row exists; the researcher may
+have curated it) → the row is <strong>removed, never hard-deleted</strong> — curation
+is preserved, and the Spec 0049 delta view reports it loudly (&quot;1 field
+removed&quot;). A later re-import that restores the column revives the same
+identity with its curation intact. Researcher-facing language is
+<strong>&quot;removed&quot; / &quot;restored&quot;</strong> — never &quot;retired&quot;/&quot;deactivated&quot; (tech/business
+speak; owner ruling 2026-06-11).</li>
+<li class=""><strong>Column restructured into a picker</strong> → the picker is a new identity
+(<code>x_select</code>); the original column&#x27;s row follows its own disposition.
+Curation never silently teleports between identities — the delta view
+reports the change next to the new picker.</li>
+<li class=""><strong>Source column renamed</strong> → new identity through re-import review
+(Spec 0049); the old identity is removed loudly, as above.</li>
+<li class=""><strong>Saved views are a third layout layer</strong> (researcher-owned per view,
+above <code>display_order</code>): a view&#x27;s own column order/visibility is never
+touched by imports. When a field a view references is removed, the view
+<strong>degrades gracefully</strong> (the missing column is dropped from render, the
+view keeps working) and the re-import delta notes which saved views were
+affected. A removed-then-restored field reappears in views that
+referenced it.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d3b--two-birth-paths-one-rulebook">D3b — Two birth paths, one rulebook<a href="#d3b--two-birth-paths-one-rulebook" class="hash-link" aria-label="Direct link to D3b — Two birth paths, one rulebook" title="Direct link to D3b — Two birth paths, one rulebook" translate="no">​</a></h3>
+<p>Import is one way data enters a KE; the other is <strong>starting an empty KE and
+building it table by table</strong> (researcher-driven schema editing is a
+first-class platform requirement, decision log 2026-05-22). The same
+identity/label/ownership rules serve both:</p>
+<ul>
+<li class=""><strong>Researcher-created fields</strong> have no source: every column is
+<code>RESEARCHER_OWNED</code> from birth; <code>slot_name</code> is minted from the typed label
+by the same single slugifier; the label IS what they typed (verbatim by
+construction).</li>
+<li class=""><strong>Researcher-created relations</strong> are born as materialized
+<code>EntityRelationship</code> edges via the workspace pickers — they never need
+read-time resolver mechanics (which strengthens D5.4&#x27;s retirement gate:
+hand-built KEs cannot produce gen-1 dependencies).</li>
+<li class=""><strong>Relation creation UX</strong> must demand the minimum from the researcher and
+speak non-developer language end to end — archetype/field/display-field
+maintenance for hand-built KEs is a surfaced, supported workflow, not an
+admin back door.</li>
+</ul>
+<p>This generalizes the archaeology doc&#x27;s R3 (the materializer&#x27;s <code>defaults</code>
+clobber contradicting its own docstring), ports Spec 0046&#x27;s
+<code>managed=seeded|manual</code> discipline to the slot layer, and implements the
+ADR-017 <code>--merge-replace</code> philosophy per-column (&quot;keys in source schema:
+source wins; keys outside it: existing wins&quot;).</p>
+<p><strong>Implementation clarifications (folded in from the D3 build, 2026-06-11):</strong></p>
+<ul>
+<li class=""><strong>Gen-1 relationship columns</strong> (<code>is_relationship</code>, <code>resolver_kind</code>,
+<code>resolver_args</code>, <code>target_archetype</code>) were absent from the three lists
+above. Classified <strong><code>REFRESHED_FROM_SOURCE</code></strong> — they are machine-derived
+resolution mechanics (consistent with their D5.4 demotion) until the
+audit-gated retirement removes them.</li>
+<li class=""><strong>Identity and versioning sit outside the matrix by design</strong>:
+<code>archetype</code> + <code>slot_name</code> are the immutable row identity (D1), and the
+ADR-031 versioning bookkeeping columns are maintained by <code>save()</code>, not by
+import paths. Both are documented exclusions covered by the same CI guard.</li>
+<li class=""><strong>Approval-carried relation wiring</strong>: <code>linkable</code>, <code>target_archetypes</code>,
+<code>display_field</code>, <code>lookup_for</code>, <code>target_field</code> are <code>RESEARCHER_OWNED</code>, but
+the field-plan path writes them from <strong>researcher-approved proposal
+content</strong> — that is the review-queue lane acting, not a machine
+overwrite. Documented as the <code>_APPROVAL_CARRIED_RELATION_WIRING</code> set so
+the flat-column→linkable re-import heal keeps working. <strong>Extended
+2026-06-12</strong> (D4-lane consumer sweep caught the gap): the multilingual/
+multikey modifiers (<code>multikey_kind</code>, <code>multikey_keys</code>, <code>multilingual</code>)
+join the same lane — they are written from approved multilingual-reshape
+proposals, and freezing them at creation broke the field-plan modifier
+refresh.</li>
+<li class=""><strong>Strictness delta, accepted</strong>: previously some <code>RESEARCHER_OWNED</code> fields
+(<code>help_text</code>, <code>search_boost</code>, …) were machine-fillable while still at
+default; they are now never machine-written after creation. If a future
+source wiring (e.g. source column descriptions → <code>help_text</code>) wants
+fill-after-creation, it goes through the review lane or re-opens this
+classification with evidence.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d4--seeding-honesty-for-search-metadata-deterministic-floor-learning-lane">D4 — Seeding honesty for search metadata (deterministic floor, learning lane)<a href="#d4--seeding-honesty-for-search-metadata-deterministic-floor-learning-lane" class="hash-link" aria-label="Direct link to D4 — Seeding honesty for search metadata (deterministic floor, learning lane)" title="Direct link to D4 — Seeding honesty for search metadata (deterministic floor, learning lane)" translate="no">​</a></h3>
+<p>The wizard/field-plan materialization path seeds explicit
+<code>searchable</code>/<code>facet</code>/<code>autocomplete_eligible</code>/<code>search_boost</code> values (today it
+writes <code>None</code>, leaving the columns vestigial). After this lands, <code>null</code>
+means exactly &quot;row predates seeding&quot; and the help text says so.</p>
+<p><strong>The seed is deterministic and kind-derived — a fixed table from slot kind
+to flags, identical for every tenant domain</strong> (owner ruling 2026-06-11:
+content heuristics are dangerous given the diversity of tenant domains;
+deterministic-first). Text kinds → searchable; select kinds → facet + their
+declared options; relation kinds → searched through their target&#x27;s display
+projection. <strong>Media is not a flat &quot;not searchable&quot; row</strong>: per ADR-022, a
+media object is a multilayered artifact whose anchors bind to terms,
+passages, and any archetype (e.g. a 3D-model body-part mesh bound to terms/
+events/entities in the public reader) — media kinds are searchable <em>through
+their binding graph</em>, and their seeding rows are defined with ADR-022 as
+input, per media kind, not guessed.</p>
+<p><strong>Content-derived enrichment is not banned — it is channeled.</strong> Content
+sniffing (value distributions, enum candidates, cross-table identity
+matches) may enrich the DB or search, but only as <em>proposals</em> through the
+review queue and the platform&#x27;s learning/telemetry mechanisms (decision-
+event telemetry, vocabulary learning around tenants) — never as silently
+written values. A dedicated case-mapping pass (follow-up) enumerates which
+enrichments are worth proposing and what evidence each requires.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d5--column-level-dispositions">D5 — Column-level dispositions<a href="#d5--column-level-dispositions" class="hash-link" aria-label="Direct link to D5 — Column-level dispositions" title="Direct link to D5 — Column-level dispositions" translate="no">​</a></h3>
+<ol>
+<li class=""><strong><code>display_field</code> (FormConfig) is constrained to its documented meaning</strong>
+— the projected field of a <em>linkable slot</em>. Archetype/collection display-
+label resolution reads <code>TenantArchetypeTable.display_field</code>
+(per-collection) exclusively; the first-wins archetype-level fallback
+read-path is removed after a per-collection backfill, with <strong>all</strong>
+consumers (public reader, admin, workspace GraphQL) verified before the
+gate flips.</li>
+<li class=""><strong><code>source_layer</code> default → <code>EPISTEMIC</code></strong> (D1 row 3).</li>
+<li class=""><strong><code>widget</code> keeps its column name for now</strong>; the rename to <code>slot_kind</code>
+is assigned to the ADR-042 rename arc. New code and docs must say
+&quot;slot kind&quot;, never &quot;widget&quot;, for concern #5.</li>
+<li class=""><strong>Relationship-mechanism authority (three coexisting generations)</strong>: the
+ADR-037-era mechanism (<code>widget=RELATION/LOOKUP</code>, <code>linkable</code>,
+<code>target_archetypes</code>, <code>lookup_for</code>/<code>target_field</code>,
+<code>relation_cardinality</code>) is <strong>authoritative</strong> for tenant-facing modeling.
+The gen-1 columns (<code>is_relationship</code>, <code>resolver_kind</code>, <code>resolver_args</code>,
+singular <code>target_archetype</code>) are demoted to documented read-time
+resolution mechanics — they exist to resolve relations for imports that
+never materialized real <code>EntityRelationship</code> edges (live consumers:
+<code>relationship_resolver.py</code>, <code>entry_surface.py</code>, <code>workspace_rows.py</code>,
+<code>publication.py</code>; fk_walk in the MySQL parser). <strong>Retirement executes
+behind a concrete pre-launch audit gate</strong> (owner-amended 2026-06-11), not
+an open-ended &quot;post-wizard-parity&quot;: during the remaining test window,
+audit read-path hits on gen-1 resolution across wizard-imported
+environments; if zero — as expected, since every launch import goes
+through the wizard and hand-built KEs are born with materialized edges
+(D3b) — retire the columns in the cleanup arc <strong>before</strong> launch. (No
+column drops in this ADR itself.)</li>
+<li class=""><strong>Linguistic provenance</strong> follows the detected-seed rule (D3): detection
+writes only into empty/default values — ratifying and extending the
+materializer&#x27;s existing <code>if created:</code> discipline to re-runs.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d6--supersession-of-the-0001-era-presentation-contract-frame">D6 — Supersession of the 0001-era &quot;presentation contract&quot; frame<a href="#d6--supersession-of-the-0001-era-presentation-contract-frame" class="hash-link" aria-label="Direct link to D6 — Supersession of the 0001-era &quot;presentation contract&quot; frame" title="Direct link to D6 — Supersession of the 0001-era &quot;presentation contract&quot; frame" translate="no">​</a></h3>
+<p>The 2026-04-30 help-text frame — <code>slot_name</code> as a canonical presentation
+slot; <code>label</code> as humanized slug; the model docstring&#x27;s &quot;drives BOTH form
+rendering and display projection&quot; — is <strong>formally superseded</strong>. Help texts
+and docstrings are rewritten to the D1 table&#x27;s language (identity, not
+presentation; projection is EntryProjection&#x27;s job under ADR-029). This ADR
+also folds in the 2026-05-22 ruling (ALREADY DECIDED — this ADR cites, it
+does not re-open): &quot;slot&quot; remains engineering-internal vocabulary and is
+dissolved from researcher-facing surfaces. Known failure mode: AI agents
+keep regressing to &quot;slot&quot; in new copy — reviewers and lints should treat it
+as a vocabulary violation on researcher-facing surfaces. The replacement
+noun stays with the product-language pass, and the pass must handle the
+<strong>&quot;field&quot; collision</strong> (owner caution 2026-06-11): &quot;field&quot; is overloaded —
+a table&#x27;s field, a <em>research field</em> (domain), the literal field an
+archaeologist or botanist works in — and KE&#x27;s slots are a specific <em>kind</em>
+of field. Candidate nouns are evaluated there, not here.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d7--what-is-explicitly-not-changed">D7 — What is explicitly NOT changed<a href="#d7--what-is-explicitly-not-changed" class="hash-link" aria-label="Direct link to D7 — What is explicitly NOT changed" title="Direct link to D7 — What is explicitly NOT changed" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>No physical decomposition</strong> of <code>TenantArchetypeFormConfig</code> — the wide
+manifest is the ratified primitive (ADR-017 alternatives D/E).</li>
+<li class=""><strong>No renaming of existing <code>slot_name</code> values</strong> — they are identity.</li>
+<li class=""><strong>No weakening of the out-of-the-box scholarly page</strong> — the default role
+wiring is a platform guarantee.</li>
+<li class=""><strong>No relocation of per-slot search flags</strong> — placement reaffirmed.</li>
+<li class=""><strong>No changes</strong> to ADR-037&#x27;s taxonomy, ADR-006&#x27;s contracts, the
+EntryProjection family, Spec 0046&#x27;s binding model, or
+<code>EntityIdentityLedger</code>.</li>
+<li class=""><strong>v1-residue models</strong> (<code>Configuration</code> with its tenant-vocabulary enum,
+<code>ElasticSearchModel</code>, 3D-viewer-era operational models) are acknowledged
+as out of scope here and routed to the ke-rename/code-cleanup arc.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="consequences">Consequences<a href="#consequences" class="hash-link" aria-label="Direct link to Consequences" title="Direct link to Consequences" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="positive">Positive<a href="#positive" class="hash-link" aria-label="Direct link to Positive" title="Direct link to Positive" translate="no">​</a></h3>
+<ul>
+<li class="">Researchers see <strong>their own vocabulary</strong> by default on every tenant-facing
+surface (fixes the live Spec 0047 facet/matched-field label defect), and
+their corrections survive re-imports (D3 ends the clobber).</li>
+<li class="">One named home per concern ends the display-field A/B/C class of bug at
+its schema root and gives agents/engineers a true mental model instead of
+the December-2025 page model the help text taught.</li>
+<li class="">The re-import contract becomes a single auditable constant — Spec 0049&#x27;s
+delta engine, the materializer, and the wizard share one source of truth.</li>
+<li class="">Standards alignment (TEI/CIDOC/Wikibase identity≠label; Directus column
+ownership) without new infrastructure; <code>complies_with</code> is positioned for
+Clause-1 promotions and federation identity.</li>
+<li class="">Everything lands as help-text/default migrations + code-level discipline
+inside the wipeable window — no mass row rewrites, no flag days.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="negative">Negative<a href="#negative" class="hash-link" aria-label="Direct link to Negative" title="Direct link to Negative" translate="no">​</a></h3>
+<ul>
+<li class="">Verbatim labels can be ugly (<code>fld_017</code>, trailing whitespace) — accepted:
+provenance over prettiness; the wizard may <em>suggest</em> prettified labels in
+review UI without storing them as defaults (ruling 3 — accepted).</li>
+<li class="">The ownership matrix adds a constant every import-path author must honor;
+a path that bypasses it re-introduces clobber silently. Mitigation: the
+matrix lives beside the model, and the materializer/field-plan tests
+assert classification coverage of every concrete column (a new column
+without a classification fails CI).</li>
+<li class="">Demoting-but-keeping gen-1 relationship columns prolongs the ~9-column
+relationship surface; accepted to avoid breaking live fk_walk consumers.</li>
+<li class="">Tests asserting humanized labels need updating (bounded; known sites).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mitigations">Mitigations<a href="#mitigations" class="hash-link" aria-label="Direct link to Mitigations" title="Direct link to Mitigations" translate="no">​</a></h3>
+<ul>
+<li class="">Step-ordered rollout (companion doc §6): words/defaults → label default →
+ownership matrix → slugifier+backfill → display_field gate → search
+seeding; each step independently shippable and reversible.</li>
+<li class="">The display_field fallback removal (highest blast radius) ships only after
+per-collection backfill verification across all consumer surfaces
+(public reader + admin + workspace — the verify-all-consumers rule).</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternatives-considered">Alternatives considered<a href="#alternatives-considered" class="hash-link" aria-label="Direct link to Alternatives considered" title="Direct link to Alternatives considered" translate="no">​</a></h2>
+<ol>
+<li class=""><strong>Physical decomposition into per-concern tables</strong> (slot_identity /
+slot_search_config / slot_linguistics…). Rejected: re-litigates ADR-017&#x27;s
+settled alternative D/E; multiplies joins for every consumer; weeks of
+work under the PoC clock for zero researcher-visible gain; no surveyed
+SOTA system does it.</li>
+<li class=""><strong>Status quo + spot-fix the label default only.</strong> Rejected: leaves the
+clobber, the dual-semantics column, the dead default, and the false help
+text in place; the next agent re-learns the wrong model and the next
+import path re-introduces the bug (the trigger incident pattern).</li>
+<li class=""><strong>Typed-schema source of truth replacing the manifest.</strong> Already rejected
+by ADR-017 (2026-05-07 synthesis); re-rejected here for the record.</li>
+<li class=""><strong>Move search flags to TenantSearchProfile / a dedicated search table.</strong>
+Rejected: Spec 0009 Task 2 deliberately put structural flags at slot
+grain (they are per-field facts, tenant-overridable per slot); engine
+choice already lives at the profile. Fix seeding, not placement.</li>
+<li class=""><strong>Adopt Spec 0046-style <code>managed</code> + <code>seed_strategy</code> columns on FormConfig
+instead of a code-level matrix.</strong> Deferred, not rejected: per-row
+ownership provenance is richer but costs a migration + admin surface now;
+the code-level matrix delivers the same re-run semantics today and can be
+upgraded to per-row provenance if override telemetry shows drift
+(evidence-gated per ADR-055 — trigger: count of machine-overwritten
+tenant edits detected by the delta engine, surfaced on the ops digest).</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="implementation">Implementation<a href="#implementation" class="hash-link" aria-label="Direct link to Implementation" title="Direct link to Implementation" translate="no">​</a></h2>
+<p>Companion doc §6 carries the full ordered/risk-ranked path. Summary:
+Step 1 words+defaults (hours, metadata-only migration; slot_name/label help
+text SHIPPED 2026-06-11, migration 0008); Step 2 label default — <strong>SHIPPED
+2026-06-11</strong> (commit a04f8af0: all seven derivation sites verbatim,
+override-recognizer taught both machine forms, mangle-revealing regression
+test); Step 3 ownership matrix + row lifecycle (D3/D3a/D3b) — <strong>SHIPPED
+2026-06-11</strong> (merge acf03306: matrix + CI coverage guard + clobber ended +
+ruling-1 column order); Step 4 single slugifier + collision report —
+<strong>SHIPPED 2026-06-12</strong> (merge d46f243f: normalize_slot_name canonical,
+Unicode-preserving — non-Latin column names no longer collapse to empty
+slugs; collect-all SlotNameCollisionError in both write paths); Step 5
+display_field gate — <strong>SHIPPED 2026-06-12</strong> (merge of <code>c6adfddd</code>+<code>1c0142d4</code>:
+first-wins fallback removed from anchor_projection/epistemic-admin/wizard
+panels; full consumer matrix verified; capture refresh with
+<code>source_display_field</code> override stamp + backfill command; live-verified —
+all five dev-tenant collections show human labels post-gate);
+Step 6 wizard-path deterministic search seeding (D4) — <strong>SHIPPED
+2026-06-12</strong> (same merge: SLOT_KIND_SEARCH_SEED at every create path;
+search_boost marked RESERVED). Steps 1–4 target → delivered inside the
+pre-August window.</p>
+<p>Owner-added follow-ups (2026-06-11 ratification round):</p>
+<ul>
+<li class="">Fix Coda import to preserve the source table&#x27;s column order as the
+initial <code>display_order</code> (ruling 1 defect).</li>
+<li class="">Surface the <code>required</code> control to researchers — docs, tutorials, UI
+(ruling 2).</li>
+<li class="">Saved-view graceful degradation on field removal + delta-view notes
+(D3a) — verify with tests.</li>
+<li class="">Media/content capability survey, <strong>cross-domain</strong> (owner-widened
+2026-06-11): inputs are ADR-021/ADR-022 (artifact + binding graph),
+Spec 0016 (2D/audio/video + cross-media annotation), the 2026-05-08 media
+architecture design, the integrative pilot&#x27;s media work, and the archetype-
+standards research — explicitly sized for future tenant domains (biology,
+medicine, physics, musicology, …) where &quot;media&quot; spans spectrograms,
+scores, specimens, imaging, datasets. The per-kind search-seeding rows
+(D4) are an OUTPUT of this survey, not guessed per kind.</li>
+<li class="">Content-enrichment case mapping: which content-derived signals are worth
+<em>proposing</em>, what evidence each requires, wired to the learning/telemetry
+mechanisms (D4).</li>
+<li class="">Label-homes consumer survey (ruling 7): form-config labels, table labels,
+ontology display labels, ADR-044 voice substrate → presentation /
+standards / CSL streams / discovery / APIs, break-risk per consumer.</li>
+<li class="">Pre-launch gen-1 read-path audit (D5.4 gate).</li>
+</ul>
+<p>Deferred: <code>widget</code>→<code>slot_kind</code> rename (ADR-042 arc), Stratum-E v1 cleanup
+(ke-rename arc), entry-surface path-encoding unification (Spec 0046-style
+rows).</p>
+<p><strong>R6 direction (owner, 2026-06-11 — experiment, not yet ratified):</strong> the
+parser&#x27;s canonical-name inference (a column literally named TITLE, or LONG
+DESCRIPTION recognized as the entry body) becomes a <strong>role-wiring
+suggestion</strong> (&quot;make this column the page&#x27;s headline/body?&quot;) rather than the
+field&#x27;s identity — identity is always the column slug, one regime for every
+import route. Owner: &quot;I think a suggestion but am not sure if it will work.
+Need to try.&quot; <strong>Gate:</strong> the Stage-5 draft reader preview (already wired into
+the wizard) must reflect the suggested role live, so the researcher SEES
+what accepting/declining means on their actual entry page before deciding.
+Build as an experiment behind that preview; ratify or revert on evidence.
+<strong>Experiment SHIPPED 2026-06-12</strong> (merge edf95dda): one slug-identity regime
+across xlsx/csv/Coda/MySQL parsers; <code>suggested_role</code> payload metadata feeds
+the entry-surface role seeder from APPROVED proposals; the Stage-5 preview
+shows per-part provenance (&quot;Headline — from your column …&quot;). Decline = the
+existing review queue. Evaluate on the next live import walk (script in
+<code>docs/research/2026-06-12_r6-role-suggestion-experiment.md</code>); ratify or
+revert then. Open: where <code>body</code> lives in publication rules; SPA shadow
+rendering of roleAnnotations; post-hoc reseed without proposals.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="compliance">Compliance<a href="#compliance" class="hash-link" aria-label="Direct link to Compliance" title="Direct link to Compliance" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Foundational principle</strong>: this ADR is a direct enforcement — canonical
+<em>mechanics</em> (slug minting, ownership classes, role vocabulary) stay
+platform-shared; <em>values</em> (labels, slot names, overrides) stay tenant.</li>
+<li class=""><strong>ADR-012</strong>: all changes flow through runtime config + management
+commands; no per-tenant migrations.</li>
+<li class=""><strong>ADR-017</strong>: ratifies the manifest framing and extends its merge-replace
+philosophy to column grain; identity ledger untouched.</li>
+<li class=""><strong>ADR-029/Spec 0046</strong>: confirmed as the presentation contract&#x27;s home.</li>
+<li class=""><strong>ADR-037</strong>: taxonomy untouched; this ADR consumes its layering.</li>
+<li class=""><strong>ADR-055</strong>: the deferred per-row provenance upgrade names its un-defer
+trigger metric.</li>
+<li class=""><strong>Lint discipline</strong>: no tenant vocabulary enters platform code anywhere in
+this ADR&#x27;s scope; the one place it already exists (<code>Configuration</code> enum)
+is flagged for the cleanup arc.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="owner-rulings-2026-06-11">Owner rulings (2026-06-11)<a href="#owner-rulings-2026-06-11" class="hash-link" aria-label="Direct link to Owner rulings (2026-06-11)" title="Direct link to Owner rulings (2026-06-11)" translate="no">​</a></h2>
+<ol>
+<li class=""><strong><code>display_order</code></strong> = <code>SET_ONCE_IF_EMPTY</code>; initial value mirrors the
+source&#x27;s column order (Coda-order defect noted as an implementation fix);
+re-import may append new fields, never reshuffle. Kind changes may be
+<strong>proposed</strong> through the existing restructure/review queue, never applied.</li>
+<li class=""><strong><code>required</code></strong> = <code>RESEARCHER_OWNED</code>, no inference — platform writes
+<code>False</code> at creation. Follow-up: surface the control properly (docs,
+tutorials, UI).</li>
+<li class=""><strong>Machine-junk headers</strong> — verbatim default stands; the wizard may
+<em>suggest</em> a prettified label in review UI while always <strong>storing</strong>
+verbatim unless the researcher accepts.</li>
+<li class=""><strong>Backfill</strong> — moot: greenfield. No previous tenants or imports exist;
+all real tenants first import at production launch, after this ADR&#x27;s
+rules are in code. (No backfill mechanism is built.)</li>
+<li class=""><strong>&quot;Slot&quot; vocabulary</strong> — already ruled 2026-05-22; this ADR cites and
+enforces. The replacement noun stays with the product-language pass,
+which must resolve the &quot;field&quot; overload (D6).</li>
+<li class=""><strong>Gen-1 retirement</strong> — demote now; <strong>retire behind the pre-launch audit
+gate</strong> (D5.4), targeting removal in the cleanup arc before launch rather
+than an open-ended deferral. Hand-built KEs (D3b) strengthen the case:
+they are born with materialized edges and cannot need gen-1 resolution.</li>
+<li class=""><strong>Vocabulary precedence (C7)</strong> — <strong>premise rejected</strong>: ADR-044&#x27;s
+substrate is workspace/UI-voice customization, a different axis from
+data-field labels; overloading it as a composition layer over the three
+older label homes risks the stability those homes&#x27; consumers require.
+Replaced by a follow-up survey: map all four label homes to their actual
+consumers (presentation, data standards / CSL streams, discovery, public
+APIs) with break-risk per consumer, before any unification decision. C7
+is reframed from &quot;defect&quot; to &quot;unmapped — survey before judging.&quot;</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References<a href="#references" class="hash-link" aria-label="Direct link to References" title="Direct link to References" translate="no">​</a></h2>
+<ul>
+<li class=""><code>docs/research/2026-06-11_slot-frame-archaeology.md</code> (predecessor; D1–D8, R1–R6)</li>
+<li class=""><code>docs/research/2026-06-11_schema-architecture-first-principles.md</code> (evidence body; C1–C8, R7–R12, standards tables, NotebookLM absorption)</li>
+<li class=""><code>docs/research/2026-04-27-prior-art-survey/</code> (P4 schema-as-data)</li>
+<li class=""><code>docs/research/standards/</code> (CROSSWALK + families)</li>
+<li class=""><code>docs/research/2026-06-11_tenancy-substrate-research.md</code></li>
+<li class="">ADR-017 Context/Alternatives (typed-schema rejection); ADR-029; ADR-037; Spec 0009 Task 2; Spec 0046 design (binding ownership model); Spec 0047; Spec 0049</li>
+<li class="">Decision log 2026-05-22 (slot vocabulary dissolution); 2026-06-02 (relationship rule_name derivation + standards anchoring)</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/developer/architecture/adr/tenant-lifecycle-cross-schema-fk-and-identity"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/developer/architecture/adr-037-ratification-brief"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">ADR-037 Ratification Brief</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#context" class="table-of-contents__link toc-highlight">Context</a></li><li><a href="#decision" class="table-of-contents__link toc-highlight">Decision</a><ul><li><a href="#d1--the-six-concerns-and-their-carriers" class="table-of-contents__link toc-highlight">D1 — The six concerns and their carriers</a></li><li><a href="#d2--label-default-rule" class="table-of-contents__link toc-highlight">D2 — Label-default rule</a></li><li><a href="#d3--per-column-ownership-matrix-the-re-run-contract" class="table-of-contents__link toc-highlight">D3 — Per-column ownership matrix (the re-run contract)</a></li><li><a href="#d3a--row-lifecycle-not-just-column-updates" class="table-of-contents__link toc-highlight">D3a — Row lifecycle (not just column updates)</a></li><li><a href="#d3b--two-birth-paths-one-rulebook" class="table-of-contents__link toc-highlight">D3b — Two birth paths, one rulebook</a></li><li><a href="#d4--seeding-honesty-for-search-metadata-deterministic-floor-learning-lane" class="table-of-contents__link toc-highlight">D4 — Seeding honesty for search metadata (deterministic floor, learning lane)</a></li><li><a href="#d5--column-level-dispositions" class="table-of-contents__link toc-highlight">D5 — Column-level dispositions</a></li><li><a href="#d6--supersession-of-the-0001-era-presentation-contract-frame" class="table-of-contents__link toc-highlight">D6 — Supersession of the 0001-era &quot;presentation contract&quot; frame</a></li><li><a href="#d7--what-is-explicitly-not-changed" class="table-of-contents__link toc-highlight">D7 — What is explicitly NOT changed</a></li></ul></li><li><a href="#consequences" class="table-of-contents__link toc-highlight">Consequences</a><ul><li><a href="#positive" class="table-of-contents__link toc-highlight">Positive</a></li><li><a href="#negative" class="table-of-contents__link toc-highlight">Negative</a></li><li><a href="#mitigations" class="table-of-contents__link toc-highlight">Mitigations</a></li></ul></li><li><a href="#alternatives-considered" class="table-of-contents__link toc-highlight">Alternatives considered</a></li><li><a href="#implementation" class="table-of-contents__link toc-highlight">Implementation</a></li><li><a href="#compliance" class="table-of-contents__link toc-highlight">Compliance</a></li><li><a href="#owner-rulings-2026-06-11" class="table-of-contents__link toc-highlight">Owner rulings (2026-06-11)</a></li><li><a href="#references" class="table-of-contents__link toc-highlight">References</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-superadmin docs-version-current docs-doc-page docs-doc-id-recommender-metrics" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Recommender Metrics | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/superadmin/recommender-metrics"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-superadmin-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-superadmin-current"><meta data-rh="true" property="og:title" content="Recommender Metrics | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Audience: Super admin / platform operator"><meta data-rh="true" property="og:description" content="Audience: Super admin / platform operator"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/superadmin/recommender-metrics"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/superadmin/recommender-metrics" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/superadmin/recommender-metrics" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Recommender Metrics","item":"https://atlomy.github.io/ke-docs/superadmin/recommender-metrics"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/superadmin/">Platform Admins</a><a class="navbar__item navbar__link" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/"><span title="Super Admin Documentation" class="linkLabel_WmDU">Super Admin Documentation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/dpia-operations"><span title="DPIA Operations" class="linkLabel_WmDU">DPIA Operations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/federation-and-marketplace"><span title="Federation and Marketplace" class="linkLabel_WmDU">Federation and Marketplace</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/incident-operations"><span title="Incident Operations" class="linkLabel_WmDU">Incident Operations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/llm_providers_guide"><span title="LLM Providers Guide" class="linkLabel_WmDU">LLM Providers Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/platform_monitoring"><span title="Platform Monitoring" class="linkLabel_WmDU">Platform Monitoring</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/ke-docs/superadmin/recommender-metrics"><span title="Recommender Metrics" class="linkLabel_WmDU">Recommender Metrics</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/secrets-management"><span title="Secrets Management" class="linkLabel_WmDU">Secrets Management</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/tip-auto-pause"><span title="Tip Auto-Pause" class="linkLabel_WmDU">Tip Auto-Pause</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Recommender Metrics</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Recommender Metrics</h1></header>
+<blockquote>
+<p><strong>Audience</strong>: Super admin / platform operator
+<strong>Last aligned with platform state</strong>: 2026-05-25
+<strong>Platform version</strong>: V2 (pre-1.0)</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="purpose">Purpose<a href="#purpose" class="hash-link" aria-label="Direct link to Purpose" title="Direct link to Purpose" translate="no">​</a></h2>
+<p>The recommender metrics tab at <code>/admin/monitoring/platform/?tab=recommender</code> is the
+calibration channel&#x27;s operator debugging surface. Read this when investigating low-confidence
+prediction patterns, a stratum-wide rejection-rate spike, or a rare-archetype shape that
+needs escalation review. The tab does not display tenant payload; all cross-tenant reads go
+through K-anonymized aggregates and opaque tenant refs.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Stratum-wide rejection-rate dashboard</strong> — acceptance vs rejection over time per stratum
+(archetype × slot-type × confidence band per ADR-033). Substrate: Spec 0018 PR #319
+(US-C.6) · Maturity: Built · Limit: stratum cohorts below the K-anonymity floor are
+suppressed; they do not render with an asterisk, they do not render at all.</li>
+<li class=""><strong>Low-prior shape-count lists</strong> — per-shape <code>LOW_PRIOR_CONFIDENCE</code> flagged-lists across
+tenants, rolled up to opaque-tenant-ref granularity. Substrate: Spec 0018 PR #319 ·
+Maturity: Built · Limit: K-anonymity floor enforced; rare-archetype tail mitigated by
+payload-level obfuscation (see below).</li>
+<li class=""><strong>Escalation event timeline</strong> — chronological list of stratum-wide rejection-rate spikes,
+prior-drift events, and anomaly detections that fire the ADR-035 §4.1.1.1 operator-incident
+workflow. Substrate: Spec 0018 PR #319 + ADR-035 §4.1.1.1 · Maturity: Built · Limit:
+entries are written to <code>monitoring.PlatformEvent</code> (hash-chained, append-only); operator
+cannot mutate.</li>
+<li class=""><strong>Payload-level schema-name obfuscation</strong> — for rare-archetype edge cases where the small
+population shape itself would distinguish a tenant, the rollup layer obfuscates
+payload-derived schema-identifying tokens before they reach the aggregate. Substrate: Spec
+0018 PR #322 (US-C.7.3) · Maturity: Built · Limit: the floor is no-schema-names, period —
+this is not a license to show schema names &quot;lightly obfuscated&quot; in any view.</li>
+<li class=""><strong>Export gate</strong> — recommender metrics export gated by the <code>can_export_recommender_metrics</code>
+capability. Substrate: Spec 0018 §A.4 · Maturity: Built · Limit: export honours all
+red-line constraints; payload-adjacent detail is excluded by construction.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="usability--how-you-use-it">Usability — how you use it<a href="#usability--how-you-use-it" class="hash-link" aria-label="Direct link to Usability — how you use it" title="Direct link to Usability — how you use it" translate="no">  ​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="investigating-a-rejection-rate-spike">Investigating a rejection-rate spike<a href="#investigating-a-rejection-rate-spike" class="hash-link" aria-label="Direct link to Investigating a rejection-rate spike" title="Direct link to Investigating a rejection-rate spike" translate="no">​</a></h3>
+<ol>
+<li class="">Open <code>/admin/monitoring/platform/?tab=recommender</code> and scroll the escalation timeline.
+Spikes that crossed the calibration threshold appear as rows; expand for detail.</li>
+<li class="">Cross-reference the stratum with the rejection-rate dashboard for that window. If the
+stratum is suppressed, the cohort has fallen below the K-anonymity floor (default K=11 per
+ADR-016 §A5) — see Troubleshooting below.</li>
+<li class="">If the spike correlates with a prior-drift event in the same window, the underlying
+archetype distribution has shifted across the platform; coordinate with the calibration
+channel owner per ADR-033 §11.2.</li>
+<li class="">If the spike correlates with a single opaque tenant ref&#x27;s <code>LOW_PRIOR_CONFIDENCE</code> count
+rising, the issue may be tenant-local — file under the recommender&#x27;s tenant-local
+diagnostics path; do not enter the tenant boundary from this tab.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reviewing-low-prior-shapes">Reviewing low-prior shapes<a href="#reviewing-low-prior-shapes" class="hash-link" aria-label="Direct link to Reviewing low-prior shapes" title="Direct link to Reviewing low-prior shapes" translate="no">​</a></h3>
+<ol>
+<li class="">Open the low-prior shape-count list. Sort by count descending — high-count shapes are
+stable; tail shapes are the calibration risk surface.</li>
+<li class="">For any tail shape that distinguishes a single tenant by population (rare-archetype edge
+case), verify the payload-level obfuscation layer is active by spot-checking that no
+schema-identifying tokens appear in the rendered list. If a token slips through, treat as
+a red-line violation.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pre-flight-before-exporting">Pre-flight before exporting<a href="#pre-flight-before-exporting" class="hash-link" aria-label="Direct link to Pre-flight before exporting" title="Direct link to Pre-flight before exporting" translate="no">​</a></h3>
+<ul>
+<li class="">Confirm you carry the <code>can_export_recommender_metrics</code> capability.</li>
+<li class="">The export inherits the K-anonymity floor and the no-schema-names red line; do not
+post-process the export in a way that would lower either guarantee.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="red-lines">Red lines<a href="#red-lines" class="hash-link" aria-label="Direct link to Red lines" title="Direct link to Red lines" translate="no">​</a></h3>
+<p>Compact restatement of the canonical block from
+<a class="" href="/ke-docs/superadmin/platform_monitoring"><code>platform_monitoring.md</code></a> (see there for the full list):</p>
+<ul>
+<li class="">No schema names, no filenames, no source rows, no document or table names.</li>
+<li class="">No raw prompts, no raw queries, no raw GraphQL or debug error payloads.</li>
+<li class="">No credential names, no <code>secret_ref</code> values, no tokens, no URL userinfo.</li>
+<li class="">Tenant identification is via opaque ref only — never tenant name, never schema name.</li>
+<li class="">Cohorts below the K-anonymity floor (K=11 default per ADR-016 §A5) are suppressed entirely.</li>
+</ul>
+<p>If payload-adjacent detail is required, enter the requesting tenant&#x27;s boundary and use
+tenant-local telemetry. The public-schema aggregate layer is not a shortcut around tenant
+isolation.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p><strong>Symptom</strong>: A stratum-wide rejection-rate spike is visible in the time series but no
+escalation row was written.
+<strong>Likely cause</strong>: The cohort fell below the K-anonymity floor mid-window — the spike is
+real but the cohort is now suppressed from rendering and the ADR-035 §4.1.1.1 escalation
+did not fire. <strong>Fix</strong>: Wait for the next rollup window; if the cohort recovers above the
+floor, the escalation will fire then. If the cohort is structurally below the floor (rare
+archetype), use the calibration channel&#x27;s tenant-local diagnostics rather than the
+platform tab. <strong>Escalate</strong>: ADR-033 §11.2 calibration owner.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Low-prior shape-count list renders a token that looks like a schema name.
+<strong>Likely cause</strong>: Payload-level obfuscation regression — PR #322 did not catch this token
+shape, or the renderer bypassed the obfuscation layer. <strong>Fix</strong>: Do not screenshot or quote
+the token. Capture the row reference. <strong>Escalate</strong>: security on-call — this is a red-line
+violation; file under Spec 0018 US-C.7.3.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Recommender tab returns an empty escalation timeline but the underlying
+<code>monitoring.PlatformEvent</code> table has recent rows.
+<strong>Likely cause</strong>: Either the GraphQL query is filtering by a stale capability check, or
+the hash-chain verifier is blocking reads pending reconciliation. <strong>Fix</strong>: Confirm
+<code>can_export_recommender_metrics</code> and the read capability are both granted; check the
+integrity check status on <code>monitoring.PlatformEvent</code>. <strong>Escalate</strong>: file under
+Spec 0018 §A.4 if the empty result reproduces after capability confirmation.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Export download returns <code>UnratifiedSearchEngineError</code> upstream.
+<strong>Likely cause</strong>: The recommender export path is delegating a profile lookup to the search
+profile registry, and the requested profile is not ratified. <strong>Fix</strong>: Confirm the export
+request did not include an unratified profile parameter; the registry rejects unratified
+profiles by design. <strong>Escalate</strong>: search profile registry owner.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: A new stratum appears in the dashboard with implausibly high cohort count.
+<strong>Likely cause</strong>: A new archetype was promoted and the stratification is now folding
+previously-distinct cohorts. <strong>Fix</strong>: Cross-reference the recommender rollup window
+against archetype promotion events; the spike is structural, not behavioral. <strong>Escalate</strong>:
+ADR-033 §11.2 calibration owner if the structural shift was unannounced.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/ke-docs/superadmin/platform_monitoring">platform_monitoring.md</a> — operations landing and red lines.</li>
+<li class=""><a class="" href="/ke-docs/superadmin/incident-operations">incident-operations.md</a> — capture-failure incident triage.</li>
+<li class=""><a class="" href="/ke-docs/superadmin/tip-auto-pause">tip-auto-pause.md</a> — tip-family acceptance rollup, sibling K-floor surface.</li>
+<li class=""><a class="" href="/ke-docs/developer/security/README.md">../developer/security/README.md</a> — security architecture index.</li>
+<li class="">Spec 0018 — DecisionEvent telemetry and permission model; US-C.6 recommender metrics tab
+(PR #319), US-C.7.3 payload-level schema-name obfuscation for rare archetypes (PR #322).</li>
+<li class="">ADR-016 — telemetry security substrate; K-anonymity floor; hash-chained <code>PlatformEvent</code>.</li>
+<li class="">ADR-033 §11.2 — calibration channel.</li>
+<li class="">ADR-035 §4.1.1.1 — operator-incident workflow.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/superadmin/platform_monitoring"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Platform Monitoring</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/superadmin/secrets-management"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Secrets Management</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#purpose" class="table-of-contents__link toc-highlight">Purpose</a></li><li><a href="#features" class="table-of-contents__link toc-highlight">Features</a></li><li><a href="#usability--how-you-use-it" class="table-of-contents__link toc-highlight">Usability — how you use it</a><ul><li><a href="#investigating-a-rejection-rate-spike" class="table-of-contents__link toc-highlight">Investigating a rejection-rate spike</a></li><li><a href="#reviewing-low-prior-shapes" class="table-of-contents__link toc-highlight">Reviewing low-prior shapes</a></li><li><a href="#pre-flight-before-exporting" class="table-of-contents__link toc-highlight">Pre-flight before exporting</a></li><li><a href="#red-lines" class="table-of-contents__link toc-highlight">Red lines</a></li></ul></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

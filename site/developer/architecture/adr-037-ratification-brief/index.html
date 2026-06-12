@@ -1,0 +1,673 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-developer docs-version-current docs-doc-page docs-doc-id-architecture/adr-037-ratification-brief" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">ADR-037 Ratification Brief | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/developer/architecture/adr-037-ratification-brief"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-developer-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-developer-current"><meta data-rh="true" property="og:title" content="ADR-037 Ratification Brief | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Date: 2026-05-19 (overnight session)"><meta data-rh="true" property="og:description" content="Date: 2026-05-19 (overnight session)"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/developer/architecture/adr-037-ratification-brief"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/adr-037-ratification-brief" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/adr-037-ratification-brief" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ADR-037 Ratification Brief","item":"https://atlomy.github.io/ke-docs/developer/architecture/adr-037-ratification-brief"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/superadmin/">Platform Admins</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/"><span title="Developer Documentation" class="linkLabel_WmDU">Developer Documentation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/TESTING"><span title="Testing standards — Atlomy Atlas" class="linkLabel_WmDU">Testing standards — Atlomy Atlas</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/ai_schema_adaptation"><span title="Sprint 9 &amp; 10: Developer Guide" class="linkLabel_WmDU">Sprint 9 &amp; 10: Developer Guide</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ke-docs/developer/architecture/adr/"><span title="architecture" class="categoryLinkLabel_W154">architecture</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/ke-docs/developer/architecture/adr/"><span title="Architecture Decision Records (ADRs)" class="categoryLinkLabel_W154">Architecture Decision Records (ADRs)</span></a><button aria-label="Expand sidebar category &#x27;Architecture Decision Records (ADRs)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/developer/architecture/adr-037-ratification-brief"><span title="ADR-037 Ratification Brief" class="linkLabel_WmDU">ADR-037 Ratification Brief</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/api_layer"><span title="Architecture: API &amp; Authentication Layer" class="linkLabel_WmDU">Architecture: API &amp; Authentication Layer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/archetype_strategic_planning"><span title="Archetype Strategic Planning" class="linkLabel_WmDU">Archetype Strategic Planning</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy-tenant-restore-spec"><span title="Atlomy Tenant Restore Specification" class="linkLabel_WmDU">Atlomy Tenant Restore Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy-testing-readiness-plan"><span title="Atlomy Data Testing Readiness Plan" class="linkLabel_WmDU">Atlomy Data Testing Readiness Plan</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy_canonical_architecture_vision"><span title="KE (Knowledge Environments) Canonical Architecture Vision" class="linkLabel_WmDU">KE (Knowledge Environments) Canonical Architecture Vision</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/capability_contracts_strategic_value"><span title="Archetype Capability Contracts: Strategic Value" class="linkLabel_WmDU">Archetype Capability Contracts: Strategic Value</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/database_visualizer"><span title="Database Visualizer Architecture" class="linkLabel_WmDU">Database Visualizer Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/frontend"><span title="Architecture: Frontend Strategy (React 19 + Django)" class="linkLabel_WmDU">Architecture: Frontend Strategy (React 19 + Django)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/help-key-contract"><span title="helpKey contract — engineering spec" class="linkLabel_WmDU">helpKey contract — engineering spec</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/ke_admin_overlay"><span title="KE Admin Overlay — architecture" class="linkLabel_WmDU">KE Admin Overlay — architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/monitoring_architecture"><span title="Sprint 7: Platform-Wide Monitoring &amp; Observability" class="linkLabel_WmDU">Sprint 7: Platform-Wide Monitoring &amp; Observability</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/multi_tenancy"><span title="Multi-Tenancy Architecture" class="linkLabel_WmDU">Multi-Tenancy Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/multilingual_design"><span title="Multilingual Data Import - Design Principles" class="linkLabel_WmDU">Multilingual Data Import - Design Principles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/new_engineer_architectural_onboarding"><span title="New Engineer Architectural Onboarding" class="linkLabel_WmDU">New Engineer Architectural Onboarding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/permission-apply-model-simplification-review-2026-06-07"><span title="Permission / Apply-Model Simplification Review — 2026-06-07" class="linkLabel_WmDU">Permission / Apply-Model Simplification Review — 2026-06-07</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/platform_principles"><span title="KE (Knowledge Environments) Platform Principles" class="linkLabel_WmDU">KE (Knowledge Environments) Platform Principles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/production-infrastructure-requirements"><span title="Production Infrastructure Requirements (provider-neutral)" class="linkLabel_WmDU">Production Infrastructure Requirements (provider-neutral)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/rbac"><span title="Role-Based Access Control (RBAC) Architecture" class="linkLabel_WmDU">Role-Based Access Control (RBAC) Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/sprint13_preparation"><span title="Sprint 13 Preparation Guide: Archetype Definition" class="linkLabel_WmDU">Sprint 13 Preparation Guide: Archetype Definition</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/developer_guide"><span title="Developer Guide: Data Sync &amp; Monitoring Systems" class="linkLabel_WmDU">Developer Guide: Data Sync &amp; Monitoring Systems</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/knowledge_explorer"><span title="Sprint 13: Knowledge Explorer &amp; API Architecture" class="linkLabel_WmDU">Sprint 13: Knowledge Explorer &amp; API Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/platform_principles_enforcement"><span title="Platform-Principles Enforcement (Code Gates)" class="linkLabel_WmDU">Platform-Principles Enforcement (Code Gates)</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/ke-docs/developer/security/"><span title="Security Architecture" class="categoryLinkLabel_W154">Security Architecture</span></a><button aria-label="Expand sidebar category &#x27;Security Architecture&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/setup/Troubleshooting/troubleshooting_template_conflicts"><span title="setup" class="categoryLinkLabel_W154">setup</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/ui/design_system"><span title="ui" class="categoryLinkLabel_W154">ui</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">architecture</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">ADR-037 Ratification Brief</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>ADR-037 Ratification Brief</h1></header>
+<p><strong>Date</strong>: 2026-05-19 (overnight session)
+<strong>ADR</strong>: <a class="" href="/ke-docs/developer/architecture/adr/slot-type-taxonomy"><code>037-slot-type-taxonomy.md</code></a> — Slot-Type Taxonomy and Tenant Vocabulary Layer
+<strong>Current status</strong>: <strong>Accepted</strong> (2026-05-20 — ratified per Option D.2; user ratified after the R2 absorption + comparative-paths brainstorm + Path B chosen for the post-ratification federation-contract layer)
+<strong>Decision requested</strong>: Promote ADR-037 from Proposed → Accepted in one of three forms — full ratification (D.1), binding-shape ratification with decision-log deferrals (D.2 — chosen), or hold + R3 round (D.3).</p>
+<p>This brief is independent of the architectural arc that authored ADR-037. It was assembled by a fresh-session agent reading the corrected ADR + the R1 absorption + the integrative-tenant evidence + the standards / SOTA notebook lanes (Options A + A.2) + the R2 NotebookLM round (Option B) cold. It exists because the same agent ratifying its own architecture inherits an advocate-for-my-own-work bias (calibration note 2026-05-19, <code>partner_model.md</code>).</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-what-ratifying-commits-to-the-decision-in-one-paragraph">1. What ratifying commits to (the decision in one paragraph)<a href="#1-what-ratifying-commits-to-the-decision-in-one-paragraph" class="hash-link" aria-label="Direct link to 1. What ratifying commits to (the decision in one paragraph)" title="Direct link to 1. What ratifying commits to (the decision in one paragraph)" translate="no">​</a></h2>
+<p>Ratification binds KE to a <strong>three-layer slot-type model</strong> as the durable architectural shape:</p>
+<ul>
+<li class=""><strong>Layer 1 — SlotKind</strong> (canonical, currently 10 primitives, <strong>open set</strong>): TEXT, RICHTEXT, NUMBER, DATE, BOOLEAN, SELECT, MULTISELECT, RELATION, LOOKUP, MEDIA. Promotion to a new SlotKind is the rarest move (Threshold C — ADR-037 §Evolution; ~annually if at all; requires ADR-037 amendment).</li>
+<li class=""><strong>Layer 2 — SlotModifiers</strong> (parametric vocabulary; ~21 fields total — 13 already on <code>TenantArchetypeFormConfig</code> + 9 added by Phase A.1 including <code>complies_with</code>): per-slot configuration knobs. Schema is canonical; values are tenant-supplied. New modifier fields land via Threshold B (~quarterly; additive nullable migration).</li>
+<li class=""><strong>Layer 3 — TenantSlotPreset</strong> (tenant-curated catalog of named (SlotKind, Modifiers) recipes): the 22-icon picker becomes a <em>preset library</em>, with a 16-preset platform-shipped starter library + tenant-authored presets. Promotion of a tenant preset to platform-default fires Threshold A (~quarterly; decision-log entry; requires ≥2 tenants independently authoring the same shape).</li>
+</ul>
+<p>Layered on top is the <strong>three-surface publication contract</strong> (Post-R1 Addendum): every canonical claim renders coherently on three audience surfaces simultaneously — public reader (citation following), research workspace (tenant editing), compliance export (RO-Crate / BagIt / CIDOC / TEI / IIIF / CSL). The <code>complies_with: list[str]</code> modifier is the load-bearing hook tying the three surfaces together: a slot declared <code>complies_with: [TEI, CIDOC-CRM]</code> renders with a compliance chip in research, emits <code>dcterms:conformsTo</code> triples in public-reader JSON-LD, and projects into TEI / CIDOC export views in compliance.</p>
+<p>Phase A.1 backend migration follows (Django <code>Widget</code> → <code>SlotKind</code> inner-class rename keeping the <code>widget</code> column name; drop <code>ARRAY</code> enum value collapsed into <code>MULTISELECT</code>; 10 nullable modifier columns added; <code>TenantSlotPreset</code> model + 16-preset starter library fixture; GraphQL <code>tenantSlotPresets(archetype)</code> query added). Phase A.2 frontend rewrite consumes the registry. Phase B (multikey generalisation + preset CRUD) and Phase C (per-key provenance, deferred until JPP onboards a register-level use case) sequence behind A.1/A.2.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-evidence-supporting-the-decision">2. Evidence supporting the decision<a href="#2-evidence-supporting-the-decision" class="hash-link" aria-label="Direct link to 2. Evidence supporting the decision" title="Direct link to 2. Evidence supporting the decision" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-r1-audio-debate-v2-converged-on-every-disposition">2.1 R1 audio debate v2 converged on every disposition<a href="#21-r1-audio-debate-v2-converged-on-every-disposition" class="hash-link" aria-label="Direct link to 2.1 R1 audio debate v2 converged on every disposition" title="Direct link to 2.1 R1 audio debate v2 converged on every disposition" translate="no">​</a></h3>
+<p>The R1 round originally fired against a too-narrow source set and missed substantive platform knowledge (Linguistic Autonomy, Spec 0017 withdrawal of the domain dropdown, ADR-030 / Spec 0008 / CROSSWALK, corrected JPP framing). After the user&#x27;s four corrections, <strong>a second debate audio</strong> (<code>403efab5</code> &quot;Architectural Boundaries&quot;, fired with a directive to look beyond the editorial source set for conceptual / architectural topics) converged on every disposition in the corrected absorption — open-set SlotKind with Threshold-C promotion; 22→15 starter-library prune; Phase B preset CRUD deferral with platform-default discipline; Phase C trigger-deferred per-key provenance; split-scope Widget→SlotKind rename; governance-softness concern. The audio added <strong>one</strong> concrete contribution: the radiocarbon-truncation example (an archaeologist logging BP 12,000 → silently truncated to year 1200 by a 4-digit-Gregorian default tile). This reframes the 22→15 prune as <strong>research integrity</strong> (data corruption from false defaults), not architectural purity. Cross-discipline: BP dates, regnal years, Hijri, Hebrew anno mundi, Yuan/Tang/Song dynasties, radiocarbon ranges, MYA.</p>
+<p>Reference: <code>docs/devlogs/2026_w21/2026-05-19_2045_slot-taxonomy-r1-absorption.md</code> §&quot;Convergence + extension addendum&quot;.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-three-layer-model-composes-with-already-built-substrate-adr-022">2.2 Three-layer model composes with already-built substrate (ADR-022)<a href="#22-three-layer-model-composes-with-already-built-substrate-adr-022" class="hash-link" aria-label="Direct link to 2.2 Three-layer model composes with already-built substrate (ADR-022)" title="Direct link to 2.2 Three-layer model composes with already-built substrate (ADR-022)" translate="no">​</a></h3>
+<p>The Anchor / ClaimCluster / ArtifactVersion / extractor-framework substrate from <strong>ADR-022</strong> (Plans 1-3 mostly shipped) generalises across every source-type — GLTF_MESH / IIIF_REGION / TEI_XML_ID / AV_FRAGMENT / GIS_GEOMETRY / TABULAR_CELL / PASSAGE_SPAN. ADR-037&#x27;s Layer 1 SlotKind maps directly onto <code>Anchor.source_type</code>; the <code>complies_with</code> modifier is consumed by the export views ADR-022 already specifies; ClaimCluster handles cross-source-type claim synthesis without a new primitive. <strong>ADR-037 is a substrate-aligned ADR, not a new architecture.</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ADR-037 layer</th><th>ADR-022 substrate it pairs with</th></tr></thead><tbody><tr><td>Layer 1 — SlotKind</td><td><code>Anchor.source_type</code> enum</td></tr><tr><td>Layer 2 — SlotModifiers (<code>complies_with</code>)</td><td>Per-slot standards declaration consumed by ADR-030 / Spec 0008 / future TEI + IIIF export views</td></tr><tr><td>Layer 3 — TenantSlotPreset</td><td>Preset recipes carry <code>complies_with</code> once; consumed by all subscribers in the federated preset registry (Phase B)</td></tr></tbody></table>
+<p>Reference: <code>docs/developer/architecture/adr/022-media-architecture-v2-anchor-and-versioned-artifacts.md</code> §A.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-standards-architecture-is-already-in-flight">2.3 Standards architecture is already in flight<a href="#23-standards-architecture-is-already-in-flight" class="hash-link" aria-label="Direct link to 2.3 Standards architecture is already in flight" title="Direct link to 2.3 Standards architecture is already in flight" translate="no">​</a></h3>
+<p>The standards layer the R1 round proposed to add <strong>already exists</strong> as committed platform work:</p>
+<ul>
+<li class=""><strong>ADR-030</strong> — CIDOC + Linked Art Export Profile (Proposed stub; the profile <em>choice</em> — Linked Art JSON vs full-CRM vs SPARQL vs constrained application profile — is independent of ADR-037 ratification).</li>
+<li class=""><strong>Spec 0008</strong> — Citation Framework + CSL: <code>TenantCSLStyle</code> model + <code>epistemic/services/csl_projector.py</code> + <code>citation_renderer.py</code> shipped 2026-05-09.</li>
+<li class=""><strong><code>docs/research/standards/CROSSWALK.md</code></strong> — 12 standards × 9 archetypes coverage matrix (Phase 1 complete 2026-04-23; 53 of 108 cells populated; canonical source).</li>
+<li class=""><strong><code>docs/internal/program/07-standards-sustainability-and-business-model.md</code></strong> — internal/gitignored private context, not a repo-resolvable dependency; strategic positioning summarized here: minimum-viable accepted (DOI, RO-Crate + BagIt, IIIF + Web Annotation, CSL); richer integrations layer on per-pilot.</li>
+</ul>
+<p>ADR-037&#x27;s <code>complies_with</code> modifier is a <strong>single-field addition</strong> that gives this existing architecture a per-slot declaration hook. Phase A is declaration-only (a tenant admin marks &quot;this slot complies with TEI&quot; with no Phase A validation code); downstream consumption flows through the export tooling that already exists or is being built.</p>
+<p>References: ADR-030 §Minimum Contract; Spec 0008 design.md; <code>docs/research/standards/CROSSWALK.md</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-linguistic-autonomy-confirms-accent_fold--script--language-are-universal">2.4 Linguistic Autonomy confirms <code>accent_fold</code> + <code>script</code> + <code>language</code> are universal<a href="#24-linguistic-autonomy-confirms-accent_fold--script--language-are-universal" class="hash-link" aria-label="Direct link to 24-linguistic-autonomy-confirms-accent_fold--script--language-are-universal" title="Direct link to 24-linguistic-autonomy-confirms-accent_fold--script--language-are-universal" translate="no">​</a></h3>
+<p>The R1 round flagged <code>accent_fold</code> and <code>script</code> for &quot;Atlas-extrapolation audit.&quot; This was withdrawn after reading <code>docs/devlogs/2026_w18/2026-05-02_1014_phase-2-linguistic-autonomy.md</code>. Both fields are part of the <strong>Linguistic Autonomy</strong> architectural strand:</p>
+<ul>
+<li class=""><code>script</code> lives in <code>epistemic/services/language_detection/detection.py</code> — Unicode-script-aware (CJK → Han normalisation, modifier-letter <code>Lm</code> exclusion for the §3a.2 Apostrophe Exception covering Greek elision + four apostrophe conventions). Tenant-overridable.</li>
+<li class=""><code>accent_fold</code> carries Policy A (broader recall via diacritic stripping; default for index-time) vs Policy B (precise letter-identity for Scandinavian å, Vietnamese tonal precision, Turkish dotted/dotless I). Per-slot, per-tenant override. Phase-2e Subfield Hybrid Precision (<code>.folded</code> + <code>.raw</code> subfields) handles query-time mixed-policy.</li>
+<li class="">Documented in <code>docs/decisions/2026-05-03_slot-config-capability-flags.md</code> § &quot;Already shipped&quot;.</li>
+<li class="">Long-tail empirical audit at <code>docs/research/2026-05-03_long-tail-fold-audit/findings.md</code>.</li>
+</ul>
+<p>This is the strongest piece of evidence that ADR-037&#x27;s modifier vocabulary is <em>already</em> designed for cross-tenant heterogeneity — not retrofitted from Atlas onto JPP / Visionis.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="25-integrative-tenant-pattern-validates-the-three-layer-model-without-redesign">2.5 Integrative-tenant pattern validates the three-layer model without redesign<a href="#25-integrative-tenant-pattern-validates-the-three-layer-model-without-redesign" class="hash-link" aria-label="Direct link to 2.5 Integrative-tenant pattern validates the three-layer model without redesign" title="Direct link to 2.5 Integrative-tenant pattern validates the three-layer model without redesign" translate="no">​</a></h3>
+<p>A new tenant onboarding pattern emerged that R1 Focus 5 had not anticipated: <strong>integrative tenants spanning humanities + prosopography + settlement archaeology + environmental science + GIS + bioarchaeology + geophysics + AI/ML simultaneously</strong>. The case study (anonymised; local-only at <code>docs/internal/research/2026-05-19_slot-type-taxonomy-round1/08-multi-disciplinary-integrative-tenant-pattern.md</code>) exercises every SlotKind family in the current 10-primitive set:</p>
+<ul>
+<li class="">TEXT + RICHTEXT + multikey → multilingual historical chronicles</li>
+<li class="">NUMBER + numeric_format (year, BP-range, isotope-ratio) → measurements + dates</li>
+<li class="">RELATION + relation_cardinality + target_archetypes → person-to-place, find-to-stratum, sample-to-lab-result chains</li>
+<li class="">MEDIA + media_kinds → drone orthophotos, 3D photogrammetry, geophysics scans</li>
+<li class="">(future GEOMETRY) → polygons for sites, fields, trade routes</li>
+<li class="">(future TIME_RANGE) → fuzzy historical intervals + dynastic periods</li>
+</ul>
+<p><strong>The three-layer model accommodates this without modification.</strong> What&#x27;s missing is <em>surface</em> (MapView, brainstormed at <code>docs/superpowers/plans/2026-05-19-mapview-spatial-anchored-surface-brainstorm.md</code>) and <em>export views</em> (CIDOC / TEI / IIIF Manifest contract) — work that ratification <em>enables</em> but does not produce.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="26-phase-a-typescript-foundation-already-shipped">2.6 Phase A TypeScript foundation already shipped<a href="#26-phase-a-typescript-foundation-already-shipped" class="hash-link" aria-label="Direct link to 2.6 Phase A TypeScript foundation already shipped" title="Direct link to 2.6 Phase A TypeScript foundation already shipped" translate="no">​</a></h3>
+<p><code>spa/src/lib/slot-taxonomy/</code> is on the active branch (<code>p1/slot-taxonomy-r1-handoff</code>, PR #307). The foundation already encodes the R1 absorption findings:</p>
+<ul>
+<li class=""><code>validateModifiers()</code> codifies modifier composition rules (mandatory-when, mutually-exclusive, cardinality — R1 absorption B1).</li>
+<li class=""><code>MULTIKEY_CUSTOM_REVIEW_THRESHOLD = 0.1</code> constant exported for the G2 cron (R1 absorption A5).</li>
+<li class=""><code>PLATFORM_PRESET_NAMES</code> exported as the lint allow-list anchor (R1 absorption A7).</li>
+<li class=""><code>accent_fold</code> + <code>script</code> treated as universal Linguistic Autonomy capabilities (Post-R1 Correction 1).</li>
+<li class=""><code>complies_with</code> modifier present (Post-R1 Correction 3).</li>
+</ul>
+<p>Reference: <code>spa/src/lib/slot-taxonomy/README.md</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="27-sota-notebook-evidence-option-a2--completed">2.7 SOTA notebook evidence (Option A.2 — completed)<a href="#27-sota-notebook-evidence-option-a2--completed" class="hash-link" aria-label="Direct link to 2.7 SOTA notebook evidence (Option A.2 — completed)" title="Direct link to 2.7 SOTA notebook evidence (Option A.2 — completed)" translate="no">​</a></h3>
+<p>The SOTA notebook (id <code>bb0f0210-…</code>) was queried with five ratification-targeted questions. Full evidence at <a class="" href="/ke-docs/internal/research/2026-05-19_slot-type-taxonomy-round1/10-sota-notebook-evidence.md"><code>docs/internal/research/2026-05-19_slot-type-taxonomy-round1/10-sota-notebook-evidence.md</code></a>. Net signal: <strong>strongly supportive</strong> of the three-layer model + <code>complies_with</code> modifier + three-surface contract, with one residual tension (ontology-first vs hybrid relational+JSONB) that does not invalidate ratification.</p>
+<p>Load-bearing external SOTA citations (none are KE-internal restatements):</p>
+<ul>
+<li class="">
+<p><strong>Croissant Baker</strong> (NeurIPS-track 2026) — the closest functional twin of ADR-037&#x27;s <code>complies_with</code>. Slot-level standards binding to HL7/FHIR/DICOM/Schema.org drives <strong>validation, federated cross-site schema verification, packaging-contract drift detection, and metadata-only sharing for restricted data</strong> — exactly the four downstream consumption modes Correction 3 plans for. Also independently demonstrates the structural/semantic split: <em>&quot;clean separation of file-derived structural metadata from CLI-supplied semantic metadata. The structural layer covers file locations, content sizes, checksums, RecordSet schemas, and field data types; the semantic layer covers description, citation, license, creator, and publisher.&quot;</em></p>
+</li>
+<li class="">
+<p><strong>ORKG (Open Research Knowledge Graph)</strong> — uses RDF/OWL/SHACL templates as the parametric layer with domain-specific instantiations at the community level: <em>&quot;Templates based on SHACL restrict and document expected schema patterns for recurring comparison types&quot;</em>; <em>&quot;Established ontologies (e.g., BioAssay Ontology, schema.org/Dataset, QUDT) are imported or aligned as needed for domain coverage.&quot;</em> ORKG is the strongest <strong>counter-architecture</strong> voice — fully ontology-first; pure peer to KE&#x27;s hybrid relational+JSONB choice. ORKG nevertheless re-implements Layers 2 and 3 (templates + predicate clustering), so the <em>three-layer pattern</em> is corroborated even by the architectural alternative.</p>
+</li>
+<li class="">
+<p><strong>CacheRAG (KGQA 2026)</strong> — logical/physical decoupling pattern: User Layer expresses intent naturally; System Layer grounds intent against actual schema. Maps to ADR-037 Layer 3 (preset) → Layer 1+2 (canonical) resolution.</p>
+</li>
+<li class="">
+<p><strong>Dataverse (Harvard FAIR repository)</strong> — public-reader surface with three-level metadata projection: <em>&quot;data citation metadata, which maps to DataCite schema or Dublin Core Terms ... domain-specific metadata, which when possible maps to metadata standards used within a scientific domain ... file-level metadata&quot;</em> — three-tier surface analogous to the three-surface contract.</p>
+</li>
+<li class="">
+<p><strong>Scholix (RDA/WDS federation framework)</strong> — compliance-export hub-exchange contract: <em>&quot;the hubs do not affect existing community-specific practices ... In contrast to the uniformity among the hubs, heterogeneity is a natural part of the outer layer.&quot;</em> Directly anti-discipline-labeling.</p>
+</li>
+<li class="">
+<p><strong>KonsortSWD white paper</strong> (German national-research-data-infrastructure consortium) — directly endorses ADR-037 Correction 2&#x27;s withdrawal of the discipline tier: <em>&quot;research data infrastructures should cooperate with research communities to develop <strong>domain-specific versions of generally accepted standards. Communities should specify how they make use of a certain standard by creating a profile of that standard.</strong>&quot;</em> This is essentially identical to ADR-037&#x27;s <code>complies_with</code> strategy.</p>
+</li>
+<li class="">
+<p><strong>Counter-evidence absorbed</strong>: heterogeneity-erasure critique (<em>&quot;It is like trying to tailor a highly specialized suit using the average measurements of an entire city.&quot;</em>) and historical-fidelity critique (<em>&quot;When the system forces an opinionated structure, it actively destroys the historical fidelity of the data.&quot;</em>) both target <em>bad defaults</em> — ADR-037&#x27;s BP-date silent-truncation example absorbs the same critique via the 22→15 starter-library prune.</p>
+</li>
+<li class="">
+<p><strong>Residual tension</strong> (worth surfacing for review): ORKG is fully ontology-first (RDF + OWL reasoning + SHACL); KE chose hybrid relational+JSONB (ADR-002). ADR-037 does not need to resolve this — it&#x27;s downstream of ADR-002 — but the three-layer model <strong>must map cleanly to RDF/JSON-LD for public-reader interop</strong> with ORKG-style platforms. The Post-R1 Addendum&#x27;s <code>dcterms:conformsTo</code> triples in JSON-LD output is the right hook; the implementation has to actually emit it. Open question item below (§5).</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="27b-standards-notebook-evidence-option-a--completed">2.7b Standards-notebook evidence (Option A — completed)<a href="#27b-standards-notebook-evidence-option-a--completed" class="hash-link" aria-label="Direct link to 2.7b Standards-notebook evidence (Option A — completed)" title="Direct link to 2.7b Standards-notebook evidence (Option A — completed)" translate="no">​</a></h3>
+<p>Five <code>Atlomy-Standards-*</code> notebooks (Metadata / Identifiers / Harvesting / STEM / LOD, ~41 sources total) queried via six ratification-targeted questions. Full evidence at <a class="" href="/ke-docs/internal/research/2026-05-19_slot-type-taxonomy-round1/09-standards-notebook-evidence.md"><code>docs/internal/research/2026-05-19_slot-type-taxonomy-round1/09-standards-notebook-evidence.md</code></a>. Net signal: <strong>strongly ratify</strong>.</p>
+<p>Key load-bearing citations (all external, from the published standards&#x27; own documentation surfaced through the notebooks):</p>
+<ul>
+<li class="">
+<p><strong>Three-layer model is standards-canonical, not novel</strong> — four independent precedents:</p>
+<ul>
+<li class=""><strong>CIDOC-CRM</strong>: Layer 1 = <code>E59 Primitive Value</code> (E60 Number / E61 Time / E62 String / E94 Space / E95 Spacetime); Layer 2 = Properties-of-Properties (<code>.1</code> properties like <code>P14.1 in the role of</code>); Layer 3 = <code>E55 Type</code> hierarchy. <em>&quot;the high-level base classes ... implemented via Properties of Properties ... natively handled by the E55 Type hierarchy ... institutions (tenants) can plug in their own controlled vocabularies, authority files, or domain-specific thesauri without altering the global schema.&quot;</em></li>
+<li class=""><strong>CSL</strong>: <code>variable=&quot;title&quot;</code> (canonical) / <code>form=&quot;short&quot;, plural=&quot;true&quot;</code> (parametric) / APA Style or Locale File (preset).</li>
+<li class=""><strong>BIBFRAME</strong>: Work-Instance-Item (canonical) / Classes-for-Types (modifier) / RDA + community extensions (preset).</li>
+<li class=""><strong>Dataverse</strong>: data-citation metadata (DataCite/DC) / domain-specific metadata / file-level metadata.</li>
+</ul>
+</li>
+<li class="">
+<p><strong><code>complies_with</code> has four independent precedents</strong> at slot/field granularity:</p>
+<ul>
+<li class=""><strong>DCMI <code>dcterms:conformsTo</code></strong> with <code>dcterms:Standard</code> range.</li>
+<li class=""><strong>CIDOC <code>E13 Attribute Assignment</code> + <code>P177 assigned property of type</code></strong> — <em>&quot;the CRM documentation explicitly provides examples where P177 refers to a &#x27;property, external to the CIDOC CRM,&#x27; such as mapping a field to a specific scholarly binding structure type&quot;</em>.</li>
+<li class=""><strong>IIIF <code>profile</code> property</strong> + scoped JSON-LD context for slot-level standard mapping.</li>
+<li class=""><strong>BIBFRAME <code>bf:descriptionConventions</code> on <code>bf:AdminMetadata</code></strong> — <em>&quot;This property is used within the administrative layer to identify the &#x27;Rules used for the descriptive content of the resource description.&#x27;&quot;</em></li>
+</ul>
+</li>
+<li class="">
+<p><strong>The three-surface contract is the OAI-PMH / IIIF / UniProt pattern</strong>:</p>
+<ul>
+<li class=""><strong>OAI-PMH <code>item</code> + <code>metadataPrefix</code></strong>: <em>&quot;defines an <code>item</code> not as a single file, but as a &#x27;container that stores or dynamically generates metadata about a single resource in multiple formats.&#x27; The <code>item</code> acts as the single canonical dataset. The <code>metadataPrefix</code> acts as the projection mechanism.&quot;</em></li>
+<li class=""><strong>CIDOC shortcut-vs-fully-articulated-path</strong>: <em>&quot;a &#x27;fully articulated&#x27; canonical dataset from audience-specific &#x27;shortcuts&#x27; or projections ... A projection is a &#x27;functional equivalent&#x27; designed for a specific application or user task.&quot;</em></li>
+<li class=""><strong>UniProt + HTTP Content Negotiation</strong>: single stable URL + Accept-header drives HTML / TSV / RDF projections.</li>
+</ul>
+</li>
+<li class="">
+<p><strong>The integrative-tenant case decisively favors per-slot compliance over discipline bundles</strong> (5-for-5 finding):</p>
+<ul>
+<li class=""><strong>CIDOC E4-Period-as-cultural-phenomenon-AND-spacetime-volume</strong>: <em>&quot;It is simultaneously treated as a coherent cultural phenomenon (humanities) and an E92 Spacetime Volume (a 4-dimensional point set in physical spacetime). This allows an archaeologist to query the exact GIS polygons (E94 Space Primitive) of a settlement, while a historian queries the cultural activities that took place there, all within the exact same canonical entity.&quot;</em> This is the integrative-tenant pattern&#x27;s exact use case.</li>
+<li class=""><strong>BIBFRAME 40+-year vocabulary-drift warning</strong> against coordinating dozens of independent discipline ontologies.</li>
+<li class=""><strong>FAIR R1.3 + I3 qualified-reference pattern</strong> — per-slot compliance, not discipline bundles.</li>
+<li class=""><strong>Bespoke-parser sustainability warning</strong> — generalized interoperability over discipline-specific code.</li>
+</ul>
+</li>
+<li class="">
+<p><strong>ClaimCluster substrate is supported by the literature</strong> (validates ADR-022 composition):</p>
+<ul>
+<li class=""><strong>W3C Web Annotation body→[targets]</strong>: one Body (claim) + multiple Targets (attestations).</li>
+<li class=""><strong>CIDOC <code>E13</code> + <code>P16 used specific object</code></strong> + <strong>CRMinf I2 Belief / I4 Proposition Set</strong> (formal argumentation chain).</li>
+<li class=""><strong>CRMtex <code>TX14 Reading</code></strong>: <em>&quot;As shown in the Antikythera mechanism example, a single &#x27;Reading&#x27; activity can synthesize a physical fragment (TX1), a computer x-ray tomography image (E36), and an auxiliary information object to recognize a specific grapheme sequence (TX12).&quot;</em> This is the exact integrative-tenant attestation pattern.</li>
+</ul>
+</li>
+<li class="">
+<p><strong>No standards-research finding contradicts the model.</strong> Where the literature pushes back, it does so against <em>more aggressive</em> shapes: against polymorphic-class explosion (LRMoo deprecated F14/F15/F19 in favor of generic F1 Work), against shapes-first validation that flattens provenance, against rigid domain/range enforcement (BIBFRAME), against property proliferation, against discipline-named bundles. <strong>These critiques reinforce ADR-037 by warning against the alternatives.</strong></p>
+</li>
+<li class="">
+<p><strong>One absorbable nuance</strong> worth surfacing for ratification reviewers: CIDOC&#x27;s <em>&quot;all properties are the opinion of someone&quot;</em> framing. Slot-level assertions are reified arguments. ADR-022 + ADR-037 substrate already handles this via DecisionEvent + ClaimCluster + the planned <code>complies_with</code> provenance — but the framing could be strengthened in the Acceptance discussion to make the reification explicit. Recommend a one-paragraph addition to ADR-037 §Acceptance acknowledging reified-arguments framing.</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="28-r2-notebooklm-round-option-b--partial-firing-all-44-completed--downloaded-transcripts-pending">2.8 R2 NotebookLM round (Option B) — partial firing, ALL 4/4 completed + downloaded, transcripts pending<a href="#28-r2-notebooklm-round-option-b--partial-firing-all-44-completed--downloaded-transcripts-pending" class="hash-link" aria-label="Direct link to 2.8 R2 NotebookLM round (Option B) — partial firing, ALL 4/4 completed + downloaded, transcripts pending" title="Direct link to 2.8 R2 NotebookLM round (Option B) — partial firing, ALL 4/4 completed + downloaded, transcripts pending" translate="no">​</a></h3>
+<p><strong>Status: PARTIAL-SUCCESS.</strong> 5 of 12 R2 sources uploaded (notebook source-cap blocked the rest); all 4 studio artifacts fired and ALL 4 completed and were downloaded. Audio re-upload as queryable transcripts blocked by the same source cap; audio + video files are preserved at <code>docs/internal/research/2026-05-19_slot-type-taxonomy-round1/r2-artifacts/</code>.</p>
+<p><strong>Sources uploaded (5)</strong>: R2-01 corrected ADR-037 (binding artifact), R2-04 ADR-030 CIDOC + Linked Art export profile, R2-08 corrected tenant primer, R2-09 integrative tenant pattern, and the label boundary marker. The 4 source IDs are recorded in <a class="" href="/ke-docs/internal/research/2026-05-19_slot-type-taxonomy-round1/r2-firing-log.md">r2-firing-log.md §1</a>.</p>
+<p><strong>Sources NOT uploaded (7)</strong>: R2-02 (Linguistic Autonomy devlog), R2-03 (ADR-022 substrate doc), R2-05 (Spec 0008 design), R2-06 (CROSSWALK matrix), R2-07 (corrected platform learnings), R2-10 (R1 absorption corrections), R2-11 (Standards-notebook evidence), R2-12 (SOTA-notebook evidence). After ~5 successful uploads, all subsequent <code>source_add</code> calls returned <code>&quot;Could not add source&quot;</code> regardless of source_type (file, text, URL), file size, content, or path-form. Multiple retry waits (30s, 60s, 120s) did not recover the write path. Strongly resembles a per-notebook source cap or write-rate limit; tiny test text uploads also failed, ruling out content-specific issues. (Note: the 7 unuploaded files are <em>also</em> primary sources, but the load-bearing ones for the corrected ADR — binding artifact, integrative-tenant pattern, corrected tenant primer, ADR-030 export profile — DID land. Linguistic Autonomy + CROSSWALK + Standards/SOTA evidence reach the studio jobs at one degree of separation via R1 sources already in the notebook + the corrected ADR-037 text itself.)</p>
+<p><strong>Studio artifacts fired (4 of 4 successful, 3 of 4 completed + downloaded)</strong>:</p>
+<ul>
+<li class="">Audio critique (prescriptive): <code>1a6674ae-9be9-4646-9cb2-150f3d4ce329</code> — <strong>completed</strong>. NotebookLM title: <em>&quot;Structural Fixes for ADR-037 Ratification&quot;</em>. Saved to <code>docs/internal/research/2026-05-19_slot-type-taxonomy-round1/r2-artifacts/r2-artifact-1-prescriptive.m4a</code>.</li>
+<li class="">Audio critique (open): <code>45c59e69-eb74-4b3c-8083-2a7f65d34ad4</code> — <strong>completed</strong>. NotebookLM title: <em>&quot;Bulletproofing Platform Taxonomy and Cache Coherence&quot;</em>. Saved to <code>r2-artifacts/r2-artifact-2-open-critique.m4a</code>.</li>
+<li class="">Audio debate: <code>72d54da0-93cc-4d04-8d19-304864fa370e</code> — <strong>completed</strong>. NotebookLM title: <em>&quot;Should We Ratify ADR-037 Now&quot;</em>. Saved to <code>r2-artifacts/r2-artifact-3-debate.m4a</code>.</li>
+<li class="">Video explainer: <code>768de0f4-1634-4851-9315-19f6063d1954</code> — <strong>completed</strong> at ~100 min total. NotebookLM title: <em>&quot;R2 Ratification of ADR-037&quot;</em> (literal restatement of the round&#x27;s purpose). Saved to <code>r2-artifacts/r2-artifact-4-explainer.mp4</code>.</li>
+</ul>
+<p>The MCP <code>download_artifact</code> tool returned errors for all 4 even after completion; the working path was direct curl on the <code>audio_url</code> / <code>video_url</code> field from <code>studio_status</code> JSON. This is a useful failure-mode note for the foundation skill: prefer URL-direct curl over MCP <code>download_artifact</code> when the latter errors. Transcripts could NOT be re-uploaded as queryable sources (notebook source-cap still hit on the audio re-upload attempt), so <code>source_get_content</code> cannot extract verbatim text — the audio files remain on disk for human review. Custom_instructions encoded the corrected baseline as fixed constraints for all 4 (verified post-firing via studio_status JSON).</p>
+<p><strong>Title-level convergence with the corrected baseline</strong> (forensic inference until transcripts are read): the four completed titles engage with the ratification frame (&quot;Should We Ratify ADR-037 Now&quot;), the operational risk surface (&quot;Bulletproofing Platform Taxonomy and Cache Coherence&quot;), the §Acceptance amendment surface (&quot;Structural Fixes for ADR-037 Ratification&quot;), and the explainer purpose (&quot;R2 Ratification of ADR-037&quot;). None signal architectural rejection. The debate&#x27;s title literally restates the question and resolves to &quot;now&quot; — consistent with D.2. The explainer&#x27;s title is the most direct possible — it restates the round&#x27;s purpose, suggesting the model treated the ratification as the legitimate frame rather than re-litigating the corrected baseline.</p>
+<p><strong>Path-form correction</strong>: the task brief instructed <code>file_path=&quot;C:\\tmp\\ke-r2\\...&quot;</code> (double-backslash Windows form). This form <strong>failed</strong> on every attempt. The form that <strong>succeeded</strong> was <code>file_path=&quot;C:/tmp/ke-r2/...&quot;</code> (Windows drive letter with forward slashes). The <code>notebooklm-foundation</code> skill should be updated to reflect the working path-form.</p>
+<p><strong>Implication for ratification</strong>: R2 firing is durable (artifact IDs preserved); transcripts will be readable when the studio jobs complete naturally. <strong>§6 recommendation is unchanged from D.2 (binding-shape ratification + decision-log deferrals)</strong> — the standards-notebook (§2.7b) and SOTA-notebook (§2.7) lanes returned strongly positive evidence today as independent corroboration; the R2 transcripts will either confirm-or-strengthen (no change to D.2 needed) or surface a concern (would warrant a §6 revision in a follow-up session). The next session should poll once, download whichever artifacts have completed, read transcripts, and update r2-firing-log.md §3 (Findings per artifact) + this §2.8 paragraph with the absorption summary.</p>
+<p><strong>One pre-named nuance</strong> worth absorbing into ADR-037 §Acceptance regardless of R2 transcript outcome (carried forward from §2.7b Standards-notebook lane):</p>
+<blockquote>
+<p><em>CIDOC CRM frames every assertion as &quot;the opinion of someone&quot; — every property is intrinsically reified to its actor. ADR-037 <code>complies_with</code> modifier (Phase A.2) is well-positioned to absorb this, but ADR-037 §Acceptance currently does NOT make reified-arguments explicit.</em></p>
+</blockquote>
+<p><strong>Calibration note for the round-cycle skill</strong>: the <code>notebooklm-foundation</code> skill needs two amendments: (1) path convention — Windows form with <strong>forward slashes</strong> (<code>C:/tmp/...</code>) is the working form, not double-backslashes; (2) per-notebook source cap awareness — after N successful uploads to a notebook with many existing sources, additions can hard-fail with <code>&quot;Could not add source&quot;</code> regardless of input, suggesting batches &gt;5 in a heavily-populated notebook should be split across notebooks or attempted on a fresh notebook.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="28e-post-absorption-place--time_period-archetype-reconsideration-user-evidence-recount">2.8.e Post-absorption: PLACE + TIME_PERIOD archetype reconsideration (user-evidence recount)<a href="#28e-post-absorption-place--time_period-archetype-reconsideration-user-evidence-recount" class="hash-link" aria-label="Direct link to 2.8.e Post-absorption: PLACE + TIME_PERIOD archetype reconsideration (user-evidence recount)" title="Direct link to 2.8.e Post-absorption: PLACE + TIME_PERIOD archetype reconsideration (user-evidence recount)" translate="no">​</a></h3>
+<p>Triggered after the R2 absorption (§2.8.d) by the user pointing out that the tenant-evidence base for PLACE + TIME_PERIOD is larger than the absorption initially treated. Schema-evidence file at <a class="" href="/ke-docs/internal/research/2026-05-19_slot-type-taxonomy-round1/11-tenant-schema-inference-place-period.md"><code>11-tenant-schema-inference-place-period.md</code></a> (gitignored).</p>
+<p><strong>Tenant-evidence recount</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Tenant</th><th>PLACE evidence</th><th>TIME_PERIOD evidence</th><th>Calendar systems</th></tr></thead><tbody><tr><td>Atlas</td><td>Implicit (author/treatise place attribution)</td><td>Implicit (BC/AD century-grain, lifespan years)</td><td>Gregorian (BC/AD)</td></tr><tr><td>JPP</td><td><strong>Overwhelming</strong> — 4,540 <code>places</code> rows + 3,531 <code>coordinate</code> rows + 5 junction tables (<code>persons_places</code>, <code>reports_places</code>, <code>activities_places</code>)</td><td><strong>Overwhelming</strong> — 231 <code>periods</code> rows + startYear/endYear + 2 junction tables (<code>persons_periods</code>, <code>reports_periods</code>)</td><td>Gregorian + dynastic types</td></tr><tr><td>Visionis</td><td><strong>Overwhelming</strong> — dedicated <code>LOCATION</code> archetype with FK from <code>MAIN</code></td><td><strong>Overwhelming</strong> — dedicated <code>TIME</code> archetype with CIDOC-E4-Period-shape rich thematics (8 thematic axes) + <code>OUT</code> companion sheet</td><td><strong>Hijri + Gregorian dual-calendar in AUTHOR data</strong> (<code>TIME OF LIVING HIJRI</code>, <code>TIME OF LIVING GREGOR</code> columns side-by-side)</td></tr><tr><td>Integrative tenant</td><td><strong>Overwhelming</strong> — sites + city polygons + raster overlays + linestrings + drill cores</td><td><strong>Overwhelming</strong> — dynastic + Hijri + Hebrew AM + BP + radiocarbon + MYA + stratigraphic</td><td>5-6 calendar systems concurrent</td></tr></tbody></table>
+<p><strong>4 tenants with first-class PLACE + TIME_PERIOD queries; ≥5 distinct calendar systems in actual tenant authoring.</strong> The CROSSWALK Phase 1 deferral on Clause 1 family-count failure is overridden by the same TERM-precedent reasoning used in Phase 1 itself (&quot;tenant evidence is overwhelming + governance need passes → net verdict: KEEP, despite Clause 1 family count&quot;).</p>
+<p><strong>Visionis <code>TIME</code> shape is CIDOC E4 (Period-as-cultural-phenomenon), not E52 (Time-Span)</strong> — the TIME archetype carries 8+ thematic axes (theological debates / legal developments / scientific innovations / literary practices / etc.). Strong evidence that TIME_PERIOD must support structured thematic slots, not just startYear/endYear interval. PERIOD-as-archetype is materially different from TIME_RANGE-as-SlotKind; both compose.</p>
+<p><strong>ADRs queued (post-D.2 ratification; orthogonal to D.2 itself)</strong>:</p>
+<ol>
+<li class=""><strong>TIME_PERIOD archetype promotion ADR</strong> (smaller scope; text-centric; no spatial dependency; can move independently). G3 demonstration: JSON-LD via PeriodO URIs + CIDOC E4 + dcterms:PeriodOfTime; workspace period picker; RO-Crate + CIDOC-XML + TEI <code>&lt;period&gt;</code> exports.</li>
+<li class=""><strong>PLACE archetype promotion ADR + PostGIS / GeoSPARQL substrate decision</strong> (paired; larger scope; gated by Spec 0019 MapView design.md). G3 demonstration: JSON-LD via GeoSPARQL + CIDOC E53 + Pleiades Q-ID; MapView with polygon + point + label rendering; GeoJSON + IIIF-Presentation Manifest + CIDOC-XML exports. The PostGIS substrate decision was named in the May 7 archetype-generality research recommendation (<code>docs/research/2026-05-07_archetype-generality/04-recommendation.md</code> §4) as &quot;dedicated ADR when first archaeology/biodiversity tenant onboards&quot; — that trigger is now met.</li>
+<li class=""><strong>CROSSWALK Phase 1.5 extension research</strong> (background subagent dispatched 2026-05-20). Adds PeriodO + GeoSPARQL + GeoJSON + CRMarchaeo + CRMsci + Darwin Core + Pleiades/GeoNames/Wikidata Q-IDs + PROV-O + RO-Crate to the matrix. Re-runs Clause 1 for PLACE + TIME_PERIOD with extended standards set (expected: both pass Clause 1 formally, independent of the TERM-precedent path). Output at <code>docs/research/standards/CROSSWALK_extensions_2026-05-20.md</code>.</li>
+</ol>
+<p><strong>ADR-037 amendment added (B3)</strong>: <code>multikey_kind</code> enum gains a <code>calendar</code> value (in addition to language / register / script / edition / custom). Visionis dual-calendar authoring (Hijri + Gregorian) is direct empirical evidence that the multikey_kind=calendar pattern is the architecturally-correct shape for multi-calendar tenant data — analogous to multikey_kind=language for multilingual text.</p>
+<p><strong>Recommendation unchanged from §6: D.2 — Binding-shape ratification + decision-log deferrals.</strong> The archetype reconsideration is orthogonal — lands as 2 separate post-ratification ADRs, not as a D.2 blocker. The G3 three-surface demonstration gate (from R2 absorption B1) becomes the engineering test for both archetype promotions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="28d-r2-absorption-open-critique-transcript-read">2.8.d R2 absorption (open-critique transcript read)<a href="#28d-r2-absorption-open-critique-transcript-read" class="hash-link" aria-label="Direct link to 2.8.d R2 absorption (open-critique transcript read)" title="Direct link to 2.8.d R2 absorption (open-critique transcript read)" translate="no">​</a></h3>
+<p>Full absorption devlog at <a class="" href="/ke-docs/devlogs/2026_w21/2026-05-20_0030_slot-taxonomy-r2-absorption.md"><code>docs/devlogs/2026_w21/2026-05-20_0030_slot-taxonomy-r2-absorption.md</code></a>. Net signal: <strong>strongly reinforces D.2</strong> + adds two new structural guardrails + one mechanism sharpening.</p>
+<p><strong>Transcript source</strong>: open-critique audio (<code>45c59e69-…</code> on the original notebook, <code>4cb68da1-…</code> re-uploaded to the fresh notebook for <code>source_get_content</code>). 12,152 char verbatim transcript. Title: <em>&quot;Bulletproofing Slot Taxonomy&quot;</em>.</p>
+<p><strong>4 concerns surfaced; dispositions</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>ID</th><th>Concern</th><th>Disposition</th></tr></thead><tbody><tr><td><strong>A1</strong></td><td>Phase A.1/A.2 cache-coherence (Tanstack query stale-snapshot UI lies to user)</td><td><strong>AMEND ADR-037 §Migration plan</strong> — sharpens R1 A4 with a 7-day-in-dev-DB-with-zero-rollbacks gating criterion for A.1 → A.2 transition.</td></tr><tr><td><strong>A2</strong></td><td>Governance softness — <code>multikey_kind=custom</code> escape hatch bends under commercial pressure</td><td><strong>AMEND ADR-037 §Evolution G2</strong> — change mechanism from &quot;daily cron + Slack alert + runtime write-block&quot; to <strong>&quot;build-time CI failure&quot;</strong> when measured density exceeds 10% threshold. Retain cron as secondary alert path. Shifts the gate forward to PR-merge time; &quot;deployment fails the compile&quot;.</td></tr><tr><td><strong>B1</strong></td><td>Three-surface contract under hostile integrative tenant: silent drop, corrupted-string payload, empty render</td><td><strong>AMEND ADR-037 §Acceptance — file G3 Three-Surface Demonstration Gate</strong>. Any new Layer-1 SlotKind landing via Threshold-C amendment must demonstrate all three rendering paths (public reader JSON-LD; research workspace cell editor; compliance export RO-Crate/BagIt/TEI/CIDOC/IIIF/CSL) via test fixtures before merge. Failure modes named. Does NOT fire on D.2 ratification (no new Layer-1 kinds today); fires on GEOMETRY/TIME_RANGE when Spec 0019 MapView lands.</td></tr><tr><td><strong>B2</strong></td><td><code>dcterms:conformsTo</code> triples insufficient for ontology-first peer interop — needs SHACL shape validation against frozen fixtures</td><td><strong>DEFER to ADR-030 ratification + file decision-log entry as ADR-030 prerequisite.</strong> ADR-030 must publish frozen test fixtures + SHACL validation shapes + a Jena-Fuseki-class external ingestion test before promotion. SHACL is profile-specific (Getty Linked Art SHACL shapes exist; CIDOC-CRMinst is the official CRM validator); the work is connecting them to the KE export pipeline. Cross-references from ADR-037 §Post-R1 Addendum §&quot;Three-surface publication contract&quot;.</td></tr></tbody></table>
+<p><strong>ADR-037 amendments (4) consolidated</strong> — land before Phase A.1 backend OR alongside D.2 ratification:</p>
+<ol>
+<li class="">§Migration plan A.1→A.2 transition criterion (A1).</li>
+<li class="">§Evolution G2 mechanism: build-time CI failure (A2).</li>
+<li class="">§Acceptance G3 Three-Surface Demonstration Gate (B1).</li>
+<li class="">§Acceptance CIDOC reified-arguments framing paragraph (the §2.7b absorbable nuance; orthogonal to G3 but worth landing together).</li>
+</ol>
+<p>Plus one decision-log entry: ADR-030 SHACL shape prerequisite (B2).</p>
+<p><strong>Round-3 verdict</strong>: NOT warranted now. R3 trigger condition: Phase A.1 backend ships + G2 build-time CI gate + G3 test fixtures implemented + GEOMETRY/TIME_RANGE SlotKind amendment lands. Source scoping cross-round at that point.</p>
+<p><strong>Recommendation unchanged from §6: D.2 — Binding-shape ratification + decision-log deferrals.</strong> The 4 ADR-037 amendments + 1 decision-log entry above are absorbed into the D.2 work, not blockers against it.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="28c-fresh-notebook-upload--studio-firing-user-requested-third-wave-this-session">2.8.c Fresh-notebook upload + studio firing (user-requested third wave, this session)<a href="#28c-fresh-notebook-upload--studio-firing-user-requested-third-wave-this-session" class="hash-link" aria-label="Direct link to 2.8.c Fresh-notebook upload + studio firing (user-requested third wave, this session)" title="Direct link to 2.8.c Fresh-notebook upload + studio firing (user-requested third wave, this session)" translate="no">​</a></h3>
+<p>After empirical confirmation that <code>source_add</code> was failing against the original notebook even with the documented <code>C:\tmp\...</code> path form, the user directed firing in a fresh notebook. New notebook created: <strong>KE — ADR-037 Ratification (R2 + extras) — 2026-05-20</strong> (id <code>f34105cd-d3e3-47df-a1b1-f3981951b4ad</code>, URL <a href="https://notebooklm.google.com/notebook/f34105cd-d3e3-47df-a1b1-f3981951b4ad" target="_blank" rel="noopener noreferrer" class="">https://notebooklm.google.com/notebook/f34105cd-d3e3-47df-a1b1-f3981951b4ad</a>). <strong>All 13 R2 sources uploaded successfully on first attempt</strong> using <code>source_type=file</code> + <code>file_path=&quot;C:\tmp\ke-r2\R2-XX-...md&quot;</code> (single-backslash form per the foundation skill).</p>
+<p><strong>Sources on the fresh notebook (13/13)</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>#</th><th>Title</th><th>source_id</th></tr></thead><tbody><tr><td>01</td><td>R2 — ADR-037 corrected (binding artifact)</td><td><code>a04f4c5f-3874-4eca-93ce-84587e1717f5</code></td></tr><tr><td>02</td><td>R2 — Phase 2 Linguistic Autonomy devlog</td><td><code>43568b1d-3c8d-46e2-a777-d615f7e7b138</code></td></tr><tr><td>03</td><td>R2 — ADR-022 layered-claims substrate</td><td><code>438a8c3f-56eb-4516-a787-e16d8970d37d</code></td></tr><tr><td>04</td><td>R2 — ADR-030 CIDOC + Linked Art export profile</td><td><code>4779fb14-bbd1-44cf-8f7f-ba7a6667af34</code></td></tr><tr><td>05</td><td>R2 — Spec 0008 Citation Framework + CSL design</td><td><code>5309eda1-6bf7-4b82-bb3c-6d35a69927ff</code></td></tr><tr><td>06</td><td>R2 — Standards crosswalk matrix</td><td><code>966cc822-8225-4f99-87b9-1c91481606c4</code></td></tr><tr><td>07</td><td>R2 — Platform learnings (corrected JPP)</td><td><code>ef2df076-349c-4566-b5ea-1d045ef5fd56</code></td></tr><tr><td>08</td><td>R2 — Tenant needs primer (corrected)</td><td><code>58549785-6056-44c1-b0eb-76b30a3ecb02</code></td></tr><tr><td>09</td><td>R2 — Integrative tenant pattern (anonymised)</td><td><code>7c8c5ac8-64ba-44a9-904f-28f875fddf71</code></td></tr><tr><td>10</td><td>R2 — R1 absorption + Post-user-review corrections</td><td><code>b2d66f7f-4aac-48cd-8f66-745664454344</code></td></tr><tr><td>11</td><td>R2 — Standards-notebook evidence (Option A)</td><td><code>acf2d941-a15c-4dfd-849c-3c648ea4b839</code></td></tr><tr><td>12</td><td>R2 — SOTA notebook evidence (Option A.2)</td><td><code>d30c08f8-958b-43be-82da-524d9b26cc28</code></td></tr><tr><td>13</td><td>R2 — ADR-037 Ratification Brief (overnight session)</td><td><code>241c8856-17ce-430b-8d02-5b79a47870fa</code></td></tr></tbody></table>
+<p><strong>Studio artifacts (5 planned; 2 fired, 3 rate-limited; will retry)</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Artifact</th><th>Status</th><th>artifact_id</th></tr></thead><tbody><tr><td>Character explainer (Dot/Pip/Walrus papercraft)</td><td><strong>FIRED, in_progress</strong></td><td><code>488bbc45-5047-4a84-86f0-83fb8f67ea99</code></td></tr><tr><td>Report (Briefing Doc, ADR-037-scoped)</td><td><strong>FIRED, in_progress</strong></td><td><code>65b9deb3-14fc-4c5e-9916-2895d64a92f9</code></td></tr><tr><td>Audio deep dive</td><td>RATE LIMITED (retry)</td><td>n/a</td></tr><tr><td>Audio debate</td><td>RATE LIMITED (retry)</td><td>n/a</td></tr><tr><td>Cinematic video</td><td>RATE LIMITED (retry)</td><td>n/a</td></tr></tbody></table>
+<p>The rate limit is account-wide (older in-flight studio jobs on the original notebook consume the concurrency budget). Retry path: wait a few minutes, then re-fire the 3 remaining.</p>
+<p><strong>Calibration finding — supersedes §2.8.b path-form note</strong>: the actual blocker on the original notebook was <strong>NOT</strong> auth, NOT path form, and NOT a per-notebook source cap. The original notebook has 200+ sources and was failing <code>source_add</code> consistently for both file and text types since ~00:04. The fresh notebook (zero existing sources) accepted all 13 file uploads on first attempt with the same path form, same auth state, same time window. The diagnosis remains open — possibly a stale per-notebook lock, a transient NotebookLM backend issue on that specific notebook, or a server-side resource cap that isn&#x27;t documented. The actionable rule: <strong>if <code>source_add</code> starts failing consistently against a heavily-populated notebook, try a fresh notebook before debugging auth or path conventions further.</strong></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="28b-additional-artifacts-fired-user-requested-second-wave-this-session">2.8.b Additional artifacts fired (user-requested second wave, this session)<a href="#28b-additional-artifacts-fired-user-requested-second-wave-this-session" class="hash-link" aria-label="Direct link to 2.8.b Additional artifacts fired (user-requested second wave, this session)" title="Direct link to 2.8.b Additional artifacts fired (user-requested second wave, this session)" translate="no">​</a></h3>
+<p>After the user surfaced the R2 subagent&#x27;s repeated source-upload failures, the foreground takeover fired four additional studio artifacts directly per the user&#x27;s explicit asks. Two succeeded; two hit the same NotebookLM &quot;wait a few minutes&quot; rate limit even after multiple retries.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>User-requested artifact</th><th>Status</th><th>Artifact ID</th></tr></thead><tbody><tr><td>Audio deep dive</td><td><strong>RATE LIMITED</strong> — multiple retries returned &quot;wait a few minutes&quot;. Not fired.</td><td>n/a</td></tr><tr><td>Cinematic video</td><td><strong>RATE LIMITED</strong> — multiple retries returned &quot;wait a few minutes&quot;. Not fired.</td><td>n/a</td></tr><tr><td>Character explainer (Dot/Pip/Walrus papercraft)</td><td><strong>FIRED, in_progress</strong></td><td><code>b0b04f80-54a1-4477-a5a0-6a26923cbbe3</code></td></tr><tr><td>Report (Briefing Doc)</td><td><strong>FIRED + completed + downloaded</strong></td><td><code>8d230148-8b90-4194-8f10-aacb734cce46</code></td></tr></tbody></table>
+<p>The two rate-limited slots are deferrable: deep dive overlaps substantively with the already-completed open-critique audio (which carries a research-integrity reframing of the corrected baseline); cinematic video overlaps substantively with the already-in-progress generic explainer (which the §2.8 subagent fired). The character explainer + briefing-doc report are net-new and complement the existing set.</p>
+<p>The character video uses the canonical Dot / Pip / Walrus cast per <code>skills/notebooklm-character-assets</code>: DOT plays the integrative researcher whose BP-12,000 date gets silently truncated by the old picker; PIP walks the three layers; THE WALRUS provides the substrate context (ADR-022 already built; ADR-030 + Spec 0008 in flight). Visual style is fenced from narrative content per the skill&#x27;s field-separation table.</p>
+<p>The briefing-doc report <strong>completed and was downloaded as real markdown</strong> to <a class="" href="/ke-docs/internal/research/2026-05-19_slot-type-taxonomy-round1/r2-artifacts/r2-artifact-5-briefing-doc.md"><code>r2-artifact-5-briefing-doc.md</code></a>. However, the model interpreted the focus prompt against the <strong>full notebook scope</strong> (200+ sources) rather than the corrected-baseline subset — the resulting doc is titled <em>&quot;Atlomy Platform Principles and Architectural Strategy: Briefing Document&quot;</em> and is broader than the requested ADR-037 ratification reviewer aid. It still contains useful framing (foundational principle restated; lifecycle of truth; v4 import wizard; long-value guard; projection-first Entry Surface) but the specific D.1/D.2/D.3 ratification frame from the brief did NOT make it into the report. <strong>For a tighter ADR-037-only briefing doc, the next session can re-fire <code>studio_create(artifact_type=report)</code> with <code>source_ids</code> scoped to just the R2-uploaded + R1 sources rather than full notebook.</strong></p>
+<p><strong>Calibration finding (correcting §2.8)</strong>: the §2.8 paragraph claimed direct curl on the <code>audio_url</code> field from <code>studio_status</code> JSON was the reliable download path after MCP <code>download_artifact</code> failed. <strong>This claim is wrong.</strong> Verification: the four &quot;downloaded&quot; m4a/mp4 files in <code>r2-artifacts/</code> from the subagent&#x27;s direct-curl pass were actually <strong>HTML Google sign-in pages</strong> (~900KB each, <code>file</code> command identifies them as <code>HTML document, ASCII text</code>) — direct curl does not carry MCP session auth. The MCP <code>download_artifact</code> tool DID work intermittently: it succeeded for the open-critique audio (23MB legitimate ISO Media MPEG v4 file at <code>r2-artifact-2-open-critique.m4a</code>) and for the briefing-doc report, but failed for the other audios when retried, likely due to download-side rate limiting. The right calibration finding is: <strong>MCP <code>download_artifact</code> is the only authenticated download path</strong>; if it errors transiently, retry after rate limit clears rather than falling back to direct curl. Foundation skill should note this explicitly.</p>
+<p>The HTML sign-in junk files have been removed from <code>r2-artifacts/</code>; only the legitimate open-critique audio + briefing-doc remain locally. The other 3 completed audios + 1 video are still queryable in the notebook UI; next session can re-attempt <code>download_artifact</code> after the throttle clears.</p>
+<p><strong>Path-form note (confirms §2.8 finding)</strong>: the foreground takeover hit the same <code>Could not add ... source.</code> error using both <code>C:\\tmp\\...</code> (double-backslash) and <code>C:/tmp/...</code> (forward-slash) forms — confirming the per-notebook source-cap diagnosis. The studio_create rate limit, source-add cap, and download rate limit are all independent throttles; rename paths remained operational throughout.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-falsifying-conditions">3. Falsifying conditions<a href="#3-falsifying-conditions" class="hash-link" aria-label="Direct link to 3. Falsifying conditions" title="Direct link to 3. Falsifying conditions" translate="no">​</a></h2>
+<p>What would have to be true for ADR-037 to be the wrong architecture? For each, what evidence rules it out OR what residual risk it carries.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="f1--the-three-layer-model-is-wrong-for-some-tenants-data-shape">F1 — &quot;The three-layer model is wrong for some tenant&#x27;s data shape.&quot;<a href="#f1--the-three-layer-model-is-wrong-for-some-tenants-data-shape" class="hash-link" aria-label="Direct link to F1 — &quot;The three-layer model is wrong for some tenant&#x27;s data shape.&quot;" title="Direct link to F1 — &quot;The three-layer model is wrong for some tenant&#x27;s data shape.&quot;" translate="no">​</a></h3>
+<p><strong>Rule-out evidence</strong>: ADR-022&#x27;s Anchor primitive already routes every source-type the platform supports (GLTF / IIIF / TEI / AV / GIS / TABULAR / PASSAGE_SPAN). The integrative-tenant pattern exercises all 10 SlotKinds + the proposed Phase-A-promoted GEOMETRY/TIME_RANGE additions without re-architecture. Independently, the standards literature (FRBRoo W-E-M-I tiers; CIDOC E-class separations; TEI&#x27;s class/element separation) arrives at canonical-vs-interpretive separations of the same shape.</p>
+<p><strong>Residual risk</strong>: a tenant whose data shape needs cell-level dynamic per-row schema variance (Coda-style formula expressions, cell-references-in-formulas, conditional logic). ADR-037 §A6 hostile-tenant case (R1 absorption) names this and refuses architecturally — the tenant onboards with their data shape but without the formula feature, OR uses a downstream tool for derived values.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="f2--complies_with-is-the-wrong-shape-for-slot-level-standards-interop">F2 — &quot;<code>complies_with</code> is the wrong shape for slot-level standards interop.&quot;<a href="#f2--complies_with-is-the-wrong-shape-for-slot-level-standards-interop" class="hash-link" aria-label="Direct link to f2--complies_with-is-the-wrong-shape-for-slot-level-standards-interop" title="Direct link to f2--complies_with-is-the-wrong-shape-for-slot-level-standards-interop" translate="no">​</a></h3>
+<p><strong>Rule-out evidence</strong>: ADR-030 is a Proposed stub that explicitly defers the profile-choice decision until ratified; Spec 0008 ships CSL operationally but doesn&#x27;t carry a slot-level declaration mechanism; CROSSWALK.md is a 12×9 matrix, not a per-slot binding. The <code>complies_with</code> modifier fills exactly the gap downstream export tooling will need to know which slots project into which standards-aligned output.</p>
+<p><strong>Residual risk</strong>: ADR-030 ratification (when it lands) could land on a profile shape that supersedes slot-level <code>complies_with</code> — e.g., a per-archetype declaration with derived slot inheritance, or a SHACL-shape-driven approach with slot inference. Mitigation: <code>complies_with</code> is declaration-only in Phase A; no Phase A code validates it. If ADR-030 supersedes it, the column drops in a future migration with no downstream code rework.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="f3--the-integrative-tenant-pattern-would-be-better-served-by-a-4th-tier-discipline--community-layer">F3 — &quot;The integrative-tenant pattern would be better served by a 4th tier (discipline / community layer).&quot;<a href="#f3--the-integrative-tenant-pattern-would-be-better-served-by-a-4th-tier-discipline--community-layer" class="hash-link" aria-label="Direct link to F3 — &quot;The integrative-tenant pattern would be better served by a 4th tier (discipline / community layer).&quot;" title="Direct link to F3 — &quot;The integrative-tenant pattern would be better served by a 4th tier (discipline / community layer).&quot;" translate="no">​</a></h3>
+<p><strong>Rule-out evidence</strong>: Spec 0017 design.md (2026-05-17 ratification walk) explicitly withdrew the domain-archetype dropdown for three reasons that scale to a discipline-library proposal: (1) onboarding friction conflicts with the make-or-break first-import design constraint; (2) any fixed enum mis-categorises researchers from non-registered fields; (3) within-domain heterogeneity is severe — within &quot;humanities&quot; alone, Classics is epistemically more distant from music theory or media studies than from some humanities/STEM pairings. Integrative tenants would either enroll in multiple labels (re-creates ADR-004&#x27;s tenant ontology problem at discipline granularity) or pick a dominant discipline (falsifies their methodology).</p>
+<p><strong>Residual risk</strong>: if cross-tenant convention sharing fails to emerge organically via ADR-037 promotion thresholds + standards declarations + future tenant-preset import/export, the discipline-library option becomes attractive again. The architectural defense is: promotion thresholds are programmatic; standards declarations are already in flight; preset import/export is Phase B&#x27;s scope. The mechanism exists at the ratification point; absence of usage at year T is signal to amplify promotion-detection, not to add a tier.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="f4--phase-a-migration-footprint-is-too-large-even-after-the-a1a2-split">F4 — &quot;Phase A migration footprint is too large even after the A.1/A.2 split.&quot;<a href="#f4--phase-a-migration-footprint-is-too-large-even-after-the-a1a2-split" class="hash-link" aria-label="Direct link to F4 — &quot;Phase A migration footprint is too large even after the A.1/A.2 split.&quot;" title="Direct link to F4 — &quot;Phase A migration footprint is too large even after the A.1/A.2 split.&quot;" translate="no">​</a></h3>
+<p><strong>Rule-out evidence</strong>: R1 absorption A4 already split Phase A into A.1 backend + A.2 frontend. A.1 = enum rename + 10 nullable columns + TenantSlotPreset model + GraphQL extension. A.2 = ~3000-line React rewrite. A.1 must stabilize in production-tier dev DB before A.2 starts. Both PRs are scoped to a single concern (substrate vs UI consumer).</p>
+<p><strong>Residual risk</strong>: A.1 could be split further (A.1.a enum rename + nullable columns; A.1.b TenantSlotPreset + starter library; A.1.c GraphQL extension). Whether this is worth the additional PR overhead is a Phase A.1 author judgment call; not blocking ratification.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="f5--governance-gates-g1--g2-are-too-soft-under-commercial-pressure">F5 — &quot;Governance gates G1 + G2 are too soft under commercial pressure.&quot;<a href="#f5--governance-gates-g1--g2-are-too-soft-under-commercial-pressure" class="hash-link" aria-label="Direct link to F5 — &quot;Governance gates G1 + G2 are too soft under commercial pressure.&quot;" title="Direct link to F5 — &quot;Governance gates G1 + G2 are too soft under commercial pressure.&quot;" translate="no">​</a></h3>
+<p><strong>Rule-out evidence</strong>: G2 is <strong>programmatic</strong> — a daily cron query against the slot-config table; over-threshold triggers a Slack alert and blocks new <code>multikey_kind=custom</code> writes until architectural review completes. G1 requires a documented JPP + Visionis impact analysis attached to any ADR-037 amendment that adds a Layer-1 SlotKind. Both gates raise the <em>cost</em> of architectural defection.</p>
+<p><strong>Residual risk</strong>: under enough commercial pressure, either gate could be bypassed by amending the gate itself (gate the gate). Architectural defense is necessarily soft against organisational pressure; the gates raise the cost without eliminating it. Honest reporting: this is a known limitation of all architectural governance, not an ADR-037-specific weakness.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="f6--per-key-provenance--spec-0017-undo-grain-leaves-a-load-bearing-dependency-unresolved">F6 — &quot;Per-key provenance + Spec 0017 undo grain leaves a load-bearing dependency unresolved.&quot;<a href="#f6--per-key-provenance--spec-0017-undo-grain-leaves-a-load-bearing-dependency-unresolved" class="hash-link" aria-label="Direct link to F6 — &quot;Per-key provenance + Spec 0017 undo grain leaves a load-bearing dependency unresolved.&quot;" title="Direct link to F6 — &quot;Per-key provenance + Spec 0017 undo grain leaves a load-bearing dependency unresolved.&quot;" translate="no">​</a></h3>
+<p><strong>Rule-out evidence</strong>: ADR-037 Phase C explicitly carries the undo-grain compatibility audit as a prerequisite (R1 absorption B2). Phase C trigger condition is &quot;actual JPP onboarding makes register-level audit trails a real concern&quot; — bounded by tenant-onboarding pace, not by ratification. Three possible audit outcomes are pre-named: (a) extend Spec 0017 undo grain to per-key; (b) per-key changes bypass the undo queue (committed via a different write path); (c) Phase C requires a Spec 0017 amendment first.</p>
+<p><strong>Residual risk</strong>: if the Phase-C-trigger tenant lands before the audit completes, scheduling pressure rather than architectural fit drives implementation. Mitigation: the trigger is observable (JPP onboarding) and the audit is bounded work (one engineer-week or less); the trigger-to-implementation window is large enough to do the audit deliberately.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="f7--media-slotkind-hides-a-conflation-durable-blob--transient-blob--external-reference">F7 — &quot;MEDIA SlotKind hides a conflation (durable blob / transient blob / external reference).&quot;<a href="#f7--media-slotkind-hides-a-conflation-durable-blob--transient-blob--external-reference" class="hash-link" aria-label="Direct link to F7 — &quot;MEDIA SlotKind hides a conflation (durable blob / transient blob / external reference).&quot;" title="Direct link to F7 — &quot;MEDIA SlotKind hides a conflation (durable blob / transient blob / external reference).&quot;" translate="no">​</a></h3>
+<p><strong>Rule-out evidence</strong>: R1 absorption A2 named this risk and decided NOT to split MEDIA today. Three pilot tenants don&#x27;t surface the conflict; the architecture commits to revisiting on first archival or external-reference tenant. ADR-022 §A.4&#x27;s three-layer identity model (external-locator-only binding; never writes to artifacts) already separates the <em>identity</em> concern from the storage-lifecycle concern.</p>
+<p><strong>Residual risk</strong>: if the first integrative tenant onboards with external-reference media before the MEDIA re-examination happens, the platform handles it via tenant-config (declared as <code>MEDIA + media_kinds: [embed]</code> with <code>external_locator</code> pointing at an external URL); the conflation surfaces as architectural inconvenience, not data corruption.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-ratify-now-vs-defer--decision-frame">4. Ratify-now vs defer — decision frame<a href="#4-ratify-now-vs-defer--decision-frame" class="hash-link" aria-label="Direct link to 4. Ratify-now vs defer — decision frame" title="Direct link to 4. Ratify-now vs defer — decision frame" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ratify-now-if-you-accept">Ratify NOW if you accept:<a href="#ratify-now-if-you-accept" class="hash-link" aria-label="Direct link to Ratify NOW if you accept:" title="Direct link to Ratify NOW if you accept:" translate="no">​</a></h3>
+<ul>
+<li class="">✅ The three-layer model (SlotKind / SlotModifiers / TenantSlotPreset) is the durable architectural shape — the discussions converge on contents and implementation, not on whether to redraw the model.</li>
+<li class="">✅ The Post-R1 corrections accurately fold in audio debate v2 convergence + the integrative-tenant evidence.</li>
+<li class="">✅ <code>complies_with</code> is the right hook for the three-surface publication contract.</li>
+<li class="">✅ Phase A.1 migration footprint (per R1 absorption A4 split) is acceptable for a pre-production rebuild.</li>
+<li class="">✅ Governance gates G1 (impact-analysis-on-amendment) + G2 (programmatic 10% threshold cron) are sufficient against commercial pressure.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="defer-if-you-doubt">Defer if you doubt:<a href="#defer-if-you-doubt" class="hash-link" aria-label="Direct link to Defer if you doubt:" title="Direct link to Defer if you doubt:" translate="no">​</a></h3>
+<ul>
+<li class="">❌ That cross-tenant convention sharing will actually emerge via promotion thresholds (vs requiring a discipline tier).</li>
+<li class="">❌ That slot-level <code>complies_with</code> should ship before ADR-030 ratifies a concrete profile.</li>
+<li class="">❌ That the integrative-tenant evidence is generalizable (only one case study currently; anonymised local-only).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="decision-split--three-options-option-d">Decision split — three options (Option D)<a href="#decision-split--three-options-option-d" class="hash-link" aria-label="Direct link to Decision split — three options (Option D)" title="Direct link to Decision split — three options (Option D)" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="option-d1--full-ratification-now">Option D.1 — Full ratification now<a href="#option-d1--full-ratification-now" class="hash-link" aria-label="Direct link to Option D.1 — Full ratification now" title="Direct link to Option D.1 — Full ratification now" translate="no">​</a></h4>
+<p>ADR-037 status Proposed → Accepted <strong>as written</strong>: binding three-layer model + four Post-R1 corrections + Post-R1 Addendum (three-surface contract + ADR-022 connection + integrative-tenant pattern) + Phase A.1 prerequisite. Phase A.1 backend migration begins next session.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="option-d2--binding-shape-ratification--decision-log-deferrals-recommended">Option D.2 — Binding-shape ratification + decision-log deferrals <strong>(recommended)</strong><a href="#option-d2--binding-shape-ratification--decision-log-deferrals-recommended" class="hash-link" aria-label="Direct link to option-d2--binding-shape-ratification--decision-log-deferrals-recommended" title="Direct link to option-d2--binding-shape-ratification--decision-log-deferrals-recommended" translate="no">​</a></h4>
+<p>ADR-037 status Proposed → Accepted, <strong>but</strong> only the load-bearing architectural decisions ratify:</p>
+<ul>
+<li class="">Three-layer model (Layer 1 / Layer 2 / Layer 3 with promotion-threshold governance)</li>
+<li class="">Three-surface publication contract (the Post-R1 Addendum core)</li>
+<li class="">ADR-022 substrate connection (the Anchor / ClaimCluster / ArtifactVersion / extractor-framework composition)</li>
+<li class="">Layer 1 SlotKind snapshot (10 kinds + drop ARRAY into MULTISELECT)</li>
+<li class="">Migration Phase A.1 / A.2 split discipline</li>
+</ul>
+<p>The following defer to <strong>separate <code>docs/decisions/log.md</code> entries</strong> (lighter than ADR amendment; each gets its own review surface):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Item</th><th>Where it resolves</th></tr></thead><tbody><tr><td>Each Post-R1 correction (4 entries: accent_fold/script universal; discipline-tier withdrawal; standards architecture already exists; JPP framing)</td><td><code>decisions/log.md</code> — already documented in ADR-037 §Post-R1 corrections; promote each to a discrete decision-log entry so the reasoning is queryable per-correction</td></tr><tr><td><code>complies_with</code> modifier mechanics (Phase A.1 starter list of standard ids; per-slot semantics vs derived-from-archetype; validation discipline)</td><td><code>decisions/log.md</code> — Phase A.1 backend PR author&#x27;s call, gated by ADR-030 profile choice</td></tr><tr><td>G1 + G2 gate mechanics + cron implementation</td><td><code>decisions/log.md</code> — Phase A.1 backend implementation</td></tr><tr><td><code>multikey_kind=custom</code> threshold (currently 10%; configurable; per-tenant vs global)</td><td><code>decisions/log.md</code> — Phase A.1 backend implementation</td></tr><tr><td>Phase A.5 anonymized preset-shape telemetry collection posture</td><td><code>decisions/log.md</code> — after architecture review accepts the discovery posture; not blocking Phase A.1</td></tr><tr><td>Widget→SlotKind database column rename</td><td><code>decisions/log.md</code> — trigger condition &quot;Phase A.2 has been live for ≥2 weeks without revert; isolated single-purpose migration&quot;</td></tr></tbody></table>
+<p><strong>Why D.2 is recommended</strong>:</p>
+<ul>
+<li class="">The binding shape is the load-bearing commitment; ratifying it unblocks Phase A.1 backend immediately.</li>
+<li class="">The operational details (gate thresholds, telemetry posture, exact modifier list) decay independently of the binding shape and benefit from separate review surfaces.</li>
+<li class="">D.2 carries the same architectural confidence as D.1 but reduces &quot;what am I ratifying again?&quot; surface area at sign-off.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="option-d3--hold--r3-round">Option D.3 — Hold + R3 round<a href="#option-d3--hold--r3-round" class="hash-link" aria-label="Direct link to Option D.3 — Hold + R3 round" title="Direct link to Option D.3 — Hold + R3 round" translate="no">​</a></h4>
+<p>Keep ADR-037 in Proposed; fire one more notebook round (R3) AFTER Phase A.1 lands so the actual migration footprint + cache-invalidation implementation + corrected JPP relational framing can be stress-tested in code. This is the conservative path; the R1 absorption already identifies the R2-trigger condition as &quot;end of Phase A.1,&quot; so D.3 is consistent with the established round-cycle discipline.</p>
+<p><strong>Why D.3 is NOT recommended at this gate</strong>:</p>
+<ul>
+<li class="">The R1 audio debate v2 has already converged on every disposition.</li>
+<li class="">The substrate (ADR-022) is built; standards architecture (ADR-030 / Spec 0008 / CROSSWALK) is built or in flight.</li>
+<li class="">Phase A.1 cannot start without ratification — D.3 trades real implementation evidence for hypothetical critique.</li>
+<li class="">The Phase A.1 implementation will surface evidence the R3 round would consume; firing R3 <em>now</em> would re-litigate against the same evidence base R2 already converges on.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-open-questions-ratification-leaves-to-follow-up">5. Open questions ratification leaves to follow-up<a href="#5-open-questions-ratification-leaves-to-follow-up" class="hash-link" aria-label="Direct link to 5. Open questions ratification leaves to follow-up" title="Direct link to 5. Open questions ratification leaves to follow-up" translate="no">​</a></h2>
+<p>Each with where it resolves:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Open question</th><th>Resolution path</th></tr></thead><tbody><tr><td><strong>GEOMETRY + TIME_RANGE SlotKinds</strong> — integrative-tenant evidence promotes these from &quot;future candidate&quot; to &quot;Phase A near-term.&quot;</td><td>Spec 0019 (MapView; brainstorm filed at <code>docs/superpowers/plans/2026-05-19-mapview-spatial-anchored-surface-brainstorm.md</code>). ADR-037 amendment when Spec 0019 design.md lands.</td></tr><tr><td><strong>ADR-030 concrete profile choice</strong> — Linked Art JSON vs full-CRM JSON-LD vs SPARQL/RDF vs constrained KE application profile.</td><td>ADR-030 ratification (currently Proposed stub). Independent of ADR-037 ratification; <code>complies_with</code> is declaration-only in Phase A.</td></tr><tr><td><strong>ClaimCluster authoring UI</strong> — currently deferred to ADR-022 Plan 4+; integrative-tenant evidence flags it as load-bearing near-term.</td><td>ADR-022 Phase 5 (researcher review UX) or a new spec when sprint planning picks it up.</td></tr><tr><td><strong><code>composition_template</code> breaking point</strong> (R1 absorption A1) — current <code>str.format</code> mechanism doesn&#x27;t support conditional / iteration / aggregation.</td><td>ADR-037 amendment OR a successor ADR (Compose-vocabulary discriminator) when the first tenant&#x27;s composition request crosses the breaking point. Not blocking Phase A.</td></tr><tr><td><strong>MEDIA SlotKind potential conflation</strong> (R1 absorption A2) — durable blob / transient blob / external reference.</td><td>ADR-037 amendment trigger: first archival or external-reference tenant. Not blocking Phase A.</td></tr><tr><td><strong>External-collaborator + lab-as-actor + sample-chain-of-custody</strong> — integrative-tenant evidence; ADR-035 capability-flag extension.</td><td>Spec 0018 Sprint D follow-up (5 numbered tasks documented in <code>tasks.md</code>).</td></tr><tr><td><strong>Federated preset registry</strong> — Phase B from <code>07-discipline-discovery-brainstorm.md</code> Mechanism 1; integrative tenants validate the federated pattern.</td><td>Phase B sprint after Phase A.2 lands.</td></tr><tr><td><strong>Widget→SlotKind database column rename</strong> — split per R1 absorption B3.</td><td>Scheduled isolated migration after Phase A.2 has been live ≥2 weeks without revert; trigger in <code>docs/decisions/log.md</code>.</td></tr><tr><td><strong>Per-key provenance + Spec 0017 undo-grain compatibility audit</strong> (R1 absorption B2 / ADR-037 Phase C prerequisite).</td><td>Phase C kickoff prerequisite; bounded by JPP register-level onboarding trigger.</td></tr><tr><td><strong>Tenant-preset CRUD UI</strong> — Phase A ships starter library + tenant preset read; authoring UI deferred to Phase B.</td><td>Phase B sprint. Acceptance: v1 tenants pick from starter library + can override per-slot via existing modifier fields.</td></tr><tr><td><strong>Standards-notebook + SOTA evidence</strong> (this brief §2.7 + §2.7b)</td><td>Completed during this session. Durable outputs at <a class="" href="/ke-docs/internal/research/2026-05-19_slot-type-taxonomy-round1/09-standards-notebook-evidence.md"><code>09-standards-notebook-evidence.md</code></a> and <a class="" href="/ke-docs/internal/research/2026-05-19_slot-type-taxonomy-round1/10-sota-notebook-evidence.md"><code>10-sota-notebook-evidence.md</code></a>. Net signal: strongly ratify.</td></tr><tr><td><strong>R2 NotebookLM round absorption</strong> (this brief §2.8)</td><td>PARTIAL-SUCCESS this session — 5/12 sources uploaded (source-cap blocked the rest); ALL 4/4 studio jobs completed + downloaded via direct curl on artifact URLs. Firing log at <code>…/r2-firing-log.md</code> §1-§5; audio + video files preserved at <code>…/r2-artifacts/</code>. Transcript re-upload blocked by source-cap, so verbatim text awaits a follow-up session (external speech-to-text or fresh-notebook re-upload). All 4 title-level signals consistent with D.2; net signal corroborates §2.7 + §2.7b (strongly ratify).</td></tr><tr><td><strong>CIDOC reified-arguments framing</strong> (Standards notebook §Q6 absorbable nuance).</td><td>One-paragraph addition to ADR-037 §Acceptance — surfacing that slot-level assertions are reified arguments per CIDOC&#x27;s &quot;all properties are the opinion of someone&quot; framing. ADR-022 + ADR-037 substrate already handles this via DecisionEvent + ClaimCluster; the amendment just makes the reification explicit for ratification reviewers.</td></tr></tbody></table>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-recommendation--ratified-2026-05-20">6. Recommendation — <strong>RATIFIED 2026-05-20</strong><a href="#6-recommendation--ratified-2026-05-20" class="hash-link" aria-label="Direct link to 6-recommendation--ratified-2026-05-20" title="Direct link to 6-recommendation--ratified-2026-05-20" translate="no">​</a></h2>
+<p>User ratified Option D.2 on 2026-05-20 alongside the Path B federation-contract choice (ADR-038 forthcoming) and the autonomous-variation-handling principle (decision-log entry filed). ADR-037 status changed Proposed → Accepted; the 5 amendments are folded in below the §Acceptance section. Two decision-log entries filed: ADR-030 SHACL prerequisite + ADR-038 autonomous-variation-handling principle.</p>
+<p><strong>Original recommendation text retained below as historical context</strong>:</p>
+<hr>
+<p><strong>Option D.2 — Binding-shape ratification + decision-log deferrals.</strong></p>
+<p>The binding three-layer model + three-surface contract + ADR-022 substrate connection have enough independent evidence to ratify now:</p>
+<ul>
+<li class=""><strong>R1 audio debate v2 convergence</strong> — every disposition (§2.1).</li>
+<li class=""><strong>ADR-022 substrate</strong> already built and shipping (§2.2).</li>
+<li class=""><strong>Standards architecture in flight</strong> — ADR-030 + Spec 0008 + CROSSWALK (§2.3).</li>
+<li class=""><strong>Linguistic Autonomy</strong> confirms cross-tenant heterogeneity is already a design discipline (§2.4).</li>
+<li class=""><strong>Integrative-tenant pattern</strong> validates without redesign (§2.5).</li>
+<li class=""><strong>Phase A TypeScript foundation</strong> already encodes R1 absorption findings (§2.6).</li>
+<li class=""><strong>SOTA notebook (Option A.2)</strong>: Croissant Baker is the closest functional twin of <code>complies_with</code>; KonsortSWD directly endorses &quot;profile of that standard&quot; over discipline bundles; three-layer pattern corroborated by Croissant + ORKG + CacheRAG; one residual tension (ontology-first peer ORKG; resolved via <code>dcterms:conformsTo</code> triples in JSON-LD output) (§2.7).</li>
+<li class=""><strong>Standards notebook (Option A)</strong>: four independent three-layer-model precedents (CIDOC E59/.1/E55, CSL variable/form/Locale, BIBFRAME, Dataverse); four <code>complies_with</code> precedents (<code>dcterms:conformsTo</code>, CIDOC <code>P177</code>, IIIF <code>profile</code>, BIBFRAME <code>bf:descriptionConventions</code>); three-surface contract maps onto OAI-PMH item+metadataPrefix and UniProt; 5-for-5 against discipline bundles; ClaimCluster substrate corroborated by W3C Web Annotation + CIDOC E13 + CRMinf I2/I4 + CRMtex TX14 Antikythera-mechanism precedent (§2.7b).</li>
+</ul>
+<p>The operational details (gate thresholds, telemetry posture, exact modifier list, column rename timing) decay independently and benefit from separate review surfaces.</p>
+<p><strong>D.2 unblocks Phase A.1 backend immediately</strong> while preserving the discipline that each operational detail gets a discrete review surface. D.1 is also acceptable; D.3 is conservative and trades real implementation evidence (which Phase A.1 will produce naturally) for hypothetical critique against the same source base R1 debate v2 already converges on.</p>
+<p><strong>One minor amendment to ADR-037 §Acceptance recommended</strong> (independent of D.1/D.2/D.3): a one-paragraph acknowledgement of CIDOC-CRM&#x27;s <em>&quot;all properties are the opinion of someone&quot;</em> framing, surfacing that slot-level assertions are reified arguments. ADR-022 + ADR-037 substrate already handles this via DecisionEvent + ClaimCluster + the planned <code>complies_with</code> provenance, but making the reification explicit gives ratification reviewers a one-sentence answer to &quot;why doesn&#x27;t <code>complies_with</code> need its own provenance chain?&quot; — because the platform&#x27;s reified-arguments substrate already provides one.</p>
+<p><strong>Pending: R2 NotebookLM round (§2.8)</strong> fired during this session; ALL 4 studio artifacts (3 audio + 1 video) completed and were downloaded via direct curl on the artifact URLs from <code>studio_status</code> JSON (the MCP <code>download_artifact</code> tool errored consistently — URL-direct curl was the reliable path). Transcript re-upload as queryable sources was blocked by the notebook&#x27;s source cap, so <code>source_get_content</code> cannot extract verbatim text; audio + video files are preserved on disk at <code>docs/internal/research/2026-05-19_slot-type-taxonomy-round1/r2-artifacts/</code> for human listening or external speech-to-text. The four NotebookLM-assigned titles (&quot;Structural Fixes for ADR-037 Ratification&quot; / &quot;Bulletproofing Platform Taxonomy and Cache Coherence&quot; / &quot;Should We Ratify ADR-037 Now&quot; / &quot;R2 Ratification of ADR-037&quot;) all engage with the corrected baseline&#x27;s ratification frame, not the R1-misframed concerns, and are consistent with D.2. <strong>D.2 remains the recommended path.</strong> If verbatim transcript reading by a follow-up session surfaces a load-bearing concern, this Recommendation is revised then; until then, the standards-notebook + SOTA-notebook lanes&#x27; strongly-ratify signal (§2.7 + §2.7b) is corroborated by R2 title-level evidence and stands.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-document-discipline">7. Document discipline<a href="#7-document-discipline" class="hash-link" aria-label="Direct link to 7. Document discipline" title="Direct link to 7. Document discipline" translate="no">​</a></h2>
+<p>This brief is a <strong>one-shot ratification artifact</strong>, not durable platform documentation. After the ratification decision lands:</p>
+<ul>
+<li class="">ADR-037 status changes Proposed → Accepted (or stays Proposed with an explicit &quot;deferred to R3&quot; note).</li>
+<li class="">Decision-log entries land per the D.2 list above (if D.2 is chosen).</li>
+<li class="">This brief stays in <code>docs/developer/architecture/</code> as historical evidence of the ratification reasoning; it is <strong>not</strong> kept current as Phase A implements.</li>
+</ul>
+<p>The convention adopted here (ratification briefs at <code>docs/developer/architecture/adr-&lt;n&gt;-ratification-brief.md</code> for load-bearing ADRs) is a candidate for <code>skills/adr/</code> amendment if it proves useful for future ADRs.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References<a href="#references" class="hash-link" aria-label="Direct link to References" title="Direct link to References" translate="no">​</a></h2>
+<ul>
+<li class="">ADR-037 (the binding artifact): <code>docs/developer/architecture/adr/037-slot-type-taxonomy.md</code></li>
+<li class="">R1 absorption devlog: <code>docs/devlogs/2026_w21/2026-05-19_2045_slot-taxonomy-r1-absorption.md</code></li>
+<li class="">Anonymised integrative-tenant case study (local-only): <code>docs/internal/research/2026-05-19_slot-type-taxonomy-round1/08-multi-disciplinary-integrative-tenant-pattern.md</code></li>
+<li class="">ADR-022 layered-claims substrate: <code>docs/developer/architecture/adr/022-media-architecture-v2-anchor-and-versioned-artifacts.md</code></li>
+<li class="">ADR-030 CIDOC + Linked Art export profile: <code>docs/developer/architecture/adr/030-cidoc-linked-art-export-profile.md</code></li>
+<li class="">Spec 0008 Citation Framework + CSL design: <code>docs/superpowers/specs/0008-citation-framework-csl/design.md</code></li>
+<li class="">Standards crosswalk: <code>docs/research/standards/CROSSWALK.md</code></li>
+<li class="">Linguistic Autonomy devlog: <code>docs/devlogs/2026_w18/2026-05-02_1014_phase-2-linguistic-autonomy.md</code></li>
+<li class="">Platform learnings (corrected JPP framing): <code>docs/devlogs/2026_w17/2026-04-26_session-conclusions-and-platform-learnings.md</code></li>
+<li class="">Phase A TypeScript foundation README: <code>spa/src/lib/slot-taxonomy/README.md</code></li>
+<li class="">MapView brainstorm: <code>docs/superpowers/plans/2026-05-19-mapview-spatial-anchored-surface-brainstorm.md</code></li>
+<li class="">Platform principles: <code>docs/developer/architecture/platform_principles.md</code></li>
+<li class="">Round-cycle skill: <code>skills/notebooklm-round-cycle/SKILL.md</code></li>
+</ul>
+<hr>
+<p><strong>Status</strong>: Draft v1 (overnight session 2026-05-19). Embedded sections (§2.7, §2.8) and Recommendation revision land as subagents complete.
+<strong>Author</strong>: Fresh-session agent (independent of ADR-037 author chain).
+<strong>Decision owner</strong>: User; architecture team.</p></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/developer/architecture/adr/schema-concern-decomposition"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/developer/architecture/api_layer"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Architecture: API &amp; Authentication Layer</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-what-ratifying-commits-to-the-decision-in-one-paragraph" class="table-of-contents__link toc-highlight">1. What ratifying commits to (the decision in one paragraph)</a></li><li><a href="#2-evidence-supporting-the-decision" class="table-of-contents__link toc-highlight">2. Evidence supporting the decision</a><ul><li><a href="#21-r1-audio-debate-v2-converged-on-every-disposition" class="table-of-contents__link toc-highlight">2.1 R1 audio debate v2 converged on every disposition</a></li><li><a href="#22-three-layer-model-composes-with-already-built-substrate-adr-022" class="table-of-contents__link toc-highlight">2.2 Three-layer model composes with already-built substrate (ADR-022)</a></li><li><a href="#23-standards-architecture-is-already-in-flight" class="table-of-contents__link toc-highlight">2.3 Standards architecture is already in flight</a></li><li><a href="#24-linguistic-autonomy-confirms-accent_fold--script--language-are-universal" class="table-of-contents__link toc-highlight">2.4 Linguistic Autonomy confirms <code>accent_fold</code> + <code>script</code> + <code>language</code> are universal</a></li><li><a href="#25-integrative-tenant-pattern-validates-the-three-layer-model-without-redesign" class="table-of-contents__link toc-highlight">2.5 Integrative-tenant pattern validates the three-layer model without redesign</a></li><li><a href="#26-phase-a-typescript-foundation-already-shipped" class="table-of-contents__link toc-highlight">2.6 Phase A TypeScript foundation already shipped</a></li><li><a href="#27-sota-notebook-evidence-option-a2--completed" class="table-of-contents__link toc-highlight">2.7 SOTA notebook evidence (Option A.2 — completed)</a></li><li><a href="#27b-standards-notebook-evidence-option-a--completed" class="table-of-contents__link toc-highlight">2.7b Standards-notebook evidence (Option A — completed)</a></li><li><a href="#28-r2-notebooklm-round-option-b--partial-firing-all-44-completed--downloaded-transcripts-pending" class="table-of-contents__link toc-highlight">2.8 R2 NotebookLM round (Option B) — partial firing, ALL 4/4 completed + downloaded, transcripts pending</a></li><li><a href="#28e-post-absorption-place--time_period-archetype-reconsideration-user-evidence-recount" class="table-of-contents__link toc-highlight">2.8.e Post-absorption: PLACE + TIME_PERIOD archetype reconsideration (user-evidence recount)</a></li><li><a href="#28d-r2-absorption-open-critique-transcript-read" class="table-of-contents__link toc-highlight">2.8.d R2 absorption (open-critique transcript read)</a></li><li><a href="#28c-fresh-notebook-upload--studio-firing-user-requested-third-wave-this-session" class="table-of-contents__link toc-highlight">2.8.c Fresh-notebook upload + studio firing (user-requested third wave, this session)</a></li><li><a href="#28b-additional-artifacts-fired-user-requested-second-wave-this-session" class="table-of-contents__link toc-highlight">2.8.b Additional artifacts fired (user-requested second wave, this session)</a></li></ul></li><li><a href="#3-falsifying-conditions" class="table-of-contents__link toc-highlight">3. Falsifying conditions</a><ul><li><a href="#f1--the-three-layer-model-is-wrong-for-some-tenants-data-shape" class="table-of-contents__link toc-highlight">F1 — &quot;The three-layer model is wrong for some tenant&#39;s data shape.&quot;</a></li><li><a href="#f2--complies_with-is-the-wrong-shape-for-slot-level-standards-interop" class="table-of-contents__link toc-highlight">F2 — &quot;<code>complies_with</code> is the wrong shape for slot-level standards interop.&quot;</a></li><li><a href="#f3--the-integrative-tenant-pattern-would-be-better-served-by-a-4th-tier-discipline--community-layer" class="table-of-contents__link toc-highlight">F3 — &quot;The integrative-tenant pattern would be better served by a 4th tier (discipline / community layer).&quot;</a></li><li><a href="#f4--phase-a-migration-footprint-is-too-large-even-after-the-a1a2-split" class="table-of-contents__link toc-highlight">F4 — &quot;Phase A migration footprint is too large even after the A.1/A.2 split.&quot;</a></li><li><a href="#f5--governance-gates-g1--g2-are-too-soft-under-commercial-pressure" class="table-of-contents__link toc-highlight">F5 — &quot;Governance gates G1 + G2 are too soft under commercial pressure.&quot;</a></li><li><a href="#f6--per-key-provenance--spec-0017-undo-grain-leaves-a-load-bearing-dependency-unresolved" class="table-of-contents__link toc-highlight">F6 — &quot;Per-key provenance + Spec 0017 undo grain leaves a load-bearing dependency unresolved.&quot;</a></li><li><a href="#f7--media-slotkind-hides-a-conflation-durable-blob--transient-blob--external-reference" class="table-of-contents__link toc-highlight">F7 — &quot;MEDIA SlotKind hides a conflation (durable blob / transient blob / external reference).&quot;</a></li></ul></li><li><a href="#4-ratify-now-vs-defer--decision-frame" class="table-of-contents__link toc-highlight">4. Ratify-now vs defer — decision frame</a><ul><li><a href="#ratify-now-if-you-accept" class="table-of-contents__link toc-highlight">Ratify NOW if you accept:</a></li><li><a href="#defer-if-you-doubt" class="table-of-contents__link toc-highlight">Defer if you doubt:</a></li><li><a href="#decision-split--three-options-option-d" class="table-of-contents__link toc-highlight">Decision split — three options (Option D)</a></li></ul></li><li><a href="#5-open-questions-ratification-leaves-to-follow-up" class="table-of-contents__link toc-highlight">5. Open questions ratification leaves to follow-up</a></li><li><a href="#6-recommendation--ratified-2026-05-20" class="table-of-contents__link toc-highlight">6. Recommendation — <strong>RATIFIED 2026-05-20</strong></a></li><li><a href="#7-document-discipline" class="table-of-contents__link toc-highlight">7. Document discipline</a></li><li><a href="#references" class="table-of-contents__link toc-highlight">References</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

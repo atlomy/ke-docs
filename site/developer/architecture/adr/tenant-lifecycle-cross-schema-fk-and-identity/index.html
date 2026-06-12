@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-developer docs-version-current docs-doc-page docs-doc-id-architecture/adr/tenant-lifecycle-cross-schema-fk-and-identity" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/developer/architecture/adr/tenant-lifecycle-cross-schema-fk-and-identity"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-developer-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-developer-current"><meta data-rh="true" property="og:title" content="ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key | KE — Knowledge Environments"><meta data-rh="true" name="description" content="- Status: Accepted (ratified 2026-06-10 under explicit owner delegation — &quot;Apply and ratify and merge&quot; — after the four-lens adversarial-archaeology review + Round-12 NotebookLM critique round; absorption devlog docs/devlogs/2026w24/2026-06-110030_round12-adr059-ratification-absorption.md)"><meta data-rh="true" property="og:description" content="- Status: Accepted (ratified 2026-06-10 under explicit owner delegation — &quot;Apply and ratify and merge&quot; — after the four-lens adversarial-archaeology review + Round-12 NotebookLM critique round; absorption devlog docs/devlogs/2026w24/2026-06-110030_round12-adr059-ratification-absorption.md)"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/developer/architecture/adr/tenant-lifecycle-cross-schema-fk-and-identity"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/adr/tenant-lifecycle-cross-schema-fk-and-identity" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/adr/tenant-lifecycle-cross-schema-fk-and-identity" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Architecture Decision Records (ADRs)","item":"https://atlomy.github.io/ke-docs/developer/architecture/adr/"},{"@type":"ListItem","position":2,"name":"ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key","item":"https://atlomy.github.io/ke-docs/developer/architecture/adr/tenant-lifecycle-cross-schema-fk-and-identity"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/superadmin/">Platform Admins</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/"><span title="Developer Documentation" class="linkLabel_WmDU">Developer Documentation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/TESTING"><span title="Testing standards — Atlomy Atlas" class="linkLabel_WmDU">Testing standards — Atlomy Atlas</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/ai_schema_adaptation"><span title="Sprint 9 &amp; 10: Developer Guide" class="linkLabel_WmDU">Sprint 9 &amp; 10: Developer Guide</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ke-docs/developer/architecture/adr/"><span title="architecture" class="categoryLinkLabel_W154">architecture</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" tabindex="0" href="/ke-docs/developer/architecture/adr/"><span title="Architecture Decision Records (ADRs)" class="categoryLinkLabel_W154">Architecture Decision Records (ADRs)</span></a><button aria-label="Collapse sidebar category &#x27;Architecture Decision Records (ADRs)&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/epistemic-operational-separation"><span title="ADR-001: Epistemic vs Operational Interface Separation" class="linkLabel_WmDU">ADR-001: Epistemic vs Operational Interface Separation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/hybrid-ontology-relational-json"><span title="ADR-002: Hybrid Ontology (Relational + JSON)" class="linkLabel_WmDU">ADR-002: Hybrid Ontology (Relational + JSON)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/graphql-epistemic-contract"><span title="ADR-003: GraphQL as Epistemic Interface Contract" class="linkLabel_WmDU">ADR-003: GraphQL as Epistemic Interface Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-ontology-mapping"><span title="ADR-004: Tenant Ontology Mapping" class="linkLabel_WmDU">ADR-004: Tenant Ontology Mapping</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/react-integration-pattern"><span title="ADR-005: React Integration Pattern for Epistemic Applications" class="linkLabel_WmDU">ADR-005: React Integration Pattern for Epistemic Applications</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/archetype-capability-contracts"><span title="ADR-006: Archetype Capability Contracts" class="linkLabel_WmDU">ADR-006: Archetype Capability Contracts</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/sub-tenant-workspace"><span title="ADR-007: Sub-Tenant WorkSpace (editor-scoped data ownership)" class="linkLabel_WmDU">ADR-007: Sub-Tenant WorkSpace (editor-scoped data ownership)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-composition-rules-and-reviewer-guidance"><span title="ADR-008: Migration-Time Composition Rules + Reviewer-Authored Proposal Guidance" class="linkLabel_WmDU">ADR-008: Migration-Time Composition Rules + Reviewer-Authored Proposal Guidance</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/platform-native-entity-conventions-and-relationship-ux"><span title="ADR-009: Platform-Native Entity Conventions and Relationship UX" class="linkLabel_WmDU">ADR-009: Platform-Native Entity Conventions and Relationship UX</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-010"><span title="Parser-First, LLM-Second for Relationship Resolution" class="linkLabel_WmDU">Parser-First, LLM-Second for Relationship Resolution</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/search-engine-opensearch"><span title="ADR-011 — OpenSearch + ICU + Per-Language Analyzers as the Per-Tenant Search Engine" class="linkLabel_WmDU">ADR-011 — OpenSearch + ICU + Per-Language Analyzers as the Per-Tenant Search Engine</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-config-via-runtime-pipeline"><span title="ADR-012 — Tenant configuration flows through a runtime pipeline, never code" class="linkLabel_WmDU">ADR-012 — Tenant configuration flows through a runtime pipeline, never code</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-a-lemma-unify"><span title="ADR-013: Unify Tenant A Lemma → EpistemicEntity" class="linkLabel_WmDU">ADR-013: Unify Tenant A Lemma → EpistemicEntity</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-014a"><span title="In-Product AI Runtime — Single-Call LLM Assist Contract" class="linkLabel_WmDU">In-Product AI Runtime — Single-Call LLM Assist Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-admin-shell-native-react"><span title="ADR-015: Tenant Admin Shell as Native React Implementation of ADR-005&#x27;s Shared React Shell" class="linkLabel_WmDU">ADR-015: Tenant Admin Shell as Native React Implementation of ADR-005&#x27;s Shared React Shell</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/telemetry-substrate"><span title="ADR-016 — Telemetry substrate: hybrid storage, redact-before-log, hash-chained integrity" class="linkLabel_WmDU">ADR-016 — Telemetry substrate: hybrid storage, redact-before-log, hash-chained integrity</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/slot-config-manifest-contract-compiler"><span title="ADR-017: Slot Config as Tenant-Authoritative Manifest with Platform-Canonical Contract Compiler" class="linkLabel_WmDU">ADR-017: Slot Config as Tenant-Authoritative Manifest with Platform-Canonical Contract Compiler</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/retire-nocodb-and-data-wizard"><span title="ADR-018: Retire NocoDB integration + V1 data_wizard import surface" class="linkLabel_WmDU">ADR-018: Retire NocoDB integration + V1 data_wizard import surface</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/spa-reads-off-epistemic-entity"><span title="ADR-019: V1 SPA reads from EpistemicEntity via per-archetype views" class="linkLabel_WmDU">ADR-019: V1 SPA reads from EpistemicEntity via per-archetype views</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/attestation-walk-and-paired-editions"><span title="ADR-020: Generic projection contract — attestation walk + paired-editions + the platform-canonical-projection principle" class="linkLabel_WmDU">ADR-020: Generic projection contract — attestation walk + paired-editions + the platform-canonical-projection principle</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/media-as-research-artifact-and-embedded-convention-extractor"><span title="ADR-021: Media as research artifact + embedded-convention extractor pattern" class="linkLabel_WmDU">ADR-021: Media as research artifact + embedded-convention extractor pattern</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/media-architecture-v2-anchor-and-versioned-artifacts"><span title="ADR-022: Media architecture v2 — Anchor + ArtifactVersion + ClaimCluster + media as attestation_walk source-type" class="linkLabel_WmDU">ADR-022: Media architecture v2 — Anchor + ArtifactVersion + ClaimCluster + media as attestation_walk source-type</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/publication-and-persistent-identifiers"><span title="ADR-023: Publication &amp; Persistent Identifiers" class="linkLabel_WmDU">ADR-023: Publication &amp; Persistent Identifiers</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/web-annotation-viewers-and-iiif-content-search"><span title="ADR-024: Web Annotation viewers + IIIF Content Search + cross-artifact annotation UI" class="linkLabel_WmDU">ADR-024: Web Annotation viewers + IIIF Content Search + cross-artifact annotation UI</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/bibliographic-ecosystem-integration"><span title="ADR-025: Bibliographic ecosystem integration (Zotero + ORCID + Crossref + ROR)" class="linkLabel_WmDU">ADR-025: Bibliographic ecosystem integration (Zotero + ORCID + Crossref + ROR)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/tenancy-strategy-at-scale"><span title="ADR-026: Tenancy strategy at thousand-tenant scale" class="linkLabel_WmDU">ADR-026: Tenancy strategy at thousand-tenant scale</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/structured-propositional-substrate"><span title="ADR-027: Structured propositional substrate (Nanopublication-aligned)" class="linkLabel_WmDU">ADR-027: Structured propositional substrate (Nanopublication-aligned)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/editor-framework-plate-for-v2"><span title="ADR-028: Editor Framework — Plate for V2 (JSON-first to align with JSONB substrate)" class="linkLabel_WmDU">ADR-028: Editor Framework — Plate for V2 (JSON-first to align with JSONB substrate)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/projection-first-published-entry-layer"><span title="ADR-029: Projection-First Published Entry Layer" class="linkLabel_WmDU">ADR-029: Projection-First Published Entry Layer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/cidoc-linked-art-export-profile"><span title="ADR-030: CIDOC / Linked Art Export Profile Choice" class="linkLabel_WmDU">ADR-030: CIDOC / Linked Art Export Profile Choice</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/source-model-versioning-and-optimistic-concurrency"><span title="ADR-031: Source-Model Versioning And Optimistic Concurrency" class="linkLabel_WmDU">ADR-031: Source-Model Versioning And Optimistic Concurrency</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/capability-vocabulary-platform-contract"><span title="ADR-032: Capability Vocabulary As Platform Contract" class="linkLabel_WmDU">ADR-032: Capability Vocabulary As Platform Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-033"><span title="Comfort-Dial Apply Pipeline + Stratified-Prior Recommender" class="linkLabel_WmDU">Comfort-Dial Apply Pipeline + Stratified-Prior Recommender</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/wizard-staged-commit-and-import-template"><span title="ADR-034: Wizard Staged-Commit Semantics and ImportTemplate Entity" class="linkLabel_WmDU">ADR-034: Wizard Staged-Commit Semantics and ImportTemplate Entity</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-035"><span title="Tenant Contributor Permission Model" class="linkLabel_WmDU">Tenant Contributor Permission Model</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/workspace-operations-surface-split"><span title="ADR-036: Workspace and Operations Surface Split" class="linkLabel_WmDU">ADR-036: Workspace and Operations Surface Split</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-037-phase-a1-inline-coda-redis-amendment"><span title="Inline Coda Credential Moves from Session-Only to Short-TTL Ephemeral Redis (Spec 0040 T4d)" class="linkLabel_WmDU">Inline Coda Credential Moves from Session-Only to Short-TTL Ephemeral Redis (Spec 0040 T4d)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/slot-type-taxonomy"><span title="ADR-037: Slot-Type Taxonomy and Tenant Vocabulary Layer" class="linkLabel_WmDU">ADR-037: Slot-Type Taxonomy and Tenant Vocabulary Layer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/federated-preset-registry"><span title="ADR-038: Federated Preset Registry as Federation Contract" class="linkLabel_WmDU">ADR-038: Federated Preset Registry as Federation Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/platform-place-preset"><span title="ADR-039: Platform-canonical Place preset (platform-place/v1)" class="linkLabel_WmDU">ADR-039: Platform-canonical Place preset (platform-place/v1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/platform-period-preset"><span title="ADR-040: Platform-canonical Period preset (platform-period/v1)" class="linkLabel_WmDU">ADR-040: Platform-canonical Period preset (platform-period/v1)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/spatial-substrate"><span title="ADR-041: Spatial substrate — PostGIS + GeoSPARQL + MapLibre GL JS" class="linkLabel_WmDU">ADR-041: Spatial substrate — PostGIS + GeoSPARQL + MapLibre GL JS</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/layered-substrate-naming-and-tenant-prefix-retirement"><span title="ADR-042: Layered substrate naming and Tenant* prefix retirement" class="linkLabel_WmDU">ADR-042: Layered substrate naming and Tenant* prefix retirement</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/unified-federation-marketplace-pattern"><span title="ADR-043: Unified federation/marketplace pattern (Ingest + Alignment + Workspace)" class="linkLabel_WmDU">ADR-043: Unified federation/marketplace pattern (Ingest + Alignment + Workspace)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-044"><span title="Voice and vocabulary substrate" class="linkLabel_WmDU">Voice and vocabulary substrate</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-045"><span title="Chat-transcript retention regime for in-product AI chat surfaces" class="linkLabel_WmDU">Chat-transcript retention regime for in-product AI chat surfaces</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/workspace-operation-ledger-for-authoring-undo-redo"><span title="ADR 046: Workspace Operation Ledger For Authoring Undo/Redo" class="linkLabel_WmDU">ADR 046: Workspace Operation Ledger For Authoring Undo/Redo</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/publication-state-gate-and-archetype-general-versioning"><span title="ADR 047: Publication-State Gate for Public Reads + Archetype-General Post-Publish Versioning" class="linkLabel_WmDU">ADR 047: Publication-State Gate for Public Reads + Archetype-General Post-Publish Versioning</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/materialization-field-plan-resolver-and-restructure-materialization"><span title="ADR-048: Materialization field-plan resolver + RESTRUCTURE materialization (Spec 0034)" class="linkLabel_WmDU">ADR-048: Materialization field-plan resolver + RESTRUCTURE materialization (Spec 0034)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-049"><span title="Tenant Onboarding Provisions a Login-able, Permission-Scoped Initial Admin" class="linkLabel_WmDU">Tenant Onboarding Provisions a Login-able, Permission-Scoped Initial Admin</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-050"><span title="Platform vs Tenant Admin-Site Structural Separation" class="linkLabel_WmDU">Platform vs Tenant Admin-Site Structural Separation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-051"><span title="Capability Membership Identity Reconciliation (Tenant-Scoped)" class="linkLabel_WmDU">Capability Membership Identity Reconciliation (Tenant-Scoped)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-052"><span title="Per-Tenant User Identity is Load-Bearing; Global Identity Only as an SSO Add-On" class="linkLabel_WmDU">Per-Tenant User Identity is Load-Bearing; Global Identity Only as an SSO Add-On</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/adr-053"><span title="Structure-Aware Archetype Classification with Conflict Surfacing" class="linkLabel_WmDU">Structure-Aware Archetype Classification with Conflict Surfacing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/import-pipeline-deployment-neutral-async-contract"><span title="ADR 054: Import Pipeline — Deployment-Neutral Async Contract" class="linkLabel_WmDU">ADR 054: Import Pipeline — Deployment-Neutral Async Contract</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/evidence-gated-deferrals-must-instrument-their-trigger"><span title="ADR 055: Evidence-Gated Deferrals Must Instrument Their Un-Defer Trigger" class="linkLabel_WmDU">ADR 055: Evidence-Gated Deferrals Must Instrument Their Un-Defer Trigger</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/reference-cell-decode-resolve-or-preserve"><span title="ADR-056: Reference-Cell Decode Contract — Resolve-or-Preserve, Fail-Loud Only on Malformed Payloads" class="linkLabel_WmDU">ADR-056: Reference-Cell Decode Contract — Resolve-or-Preserve, Fail-Loud Only on Malformed Payloads</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/wizard-apply-conforms-to-capability-model"><span title="ADR-057: Import-Wizard Apply Flow Conforms to the ADR-035 Capability Model — Capability-Gated Terminal Apply + Batched Review" class="linkLabel_WmDU">ADR-057: Import-Wizard Apply Flow Conforms to the ADR-035 Capability Model — Capability-Gated Terminal Apply + Batched Review</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/edition-bibliography-collection-modeling"><span title="ADR 058: Edition-Bibliography Collection Modeling — Two canonical_type Collections vs One DOCUMENT Collection with frbr_level" class="linkLabel_WmDU">ADR 058: Edition-Bibliography Collection Modeling — Two canonical_type Collections vs One DOCUMENT Collection with frbr_level</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/developer/architecture/adr/tenant-lifecycle-cross-schema-fk-and-identity"><span title="ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key" class="linkLabel_WmDU">ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr/schema-concern-decomposition"><span title="ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config" class="linkLabel_WmDU">ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr-037-ratification-brief"><span title="ADR-037 Ratification Brief" class="linkLabel_WmDU">ADR-037 Ratification Brief</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/api_layer"><span title="Architecture: API &amp; Authentication Layer" class="linkLabel_WmDU">Architecture: API &amp; Authentication Layer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/archetype_strategic_planning"><span title="Archetype Strategic Planning" class="linkLabel_WmDU">Archetype Strategic Planning</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy-tenant-restore-spec"><span title="Atlomy Tenant Restore Specification" class="linkLabel_WmDU">Atlomy Tenant Restore Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy-testing-readiness-plan"><span title="Atlomy Data Testing Readiness Plan" class="linkLabel_WmDU">Atlomy Data Testing Readiness Plan</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy_canonical_architecture_vision"><span title="KE (Knowledge Environments) Canonical Architecture Vision" class="linkLabel_WmDU">KE (Knowledge Environments) Canonical Architecture Vision</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/capability_contracts_strategic_value"><span title="Archetype Capability Contracts: Strategic Value" class="linkLabel_WmDU">Archetype Capability Contracts: Strategic Value</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/database_visualizer"><span title="Database Visualizer Architecture" class="linkLabel_WmDU">Database Visualizer Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/frontend"><span title="Architecture: Frontend Strategy (React 19 + Django)" class="linkLabel_WmDU">Architecture: Frontend Strategy (React 19 + Django)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/help-key-contract"><span title="helpKey contract — engineering spec" class="linkLabel_WmDU">helpKey contract — engineering spec</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/ke_admin_overlay"><span title="KE Admin Overlay — architecture" class="linkLabel_WmDU">KE Admin Overlay — architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/monitoring_architecture"><span title="Sprint 7: Platform-Wide Monitoring &amp; Observability" class="linkLabel_WmDU">Sprint 7: Platform-Wide Monitoring &amp; Observability</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/multi_tenancy"><span title="Multi-Tenancy Architecture" class="linkLabel_WmDU">Multi-Tenancy Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/multilingual_design"><span title="Multilingual Data Import - Design Principles" class="linkLabel_WmDU">Multilingual Data Import - Design Principles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/new_engineer_architectural_onboarding"><span title="New Engineer Architectural Onboarding" class="linkLabel_WmDU">New Engineer Architectural Onboarding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/permission-apply-model-simplification-review-2026-06-07"><span title="Permission / Apply-Model Simplification Review — 2026-06-07" class="linkLabel_WmDU">Permission / Apply-Model Simplification Review — 2026-06-07</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/platform_principles"><span title="KE (Knowledge Environments) Platform Principles" class="linkLabel_WmDU">KE (Knowledge Environments) Platform Principles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/production-infrastructure-requirements"><span title="Production Infrastructure Requirements (provider-neutral)" class="linkLabel_WmDU">Production Infrastructure Requirements (provider-neutral)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/rbac"><span title="Role-Based Access Control (RBAC) Architecture" class="linkLabel_WmDU">Role-Based Access Control (RBAC) Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/sprint13_preparation"><span title="Sprint 13 Preparation Guide: Archetype Definition" class="linkLabel_WmDU">Sprint 13 Preparation Guide: Archetype Definition</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/developer_guide"><span title="Developer Guide: Data Sync &amp; Monitoring Systems" class="linkLabel_WmDU">Developer Guide: Data Sync &amp; Monitoring Systems</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/knowledge_explorer"><span title="Sprint 13: Knowledge Explorer &amp; API Architecture" class="linkLabel_WmDU">Sprint 13: Knowledge Explorer &amp; API Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/platform_principles_enforcement"><span title="Platform-Principles Enforcement (Code Gates)" class="linkLabel_WmDU">Platform-Principles Enforcement (Code Gates)</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/ke-docs/developer/security/"><span title="Security Architecture" class="categoryLinkLabel_W154">Security Architecture</span></a><button aria-label="Expand sidebar category &#x27;Security Architecture&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/setup/Troubleshooting/troubleshooting_template_conflicts"><span title="setup" class="categoryLinkLabel_W154">setup</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/ui/design_system"><span title="ui" class="categoryLinkLabel_W154">ui</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">architecture</span></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/ke-docs/developer/architecture/adr/"><span>Architecture Decision Records (ADRs)</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>ADR 059: Tenant Lifecycle — Cross-Schema FK Discipline, Schema-First Delete, and Username as the Membership Identity Key</h1></header>
+<ul>
+<li class=""><strong>Status</strong>: Accepted (ratified 2026-06-10 under explicit owner delegation — &quot;Apply and ratify and merge&quot; — after the four-lens adversarial-archaeology review + Round-12 NotebookLM critique round; absorption devlog <code>docs/devlogs/2026_w24/2026-06-11_0030_round12-adr059-ratification-absorption.md</code>)</li>
+<li class=""><strong>Date</strong>: 2026-06-10</li>
+<li class=""><strong>Deciders</strong>: drafted by Claude (Wave-3 A2 lane); platform owner ratifies</li>
+<li class=""><strong>Context source</strong>: 2026-06-10 from-scratch tenant scrub + escorted live-walk findings W47/W48/W50; <code>roadmap/board.md</code> Active item &quot;Tenant lifecycle robustness&quot;</li>
+<li class=""><strong>Related</strong>: ADR-035 (contributor permission model, §3.1 bootstrap member; §4.1 structural compensation for destructive ops), ADR-042 (search_path is the isolation primitive; cross-layer FK warning), ADR-047 (publication-state gate, <code>tombstoned</code> — what delete owes published artifacts), ADR-049 (onboarding initial admin), ADR-051 (tenant-scoped capability membership — Approach A ratified, implementation pending), ADR-052 (per-tenant identity load-bearing), ADR-055 (evidence-gated deferrals must instrument their trigger), ADR-017 §B (platform identity posture — mutable values excluded from identity keys), spec 0020 design §5.1 (<code>TenantSlotPreset.tenant</code> FK rationale)</li>
+<li class=""><strong>Amended</strong>: 2026-06-10 — adversarial-archaeology review (D1 scoped layer-relative; D3 protected-tenant guard implemented, deferral superseded; D4 priced ADR-017 §B exception; Alternatives + falsifiers added); 2026-06-10 evening — dependency-evolution + survivability re-weighing (D1 upstream evidence + un-freeze trigger + substrate-evaluation rubric pointer; D2 upstream confirmation-bug evidence + A7 published-surface survivability guard; D4 fossil-FK lineage clause + attribution coordination pointer; D5 A6 seeded <code>role</code> vocabulary declared); 2026-06-10 night — Round-12 NotebookLM critique absorption (D2 per-schema advisory-lock serialization + backup/restore runbook pointer; acknowledgment-surface audit coverage named + stage-2 capability requirement; D5 provisioning-failure recovery gap declared; A7 erasure-precedence clause + scrub-flow note)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="context">Context<a href="#context" class="hash-link" aria-label="Direct link to Context" title="Direct link to Context" translate="no">​</a></h2>
+<p>A 2026-06-10 from-scratch tenant scrub surfaced that the platform has <strong>no
+working operator path to delete a tenant</strong>, and that re-creating one requires a
+manual schema/raw-SQL dance:</p>
+<ol>
+<li class=""><strong>Cross-schema CASCADE FK breaks every ORM delete path.</strong>
+<code>TenantSlotPreset</code> (and <code>UngroundedVocabularyValue</code>) are <strong>tenant-app
+models</strong> — their tables exist only inside tenant schemas — yet they declare
+<code>on_delete=CASCADE</code> FKs to the <strong>shared</strong> <code>customers.Client</code>
+(<code>atlomyapp/slot_taxonomy/models.py</code>). Deleting a <code>Client</code> from the public
+schema makes Django&#x27;s cascade collector query
+<code>atlomyapp_tenantslotpreset</code> / <code>atlomyapp_ungroundedvocabularyvalue</code> in the
+public search-path, where those tables do not exist →
+<code>ProgrammingError: relation … does not exist</code>. This crashes the superadmin
+admin delete button AND django-tenants&#x27; <code>manage.py delete_tenant</code>.
+The FK itself is <strong>deliberate</strong> (spec 0020 design §5.1: ADR-035 tenant
+discipline; platform defaults seeded per tenant; <code>request.tenant</code>-scoped
+queries; live consumers include the <code>tenantSlotPresets</code> GraphQL resolver,
+vocabulary-fork tracking, and provisioning <code>get_or_create</code>). Only the
+never-exercised deletion path is defective: the Python-side <code>CASCADE</code> is
+redundant by construction — the preset rows live in the schema being
+dropped, so the schema drop IS the cascade — yet it forces the collector to
+run a cross-schema query.</li>
+<li class=""><strong><code>auto_drop_schema=False</code> orphans the Postgres schema</strong> even where an ORM
+delete would succeed, with no operator-visible warning.</li>
+<li class=""><strong>W47</strong>: the scrub re-created the tenant schema + users but never reseeded
+the <strong>public-schema</strong> <code>TenantMembership</code> rows — capability gates then denied
+every tenant user. There was no seeding surface to re-run.</li>
+<li class=""><strong>W50</strong>: membership identity correlates the <strong>tenant-schema</strong>
+<code>request.user</code> against the membership&#x27;s <strong>public-schema</strong> <code>auth.User</code> FK
+<strong>by raw integer pk</strong> (<code>filter(user=request.user)</code> →
+<code>user_id = &lt;tenant-schema pk&gt;</code>). It works only when the two <code>auth_user</code>
+tables happen to assign the same pk — a coincidence that the scrub broke.
+Other pilot tenants had ZERO membership rows, so the coincidence was never
+even tested there.</li>
+<li class=""><strong>W48 (rider)</strong>: the dbvisualizer surfaces must tolerate tenants whose
+schema is missing/half-deleted without crashing.</li>
+</ol>
+<p>ADR-051 already ratified the end-state for membership identity (Approach A:
+relocate <code>TenantMembership</code> into a tenant-local app keyed to the tenant-schema
+user), but its implementation is pending. This ADR decides the <strong>interim,
+load-bearing contract</strong> that the lifecycle tooling builds on today.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="decisions">Decisions<a href="#decisions" class="hash-link" aria-label="Direct link to Decisions" title="Direct link to Decisions" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d1--cross-layer-fk-discipline-existing-fks-become-do_nothing-new-ones-should-not-be-added">D1 — Cross-layer FK discipline: existing FKs become <code>DO_NOTHING</code>; new ones SHOULD NOT be added<a href="#d1--cross-layer-fk-discipline-existing-fks-become-do_nothing-new-ones-should-not-be-added" class="hash-link" aria-label="Direct link to d1--cross-layer-fk-discipline-existing-fks-become-do_nothing-new-ones-should-not-be-added" title="Direct link to d1--cross-layer-fk-discipline-existing-fks-become-do_nothing-new-ones-should-not-be-added" translate="no">​</a></h3>
+<p><em>(Amended 2026-06-10: the rule is stated <strong>layer-relative</strong> — <code>TENANT_APPS</code> →
+<code>SHARED_APPS</code> — so it survives the ADR-042 rename arc; module paths below are
+the current/interim housing of the two applied instances, not the rule&#x27;s
+terms.)</em></p>
+<p><code>TENANT_APPS</code> models SHOULD NOT add new FKs to <code>SHARED_APPS</code> models: under
+ADR-042 the schema <strong>is</strong> the tenant (search_path is the isolation
+primitive; django-tenants itself warns against cross-layer FKs), and ADR-051
+Approach A drops exactly such an FK as redundant (&quot;the row&#x27;s schema <em>is</em> the
+tenant&quot;). The <strong>two existing instances keep theirs</strong> —
+<code>TenantSlotPreset.tenant</code> and <code>UngroundedVocabularyValue.client</code>, currently
+housed in <code>atlomyapp/slot_taxonomy/models.py</code> (interim; their ADR-042
+destinations are <code>epistemic.SlotPreset</code> / <code>epistemic.UngroundedVocabularyValue</code>)
+— and any future cross-layer FK requires a recorded justification. The
+justification recorded for these two: (a) spec 0020 §5.1 scoping consumers
+(<code>request.tenant</code>-scoped queries, the <code>tenantSlotPresets</code> GraphQL resolver,
+vocabulary-fork tracking, provisioning <code>get_or_create</code>), and (b) the
+DB-level constraint serving as the <strong>schema-first ordering guard</strong> for D2.</p>
+<p>Where a cross-layer FK exists, it MUST declare <code>on_delete=models.DO_NOTHING</code>:</p>
+<ul>
+<li class="">Django&#x27;s cascade collector then <strong>skips</strong> the relation — no cross-schema
+query, no <code>ProgrammingError</code>. Cross-layer
+<code>CASCADE</code>/<code>PROTECT</code>/<code>SET_NULL</code> are wrong by construction: the collector
+cannot see across schemas.</li>
+<li class="">The <strong>DB-level</strong> FK constraint remains and is <strong>useful</strong>: it blocks deleting
+a <code>Client</code> row while its schema (and referencing rows) still exists, forcing
+the schema-first ordering in D2 — it is what makes the un-shadowable stock
+<code>delete_tenant</code> and any raw ORM delete fail loudly instead of silently
+orphaning a schema. Dropping the schema removes the referencing tables,
+after which the public rows delete cleanly.</li>
+<li class=""><code>DO_NOTHING</code> + schema-drop-as-cascade is the only coherent semantics under
+ADR-042.</li>
+</ul>
+<p><strong>Upstream evidence (added 2026-06-10, dependency-evolution re-weighing)</strong>:
+the cross-schema-FK/collector defect class is a long-standing, structurally
+unaddressed django-tenants limitation — on record upstream since 2016
+(<a href="https://github.com/django-tenants/django-tenants/issues/68" target="_blank" rel="noopener noreferrer" class="">django-tenants #68</a>:
+auth in both app lists → cascade <code>ProgrammingError</code>, closed unfixed, with
+<code>DO_NOTHING</code> already on the reporter&#x27;s own option list;
+<a href="https://github.com/django-tenants/django-tenants/issues/149" target="_blank" rel="noopener noreferrer" class="">#149</a>: queryset
+delete never drops schemas — Context defect 2) — with <code>DO_NOTHING</code> /
+drop-the-FK as the community&#x27;s stable answers. This decision was taken
+against a <strong>frontier</strong> pin set, not a stale one: as of 2026-06 the platform
+pins django-tenants <strong>3.10.1</strong> (the latest release, 2026-03-17; nothing in
+3.7.0→3.10.1 touches the collector, cross-schema FKs, or <code>auto_drop_schema</code>)
+and Django <strong>6.0.5</strong> (current stable; the 6.0 deletion collector is
+unchanged). D1 is alignment with upstream&#x27;s decade-stable recommended
+posture, not a local heterodoxy.</p>
+<p><strong>Un-freeze trigger</strong>: re-evaluate D1 on any django-tenants release whose
+changelog touches cross-schema FK / collector behavior, or on a
+schema-library migration (the substrate-evaluation ADR below).</p>
+<p><strong>Alternative considered and rejected for now — drop the FK entirely</strong> (the
+lineage&#x27;s own direction: ADR-051A&#x27;s &quot;the row&#x27;s schema <em>is</em> the tenant&quot;
+argument applies here too): rejected because the DB constraint is the loud
+refusal that keeps stock/raw deletes from orphaning schemas (Context defect
+2). The FK-existence question is owned by whichever lands first: <strong>ADR-051
+Approach A</strong>, or the <strong>ADR-042 rename sprint</strong> that re-homes
+<code>slot_taxonomy</code> — revisit there, not here.</p>
+<p>A future <strong>substrate-evaluation ADR</strong> (the schema-library-migration arm of
+the un-freeze trigger; landscape signal: the django-pgschemas fork) does not
+invent its rubric: it inherits the preliminary-research five-criteria rubric
+recorded in <code>cline_docs/techContext.md</code> (&quot;Why Schema-per-Tenant&quot;: data
+isolation, cross-tenant leakage, per-tenant query optimization, backup
+granularity, compliance/data residency), <strong>extended</strong> with the needs that
+have emerged since — path-based routing, the static/dynamic site mix, and
+schema management under worker-tier concurrency. The comparison covers the
+<strong>authoring/operational side only</strong>: the public reader surface is excluded
+per the published-surface survivability posture (D2 as amended) — its
+criterion is how cleanly projections leave the substrate entirely (ADR-029&#x27;s
+direction), not which tenancy package serves it.</p>
+<p><strong>Falsifier</strong>: a tenant-app reference that must remain valid <em>after</em> its
+schema is dropped would invalidate schema-drop-as-cascade and reopen this
+decision.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d2--schema-first-idempotent-delete_tenant-service-is-the-only-delete-path">D2 — Schema-first, idempotent <code>delete_tenant</code> service is the only delete path<a href="#d2--schema-first-idempotent-delete_tenant-service-is-the-only-delete-path" class="hash-link" aria-label="Direct link to d2--schema-first-idempotent-delete_tenant-service-is-the-only-delete-path" title="Direct link to d2--schema-first-idempotent-delete_tenant-service-is-the-only-delete-path" translate="no">​</a></h3>
+<p><code>customers.services.tenant_lifecycle.delete_tenant(schema_name)</code>:</p>
+<ol>
+<li class=""><strong>Drop the Postgres schema FIRST</strong> (<code>DROP SCHEMA IF EXISTS … CASCADE</code>;
+DDL auto-commits; the drop is the tenant-data cascade).</li>
+<li class=""><strong>Then delete the public rows</strong> (<code>Client</code> + ORM cascade over shared models:
+<code>Domain</code>, <code>TenantMembership</code>, audit logs, search profile, credentials,
+snapshots), atomically.</li>
+<li class=""><strong>Idempotent / half-state recovering</strong>: schema-already-gone + rows present
+→ deletes rows; rows-already-gone + schema present → drops schema; both
+gone → no-op success. Each call returns a report of what it found and did.</li>
+<li class="">Refuses the public schema and validates the schema name shape before any
+DDL.</li>
+</ol>
+<p>Error blast radius: the public-row phase is one atomic transaction —
+abort-on-first-error, nothing half-deleted at the row layer; the schema drop
+is idempotent and re-runnable. Exposed from all three surfaces: service API,
+<code>manage.py ke_delete_tenant</code> (requires explicit confirmation; the stock
+django-tenants command cannot be name-shadowed — <code>INSTALLED_APPS</code> order gives
+it precedence — but after D1 it fails safely: the DB-level FK refuses while
+the schema exists; the stock command additionally carries an open upstream
+confirmation bug —
+<a href="https://github.com/django-tenants/django-tenants/issues/1058" target="_blank" rel="noopener noreferrer" class="">django-tenants #1058</a>,
+open since 2024-06, the interactive prompt mis-reads the first &quot;yes&quot; —
+independent support for ruling it non-canonical), and a confirmed superadmin
+admin action
+(&quot;Delete tenant — drops schema&quot;) that replaces the default ORM delete on
+<code>ClientAdmin</code> (the default button/action now routes through the service too,
+so there is no surviving broken path).</p>
+<p>The admin <strong>bulk</strong> action&#x27;s blast radius is per-tenant continue-on-error:
+each tenant&#x27;s delete is independently atomic and independently reported
+(success or refusal message per tenant); one tenant&#x27;s failure does not abort
+the batch.</p>
+<p><strong>Published-surface survivability (amended 2026-06-10 — A7)</strong>: KE commits to
+public reader surfaces remaining available per minimal-computing standards
+(ADR-003 &quot;static HTML, versioned&quot; outputs; ADR-029&#x27;s EntryProjection
+decoupling) <strong>independent of platform operation</strong>. Tenant deletion therefore
+treats published artifacts as a <strong>separate protection axis</strong> from the pilot
+relationship (D3&#x27;s <code>is_protected</code>): when the tenant schema holds PUBLISHED, CURRENT
+<code>EntryProjection</code> rows, <code>delete_tenant</code> REFUSES with a loud
+<code>TenantLifecycleError</code> — the same service-level refusal shape as
+<code>is_protected</code>, checked before any DDL, inherited by all three surfaces —
+unless the operator explicitly acknowledges <strong>unpublish-and-destroy</strong>:
+<code>acknowledge_published_destruction=True</code> on the service,
+<code>--destroy-published</code> on <code>ke_delete_tenant</code>, the acknowledgment checkbox on
+the admin confirmation page. The runbooks document <strong>export-then-delete</strong> as
+the standard path. <strong>Falsifier</strong>: if the export-package profile (ADR-029&#x27;s
+deferred Datasette/SQLite/DuckDB alternative) ships as the canonical
+survivability vehicle, the refusal can relax to &quot;exported package exists&quot;
+(ADR-047/ADR-023 tombstone interplay, now instrumented rather than implied).</p>
+<p><strong>Round-12 additions (2026-06-10 night, NotebookLM critique absorption)</strong>:</p>
+<ul>
+<li class=""><strong>Concurrency</strong>: <code>delete_tenant</code> serializes per schema via a Postgres
+advisory lock (<code>pg_try_advisory_lock</code> on <code>ke_delete_tenant:&lt;schema&gt;</code>); a
+concurrent invocation refuses loudly. No schema change (activation-clock
+cost test: none). Backup/restore of half-deleted tenants is a runbook
+procedure, not a service concern — see the tenant operations runbook.</li>
+<li class=""><strong>Acknowledgment-surface audit + authorization</strong>: <code>Client</code> (and <code>Domain</code>)
+are registered with django-auditlog (<code>customers/apps.py</code>), so every
+<code>is_protected</code> flip and Client deletion already lands in the audit log —
+the Round-12 critique&#x27;s &quot;no audit&quot; claim was verified false; this clause
+NAMES the coverage so it is load-bearing rather than incidental.
+Authorization differentiation (a dedicated capability for unprotect /
+destroy-published rather than blanket superadmin) is REQUIRED at the
+production-simulation milestone (stage 2) — it rides the ADR-051A
+permission machinery; activating it earlier would build capability-gating
+ADR-035 Amendment 4 deliberately deferred.</li>
+<li class=""><strong>Erasure precedence (A7 clarification)</strong>: the published-surface refusal is
+an acknowledgment gate, never a denial of a tenant&#x27;s erasure right. When a
+tenant requests deletion/erasure, the survivability commitment yields for
+personal data: the documented path is export-then-delete with the explicit
+acknowledgment, and the full erasure-vs-persistent-citation reconciliation
+(forgettable-payload / PII-externalization design) is owned by the WOL/GDPR
+arc (ADR-046 scope), not this ADR.</li>
+<li class=""><strong>Automated flows</strong>: no import/materialize code path calls <code>delete_tenant</code>
+(verified) — the A7 refusal cannot deadlock ADR-054 jobs. The operator
+scrub-reimport procedure documents <code>--destroy-published</code> for scrubbing a
+tenant with published surfaces.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d3--auto_drop_schema-stays-false-schema-drops-are-explicit-surface-only">D3 — <code>auto_drop_schema</code> stays <code>False</code>; schema drops are explicit-surface-only<a href="#d3--auto_drop_schema-stays-false-schema-drops-are-explicit-surface-only" class="hash-link" aria-label="Direct link to d3--auto_drop_schema-stays-false-schema-drops-are-explicit-surface-only" title="Direct link to d3--auto_drop_schema-stays-false-schema-drops-are-explicit-surface-only" translate="no">​</a></h3>
+<p><code>Client.auto_drop_schema</code> remains <code>False</code> (django-tenants default). Rationale:
+<code>auto_drop_schema=True</code> makes ANY ORM delete — including a bulk queryset
+delete, a cascade from some future shared-model FK, or an admin mishap — drop
+a pilot tenant&#x27;s entire schema as a side effect. Dev/throwaway convenience
+does not justify that on a platform hosting protected pilot data. Instead:</p>
+<ul>
+<li class=""><strong>All</strong> schema drops go through the explicit lifecycle surfaces (D2), which
+are confirmed (admin action / <code>--yes</code> flag) and logged.</li>
+<li class="">Dev/throwaway flows use the same surfaces — <code>manage.py ke_delete_tenant &lt;schema&gt; --yes</code> is one command; there is no residual need for implicit
+drops.</li>
+<li class=""><strong>Protected-tenant guard (amended 2026-06-10, adversarial-archaeology
+review)</strong>: a <code>Client.is_protected</code> flag (BooleanField, default <code>False</code>)
+causes <code>delete_tenant</code> to <strong>refuse with a loud <code>TenantLifecycleError</code>
+naming the flag</strong>, before any DDL. Clearing the flag is a deliberate
+superadmin act on the Client record, separate in time and surface from the
+delete itself — structural compensation per <strong>ADR-035 §4.1</strong> (typed/clicked
+confirmation is a behavioral gate that habituates; genuinely destructive
+ops need a structural guard), not a second confirmation. The refusal is
+enforced <strong>in the service</strong>, so all three surfaces (admin action,
+<code>ke_delete_tenant</code>, direct API) inherit it; the admin surfaces it as an
+error message, the command as a <code>CommandError</code>. Operators set the flag on
+pilot tenants at onboarding (tenant names are per-tenant operational data,
+not platform code — see the tenant operations runbook). An earlier draft of
+this clause deferred the guard &quot;until pilot promotion criteria exist&quot;; that
+deferral is <strong>superseded by this guard</strong> — it named no observable un-defer
+trigger, which <strong>ADR-055</strong> rules a silent permanent deferral.</li>
+<li class=""><strong>Activation clock (owner-refined, 2026-06-10 evening)</strong>: the platform is
+on a deliberate deployment trajectory — (1) greenfield local dev (wipe/
+rebuild by design) → (2) a near-term <strong>local production-simulation
+milestone</strong> (local DBs stop being wipeable BY POLICY so all code is
+exercised as production code) → (3) deployed design partners (stable,
+continuous, non-wipeable DBs). The activation default along that
+trajectory is <strong>activate-now-by-default</strong>: any guard or posture that can
+be live now WITHOUT blocking local wipe/rebuild or growing the
+pre-production migration chain activates immediately — deferral is the
+exception, reserved for exactly those two costs. Concretely: the D3 and
+D2/A7 refusal CODE is live from this PR (it costs nothing while no tenant
+is flagged or published); <code>is_protected=True</code> lands on pilot tenants at
+the production-simulation milestone or deployment onboarding, whichever
+comes first (the observable trigger ADR-055 requires); the A7 refusal
+self-activates the moment any tenant publishes. Wiping locally remains
+one explicit acknowledged step away throughout stage 1.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d4--membershiptenant-user-correlation-is-by-username-interim-until-adr-051-approach-a">D4 — Membership↔tenant-user correlation is BY USERNAME (interim until ADR-051 Approach A)<a href="#d4--membershiptenant-user-correlation-is-by-username-interim-until-adr-051-approach-a" class="hash-link" aria-label="Direct link to D4 — Membership↔tenant-user correlation is BY USERNAME (interim until ADR-051 Approach A)" title="Direct link to D4 — Membership↔tenant-user correlation is BY USERNAME (interim until ADR-051 Approach A)" translate="no">​</a></h3>
+<p><strong>Decision: match-by-username</strong>, not raw pk and not a new identity column.</p>
+<ul>
+<li class=""><code>TenantMembership.user</code> keeps its FK to the <strong>public-schema</strong> <code>auth.User</code>
+(it is a SHARED model; the FK is schema-local and sound). That public user
+is an <strong>identity anchor only</strong>: created with an unusable password, never a
+login account (logins authenticate tenant-schema users, ADR-049/052).
+Lineage honesty (added 2026-06-10, early-era staleness re-weighing): the
+<code>user</code> FK is a <strong>NocoDB-era fossil</strong> — the <code>TenantMembership</code> chassis was
+born 2025-12-27 in the FDW commit, under that same commit&#x27;s explicit &quot;no
+per-tenant users&quot; assumption, when FK-to-public-user meant
+FK-to-the-login-human; ADR-049/052 inverted the login model without
+touching the FK. The dual-auth structure&#x27;s deliberateness rests on
+ADR-052&#x27;s retro-ratification, not on its origin, and the identity-anchor
+reading here is a priced <strong>re-purposing</strong> of a dead birth semantics —
+retired by ADR-051 Approach A, whose implementation <strong>priority this
+raises</strong>: the interim stands on a retro-ratification plus a fossil FK.
+Coordination pointer for ADR-051A: public-surface <strong>attribution</strong>
+(created-by lines on published pages) must survive the identity migration.</li>
+<li class="">The correlation contract between a tenant-schema <code>request.user</code> and a
+membership row is <strong>username equality</strong>, resolved inside the public schema
+context (<code>membership.user.username == request.user.username</code>). A canonical
+resolver (<code>customers.services.membership_identity.resolve_membership</code>)
+replaces every <code>filter(user=request.user)</code> membership lookup; raw-pk
+matching is retired.</li>
+<li class=""><strong>Why username over a stable identity key (e.g. a <code>member_username</code> column
+or UUID)</strong>: usernames are already unique per <code>auth_user</code> table in both
+schemas; the proposal-persistence layer already correlates by username
+(<code>epistemic/services/proposals/persistence.py</code>), so this ratifies existing
+practice rather than inventing a second mechanism; and ADR-051 Approach A
+will delete this correlation entirely (membership keyed directly to the
+tenant-schema user), so adding a new column/key now is schema churn for a
+structure already scheduled for replacement. A rename collision (renaming a
+tenant user to capture another&#x27;s membership) requires tenant-admin
+authority that already implies full membership control — not a new
+privilege escalation.</li>
+<li class=""><strong>Why not pk</strong>: pk alignment between two independent sequences is a
+coincidence (W50); any reseed/scrub order change silently re-points
+capability grants at the wrong human.</li>
+<li class=""><strong>Priced exception to the platform identity posture (amended 2026-06-10)</strong>:
+username is a <strong>mutable</strong> key, and <strong>ADR-017 §B</strong> excludes mutable values
+from identity keys (&quot;the platform owns identity&quot;; DSN/path were demoted to
+provenance for exactly this reason). This interim <strong>deliberately</strong> accepts
+the divergence, because (a) the failure mode is <strong>fail-closed</strong>: an
+orphaned membership denies capabilities — loud to the user — rather than
+false-matching another human&#x27;s grants, which is what raw-pk did (silent
+wrong-authority, ADR-051 Context); and (b) the contract is scheduled for
+deletion by ADR-051 Approach A. <strong>Blast radius of a tenant-user rename</strong>:
+the membership orphans; capability checks deny; the heal is re-running
+<code>seed_tenant_users</code>, which creates a fresh default-bundle membership —
+<strong>tuned permissions on the orphaned row are not carried over</strong>, and the
+orphaned row must be retired manually. Until ADR-051A lands, tenant-user
+renames are operationally discouraged; the seeded admin cannot perform them
+(<code>auth</code> permissions are withheld precisely to protect load-bearing
+attributes), and de-superusering legacy tenant accounts (ADR-049 invariant)
+closes the remaining surface. A future reader holding the ADR-017 §B ledger
+posture should read D4 as a priced, expiring exception — not a violation.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d5--seeding-is-a-first-class-idempotent-lifecycle-surface">D5 — Seeding is a first-class, idempotent lifecycle surface<a href="#d5--seeding-is-a-first-class-idempotent-lifecycle-surface" class="hash-link" aria-label="Direct link to D5 — Seeding is a first-class, idempotent lifecycle surface" title="Direct link to D5 — Seeding is a first-class, idempotent lifecycle surface" translate="no">​</a></h3>
+<p><code>create_tenant</code> + <code>seed_initial_admin</code> service APIs (and the matching
+management commands / the ADR-049 onboarding wizard, which now delegates to
+them) cover BOTH halves of tenant identity:</p>
+<ul>
+<li class="">the <strong>tenant-schema</strong> login user (<code>is_staff=True</code>, <code>is_superuser=False</code>
+LOAD-BEARING, deterministic <code>SHARED_APPS − TENANT_APPS</code> permission scoping —
+ADR-049 unchanged, relocated into the service);</li>
+<li class="">the <strong>public-schema</strong> membership for that admin&#x27;s identity-anchor user,
+with a named capability bundle (<code>DEFAULT_BUNDLES</code>), honoring the bootstrap
+guards: bootstrap requires <code>can_manage_permissions=True</code> (model guard), at
+most one bootstrap per tenant (DB constraint — the seeder grants bootstrap
+only if the tenant has none), and no clear-without-transfer (an existing
+bootstrap is never cleared or reassigned by seeding; transfers go through
+<code>transfer_bootstrap_membership</code> only).</li>
+<li class="">Per ADR-051 (&quot;the onboarding initial admin becomes the bootstrap member&quot;),
+the onboarding wizard now grants bootstrap to the <strong>initial tenant admin&#x27;s</strong>
+identity anchor — not to the platform superuser performing the creation.
+The <code>tenant_creation_user</code> signal path remains for direct
+<code>Client.objects.create</code> callers that opt into it.</li>
+<li class="">Seeding is <strong>heal-safe</strong>: re-running never clobbers existing membership
+permissions a researcher/admin has since tuned (create-if-missing
+semantics) — this is the W47 reseed surface.</li>
+<li class=""><strong>Rebuildable reader views are part of the heal surface (amended
+2026-06-11 — Spec 0046)</strong>: lifecycle seeding triggers an idempotent
+rebuild of per-archetype SQL reader views + the tenant compose function
+when the tenant already has entities. New empty tenants are no-op safe.
+Operators can run the same repair directly via
+<code>materialize_per_archetype_views --schema &lt;schema&gt;</code>.</li>
+<li class=""><strong>Known operator-error surface (documented, not guarded)</strong>: reseeding with
+a typo&#x27;d username silently creates a <em>second</em> admin membership + identity
+anchor (create-if-missing keys on the new name — the seeder cannot
+distinguish a typo from a deliberate second admin). The mis-seeded row is
+visible in the superadmin membership list and is removed manually; the
+one-bootstrap-per-tenant DB constraint caps the damage (the typo&#x27;d row is
+never bootstrap when one exists). Likewise, two bootstrap-granting paths
+coexist (this seeder and the <code>tenant_creation_user</code> signal opt-in) — safe
+under the same DB uniqueness constraint.</li>
+<li class=""><strong>Seeded <code>role</code> vocabulary (amended 2026-06-10 — A6)</strong>: the seeder writes
+<code>role=TenantMembership.Role.ADMIN</code> alongside the capability bundle. <code>role</code>
+is a Dec-2025-era <strong>second permission vocabulary</strong> on the same row, and it
+is still live-gating: <code>atlomyapp/security.py</code> ranks it through
+<code>ROLE_ORDER</code>, and the bootstrap-transfer guard
+(<code>customers/services/bootstrap.py</code>) refuses transfer unless
+<code>role == ADMIN</code>. It is <strong>part of the seeded contract</strong> and is declared
+here; collapsing the two vocabularies (role enum vs <code>permissions_jsonb</code>)
+is owned by ADR-051 Approach A&#x27;s relocation, not by this ADR.</li>
+</ul>
+<p><strong>Known gap (Round-12, declared)</strong>: <code>create_tenant</code> mid-provisioning failure
+(migration crash -&gt; half-provisioned schema) has no automated
+rollback-or-resume path yet; recovery is the manual scrub via
+<code>ke_delete_tenant</code> (idempotent, recovers half-states). An automated
+provisioning-status / resume mechanism is a named follow-up for the
+lifecycle hardening arc — not a ratification blocker because the manual
+path is loud, tested, and documented.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternatives-considered">Alternatives considered<a href="#alternatives-considered" class="hash-link" aria-label="Direct link to Alternatives considered" title="Direct link to Alternatives considered" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Drop the cross-layer FKs entirely (D1)</strong> — the lineage&#x27;s own direction
+(ADR-051A: &quot;the row&#x27;s schema <em>is</em> the tenant&quot;; ADR-042&#x27;s cross-layer FK
+warning). Why not now: the DB-level constraint is the only thing that makes
+the un-shadowable stock <code>delete_tenant</code> and raw ORM/queryset deletes fail
+<strong>loudly</strong> instead of silently orphaning a schema (Context defect 2) —
+dropping it removes the structural guard that forces D2&#x27;s ordering. The
+question is owned by the ADR-042 rename sprint / ADR-051 Approach A,
+whichever lands first (see D1).</li>
+<li class=""><strong>Rows-first delete (D2 inverse)</strong> — impossible by D1&#x27;s own design: the DB
+FK refuses the <code>Client</code> row delete while the schema exists. Of the two
+reachable half-states, schema-first leaves the <em>loud, recoverable</em> one
+(registered-but-empty Client row, visible in admin, healed by re-run)
+rather than the <em>silent</em> one (orphaned schema invisible to every surface).</li>
+<li class=""><strong><code>auto_drop_schema=True</code> (D3 inverse)</strong> — rejected: it makes ANY ORM
+delete (bulk queryset, future shared-FK cascade, admin mishap) drop a
+pilot schema as a side effect; dev convenience is one <code>--yes</code> flag.</li>
+<li class=""><strong>Raw-pk correlation (D4)</strong> — the W50 defect itself: pk alignment between
+two independent sequences is a coincidence; breaking it silently re-points
+capability grants at the wrong human (false-match, ADR-051 Context).</li>
+<li class=""><strong>Store a stable identity key now (D4) — a <code>member_username</code> column or
+platform-minted UUID per ADR-017 §B</strong> — the posture-conformant option.
+Why not now: ADR-051 Approach A deletes this correlation contract
+wholesale (memberships keyed directly to the tenant-schema user;
+&quot;superseded, not migrated&quot;), so a new column/key is schema churn on a
+structure scheduled for replacement; username adds <strong>zero schema</strong> and is
+precisely the correlation data the A-cutover will need. The mutability
+cost is priced in D4 (fail-closed, rename blast radius declared).</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="consequences">Consequences<a href="#consequences" class="hash-link" aria-label="Direct link to Consequences" title="Direct link to Consequences" translate="no">​</a></h2>
+<ul>
+<li class="">Tenant delete/create/seed work from superadmin UI, service API, and CLI;
+the interim manual procedure in <code>docs/internal/tenants/operations.md</code> is
+superseded by the canonical commands.</li>
+<li class=""><code>delete_tenant</code> refuses tenants whose schema holds CURRENT
+<code>EntryProjection</code> rows unless published destruction is explicitly
+acknowledged (D2 as amended, A7); <strong>export-then-delete</strong> is the documented
+standard path.</li>
+<li class="">New <code>TENANT_APPS</code> → <code>SHARED_APPS</code> FKs SHOULD NOT be added (D1 as amended);
+reviewers should ask for the recorded justification, and treat any
+cross-layer <code>on_delete</code> other than <code>DO_NOTHING</code> as a defect.</li>
+<li class="">Capability lookups no longer depend on pk coincidence; tenants seeded in
+any order resolve memberships correctly. ADR-051 Approach A, when built,
+supersedes D4&#x27;s correlation contract and removes the identity-anchor users.</li>
+<li class="">The platform lifecycle commands are <code>ke_create_tenant</code> / <code>ke_delete_tenant</code>
+/ <code>seed_tenant_users</code> (in <code>customers/</code>). The stock django-tenants
+<code>create_tenant</code>/<code>delete_tenant</code> remain reachable (command-name precedence
+follows <code>INSTALLED_APPS</code> order, so they cannot be shadowed) but are
+non-canonical: stock delete fails safely at the DB FK; stock create seeds
+no users/membership.</li>
+<li class=""><code>Client.delete()</code> (ORM) on a tenant whose schema still exists now fails at
+the DB layer (FK constraint) instead of crashing in the collector — a loud,
+correct refusal pointing at the lifecycle service.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/developer/architecture/adr/edition-bibliography-collection-modeling"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">ADR 058: Edition-Bibliography Collection Modeling — Two canonical_type Collections vs One DOCUMENT Collection with frbr_level</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/developer/architecture/adr/schema-concern-decomposition"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">ADR 060: Schema Concern Decomposition — Field Identity, Tenant Label, Storage, Roles, Baseline, and Search-Linguistic Config</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#context" class="table-of-contents__link toc-highlight">Context</a></li><li><a href="#decisions" class="table-of-contents__link toc-highlight">Decisions</a><ul><li><a href="#d1--cross-layer-fk-discipline-existing-fks-become-do_nothing-new-ones-should-not-be-added" class="table-of-contents__link toc-highlight">D1 — Cross-layer FK discipline: existing FKs become <code>DO_NOTHING</code>; new ones SHOULD NOT be added</a></li><li><a href="#d2--schema-first-idempotent-delete_tenant-service-is-the-only-delete-path" class="table-of-contents__link toc-highlight">D2 — Schema-first, idempotent <code>delete_tenant</code> service is the only delete path</a></li><li><a href="#d3--auto_drop_schema-stays-false-schema-drops-are-explicit-surface-only" class="table-of-contents__link toc-highlight">D3 — <code>auto_drop_schema</code> stays <code>False</code>; schema drops are explicit-surface-only</a></li><li><a href="#d4--membershiptenant-user-correlation-is-by-username-interim-until-adr-051-approach-a" class="table-of-contents__link toc-highlight">D4 — Membership↔tenant-user correlation is BY USERNAME (interim until ADR-051 Approach A)</a></li><li><a href="#d5--seeding-is-a-first-class-idempotent-lifecycle-surface" class="table-of-contents__link toc-highlight">D5 — Seeding is a first-class, idempotent lifecycle surface</a></li></ul></li><li><a href="#alternatives-considered" class="table-of-contents__link toc-highlight">Alternatives considered</a></li><li><a href="#consequences" class="table-of-contents__link toc-highlight">Consequences</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

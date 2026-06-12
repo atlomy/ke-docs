@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-developer docs-version-current docs-doc-page docs-doc-id-ui/design_system" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">UI Design System | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/developer/ui/design_system"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-developer-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-developer-current"><meta data-rh="true" property="og:title" content="UI Design System | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Active design system: KE — Knowledge Environments, ported from the design handoff and applied throughout the tenant admin (Phase 0 → 12, May 2026)."><meta data-rh="true" property="og:description" content="Active design system: KE — Knowledge Environments, ported from the design handoff and applied throughout the tenant admin (Phase 0 → 12, May 2026)."><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/developer/ui/design_system"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/ui/design_system" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/ui/design_system" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"UI Design System","item":"https://atlomy.github.io/ke-docs/developer/ui/design_system"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/superadmin/">Platform Admins</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/"><span title="Developer Documentation" class="linkLabel_WmDU">Developer Documentation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/TESTING"><span title="Testing standards — Atlomy Atlas" class="linkLabel_WmDU">Testing standards — Atlomy Atlas</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/ai_schema_adaptation"><span title="Sprint 9 &amp; 10: Developer Guide" class="linkLabel_WmDU">Sprint 9 &amp; 10: Developer Guide</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/architecture/adr/"><span title="architecture" class="categoryLinkLabel_W154">architecture</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/developer_guide"><span title="Developer Guide: Data Sync &amp; Monitoring Systems" class="linkLabel_WmDU">Developer Guide: Data Sync &amp; Monitoring Systems</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/knowledge_explorer"><span title="Sprint 13: Knowledge Explorer &amp; API Architecture" class="linkLabel_WmDU">Sprint 13: Knowledge Explorer &amp; API Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/platform_principles_enforcement"><span title="Platform-Principles Enforcement (Code Gates)" class="linkLabel_WmDU">Platform-Principles Enforcement (Code Gates)</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/ke-docs/developer/security/"><span title="Security Architecture" class="categoryLinkLabel_W154">Security Architecture</span></a><button aria-label="Expand sidebar category &#x27;Security Architecture&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/setup/Troubleshooting/troubleshooting_template_conflicts"><span title="setup" class="categoryLinkLabel_W154">setup</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ke-docs/developer/ui/design_system"><span title="ui" class="categoryLinkLabel_W154">ui</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/developer/ui/design_system"><span title="UI Design System" class="linkLabel_WmDU">UI Design System</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">ui</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">UI Design System</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>UI Design System</h1></header>
+<blockquote>
+<p><strong>Active design system: KE — Knowledge Environments</strong>, ported from the design handoff and applied throughout the tenant admin (Phase 0 → 12, May 2026).</p>
+<p><strong>Design reference</strong> (canonical, merged v1+v2): <code>docs/design/handoff/</code> — open <code>tenant-admin/canonical.html</code> for the full shell+drawer+term-form prototype; <code>tenant-admin/db-views.html</code> for the DB views; <code>import-wizard-v4.html</code> for the import flow. These are Babel-in-browser prototypes, not production code.</p>
+<p>The &quot;Atlomy Atlas / Tailwind CSS&quot; section below this overview describes the legacy palette that the SPA still uses; new admin work uses the KE tokens.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="ke--knowledge-environments-tokens-canonical">KE — Knowledge Environments tokens (canonical)<a href="#ke--knowledge-environments-tokens-canonical" class="hash-link" aria-label="Direct link to KE — Knowledge Environments tokens (canonical)" title="Direct link to KE — Knowledge Environments tokens (canonical)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="where-they-live">Where they live<a href="#where-they-live" class="hash-link" aria-label="Direct link to Where they live" title="Direct link to Where they live" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>File</th><th>Role</th></tr></thead><tbody><tr><td><code>atlomyapp/atlomy_static/assets/css/ke_tokens.css</code></td><td>All CSS custom properties (<code>--canvas</code>, <code>--panel</code>, <code>--ink-*</code>, archetype tints, AI lifecycle hues, etc.) keyed by <code>data-tenant</code>, <code>data-theme</code>, <code>data-density</code>, <code>data-typeface</code></td></tr><tr><td><code>atlomyapp/atlomy_static/assets/css/ke_components.css</code></td><td>Shared component vocabulary: <code>.ke-cap-tag</code>, <code>.ke-archetype-pill</code>, <code>.ke-tenant-pill</code>, <code>.ke-ai-status</code>, <code>.ke-ai-banner</code>, <code>.ke-ai-ghost</code>, <code>.ke-slot-row</code>, <code>.ke-pill</code>, <code>.ke-slot</code> (the editable cell with <code>is-active/is-validating/is-error/is-saving/is-locked/is-ai</code> states), <code>.ke-tabs</code>, <code>.ke-toolbar</code>, <code>.ke-breadcrumbs</code>, <code>.ke-hint</code>, <code>.ke-confidence</code>, <code>.ke-provenance</code>, <code>.ke-locale--{grc,ara,lat,eng,fra}</code>, <code>.ke-mlc</code>, <code>.ke-input</code>, <code>.ke-input-group</code>, <code>.ke-field</code>, <code>.ke-diff</code>, <code>.ke-avatar</code>, <code>.ke-kbd</code>, <code>.ke-tweaks--floating</code>, <code>.ke-tbd-badge</code>, <code>.ke-legacy-badge</code>, <code>.ke-drawer</code> / <code>.ke-drawer__*</code> (row-detail right slide-out)</td></tr><tr><td><code>atlomyapp/atlomy_static/assets/css/ke_term_preview.css</code></td><td>Public reader page typography (<code>.ke-tp__*</code>), PLACE / AUTHOR / DOCUMENT archetype overrides, <code>.ke-tp__map</code> placeholder</td></tr><tr><td><code>templates/unfold/layouts/skeleton.html</code></td><td>Sets the four <code>data-*</code> attrs on <code>&lt;html&gt;</code> from <code>ke_context</code> template processor; injects KE stylesheets AFTER Unfold&#x27;s so KE wins specificity battles; renders the floating Tweaks widget at body level</td></tr><tr><td><code>atlomyapp/context_processors.py:ke_context</code></td><td>Reads tenant from <code>connection.schema_name</code>, theme/density/typeface from cookies (<code>ke_theme</code>, <code>ke_density</code>, <code>ke_typeface</code>); defaults are auto/cozy/sans</td></tr><tr><td><code>docs/design/handoff/</code></td><td>Design reference bundle (v2, merged — Babel-in-browser prototypes). <strong>Not production code.</strong> Open <code>tenant-admin/canonical.html</code> to browse the full design intent.</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="loading-order-load-bearing">Loading order (load-bearing)<a href="#loading-order-load-bearing" class="hash-link" aria-label="Direct link to Loading order (load-bearing)" title="Direct link to Loading order (load-bearing)" translate="no">​</a></h3>
+<p>The skeleton renders KE stylesheets <strong>AFTER</strong> Unfold&#x27;s <code>unfold/css/styles.css</code> so KE tokens override Unfold Tailwind utilities on equal specificity. <strong>Do NOT</strong> put KE stylesheets in <code>UNFOLD[&#x27;STYLES&#x27;]</code> — that block renders BEFORE Unfold&#x27;s own CSS, and you&#x27;ll lose every cascade fight.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="theme-path">Theme path<a href="#theme-path" class="hash-link" aria-label="Direct link to Theme path" title="Direct link to Theme path" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">ke_theme cookie  →  ke_context  →  data-theme=&quot;light|dark|auto&quot;  →  ke_tokens.css selectors</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                                  AND</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">                                  early-paint script in skeleton  →  syncs Alpine `adminTheme` localStorage  →  removes/adds class=&quot;dark&quot;</span><br></div></code></pre></div></div>
+<p>Alpine&#x27;s <code>$persist().as(&#x27;adminTheme&#x27;)</code> writes to localStorage key <code>adminTheme</code> (NOT <code>_x_adminTheme</code>). Our early-paint script writes both, defensively.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="tenant-accent-path">Tenant accent path<a href="#tenant-accent-path" class="hash-link" aria-label="Direct link to Tenant accent path" title="Direct link to Tenant accent path" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">connection.schema_name  →  ke_tenant_slug  →  data-tenant=&quot;&lt;tenant-slug&gt;|public&quot;  →  --tenant-accent-* tokens (per-tenant block in ke_tokens.css)</span><br></div></code></pre></div></div>
+<p>New tenants append a <code>[data-tenant=&quot;&lt;slug&gt;&quot;]</code> block in <code>ke_tokens.css</code> declaring their accent palette.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v2-design-additions-2026-05-07">v2 design additions (2026-05-07)<a href="#v2-design-additions-2026-05-07" class="hash-link" aria-label="Direct link to v2 design additions (2026-05-07)" title="Direct link to v2 design additions (2026-05-07)" translate="no">​</a></h3>
+<p>The <code>docs/design/handoff/</code> bundle is the merged v1+v2 handoff. v2 added the following:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Addition</th><th>Design file</th><th>Production status</th></tr></thead><tbody><tr><td><strong>PLACE archetype</strong> — editor pane + public preview</td><td><code>term-form.jsx</code>, <code>public-preview.jsx</code></td><td>✅ CSS in <code>ke_term_preview.css</code>; template uses <code>ke-tp--place</code> body class</td></tr><tr><td><strong>AUTHOR / DOCUMENT headword</strong> serif italic</td><td><code>public-preview.jsx</code></td><td>✅ CSS in <code>ke_term_preview.css</code>; template skips <code>lang=&quot;grc&quot;</code> for non-Greek archetypes</td></tr><tr><td><strong>Drawer CSS extraction</strong></td><td><code>drawer.css</code> (dark mode additions)</td><td>✅ Drawer CSS extracted from inline <code>&lt;style&gt;</code> in <code>change_list.html</code> to <code>ke_components.css</code></td></tr><tr><td><strong>DB Views</strong> — table / board / gallery / map / timeline / registry</td><td><code>tenant-admin/db-views.html</code></td><td>⏳ CSS extracted to <code>ke_components.css</code> (<code>.dv-*</code>); micro-app and slot-config-driven <code>ArchetypeGrid</code> table view exist at <code>spa/src/apps/tenant_admin/</code>. Toolbar now surfaces active-table row count from <code>tenantArchetypeTables</code>, the rail has explicit loading/error/empty states, and the table toolbar exposes the existing Fields/column manager plus active filter clear controls. The top chrome <strong>Search database...</strong> control opens Spec 0037 workspace search; the toolbar <strong>Filter visible rows</strong> box stays current-table only. The workspace sidebar, saved-view tab menu, Details, Relations, Publish, batch toolbar, and New row drawer stack consume the shared KE icon system in both 264px organizer and 56px collapsed rail modes. Grid loading/error/empty states use the tenant-facing table label and error states can retry the slot/entity queries. Board/gallery/map/timeline saved-view behavior remains follow-up.</td></tr><tr><td><strong>canonical.html</strong> — consolidated shell+drawer+form entry point</td><td><code>tenant-admin/canonical.html</code></td><td>✅ Design reference for what&#x27;s already live; no additional code needed</td></tr><tr><td><strong>Import Wizard</strong> lo-fi v1+v2, v3, v4</td><td><code>import-wizard-v3.html</code>, <code>(v4).html</code></td><td>⏳ Django wizard view at <code>/admin/data_import/mappingproject/&lt;id&gt;/wizard/</code> is the live surface; CSS in <code>ke_components.css</code> (<code>.ke-iw__*</code>); <code>.ke-iw__review-card</code> HTML shipped in <code>templates/admin/ke/_import_wizard_table.html</code> (Phase 10 refactor). Step 1 upload is now live for xlsx, MySQL, CSV bundle, and Coda. <strong>F0b-async worker-ledger/background-enqueue/status baseline shipped</strong> (2026-05-15): tenant-local <code>ImportWizardJob</code> rows, skip-locked claim path, stale <code>RUNNING</code> claim requeue, no-op smoke, <code>run_import_wizard_jobs</code>, admin visibility, staged-file parse/propose execution for xlsx / CSV bundle / MySQL dump, tenant-upload-root path containment, credential-key persistence guard, opt-in background enqueue from existing xlsx / MySQL dump / CSV bundle forms for files within current caps, and a status panel that refreshes pending/running jobs and links completed jobs to the result project/wizard; true oversized upload routes/caps, scheduler evidence, durable artifact retention, and credential-safe Coda async remain pending. <strong>Upload-boundary hardening shipped</strong> (Spec 0011 F0b-upload-boundary-hardening, 2026-05-15): xlsx/MySQL/CSV oversize sync requests fail with HTTP 413 before body parsing, and file staging uses per-upload UUID temp dirs. <strong>SourceEvidence capability matrix shipped</strong> (Spec 0011 F0b-source-evidence-capability-matrix, 2026-05-15): parser evidence now exposes <code>source_fidelity</code> and <code>extraction_method</code> so declared metadata, deterministic inference, and heuristic-enrichment findings can be reviewed separately from confidence. <strong>Heuristic-enrichment bridge shipped</strong> (Spec 0011 F0b-cli-bridge, 2026-05-15): Pipeline 2 adds table-name, column-name, junction-shape, and linkable-override hints after parsing; <code>extraction_method=&quot;heuristic&quot;</code> findings cannot fast-track to <code>SCHOLAR_APPROVED</code> solely on confidence. AI (LLM) proposer is Bedrock-provider-gated (falls through to <code>llm_unavailable</code> without credentials). <strong>LABEL proposal kind shipped</strong> (Spec 0011 Task F1, 2026-05-14, commit <code>0d3fc1d4</code>): parser-first tenant-display label suggestions per archetype, one row per (project, archetype). <strong>Flow B <code>risk_class</code> routing live for MappingProposal</strong> (Spec 0011 Task F2, 2026-05-14, commit <code>c163641d</code>): proposals carry low/medium/high <code>risk_class</code> + role-specific timestamps; wizard per-proposal Approve is now two-step (scholar approve -&gt; admin apply). <strong>Django Flow B lane bridge shipped</strong> (Spec 0011 F4 partial, 2026-05-15): the live wizard renders express/standard/tenant-admin-gate queue lanes and per-row risk chips; Native React lane UX and delegation controls remain pending. <strong>Risk recompute at apply shipped</strong> (Spec 0011 F0b-risk-recompute-at-apply, 2026-05-15): tenant-admin apply recomputes current risk, records <code>risk_class_at_apply</code>, blocks stale-risk divergence, and exposes an explicit acknowledgement apply action. <strong>R1 revision request state shipped</strong> (Spec 0011 F0b-status-needs-revision, 2026-05-15): rows can move to <code>NEEDS_REVISION</code> with required structured notes; the wizard renders prior notes and blocks materialization until the row is reset/corrected and approved or rejected. <strong>R1 future-kind sockets shipped</strong> (Spec 0011 F0b-stub-future-kinds, 2026-05-15): <code>WIDGET_CHOICE</code> and <code>MULTILINGUAL_RULE</code> are declared as deferred <code>MappingProposal.Kind</code> choices but are not emitted by the active builder. <strong>R1 fast-track fix shipped</strong> (Spec 0011 F0b-parser-auto-approve-fix, 2026-05-15): high-confidence parser findings skip the LLM but persist as <code>SCHOLAR_APPROVED</code>, not <code>APPROVED</code>, so tenant-admin apply is still required before materialization. <strong>Comparison-oracle batching shipped</strong> (Spec 0011 F0b-v, 2026-05-15): committed config facts are rendered as review evidence, proposal rows get agreement/divergence/parser-only/config-only chips, and exact low-risk agreement groups can be explicitly batch approved/applied without auto-apply. <strong>Coda upload shipped</strong> (Spec 0011 F0b-iii, 2026-05-15): session-only API key + document form routes Coda table/column/Lookup metadata through Pipeline 2. <strong>Django materialize bridge shipped</strong> (Spec 0011 F5 partial, 2026-05-15): terminal proposal sets can POST from the wizard to seed approved mapping configuration; source-row import remains async/source-specific follow-up. Consolidating spec: <a class="" href="/superpowers/specs/0011-import-wizard-consolidation/">Spec 0011</a> (✅ F0a xlsx upload UI, ✅ F0b-ii MySQL, ✅ F0b-iii Coda, ✅ F0b-iv CSV bundle, ✅ F0b-v comparison oracle, ✅ F0b-risk-recompute-at-apply, ✅ F0b-status-needs-revision, ✅ F0b-stub-future-kinds, ✅ F0b-upload-boundary-hardening, ✅ F0b-source-evidence-capability-matrix, ✅ F0b-cli-bridge, partial F0b-async, ✅ F1 LABEL kind, ✅ F1.1 TenantOntology write, ✅ F2 <code>risk_class</code> routing, ✅ F0b-parser-auto-approve-fix, F3 Native React port, F4 Native React routing/delegation, F5 full lifecycle). Native React port = Week 4 of <a class="" href="/superpowers/specs/2026-05-04_native-admin-shell-vertical-slice.md">native-admin-shell vertical-slice</a>.</td></tr><tr><td><strong>Media review surface</strong> — researcher review for one MEDIA artifact (ADR-022 Phase 5)</td><td>n/a (no design ref; pattern lifted from <code>schema_review</code>)</td><td>✅ Standalone React app <code>spa/src/apps/media_review/</code> mounted at <code>/admin/epistemic/epistemicentity/&lt;uuid&gt;/media-review/</code> via <code>EpistemicEntityAdmin.media_review_view</code>. Webpack entry <code>media_review</code> ships <code>media_review.bundle.js</code> + <code>media_review.css</code>. Page-local styles use <code>.mr-*</code> namespace (<code>.mr-page</code>, <code>.mr-summary</code>, <code>.mr-table</code>, <code>.mr-modal-backdrop</code>, <code>.mr-modal</code>, <code>.mr-btn</code>, <code>.mr-btn--ghost/danger/warn/small</code>, <code>.mr-badge--auto/manual/overridden</code>, <code>.mr-extract-output</code>) intentionally separate from the <code>.ke-*</code> admin token vocabulary so the surface stays self-contained. Wires Plan 4 Track A&#x27;s <code>mediaArtifactReviewSummary</code> query + 4 mutations (<code>markAttestationOverride</code>, <code>addManualAttestation</code>, <code>triggerReExtraction</code>, <code>promoteRevisionToEdition</code>); STRIP confirm dialog references the Round-17 soft-delete tombstone semantics. Spec: <a class="" href="/superpowers/specs/0012-plan4-track-b-media-review-surface/">Spec 0012</a>. Plan 4 Track C (ClaimCluster authoring + reaffirm-strip UX + DOI minting) deferred to ADR-023.</td></tr></tbody></table>
+<p><strong>Dark mode</strong>: All production CSS is token-based. <code>ke_tokens.css</code> redefines all <code>--panel</code>, <code>--ink-*</code>, <code>--line-*</code> etc. under <code>.dark, [data-theme=&quot;dark&quot;]</code>, so dark mode cascades automatically without component-level overrides.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="tenant-admin-surfaces-built-on-ke-tokens">Tenant admin surfaces (built on KE tokens)<a href="#tenant-admin-surfaces-built-on-ke-tokens" class="hash-link" aria-label="Direct link to Tenant admin surfaces (built on KE tokens)" title="Direct link to Tenant admin surfaces (built on KE tokens)" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="app-shell">App shell<a href="#app-shell" class="hash-link" aria-label="Direct link to App shell" title="Direct link to App shell" translate="no">​</a></h3>
+<p><code>atlomy/settings.py:UNFOLD[&#x27;SIDEBAR&#x27;]</code> declares per-tenant navigation lambda. Top-level groups (post-2026-05-06 audit):</p>
+<ul>
+<li class=""><strong>KE Workbench</strong> — Knowledge Entities + per-archetype filter entries with live counts (<code>Terms 1.2K</code>, <code>Documents 79</code>, <code>Passages 5.9K</code>, ...) computed by <code>_ke_archetype_counts()</code> (one GROUP BY query per page load)</li>
+<li class=""><strong>Imports &amp; AI</strong> — Mapping Projects, Proposal Queue, Import Jobs, Background Jobs</li>
+<li class=""><strong>Atlomy Atlas tenant data (V1)</strong> — collapsed by default; legacy V1 tables tagged with <code>V1</code> / <code>TBD</code> badges</li>
+<li class=""><strong>Tenant Tooling</strong> — DRAWDB, Schema Visualizer, schema snapshots, sources (TBD)</li>
+<li class=""><strong>Tenant Operations</strong> — System Configurations (TBD), Audit Trail, Feedback, Scheduled Tasks</li>
+<li class=""><strong>User &amp; Access</strong> — Users, Groups</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="term-form-change-view-slot-driven-editor">Term-form change view (slot-driven editor)<a href="#term-form-change-view-slot-driven-editor" class="hash-link" aria-label="Direct link to Term-form change view (slot-driven editor)" title="Direct link to Term-form change view (slot-driven editor)" translate="no">​</a></h3>
+<p>URL: <code>/admin/epistemic/epistemicentity/&lt;uuid&gt;/change/</code>. Renders via <code>change_form_outer_before_template = &quot;admin/ke/_term_form_overlay.html&quot;</code>.</p>
+<p><strong>Two-column layout</strong>: slot rows (left) + meta rail (right with Lifecycle / Public preview / Slots panels). Variant C &quot;Preview&quot; toggle swings the meta rail out for a 50/50 split with <code>&lt;iframe src=&quot;/term/&lt;uuid&gt;/preview/?embed=1&quot;&gt;</code>.</p>
+<p><strong>Editing pattern (the JSONB-mirror)</strong>: each slot row carries <code>data-source=&quot;data.X&quot;</code>. JS in <code>_term_form_overlay.html</code> listens to input events on <code>.ke-slot-row__input</code>, parses the source path, and writes the new value into the hidden Django JSONField <code>&lt;textarea name=&quot;data&quot;&gt;</code>. Standard <code>ModelForm.save()</code> persists. Reload re-evaluates composition templates server-side.</p>
+<p>Path resolution: <code>_build_slot_rows</code> calls <code>resolve_source_field(entity, source)</code> (NOT <code>entity.data</code>). For <code>data.Lemma Word</code> this walks <code>getattr(entity, &quot;data&quot;)[&quot;Lemma Word&quot;]</code>. For <code>lemma_full</code> (no prefix) it walks <code>getattr(entity, &quot;lemma_full&quot;)</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="row-detail-drawer">Row-detail drawer<a href="#row-detail-drawer" class="hash-link" aria-label="Direct link to Row-detail drawer" title="Direct link to Row-detail drawer" translate="no">​</a></h3>
+<p>URL trigger: <code>[data-ke-drawer-id=&quot;&lt;uuid&gt;&quot;]</code> button in the changelist. JS at <code>atlomyapp/atlomy_static/assets/js/ke_drawer.js</code> fetches <code>/admin/epistemic/epistemicentity/&lt;uuid&gt;/drawer/</code> (returns HTML fragment), populates a <code>position: fixed</code> right slide-out container, ESC + scrim to close.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="public-term-reader">Public Term reader<a href="#public-term-reader" class="hash-link" aria-label="Direct link to Public Term reader" title="Direct link to Public Term reader" translate="no">​</a></h3>
+<p>URL: <code>/term/&lt;uuid:id&gt;/preview/</code> (route in <code>atlomyapp/urls.py</code>, view <code>term_preview</code> in <code>atlomyapp/views_explorer.py</code>). Server-rendered Django template; tenant identity from request <code>Host</code> via <code>TenantMainMiddleware</code>; <code>?embed=1</code> strips chrome for iframe use. Reuses <code>_build_slot_rows</code> projection.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="display-tweaks-floating-widget">Display tweaks (floating widget)<a href="#display-tweaks-floating-widget" class="hash-link" aria-label="Direct link to Display tweaks (floating widget)" title="Direct link to Display tweaks (floating widget)" translate="no">​</a></h3>
+<p>A <code>&lt;details class=&quot;ke-tweaks ke-tweaks--floating&quot;&gt;</code> rendered at the END of <code>&lt;body&gt;</code> in <code>skeleton.html</code> so it appears on every admin page (login + dashboard + change list + change form) regardless of which template chain is rendered. Top-right placement; tucked above the <code>+ Add</code> button. Posts to <code>/admin/ke/prefs/</code> (handler <code>atlomyapp.views_preferences.set_preferences</code>); cookie-backed; reload picks up the new attrs from <code>ke_context</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-to-use-the-research-workspace-ui">How to use the research workspace UI<a href="#how-to-use-the-research-workspace-ui" class="hash-link" aria-label="Direct link to How to use the research workspace UI" title="Direct link to How to use the research workspace UI" translate="no">​</a></h2>
+<p>For a researcher curating tenant data:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="browse--drill-in">Browse + drill in<a href="#browse--drill-in" class="hash-link" aria-label="Direct link to Browse + drill in" title="Direct link to Browse + drill in" translate="no">​</a></h3>
+<ol>
+<li class="">Sidebar → <strong>KE Workbench → Terms</strong> (or any archetype). Live counts show how much data exists per archetype.</li>
+<li class="">Changelist surfaces the <code>Preview</code> column = first slot config by <code>display_order</code> resolution. For TERMs this is <code>lemma_full</code> (composed Greek headword). If a row shows <code>—</code>, the slot config&#x27;s <code>source_field</code> doesn&#x27;t match the actual data keys — that&#x27;s a tenant config drift, not a UI bug.</li>
+<li class="">Click a row&#x27;s &quot;Quick&quot; pill → right slide-out drawer opens with all slot data.</li>
+<li class="">Click the row&#x27;s link → full term-form change view: editable slot rows on the left, meta rail on the right.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="edit--save">Edit + save<a href="#edit--save" class="hash-link" aria-label="Direct link to Edit + save" title="Direct link to Edit + save" translate="no">​</a></h3>
+<ol>
+<li class="">Type in any slot input. JS mirrors the value into the hidden JSONB blob in real time.</li>
+<li class="">Click <strong>Save</strong> (or <strong>Save and continue editing</strong>). Standard ModelForm persists; reload re-evaluates composition templates.</li>
+<li class="">The <code>Lifecycle</code> block (right rail) shows <code>Modified N minutes ago</code> to confirm.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="public-preview">Public preview<a href="#public-preview" class="hash-link" aria-label="Direct link to Public preview" title="Direct link to Public preview" translate="no">​</a></h3>
+<ul>
+<li class="">Right rail → &quot;Public preview&quot; → &quot;Open in new tab&quot; → standalone scholarly-styled reader at <code>/term/&lt;uuid&gt;/preview/</code>.</li>
+<li class="">OR top-of-form <strong>Preview</strong> button → embedded iframe of <code>?embed=1</code> variant alongside the editor (Variant C split view).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="display-tweaks">Display tweaks<a href="#display-tweaks" class="hash-link" aria-label="Direct link to Display tweaks" title="Direct link to Display tweaks" translate="no">​</a></h3>
+<ul>
+<li class="">Floating top-right <code>tune</code> icon → dropdown for theme (auto/light/dark), density (compact/cozy/comfortable), typeface (sans/serif/brand). Apply → cookies set → page reloads with new tokens.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="import-flow-current-state">Import flow (current state)<a href="#import-flow-current-state" class="hash-link" aria-label="Direct link to Import flow (current state)" title="Direct link to Import flow (current state)" translate="no">​</a></h3>
+<p><strong>Canonical surface</strong>: <strong>Imports &amp; AI -&gt; Mapping Projects</strong> -&gt; upload xlsx / MySQL / CSV bundle / Coda, then wizard at <code>/admin/data_import/mappingproject/&lt;id&gt;/wizard/</code>. Multi-step pipeline strip + parser/AI proposal review (Approve / Request revision / Reject per proposal; fast-tracked parser findings still need tenant-admin Apply). The wizard now includes the F0b-v comparison oracle when a matching committed config exists: agreement/divergence/parser-only/config-only chips plus explicit low-risk exact-match batch actions. Sync xlsx/MySQL/CSV upload routes fail oversize requests with HTTP 413 before body parsing. F0b-async has a guarded worker-ledger baseline, opt-in background enqueue path, and job status panel for current-cap xlsx/MySQL dump/CSV bundle files, but true oversized upload routes/caps, scheduler evidence, durable large-artifact retention, credential-safe Coda async, and the Native React port remain pending Spec 0011 work.</p>
+<p><strong>Sidebar (2026-05-07, post-cleanup)</strong>:</p>
+<ul>
+<li class="">Mapping Projects — canonical entry point</li>
+<li class="">Proposal Queue — filtered shortcut into PROPOSED proposals across all projects</li>
+</ul>
+<p><strong>Retired from sidebar</strong> (zero rows confirmed across all tenants; code kept for migration safety):</p>
+<ul>
+<li class="">Import Jobs (<code>data_import.ImportJob</code>) — V1.5 bridge to Data Wizard; <code>ImportJobAdmin</code> unregistered</li>
+<li class="">Background Jobs (<code>atlomyapp.Job</code>) — V1 job tracker; used only by <code>add_data</code> management command</li>
+<li class="">Data Wizard (ETL) (<code>/admin/data_wizard/</code>) — registers only V1 <code>Lemma</code>/<code>Reference</code> models; not v2-compatible</li>
+</ul>
+<p><strong>Stale docs archived</strong>: <code>docs/archive/data_wizard_guide_DEPRECATED_2026-05-07.md</code>, <code>data_import_wizard_guide_DEPRECATED_2026-05-07.md</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="when-to-extend-the-design-vocabulary">When to extend the design vocabulary<a href="#when-to-extend-the-design-vocabulary" class="hash-link" aria-label="Direct link to When to extend the design vocabulary" title="Direct link to When to extend the design vocabulary" translate="no">​</a></h2>
+<p>If you need a new visual atom:</p>
+<ol>
+<li class=""><strong>Try existing tokens first</strong>: <code>--canvas</code>, <code>--panel</code>, <code>--ink-1/2/3</code>, <code>--tenant-accent</code>, <code>--cap-*</code>, <code>--ai-*</code>. Most cases compose from these.</li>
+<li class=""><strong>Add a <code>.ke-*</code> selector</strong> in <code>ke_components.css</code> (NOT inline styles in templates). Prefix all selectors with <code>.ke-</code> to avoid colliding with Unfold/Tailwind.</li>
+<li class=""><strong>For a per-tenant accent</strong>, add <code>[data-tenant=&quot;&lt;slug&gt;&quot;] { --tenant-accent: ...; }</code> blocks in <code>ke_tokens.css</code> (one for each <code>data-theme</code> combination if needed).</li>
+<li class=""><strong>For density variants</strong>, key the new property with <code>[data-density=&quot;compact|cozy|comfortable&quot;]</code>.</li>
+</ol>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="legacy-atlomy-atlas--tailwind-css-palette">Legacy: Atlomy Atlas / Tailwind CSS palette<a href="#legacy-atlomy-atlas--tailwind-css-palette" class="hash-link" aria-label="Direct link to Legacy: Atlomy Atlas / Tailwind CSS palette" title="Direct link to Legacy: Atlomy Atlas / Tailwind CSS palette" translate="no">​</a></h2>
+<p>Atlomy Atlas uses a modern, token-based design system compatible with Tailwind CSS.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="color-system">Color System<a href="#color-system" class="hash-link" aria-label="Direct link to Color System" title="Direct link to Color System" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="semantic-colors">Semantic Colors<a href="#semantic-colors" class="hash-link" aria-label="Direct link to Semantic Colors" title="Direct link to Semantic Colors" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Role</th><th>Light Mode</th><th>Dark Mode</th><th>Usage</th></tr></thead><tbody><tr><td><strong>Primary</strong></td><td><code>#0078d4</code></td><td><code>#60cdff</code></td><td>Main actions, links, focus rings</td></tr><tr><td><strong>Surface</strong></td><td><code>#ffffff</code></td><td><code>#202020</code></td><td>Cards, panels, main backgrounds</td></tr><tr><td><strong>Background</strong></td><td><code>#f3f3f3</code></td><td><code>#000000</code></td><td>Application background</td></tr><tr><td><strong>Text</strong></td><td><code>#323130</code></td><td><code>#ffffff</code></td><td>Primary content</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="state-colors">State Colors<a href="#state-colors" class="hash-link" aria-label="Direct link to State Colors" title="Direct link to State Colors" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Success</strong>: Green (Safe actions, success messages)</li>
+<li class=""><strong>Warning</strong>: Orange (Non-blocking errors, attention needed)</li>
+<li class=""><strong>Error</strong>: Red (Destructive actions, critical errors)</li>
+<li class=""><strong>Info</strong>: Blue (Guidance, neutral information)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="typography">Typography<a href="#typography" class="hash-link" aria-label="Direct link to Typography" title="Direct link to Typography" translate="no">​</a></h2>
+<p>We use <strong>Segoe UI Variable</strong> (with fallbacks to system sans-serif) for optimal legibility.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Style</th><th>Size</th><th>Weight</th><th>Line Height</th><th>Usage</th></tr></thead><tbody><tr><td>Display</td><td>40px</td><td>600</td><td>1.2</td><td>Marketing headers</td></tr><tr><td>Title Large</td><td>32px</td><td>600</td><td>1.25</td><td>Page Titles</td></tr><tr><td>Title</td><td>28px</td><td>600</td><td>1.3</td><td>Modal Headers</td></tr><tr><td>Body</td><td>14px</td><td>400</td><td>1.5</td><td>Standard Content</td></tr><tr><td>Caption</td><td>12px</td><td>400</td><td>1.4</td><td>Helper text, metadata</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="spacing-system">Spacing System<a href="#spacing-system" class="hash-link" aria-label="Direct link to Spacing System" title="Direct link to Spacing System" translate="no">​</a></h2>
+<p>We adhere to a 4px grid system.</p>
+<ul>
+<li class=""><code>p-1</code> (4px): Tight grouping</li>
+<li class=""><code>p-2</code> (8px): Button padding</li>
+<li class=""><code>p-4</code> (16px): Standard container padding</li>
+<li class=""><code>p-6</code> (24px): Section separation</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="visual-effects">Visual Effects<a href="#visual-effects" class="hash-link" aria-label="Direct link to Visual Effects" title="Direct link to Visual Effects" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="mica-material">Mica Material<a href="#mica-material" class="hash-link" aria-label="Direct link to Mica Material" title="Direct link to Mica Material" translate="no">​</a></h3>
+<p>For glass-like effects (modals, floating panels), use the <code>mica-surface</code> class:</p>
+<div class="language-css codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-css codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token selector class" style="color:rgb(199, 146, 234)">.mica-surface</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">background</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">linear-gradient</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">135</span><span class="token unit">deg</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token color function" style="color:rgb(130, 170, 255)">rgba</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token color number" style="color:rgb(247, 140, 108)">255</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token color number" style="color:rgb(247, 140, 108)">255</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token color number" style="color:rgb(247, 140, 108)">255</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token color number" style="color:rgb(247, 140, 108)">0.05</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token color function" style="color:rgb(130, 170, 255)">rgba</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token color number" style="color:rgb(247, 140, 108)">255</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token color number" style="color:rgb(247, 140, 108)">255</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token color number" style="color:rgb(247, 140, 108)">255</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token color number" style="color:rgb(247, 140, 108)">0.02</span><span class="token color punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token property">backdrop-filter</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">blur</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token number" style="color:rgb(247, 140, 108)">20</span><span class="token unit">px</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><br></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="shadows">Shadows<a href="#shadows" class="hash-link" aria-label="Direct link to Shadows" title="Direct link to Shadows" translate="no">​</a></h3>
+<p>Use standard Tailwind shadows (<code>shadow</code>, <code>shadow-md</code>, <code>shadow-xl</code>) to define elevation. Higher elevation implies higher Z-index.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="component-standards">Component Standards<a href="#component-standards" class="hash-link" aria-label="Direct link to Component Standards" title="Direct link to Component Standards" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="buttons">Buttons<a href="#buttons" class="hash-link" aria-label="Direct link to Buttons" title="Direct link to Buttons" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Primary</strong>: Solid background, white text.</li>
+<li class=""><strong>Secondary</strong>: Outline border, primary text.</li>
+<li class=""><strong>Ghost</strong>: Transparent background, primary text (for icons).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cards">Cards<a href="#cards" class="hash-link" aria-label="Direct link to Cards" title="Direct link to Cards" translate="no">​</a></h3>
+<ul>
+<li class="">Rounded corners (<code>rounded-lg</code> or <code>rounded-xl</code>).</li>
+<li class="">Subtle border in dark mode for contrast.</li>
+<li class="">Hover effects (<code>hover:shadow-md</code>) for interactive cards.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="theming--customization-new-sprint-15">Theming &amp; Customization (New Sprint 15)<a href="#theming--customization-new-sprint-15" class="hash-link" aria-label="Direct link to Theming &amp; Customization (New Sprint 15)" title="Direct link to Theming &amp; Customization (New Sprint 15)" translate="no">​</a></h2>
+<p>We support dynamic multi-theming via CSS variables and the <code>ThemeContext</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="supported-themes">Supported Themes<a href="#supported-themes" class="hash-link" aria-label="Direct link to Supported Themes" title="Direct link to Supported Themes" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>Default (Atlomy)</strong>:
+<ul>
+<li class="">Primary: Blue (<code>#0078d4</code>)</li>
+<li class="">Font: Sans-serif (System)</li>
+</ul>
+</li>
+<li class=""><strong>Research Pilot Theme</strong>:
+<ul>
+<li class="">Primary: Emerald Green (<code>#10b981</code>)</li>
+<li class="">Secondary: Gold (<code>#d97706</code>)</li>
+<li class="">Font: Serif (Amiri/Georgia)</li>
+<li class="">Activation: <code>document.body.dataset.theme = &#x27;research-pilot&#x27;</code></li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="usage-within-react">Usage within React<a href="#usage-within-react" class="hash-link" aria-label="Direct link to Usage within React" title="Direct link to Usage within React" translate="no">​</a></h3>
+<div class="language-tsx codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-tsx codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">const</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"> theme</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> setTheme </span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">=</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">useTheme</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token comment" style="color:rgb(105, 112, 152);font-style:italic">// toggle</span><span class="token plain"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token function" style="color:rgb(130, 170, 255)">setTheme</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;research-pilot&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="internationalization-rtl">Internationalization (RTL)<a href="#internationalization-rtl" class="hash-link" aria-label="Direct link to Internationalization (RTL)" title="Direct link to Internationalization (RTL)" translate="no">​</a></h2>
+<p>We support full RTL layout mirroring for Arabic language support via <code>LanguageContext</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="logical-properties">Logical Properties<a href="#logical-properties" class="hash-link" aria-label="Direct link to Logical Properties" title="Direct link to Logical Properties" translate="no">​</a></h3>
+<p>Always use <strong>Logical Properties</strong> instead of physical direction for margins, padding, and positioning to ensure automatic mirroring:</p>
+<ul>
+<li class=""><strong>Bad</strong>: <code>margin-left</code>, <code>padding-right</code>, <code>left: 0</code></li>
+<li class=""><strong>Good</strong>: <code>margin-inline-start</code> (<code>ms-*</code>), <code>padding-inline-end</code> (<code>pe-*</code>), <code>inset-inline-start</code> (<code>start-*</code>)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="global-direction">Global Direction<a href="#global-direction" class="hash-link" aria-label="Direct link to Global Direction" title="Direct link to Global Direction" translate="no">​</a></h3>
+<p>The <code>dir</code> attribute is managed globally on the root element:</p>
+<div class="language-html codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-html codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&lt;</span><span class="token tag" style="color:rgb(255, 85, 114)">html</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">dir</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">rtl</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag" style="color:rgb(255, 85, 114)"> </span><span class="token tag attr-name" style="color:rgb(255, 203, 107)">lang</span><span class="token tag attr-value punctuation attr-equals" style="color:rgb(199, 146, 234)">=</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag attr-value" style="color:rgb(255, 85, 114)">ar</span><span class="token tag attr-value punctuation" style="color:rgb(199, 146, 234)">&quot;</span><span class="token tag punctuation" style="color:rgb(199, 146, 234)">&gt;</span><br></div></code></pre></div></div>
+<p>Component-level overrides (e.g., for specific English quotes in an Arabic text) should use <code>dir=&quot;ltr&quot;</code> explicitly.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="import-wizard-v4-spec-0017-rev2">Import Wizard v4 (Spec 0017 rev2)<a href="#import-wizard-v4-spec-0017-rev2" class="hash-link" aria-label="Direct link to Import Wizard v4 (Spec 0017 rev2)" title="Direct link to Import Wizard v4 (Spec 0017 rev2)" translate="no">​</a></h2>
+<blockquote>
+<p>Six-stage import surface with a shared Pipeline header + Frame wrapper, researcher-voice copy, and a tenant-token-driven CSS bundle. Canonical wires: <code>docs/design/handoff/import-wizard/wires-v4.jsx</code>. Spec: <a class="" href="/ke-docs/superpowers/specs/0017-import-wizard-ux-overhaul/"><code>docs/superpowers/specs/0017-import-wizard-ux-overhaul/</code></a>. Where this section and the wires disagree, the wires win.</p>
+</blockquote>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pipeline-header-component">Pipeline header component<a href="#pipeline-header-component" class="hash-link" aria-label="Direct link to Pipeline header component" title="Direct link to Pipeline header component" translate="no">​</a></h3>
+<p>6-stage progress indicator rendered atop every wizard step. Sprint A delivers the production version.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Slot</th><th>Shape</th><th>Source</th></tr></thead><tbody><tr><td>Container</td><td><code>--surface-2</code> bg, <code>--rule-1</code> 1px border, 10px radius, 20px24px padding, 28px bottom margin, <code>0 1px 3px rgba(0,0,0,0.02)</code> shadow</td><td><code>wires-v4.jsx:119</code></td></tr><tr><td>Grid</td><td><code>repeat(6, 1fr)</code>, centered text per cell</td><td><code>wires-v4.jsx:120</code></td></tr><tr><td>Progress line</td><td>2px height at <code>top: 30px</code>, <code>--rule-soft</code> underlay + <code>--tenant-accent</code> overlay, animated <code>0 → (active/5)*83.4%</code> over 0.6s ease-out</td><td><code>wires-v4.jsx:121-127</code></td></tr><tr><td>Stage circle</td><td>60×60px, 30px radius, three branches: active (white bg, 2px accent border, scale 1.08, <code>0 6px 16px {accent}25</code> shadow); completed (white bg, 1.5px <code>--ok</code> border, 22px green ✓); upcoming (<code>--inset</code> bg, 1px <code>--rule-1</code> border, emoji icon)</td><td><code>wires-v4.jsx:130-142</code></td></tr><tr><td>Stage label</td><td>12px Source Serif italic, weight 500, color branches: active → <code>--tenant-accent</code>, completed → <code>--ink-1</code>, upcoming → <code>--ink-sub</code></td><td><code>wires-v4.jsx:143</code></td></tr><tr><td>Sub-label</td><td>10.5px Inter, <code>--ink-mute</code></td><td><code>wires-v4.jsx:144</code></td></tr></tbody></table>
+<p>Production target (Sprint A — not yet shipped): <code>templates/admin/ke/_wizard_pipeline.html</code> renders the SSR-friendly skeleton; a JS island at <code>atlomyapp/atlomy_static/assets/js/wizard_pipeline.js</code> hydrates CSS transitions + WAAPI (no Framer Motion in production).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="frame-wrapper-component">Frame wrapper component<a href="#frame-wrapper-component" class="hash-link" aria-label="Direct link to Frame wrapper component" title="Direct link to Frame wrapper component" translate="no">​</a></h3>
+<p>Wraps every per-stage payload. Sprint A delivers <code>templates/admin/ke/_wizard_frame.html</code> (not yet shipped) which takes <code>{step_number, eyebrow, title, lede}</code> and exposes a <code>{% block frame_content %}</code> slot.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Slot</th><th>Shape</th><th>Source</th></tr></thead><tbody><tr><td>Outer</td><td><code>--paper</code> bg, 28px padding, full-height vertical scroll, Inter 13.5px / 1.5 lh</td><td><code>wires-v4.jsx:156</code></td></tr><tr><td>Stage transition</td><td><code>opacity 0 → 1, y 8 → 0</code>, 0.4s ease-out, keyed on stage. Production: CSS <code>@starting-style</code> + animation</td><td><code>wires-v4.jsx:158-163</code></td></tr><tr><td>Eyebrow</td><td>11px Inter, <code>--tenant-accent</code>, uppercase, letter-spacing 1.2px, weight 600. Text: <code>&quot;Step N&quot;</code></td><td><code>wires-v4.jsx:164</code></td></tr><tr><td>Title</td><td>28px Source Serif, weight 400, letter-spacing -0.3px, margin <code>8px 0 10px</code></td><td><code>wires-v4.jsx:165</code></td></tr><tr><td>Lede</td><td>14px Source Serif italic, <code>--ink-sub</code>, max-width 680px, 24px bottom margin</td><td><code>wires-v4.jsx:166</code></td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="voice-substitution-dictionary">Voice substitution dictionary<a href="#voice-substitution-dictionary" class="hash-link" aria-label="Direct link to Voice substitution dictionary" title="Direct link to Voice substitution dictionary" translate="no">​</a></h3>
+<p>Every user-visible string passes through the voice dictionary. Canonical source: <a class="" href="/ke-docs/superpowers/specs/0017-import-wizard-ux-overhaul/design.md"><code>spec 0017 design.md §3</code></a>. Top substitutions:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Banned</th><th>Use instead</th></tr></thead><tbody><tr><td><code>archetype</code></td><td>&quot;kind of record&quot;</td></tr><tr><td><code>mapping</code> (verb, user-facing)</td><td>&quot;matching&quot;</td></tr><tr><td><code>tenant</code>, <code>schema</code>, <code>tenant config</code></td><td>&quot;your workspace&quot;, &quot;your project setup&quot;</td></tr><tr><td><code>MappingProposal</code> (and all model class names)</td><td>&quot;AI proposal&quot;, &quot;import&quot;, &quot;data category&quot;</td></tr><tr><td><code>materialize</code>, <code>persist</code>, <code>FK</code>, <code>JSONB</code></td><td>&quot;save&quot;, &quot;store&quot;, &quot;link&quot;, &quot;data&quot;</td></tr></tbody></table>
+<p>See spec 0017 design.md §3.1 for the full ban-list (model classes, ADR refs, vendor names, internal architectural framing); §3.2 for tone (active voice, no platitudes, &quot;what we found&quot; framing); §3.3 for the Sprint D tenant-override path.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="wizard-token-import-strategy">Wizard token import strategy<a href="#wizard-token-import-strategy" class="hash-link" aria-label="Direct link to Wizard token import strategy" title="Direct link to Wizard token import strategy" translate="no">​</a></h3>
+<p>Sprint A.1.1 delivers a Django management command <code>manage.py generate_wizard_tokens</code> that filters <code>docs/design/system/tokens.css</code> into a generated <code>atlomyapp/atlomy_static/assets/css/ke_wizard_tokens.css</code> with a &quot;do not edit by hand&quot; header. The design-system file remains source-of-truth; the production asset is intentional + reviewable. See <a class="" href="/ke-docs/superpowers/specs/0017-import-wizard-ux-overhaul/design.md#6-design-tokens">spec 0017 design.md §6</a> for the A/B/C trade-off (Option C chosen). Tokens in scope: typography (<code>--font-brand/sans/serif/greek/arabic/mono</code>, <code>--t-*</code>), color (<code>--ink-*</code>, <code>--surface-*</code>, <code>--rule-*</code>, <code>--paper</code>, <code>--card</code>, <code>--inset</code>, <code>--ok*</code>, <code>--warn*</code>, <code>--err*</code>, <code>--tenant-accent*</code>), spacing (4/8/12/16/20/24/32/40/56/80), radius (3/6/8/12), card/drawer/sticky-title shadows, motion timings.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="comfort-dial-sprint-b">Comfort dial (Sprint B)<a href="#comfort-dial-sprint-b" class="hash-link" aria-label="Direct link to Comfort dial (Sprint B)" title="Direct link to Comfort dial (Sprint B)" translate="no">​</a></h3>
+<p>Stage 3 hosts a 4-level slider (&quot;Hands off / Stay informed / Ask if unsure / Confirm everything&quot;) controlling how aggressively the wizard auto-applies AI proposals. Sprint B delivers; <strong>ADR-033 must land first</strong> — it resolves the level → <code>risk_class × confidence × proposal_kind</code> matrix, per-tenant default level, recompute-at-apply interaction, and audit-trail semantics. Persistence: <code>MappingProject.comfort_level</code> (IntegerField 0–3, default 1). See <a class="" href="/ke-docs/superpowers/specs/0017-import-wizard-ux-overhaul/design.md#71-adr-033--comfort-dial-driven-f0b-apply-pipeline">spec 0017 design.md §7.1</a> for the strawman matrix and the open questions ADR-033 owns.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stacked-undo-bar-sprint-c">Stacked undo bar (Sprint C)<a href="#stacked-undo-bar-sprint-c" class="hash-link" aria-label="Direct link to Stacked undo bar (Sprint C)" title="Direct link to Stacked undo bar (Sprint C)" translate="no">​</a></h3>
+<p>Fixed-bottom toast surfacing system-applied changes with an 8s reversal window. Sprint C delivers; <strong>ADR-034 must land first</strong> — it resolves the reversal semantics (transactional staging vs compensating-action saga vs mixed) and the <code>ImportTemplate</code> entity shape. The wires-v4 single-slot <code>UndoContext</code> is replaced with a stacked queue (up to 3 concurrent toasts; oldest drops first if a 4th arrives). See <a class="" href="/ke-docs/superpowers/specs/0017-import-wizard-ux-overhaul/design.md#72-adr-034--wizard-staged-commit-and-importtemplate-semantics">spec 0017 design.md §7.2</a> for the option matrix.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="cross-references">Cross-references<a href="#cross-references" class="hash-link" aria-label="Direct link to Cross-references" title="Direct link to Cross-references" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Epic + sprint backlog</strong>: <a class="" href="/ke-docs/superpowers/specs/0017-import-wizard-ux-overhaul/"><code>docs/superpowers/specs/0017-import-wizard-ux-overhaul/</code></a></li>
+<li class=""><strong>Implementation case study</strong>: <a class="" href="/ke-docs/internal/research/2026-05-15_v4-import-wizard-design-implementation/"><code>docs/internal/research/2026-05-15_v4-import-wizard-design-implementation/</code></a></li>
+<li class=""><strong>Canonical wires (single source of truth)</strong>: <code>docs/design/handoff/import-wizard/wires-v4.jsx</code></li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/developer/setup/deployment"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Deployment &amp; Operations Guide</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#ke--knowledge-environments-tokens-canonical" class="table-of-contents__link toc-highlight">KE — Knowledge Environments tokens (canonical)</a><ul><li><a href="#where-they-live" class="table-of-contents__link toc-highlight">Where they live</a></li><li><a href="#loading-order-load-bearing" class="table-of-contents__link toc-highlight">Loading order (load-bearing)</a></li><li><a href="#theme-path" class="table-of-contents__link toc-highlight">Theme path</a></li><li><a href="#tenant-accent-path" class="table-of-contents__link toc-highlight">Tenant accent path</a></li><li><a href="#v2-design-additions-2026-05-07" class="table-of-contents__link toc-highlight">v2 design additions (2026-05-07)</a></li></ul></li><li><a href="#tenant-admin-surfaces-built-on-ke-tokens" class="table-of-contents__link toc-highlight">Tenant admin surfaces (built on KE tokens)</a><ul><li><a href="#app-shell" class="table-of-contents__link toc-highlight">App shell</a></li><li><a href="#term-form-change-view-slot-driven-editor" class="table-of-contents__link toc-highlight">Term-form change view (slot-driven editor)</a></li><li><a href="#row-detail-drawer" class="table-of-contents__link toc-highlight">Row-detail drawer</a></li><li><a href="#public-term-reader" class="table-of-contents__link toc-highlight">Public Term reader</a></li><li><a href="#display-tweaks-floating-widget" class="table-of-contents__link toc-highlight">Display tweaks (floating widget)</a></li></ul></li><li><a href="#how-to-use-the-research-workspace-ui" class="table-of-contents__link toc-highlight">How to use the research workspace UI</a><ul><li><a href="#browse--drill-in" class="table-of-contents__link toc-highlight">Browse + drill in</a></li><li><a href="#edit--save" class="table-of-contents__link toc-highlight">Edit + save</a></li><li><a href="#public-preview" class="table-of-contents__link toc-highlight">Public preview</a></li><li><a href="#display-tweaks" class="table-of-contents__link toc-highlight">Display tweaks</a></li><li><a href="#import-flow-current-state" class="table-of-contents__link toc-highlight">Import flow (current state)</a></li></ul></li><li><a href="#when-to-extend-the-design-vocabulary" class="table-of-contents__link toc-highlight">When to extend the design vocabulary</a></li><li><a href="#legacy-atlomy-atlas--tailwind-css-palette" class="table-of-contents__link toc-highlight">Legacy: Atlomy Atlas / Tailwind CSS palette</a></li><li><a href="#color-system" class="table-of-contents__link toc-highlight">Color System</a><ul><li><a href="#semantic-colors" class="table-of-contents__link toc-highlight">Semantic Colors</a></li><li><a href="#state-colors" class="table-of-contents__link toc-highlight">State Colors</a></li></ul></li><li><a href="#typography" class="table-of-contents__link toc-highlight">Typography</a></li><li><a href="#spacing-system" class="table-of-contents__link toc-highlight">Spacing System</a></li><li><a href="#visual-effects" class="table-of-contents__link toc-highlight">Visual Effects</a><ul><li><a href="#mica-material" class="table-of-contents__link toc-highlight">Mica Material</a></li><li><a href="#shadows" class="table-of-contents__link toc-highlight">Shadows</a></li></ul></li><li><a href="#component-standards" class="table-of-contents__link toc-highlight">Component Standards</a><ul><li><a href="#buttons" class="table-of-contents__link toc-highlight">Buttons</a></li><li><a href="#cards" class="table-of-contents__link toc-highlight">Cards</a></li></ul></li><li><a href="#theming--customization-new-sprint-15" class="table-of-contents__link toc-highlight">Theming &amp; Customization (New Sprint 15)</a><ul><li><a href="#supported-themes" class="table-of-contents__link toc-highlight">Supported Themes</a></li><li><a href="#usage-within-react" class="table-of-contents__link toc-highlight">Usage within React</a></li></ul></li><li><a href="#internationalization-rtl" class="table-of-contents__link toc-highlight">Internationalization (RTL)</a><ul><li><a href="#logical-properties" class="table-of-contents__link toc-highlight">Logical Properties</a></li><li><a href="#global-direction" class="table-of-contents__link toc-highlight">Global Direction</a></li></ul></li><li><a href="#import-wizard-v4-spec-0017-rev2" class="table-of-contents__link toc-highlight">Import Wizard v4 (Spec 0017 rev2)</a><ul><li><a href="#pipeline-header-component" class="table-of-contents__link toc-highlight">Pipeline header component</a></li><li><a href="#frame-wrapper-component" class="table-of-contents__link toc-highlight">Frame wrapper component</a></li><li><a href="#voice-substitution-dictionary" class="table-of-contents__link toc-highlight">Voice substitution dictionary</a></li><li><a href="#wizard-token-import-strategy" class="table-of-contents__link toc-highlight">Wizard token import strategy</a></li><li><a href="#comfort-dial-sprint-b" class="table-of-contents__link toc-highlight">Comfort dial (Sprint B)</a></li><li><a href="#stacked-undo-bar-sprint-c" class="table-of-contents__link toc-highlight">Stacked undo bar (Sprint C)</a></li><li><a href="#cross-references" class="table-of-contents__link toc-highlight">Cross-references</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

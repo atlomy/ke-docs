@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-superadmin docs-version-current docs-doc-page docs-doc-id-llm_providers_guide" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">LLM Providers Guide | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/superadmin/llm_providers_guide"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-superadmin-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-superadmin-current"><meta data-rh="true" property="og:title" content="LLM Providers Guide | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Audience: Super admin / platform operator"><meta data-rh="true" property="og:description" content="Audience: Super admin / platform operator"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/superadmin/llm_providers_guide"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/superadmin/llm_providers_guide" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/superadmin/llm_providers_guide" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"LLM Providers Guide","item":"https://atlomy.github.io/ke-docs/superadmin/llm_providers_guide"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/superadmin/">Platform Admins</a><a class="navbar__item navbar__link" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/"><span title="Super Admin Documentation" class="linkLabel_WmDU">Super Admin Documentation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/dpia-operations"><span title="DPIA Operations" class="linkLabel_WmDU">DPIA Operations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/federation-and-marketplace"><span title="Federation and Marketplace" class="linkLabel_WmDU">Federation and Marketplace</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/incident-operations"><span title="Incident Operations" class="linkLabel_WmDU">Incident Operations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/ke-docs/superadmin/llm_providers_guide"><span title="LLM Providers Guide" class="linkLabel_WmDU">LLM Providers Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/platform_monitoring"><span title="Platform Monitoring" class="linkLabel_WmDU">Platform Monitoring</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/recommender-metrics"><span title="Recommender Metrics" class="linkLabel_WmDU">Recommender Metrics</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/secrets-management"><span title="Secrets Management" class="linkLabel_WmDU">Secrets Management</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/superadmin/tip-auto-pause"><span title="Tip Auto-Pause" class="linkLabel_WmDU">Tip Auto-Pause</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">LLM Providers Guide</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>LLM Providers Guide</h1></header>
+<blockquote>
+<p><strong>Audience</strong>: Super admin / platform operator
+<strong>Last aligned with platform state</strong>: 2026-05-25
+<strong>Platform version</strong>: V2 (pre-1.0)</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="purpose">Purpose<a href="#purpose" class="hash-link" aria-label="Direct link to Purpose" title="Direct link to Purpose" translate="no">​</a></h2>
+<p>The platform&#x27;s in-product AI surfaces (ambient import-wizard chat, AI-assisted manual
+grounding, future AI assists) issue single LLM calls through a thin provider abstraction.
+This page is the operator runbook for that substrate: which providers are wired today, how
+to switch them per environment, where credentials live, and how to diagnose a degraded
+provider call. Read this when an AI-assist surface returns <code>provider_unavailable</code>, when
+rotating provider credentials, or when standing up the AI runtime in a new environment. The
+contract that bounds what these providers may do is ADR-014-α (single-call assist; bounded
+agency; never autonomous mutation of platform state).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Provider abstraction</strong> — <code>data_import.llm_providers.get_llm_provider()</code> returns a
+<code>BaseLLMProvider</code> selected by the <code>LLM_PROVIDER</code> setting; current concrete providers are
+<code>MockProvider</code> (default in development) and <code>BedrockProvider</code> (live cloud provider).
+Substrate: <code>data_import/llm_providers.py</code> · Maturity: Built · Limit: the abstraction
+surfaces a single-call interface; multi-step agent loops are out of scope per ADR-014-α.</li>
+<li class=""><strong>AWS Bedrock as the live provider</strong> — configured via <code>AWS_BEDROCK_REGION</code> and
+<code>BEDROCK_MODEL_ID</code>; credentials via <code>BEDROCK_AWS_ACCESS_KEY_ID</code> /
+<code>BEDROCK_AWS_SECRET_ACCESS_KEY</code> / <code>BEDROCK_AWS_SESSION_TOKEN</code>, an IAM role via
+<code>BEDROCK_AWS_PROFILE</code>, or via the <code>ExternalServiceCredential</code> substrate with
+<code>auth_scheme = aws_iam_role</code>. Substrate: <code>atlomy/settings.py</code> +
+<code>data_import/llm_providers.py</code> · Maturity: Built · Limit: <code>aws_iam_role</code> is preferred;
+token-backed fallbacks should only be used where IAM roles are not yet provisioned.</li>
+<li class=""><strong>Mock provider as the default</strong> — <code>LLM_PROVIDER = mock</code> is the default; the mock
+provider returns deterministic stub responses for development and CI. Substrate:
+<code>MockProvider</code> in <code>data_import/llm_providers.py</code> · Maturity: Built · Limit: mock is not
+acceptable in any environment that serves researchers.</li>
+<li class=""><strong>AI assist call wrapper</strong> — <code>atlomyapp/slot_taxonomy/ai_assist.py</code> issues single calls
+through the provider abstraction; failure paths set <code>intent = &quot;provider_unavailable&quot;</code> and
+log to tenant-local telemetry. Substrate: ADR-014-α + Spec 0026 + <code>ai_assist.py</code> ·
+Maturity: Built · Limit: a failed provider call falls back to documented degraded
+behavior; no silent mutation of platform state.</li>
+<li class=""><strong>Tenant-local AI-call telemetry</strong> — every call records task, model + version, tokens,
+latency, refusal / escalation flag, injection-classifier verdict, and one-way hashes of
+prompt + response. Substrate: <code>telemetry/services/llm_call.py</code> + <code>telemetry/models.py</code> ·
+Maturity: Built · Limit: raw prompt and raw response text are never recorded; tenant
+pseudonym only — never end-user identity.</li>
+<li class=""><strong>ADR-014-α single-call assist contract</strong> — bounds what these providers may do across all
+in-product AI surfaces. Substrate: ADR-014-α (Proposed, α-activated 2026-05-21) ·
+Maturity: Built (codified from Spec 0017 C.3 ambient chat + Spec 0020 v1.2 §10.2 Wave 2) ·
+Limit: multi-step agent loops, agent-to-agent coordination, autonomous state mutation —
+all out of scope; β remains deferred.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="usability--how-you-use-it">Usability — how you use it<a href="#usability--how-you-use-it" class="hash-link" aria-label="Direct link to Usability — how you use it" title="Direct link to Usability — how you use it" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="configuring-the-ai-runtime-in-a-new-environment">Configuring the AI runtime in a new environment<a href="#configuring-the-ai-runtime-in-a-new-environment" class="hash-link" aria-label="Direct link to Configuring the AI runtime in a new environment" title="Direct link to Configuring the AI runtime in a new environment" translate="no">​</a></h3>
+<ol>
+<li class="">Choose a provider. <code>LLM_PROVIDER = bedrock</code> is the live cloud path; <code>LLM_PROVIDER = mock</code>
+is dev-only. Set in the environment&#x27;s <code>.env</code>.</li>
+<li class="">For Bedrock, provide <code>AWS_BEDROCK_REGION</code> and <code>BEDROCK_MODEL_ID</code>. Prefer IAM role
+credentials over static keys; provision via the <code>ExternalServiceCredential</code> substrate
+(see <a class="" href="/ke-docs/superadmin/secrets-management">secrets-management.md</a>) with <code>auth_scheme = aws_iam_role</code>.</li>
+<li class="">Restart the Django app inside the <code>django_app</code> container. The provider abstraction picks
+up the new settings on next process start.</li>
+<li class="">Verify by triggering a known AI-assist surface (e.g., ambient import-wizard chat or
+Spec 0020 v1.2 §10.2 Wave 2 manual-grounding assist) and confirming the call lands in
+tenant-local AI-call telemetry with the expected model id.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="rotating-bedrock-credentials">Rotating Bedrock credentials<a href="#rotating-bedrock-credentials" class="hash-link" aria-label="Direct link to Rotating Bedrock credentials" title="Direct link to Rotating Bedrock credentials" translate="no">​</a></h3>
+<ol>
+<li class="">Rotate at AWS. If using the <code>ExternalServiceCredential</code> substrate, the <code>secret_ref</code>
+does not change; re-run admin Validate per
+<a class="" href="/ke-docs/superadmin/secrets-management">secrets-management.md</a> to confirm <code>ok</code>.</li>
+<li class="">If using static <code>BEDROCK_AWS_*</code> env vars, update the environment&#x27;s <code>.env</code> and restart
+the <code>django_app</code> container.</li>
+<li class="">Trigger one assist call to confirm the rotation propagated; check tenant-local AI-call
+telemetry for a fresh call with no <code>intent = &quot;provider_unavailable&quot;</code>.</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="pre-flight-before-changing-providers">Pre-flight before changing providers<a href="#pre-flight-before-changing-providers" class="hash-link" aria-label="Direct link to Pre-flight before changing providers" title="Direct link to Pre-flight before changing providers" translate="no">​</a></h3>
+<ul>
+<li class="">Do not switch from <code>bedrock</code> to <code>mock</code> in any environment that serves researchers — the
+mock provider returns stubs and will silently degrade AI-assist surfaces.</li>
+<li class="">Confirm the target provider is wired (currently only <code>mock</code> and <code>bedrock</code> are concrete
+providers); other settings will fall back to <code>mock</code> per <code>get_llm_provider</code>.</li>
+<li class="">Confirm tenant-local AI-call telemetry capture is enabled if you want the rotation to be
+observable. Tenant-local telemetry follows the per-tenant <code>TELEMETRY_CAPTURE</code> posture (see
+<a class="" href="/ke-docs/superadmin/dpia-operations">dpia-operations.md</a>).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="red-lines">Red lines<a href="#red-lines" class="hash-link" aria-label="Direct link to Red lines" title="Direct link to Red lines" translate="no">​</a></h3>
+<ul>
+<li class="">No raw prompt text and no raw response text in any persisted row — only one-way hashes.</li>
+<li class="">No end-user identity in telemetry — only platform pseudonym.</li>
+<li class="">No provider error payload in operator-facing surfaces — validation reports
+<code>ok</code> / <code>not_allowed</code> / <code>unavailable</code> plus exception class name only.</li>
+<li class="">Provider credentials never inline in code or in registry entries — always via the
+<code>ExternalServiceCredential</code> substrate or environment variables. See
+<a class="" href="/ke-docs/superadmin/secrets-management">secrets-management.md</a>.</li>
+<li class="">Canonical red-lines block: see <a class="" href="/ke-docs/superadmin/platform_monitoring">platform_monitoring.md</a>.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
+<ul>
+<li class="">
+<p><strong>Symptom</strong>: AI-assist surface returns <code>provider_unavailable</code>.
+<strong>Likely cause</strong>: The Bedrock provider call failed — either an IAM permission issue, a
+region or model id mismatch, or a transient AWS service issue. The wrapper sets
+<code>intent = &quot;provider_unavailable&quot;</code> and logs to tenant-local telemetry. <strong>Fix</strong>: Check
+tenant-local AI-call telemetry for the call&#x27;s exception class. Confirm
+<code>AWS_BEDROCK_REGION</code> and <code>BEDROCK_MODEL_ID</code> are set correctly; confirm the IAM principal
+has Bedrock invoke access for the requested model. <strong>Escalate</strong>: AWS account owner if IAM
+scope is the cause; ADR-014-α owner if the wrapper itself is misbehaving.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Provider abstraction silently falls back to <code>MockProvider</code> in production.
+<strong>Likely cause</strong>: <code>LLM_PROVIDER</code> is unset or set to a value other than the currently
+wired providers (<code>mock</code>, <code>bedrock</code>); <code>get_llm_provider</code> defaults to mock. <strong>Fix</strong>: Set
+<code>LLM_PROVIDER = bedrock</code> in the environment&#x27;s <code>.env</code> and restart the <code>django_app</code>
+container. <strong>Escalate</strong>: not required; this is a configuration issue.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: AI-call telemetry rows are missing the model id.
+<strong>Likely cause</strong>: The provider returned a malformed response and the telemetry wrapper
+recorded the call with a degraded shape. <strong>Fix</strong>: Check <code>BEDROCK_MODEL_ID</code> for typos;
+confirm the model id is one the IAM principal has access to. <strong>Escalate</strong>: ADR-014-α
+owner if the model id is correct and the malformed shape persists.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Bedrock IAM permission denied on <code>bedrock:InvokeModel</code>.
+<strong>Likely cause</strong>: The IAM principal has not been granted invoke access for the requested
+model, or model access has not been enabled in the Bedrock console for the account.
+<strong>Fix</strong>: Grant <code>bedrock:InvokeModel</code> scoped to the specific model ARN; enable model
+access in the Bedrock console. Scope IAM to specific ARNs, never <code>*</code>. <strong>Escalate</strong>: AWS
+account owner.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: AI-call telemetry shows a raw prompt or raw response value.
+<strong>Likely cause</strong>: Severe red-line violation — telemetry should record one-way hashes
+only. <strong>Fix</strong>: Capture the row reference. Do not screenshot or quote the raw content.
+<strong>Escalate</strong>: security on-call immediately.</p>
+</li>
+<li class="">
+<p><strong>Symptom</strong>: Same call retried multiple times in the same window.
+<strong>Likely cause</strong>: An AI-assist surface is missing idempotency or the caller is not
+honoring the single-call contract from ADR-014-α. <strong>Fix</strong>: Identify the calling surface
+via tenant-local telemetry; confirm it issues one call per user action. <strong>Escalate</strong>:
+ADR-014-α owner if a new surface is violating the single-call invariant.</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/ke-docs/superadmin/platform_monitoring">platform_monitoring.md</a> — operations landing and red lines.</li>
+<li class=""><a class="" href="/ke-docs/superadmin/secrets-management">secrets-management.md</a> — Bedrock credential reference path.</li>
+<li class=""><a class="" href="/ke-docs/superadmin/dpia-operations">dpia-operations.md</a> — DPIA implications for AI-assist telemetry
+capture.</li>
+<li class=""><a class="" href="/ke-docs/developer/security/README.md">../developer/security/README.md</a> — security architecture
+index.</li>
+<li class="">ADR-014-α — In-Product AI Runtime single-call LLM assist contract:
+<code>../developer/architecture/adr/014-in-app-ai-orchestration.md</code>.</li>
+<li class="">ADR-016 — telemetry substrate; AI-call records shape.</li>
+<li class="">Spec 0017 C.3 — ambient import-wizard chat (first single-call AI surface in production).</li>
+<li class="">Spec 0020 v1.2 §10.2 Wave 2 — AI-assisted manual grounding for ungrounded vocabulary
+values (current driver of ADR-014-α activation).</li>
+<li class="">Spec 0026 — AI grounding contract (consumes <code>data_import.llm_providers</code>).</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/superadmin/incident-operations"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Incident Operations</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/superadmin/platform_monitoring"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Platform Monitoring</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#purpose" class="table-of-contents__link toc-highlight">Purpose</a></li><li><a href="#features" class="table-of-contents__link toc-highlight">Features</a></li><li><a href="#usability--how-you-use-it" class="table-of-contents__link toc-highlight">Usability — how you use it</a><ul><li><a href="#configuring-the-ai-runtime-in-a-new-environment" class="table-of-contents__link toc-highlight">Configuring the AI runtime in a new environment</a></li><li><a href="#rotating-bedrock-credentials" class="table-of-contents__link toc-highlight">Rotating Bedrock credentials</a></li><li><a href="#pre-flight-before-changing-providers" class="table-of-contents__link toc-highlight">Pre-flight before changing providers</a></li><li><a href="#red-lines" class="table-of-contents__link toc-highlight">Red lines</a></li></ul></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

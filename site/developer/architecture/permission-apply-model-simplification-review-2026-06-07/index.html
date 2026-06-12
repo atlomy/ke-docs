@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-developer docs-version-current docs-doc-page docs-doc-id-architecture/permission-apply-model-simplification-review-2026-06-07" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Permission / Apply-Model Simplification Review — 2026-06-07 | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/developer/architecture/permission-apply-model-simplification-review-2026-06-07"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-developer-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-developer-current"><meta data-rh="true" property="og:title" content="Permission / Apply-Model Simplification Review — 2026-06-07 | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Status: RATIFIED by owner 2026-06-07. Applied as ADR-035 Amendment 4"><meta data-rh="true" property="og:description" content="Status: RATIFIED by owner 2026-06-07. Applied as ADR-035 Amendment 4"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/developer/architecture/permission-apply-model-simplification-review-2026-06-07"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/permission-apply-model-simplification-review-2026-06-07" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/permission-apply-model-simplification-review-2026-06-07" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Permission / Apply-Model Simplification Review — 2026-06-07","item":"https://atlomy.github.io/ke-docs/developer/architecture/permission-apply-model-simplification-review-2026-06-07"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.26c83cf8.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.a4620e10.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/superadmin/">Platform Admins</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/"><span title="Developer Documentation" class="linkLabel_WmDU">Developer Documentation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/TESTING"><span title="Testing standards — Atlomy Atlas" class="linkLabel_WmDU">Testing standards — Atlomy Atlas</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/ai_schema_adaptation"><span title="Sprint 9 &amp; 10: Developer Guide" class="linkLabel_WmDU">Sprint 9 &amp; 10: Developer Guide</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ke-docs/developer/architecture/adr/"><span title="architecture" class="categoryLinkLabel_W154">architecture</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/ke-docs/developer/architecture/adr/"><span title="Architecture Decision Records (ADRs)" class="categoryLinkLabel_W154">Architecture Decision Records (ADRs)</span></a><button aria-label="Expand sidebar category &#x27;Architecture Decision Records (ADRs)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/adr-037-ratification-brief"><span title="ADR-037 Ratification Brief" class="linkLabel_WmDU">ADR-037 Ratification Brief</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/api_layer"><span title="Architecture: API &amp; Authentication Layer" class="linkLabel_WmDU">Architecture: API &amp; Authentication Layer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/archetype_strategic_planning"><span title="Archetype Strategic Planning" class="linkLabel_WmDU">Archetype Strategic Planning</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy-tenant-restore-spec"><span title="Atlomy Tenant Restore Specification" class="linkLabel_WmDU">Atlomy Tenant Restore Specification</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy-testing-readiness-plan"><span title="Atlomy Data Testing Readiness Plan" class="linkLabel_WmDU">Atlomy Data Testing Readiness Plan</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/atlomy_canonical_architecture_vision"><span title="KE (Knowledge Environments) Canonical Architecture Vision" class="linkLabel_WmDU">KE (Knowledge Environments) Canonical Architecture Vision</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/capability_contracts_strategic_value"><span title="Archetype Capability Contracts: Strategic Value" class="linkLabel_WmDU">Archetype Capability Contracts: Strategic Value</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/database_visualizer"><span title="Database Visualizer Architecture" class="linkLabel_WmDU">Database Visualizer Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/frontend"><span title="Architecture: Frontend Strategy (React 19 + Django)" class="linkLabel_WmDU">Architecture: Frontend Strategy (React 19 + Django)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/help-key-contract"><span title="helpKey contract — engineering spec" class="linkLabel_WmDU">helpKey contract — engineering spec</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/ke_admin_overlay"><span title="KE Admin Overlay — architecture" class="linkLabel_WmDU">KE Admin Overlay — architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/monitoring_architecture"><span title="Sprint 7: Platform-Wide Monitoring &amp; Observability" class="linkLabel_WmDU">Sprint 7: Platform-Wide Monitoring &amp; Observability</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/multi_tenancy"><span title="Multi-Tenancy Architecture" class="linkLabel_WmDU">Multi-Tenancy Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/multilingual_design"><span title="Multilingual Data Import - Design Principles" class="linkLabel_WmDU">Multilingual Data Import - Design Principles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/new_engineer_architectural_onboarding"><span title="New Engineer Architectural Onboarding" class="linkLabel_WmDU">New Engineer Architectural Onboarding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/developer/architecture/permission-apply-model-simplification-review-2026-06-07"><span title="Permission / Apply-Model Simplification Review — 2026-06-07" class="linkLabel_WmDU">Permission / Apply-Model Simplification Review — 2026-06-07</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/platform_principles"><span title="KE (Knowledge Environments) Platform Principles" class="linkLabel_WmDU">KE (Knowledge Environments) Platform Principles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/production-infrastructure-requirements"><span title="Production Infrastructure Requirements (provider-neutral)" class="linkLabel_WmDU">Production Infrastructure Requirements (provider-neutral)</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/rbac"><span title="Role-Based Access Control (RBAC) Architecture" class="linkLabel_WmDU">Role-Based Access Control (RBAC) Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/developer/architecture/sprint13_preparation"><span title="Sprint 13 Preparation Guide: Archetype Definition" class="linkLabel_WmDU">Sprint 13 Preparation Guide: Archetype Definition</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/developer_guide"><span title="Developer Guide: Data Sync &amp; Monitoring Systems" class="linkLabel_WmDU">Developer Guide: Data Sync &amp; Monitoring Systems</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/knowledge_explorer"><span title="Sprint 13: Knowledge Explorer &amp; API Architecture" class="linkLabel_WmDU">Sprint 13: Knowledge Explorer &amp; API Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/platform_principles_enforcement"><span title="Platform-Principles Enforcement (Code Gates)" class="linkLabel_WmDU">Platform-Principles Enforcement (Code Gates)</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/ke-docs/developer/security/"><span title="Security Architecture" class="categoryLinkLabel_W154">Security Architecture</span></a><button aria-label="Expand sidebar category &#x27;Security Architecture&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/setup/Troubleshooting/troubleshooting_template_conflicts"><span title="setup" class="categoryLinkLabel_W154">setup</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/ui/design_system"><span title="ui" class="categoryLinkLabel_W154">ui</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">architecture</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Permission / Apply-Model Simplification Review — 2026-06-07</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Permission / Apply-Model Simplification Review — 2026-06-07</h1></header>
+<blockquote>
+<p><strong>Status: RATIFIED by owner 2026-06-07.</strong> Applied as <strong>ADR-035 Amendment 4</strong>
+(the clause + loud inline &quot;SPECIFIED — NOT ENFORCED&quot; deferral markers) and
+<strong>ADR-057 marked Superseded</strong>. It is an <em>amendment</em> + a <em>collapse</em>, <strong>not</strong> a new
+ADR — the smell that triggered it (&quot;a new ADR to undo friction an earlier one
+created&quot;) argues against adding more architecture, not less. See
+[[feedback_new_adr_to_undo_complexity_is_a_smell]]. <strong>The bug-fix code remains
+gated behind the two live caveat checks below (&quot;no code lands until they are
+answered&quot;).</strong></p>
+<p><strong>Evidence base:</strong> a file:line-cited audit of ADR-035 vs the merged <code>v2</code> code
+(the apply/permission stack), run 2026-06-07. The hypothesis under test — <em>the
+model is heavier than current single-researcher-pilot requirements</em> — is now
+<strong>largely confirmed by code</strong>, with two runtime caveats flagged below.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-real-finding-speccode-drift-not-just-over-engineering">The real finding: spec/code drift, not just over-engineering<a href="#the-real-finding-speccode-drift-not-just-over-engineering" class="hash-link" aria-label="Direct link to The real finding: spec/code drift, not just over-engineering" title="Direct link to The real finding: spec/code drift, not just over-engineering" translate="no">​</a></h2>
+<p>The framing that matters is <strong>not</strong> &quot;the model is over-built&quot; (a judgment call).
+It is <strong>spec/code drift</strong>: a large part of ADR-035&#x27;s apply governance is
+<strong>specified on paper but enforced nowhere in code</strong>. That reframes the work — and
+the near-miss — sharply:</p>
+<blockquote>
+<p>ADR-057 would have implemented the wizard&#x27;s <em>conformance</em> to a policy that
+nothing enforces. We nearly wrote a new ADR to make the wizard obey an ADR that
+only exists on paper.</p>
+</blockquote>
+<p>So the fix is not merely &quot;remove complexity.&quot; It is <strong>doc-honesty</strong>: align the
+documented policy with what the code actually runs and actually needs, and mark
+the remainder as honestly deferred. That is harder to argue against than &quot;let&#x27;s
+simplify&quot; — it is correcting a documentation defect, not trading away design.</p>
+<p>ADR-035 specifies an elaborate stack — capability flags, named bundles, a Flow B
+two-step, three risk tiers, a §4/§4.1 sensitivity floor (sandboxed draft →
+blanket-deny prefilter → dynamic phrase + 30s delay), <code>require_separate_review_authority</code>,
+<code>high_risk_apply_policy</code>, comfort dials, permission snapshots. The audit found
+that <strong>most of the apply-governance surface is specified but not enforced</strong>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Layer</th><th>Reality in code</th><th>Evidence</th></tr></thead><tbody><tr><td><code>can_apply_low/medium/high_risk</code> flags</td><td><strong>Provisioned into bundles, never read as an apply gate.</strong> Only <code>can_review_proposals</code> gates anything real (search/grounding).</td><td><code>customers/services/permission_bundles.py:9-19</code>; <code>atlomyapp/security.py:105</code>; wizard apply <code>data_import/admin.py:9613-9671</code> reads status + phrase, never the apply flags.</td></tr><tr><td><code>require_separate_review_authority</code>, <code>high_risk_apply_policy</code></td><td><strong>Write/display only — no apply-path code branches on them.</strong> ADR-057&#x27;s core logic leans on them, so that logic <em>does not exist yet.</em></td><td>read only at <code>atlomyapp/graphql/schema.py:2942-2946, 5233-5241</code>.</td></tr><tr><td>§4.1 Layer 1 (sandboxed draft / consolidated diff)</td><td><strong>Zero code.</strong></td><td>grep: no draft-schema/consolidated-diff apply surface.</td></tr><tr><td>§4.1 Layer 2 (blanket-deny prefilter)</td><td><strong>Zero code.</strong></td><td>grep: no deterministic mass-delete/PII/provenance guard.</td></tr><tr><td>§4.1 Layer 3 (dynamic phrase)</td><td><strong>Implemented + enforced</strong> for HIGH-tier; the companion &quot;30s reflection delay&quot; is copy-only, not a timer.</td><td><code>data_import/admin.py:3197-3215</code>, enforced <code>:9642-9663</code>; delay string <code>customers/services/vocabulary_templates.py:190</code>.</td></tr><tr><td>Forced per-item two-step on the manual &quot;Looks good&quot; path</td><td><strong>Implemented + unconditional</strong> — fires even for a sole researcher-admin, with no compensating safety.</td><td><code>data_import/admin.py:9582</code> (scholar approve), <code>:9613</code> (apply); the wall (F41) is this.</td></tr><tr><td>Comfort-dial auto-apply</td><td><strong>Implemented correctly</strong> — low/medium → auto-apply + undo; HIGH always forced to review. This is the <em>only</em> place &quot;single-contributor low/medium = auto-apply + undo&quot; is realized.</td><td><code>epistemic/services/proposals/persistence.py:526-636</code>.</td></tr><tr><td>Risk-recompute-at-apply + <code>RiskClassDivergence</code></td><td><strong>Implemented + load-bearing</strong>, actor-count-independent.</td><td><code>persistence.py:454-466</code>.</td></tr></tbody></table>
+<p><strong>Requirements reality:</strong> ADR-035&#x27;s own ratification note states all three pilots
+<em>&quot;start as single-contributor at import time&quot;</em> and that §4.1 is therefore the
+<em>primary</em> path. Typical fresh-import proposals (ARCHETYPE/COLUMN/RELATION on a
+tenant with no prior entities) classify <strong>LOW</strong> — i.e. the demoralizing &quot;155 still
+need a person&quot; wall was overwhelmingly <strong>additive work that needs no second
+human</strong>. The genuinely-destructive operations (the real safety target) are a
+minority: archetype reassignment over <em>populated</em> data, slot overwrite, and
+RESTRUCTURE <em>drop/hoist</em> (<code>epistemic/services/proposals/risk.py:125,175,206,243-251</code>).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-decision-proposed-the-simplest-model">The decision (proposed): the simplest model<a href="#the-decision-proposed-the-simplest-model" class="hash-link" aria-label="Direct link to The decision (proposed): the simplest model" title="Direct link to The decision (proposed): the simplest model" translate="no">​</a></h2>
+<p>For the actual actor — a single researcher who is also the tenant admin (the
+bootstrap user holding the <code>tenant-admin</code> bundle) — the apply model collapses to:</p>
+<ol>
+<li class=""><strong>Manual &quot;Looks good&quot; on a LOW/MEDIUM proposal is terminal</strong> (<code>→ APPROVED</code>,
+with the undo bar), exactly mirroring what the comfort-dial path
+(<code>stage3_auto_apply_proposals</code>) already does. No second human, no parked
+<code>SCHOLAR_APPROVED</code> step, no capability-flag gate — because none of those are
+enforced today and none add safety for a sole actor. <strong>This removes the F41
+wall.</strong></li>
+<li class=""><strong>Risk is still recomputed at apply</strong> (<code>recompute_proposal_risk</code> /
+<code>RiskClassDivergence</code>) — kept, because it is actor-count-independent and
+catches tenant-state drift. The legacy one-step <code>approve_proposal</code>
+(<code>persistence.py:310-353</code>) must <strong>not</strong> be the vehicle, since it skips the
+recompute; route through the recompute path.</li>
+<li class=""><strong>HIGH-tier (genuinely destructive) still requires the dynamic phrase</strong>
+(§4.1 Layer 3) — the one realized destructive-op protection. This is the
+must-keep safety floor; it stays regardless of contributor count.</li>
+<li class=""><strong>&quot;Continue to choices&quot; batches step 1</strong> across all confirmed low/medium
+proposals (the F30 group-coded UX), routing each through the same recompute +
+tier check — a batched invocation of the per-proposal path, not a status-flip
+shortcut.</li>
+</ol>
+<p>That is the entire model the current pilots need. Everything below is deferred,
+not deleted.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="explicit-decision-does-the-common-path-read-capability-flags-at-all--no">Explicit decision: does the common path read capability flags at all? — <strong>No.</strong><a href="#explicit-decision-does-the-common-path-read-capability-flags-at-all--no" class="hash-link" aria-label="Direct link to explicit-decision-does-the-common-path-read-capability-flags-at-all--no" title="Direct link to explicit-decision-does-the-common-path-read-capability-flags-at-all--no" translate="no">​</a></h3>
+<p>This is the decision that <em>shrinks</em> the model rather than just simplifying it.
+Once manual low/medium apply is terminal-with-undo <strong>unconditionally</strong> (matching
+comfort-dial), the apply decision for the common path is <strong><code>risk tier</code>, full
+stop</strong> — low/medium applies; HIGH routes to the phrase gate. The path does <strong>not</strong>
+read <code>can_apply_*</code>. Justification, not assertion:</p>
+<ul>
+<li class="">The comfort-dial automatic path already applies low/medium with undo <strong>gated on
+comfort level + risk + <code>auto_approved</code>, never on <code>can_apply_*</code></strong>
+(<code>epistemic/services/proposals/persistence.py:526-549</code>). Mirroring it means the
+manual path needn&#x27;t read those flags either — and they aren&#x27;t read on <em>any</em>
+apply path today regardless.</li>
+<li class="">For a single-contributor tenant there is no lower-privileged actor to gate
+against: Django staff/admin access already gates who can reach the wizard at
+all. A per-proposal capability check adds nothing.</li>
+</ul>
+<p><strong>Consequence — F51 stops mattering for the apply decision.</strong> The permission
+snapshot becomes <strong>pure audit</strong> (record who applied, for the trail), not a gate.
+So the &quot;does the snapshot populate?&quot; question (caveat 1) no longer blocks the
+common apply path — it only affects audit completeness. Capability-flag
+<em>enforcement on apply</em> is part of the <strong>deferred</strong> multi-contributor work, built
+when a <code>reviewer-only</code> contributor who must be prevented from applying actually
+exists.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="drop--defer-speculative-for-single-researcher-pilots--keep-the-columns-defer-the-logic">Drop / defer (speculative for single-researcher pilots) — keep the columns, defer the logic<a href="#drop--defer-speculative-for-single-researcher-pilots--keep-the-columns-defer-the-logic" class="hash-link" aria-label="Direct link to Drop / defer (speculative for single-researcher pilots) — keep the columns, defer the logic" title="Direct link to Drop / defer (speculative for single-researcher pilots) — keep the columns, defer the logic" translate="no">​</a></h2>
+<ul>
+<li class=""><strong><code>require_separate_review_authority</code> + <code>high_risk_apply_policy</code> enforcement</strong> —
+keep the persisted fields (cheap future-proofing); <strong>defer building the apply
+branch</strong> ADR-057 would add. They encode a multi-contributor policy no current
+tenant uses.</li>
+<li class=""><strong>§4.1 Layer 1 (sandboxed draft) + Layer 2 (blanket-deny prefilter)</strong> — defer
+(zero code today). The shipped substitutes — risk-recompute + dynamic phrase +
+undo — cover the <em>realized</em> safety. <strong>One caveat to keep on the table:</strong> if any
+live import flow can emit a HIGH RESTRUCTURE <em>drop/hoist</em> proposal, a <em>minimal</em>
+deterministic guard there has genuine single-user value and should not be
+blanket-deferred. (Runtime question — see caveats.)</li>
+<li class=""><strong><code>can_apply_*</code> as a live terminal-vs-parked gate</strong> — simplify away; <strong>keep the
+flags as audit-snapshot data</strong> (forensic value). Do <strong>not</strong> lump in
+<code>can_review_proposals</code>, which <em>is</em> load-bearing.</li>
+<li class=""><strong>The capability × recomputed-tier gate and the &quot;researcher==admin&quot; special-case</strong>
+proposed in ADR-057 — unneeded once step 1 makes low/medium manual apply
+terminal for the sole actor. (ADR-057&#x27;s <em>Alternatives</em> reasoning — don&#x27;t gate on
+the role-name; don&#x27;t use the recompute-skipping one-step path — is preserved
+here as the rationale for clauses 2–3.)</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="recommended-disposition-of-the-adrs">Recommended disposition of the ADRs<a href="#recommended-disposition-of-the-adrs" class="hash-link" aria-label="Direct link to Recommended disposition of the ADRs" title="Direct link to Recommended disposition of the ADRs" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>ADR-057 → collapse / supersede.</strong> It is mostly conformance; its genuinely-new
+content is absorbed as: (a) a <strong>bug-fix</strong> (make manual low/medium apply terminal
+for a sole capable actor, mirroring comfort-dial), (b) an <strong>ADR-035 amendment</strong>
+(below), (c) a small <strong>UX spec</strong> for the batched &quot;Continue to choices&quot;. No
+standalone ADR. Mark ADR-057 <code>Superseded by this review&#x27;s outcome</code> once the
+amendment lands.</li>
+<li class=""><strong>ADR-035 → amend</strong> (Accepted ADRs are amended in place in this repo): add a
+clause stating that for a <strong>single-contributor tenant</strong>, low/medium manual
+apply is <strong>terminal with undo</strong> (the §4 floor already blesses this for the
+automatic path; this makes the manual path consistent), and that the common
+apply path <strong>does not read capability flags</strong> (the decision above).
+<strong>Mark the deferred machinery loudly, inline, per element</strong> — annotate
+§4.1 Layers 1–2, <code>require_separate_review_authority</code> / <code>high_risk_apply_policy</code>
+enforcement, and the <code>can_apply_*</code> apply-gate each with a visible
+<strong>&quot;SPECIFIED — NOT ENFORCED — deferred until a multi-contributor tenant
+exists&quot;</strong> marker, right where each is described. This is not optional polish:
+<strong>the drift re-accumulates the moment a future contributor reads the spec as
+enforced policy</strong> — which is exactly how we got here. If the deferral is not
+legible <em>in the document</em>, this same audit gets re-run in six months. The marker
+is the immune response.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caveats-runtime-questions-the-static-audit-could-not-settle">Caveats (runtime questions the static audit could not settle)<a href="#caveats-runtime-questions-the-static-audit-could-not-settle" class="hash-link" aria-label="Direct link to Caveats (runtime questions the static audit could not settle)" title="Direct link to Caveats (runtime questions the static audit could not settle)" translate="no">​</a></h2>
+<ol>
+<li class=""><strong>F51 / snapshot population.</strong> PR #495&#x27;s request-helper path is <strong>dead in
+production</strong> (<code>request.user.membership</code> is never set; <code>data_import/admin.py:2719-2732</code>).
+Population depends entirely on the DB-lookup fallback
+(<code>persistence.py:52-81</code>), which needs the acting wizard user to have an active
+non-public-schema <code>TenantMembership</code>. The &quot;feature exists, never populates&quot;
+symptom is most consistent with <strong>the wizard actor lacking a provisioned
+membership</strong> — which is itself evidence the capability machinery isn&#x27;t wired to
+the real actor. <strong>Given the explicit decision above (the common path does not
+read capability flags), F51 no longer gates the apply decision</strong> — the snapshot
+is now pure audit. So this drops from a build-blocker to an <em>audit-completeness</em>
+concern: confirm the snapshot populates if/when you want a complete who-applied
+trail, but it does not block shipping the simplified apply path.</li>
+<li class=""><strong>Destructive HIGH-tier reachability.</strong> Whether a live import can actually
+emit a HIGH <code>drop/hoist</code> (or other genuinely-destructive HIGH) proposal
+determines how much the deferred Layer-2 blanket-deny is worth — <strong>and whether
+the HIGH-tier phrase gate itself is worth building right now.</strong> If those
+destructive ops cannot occur in the current wizard, the phrase guard is
+protecting something that can&#x27;t happen, so even <em>it</em> is <strong>defer-not-build</strong>
+until the destructive op becomes reachable. <em>A data/runtime question, not a
+code-shape one.</em></li>
+</ol>
+<p><strong>These caveats gate the build, hard.</strong> Do not write the high-tier path on the
+unverified assumption that a destructive op exists — verify reachability live
+first. Both are checkable in a short live session, and <strong>no code lands until they
+are answered.</strong></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="caveat-check-results-2026-06-07-post-ratification--build-unblocked-scoped">Caveat-check results (2026-06-07, post-ratification) — build UNBLOCKED, scoped<a href="#caveat-check-results-2026-06-07-post-ratification--build-unblocked-scoped" class="hash-link" aria-label="Direct link to Caveat-check results (2026-06-07, post-ratification) — build UNBLOCKED, scoped" title="Direct link to Caveat-check results (2026-06-07, post-ratification) — build UNBLOCKED, scoped" translate="no">​</a></h2>
+<p><strong>Caveat 2 — destructive HIGH reachability: partially reachable; the phrase guard
+stays, and it does NOT gate the bug-fix.</strong></p>
+<ul>
+<li class="">HIGH RESTRUCTURE patterns = <code>{SUPPORTING_TABLE_DISPOSITION, BIDIRECTIONAL_LOOKUP_MISSED}</code>
+(<code>epistemic/services/proposals/risk.py:206-209</code>). <code>BIDIRECTIONAL_LOOKUP_MISSED</code>
+<strong>is</strong> emitted by the live detector (<code>restructure_detector.py</code>, <code>builder.py:724</code>);
+the only literal <code>DROP</code> is in a fixture, not the live path.</li>
+<li class=""><strong>But all RESTRUCTURE proposals never auto-apply regardless of risk class</strong>
+(<code>risk.py:230-231</code>, the two-track gate) — so the simplified low/medium <em>terminal</em>
+path never touches them.</li>
+<li class="">HIGH ARCHETYPE/COLUMN ops (reassignment over <em>populated</em> data, slot overwrite —
+<code>risk.py:125,175</code>) are <strong>unreachable on a fresh import</strong> (nothing populated) and
+only arise on a re-import over existing data.</li>
+<li class="">The HIGH-tier dynamic phrase guard <strong>already exists</strong> (<code>data_import/admin.py:3197</code>,
+enforced <code>:9642</code>) and has reachable inputs → <strong>keep it, not defer-not-build; no
+new high-tier code needed.</strong></li>
+<li class="">⚠ Non-blocking follow-up: confirm whether <code>BIDIRECTIONAL_LOOKUP_MISSED</code> /
+<code>SUPPORTING_TABLE_DISPOSITION</code> are genuinely <em>data-destructive</em> or merely
+<em>reinterpretation</em> — the names suggest the latter; if so their HIGH class is
+conservative (safe direction).</li>
+</ul>
+<p><strong>Caveat 1 — F51 snapshot population: downgraded to audit-completeness, NON-blocking</strong>
+by the ratified decision (the common path reads no flags → snapshot is pure audit).
+Confirm membership provisioning when wiring the who-applied trail; it does not gate
+the bug-fix.</p>
+<p><strong>Net: the bug-fix is unblocked and tightly scoped</strong> — make the manual low/medium
+<em>non-RESTRUCTURE</em> &quot;Looks good&quot; terminal-with-undo via the recompute path (mirroring
+the comfort-dial path). RESTRUCTURE keeps its two-track review; HIGH keeps the
+existing phrase guard; no new safety code is written.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="evidence-packet--spec-0047-r7-read-sits-behind-a-review-capability-2026-06-11">Evidence packet — Spec 0047 R7: read sits behind a REVIEW capability (2026-06-11)<a href="#evidence-packet--spec-0047-r7-read-sits-behind-a-review-capability-2026-06-11" class="hash-link" aria-label="Direct link to Evidence packet — Spec 0047 R7: read sits behind a REVIEW capability (2026-06-11)" title="Direct link to Evidence packet — Spec 0047 R7: read sits behind a REVIEW capability (2026-06-11)" translate="no">​</a></h2>
+<p>Fed in from the Workspace Search &amp; Read build + live walk (Spec 0047 T5.3):</p>
+<ul>
+<li class=""><strong>The read path is gated by <code>can_review_proposals</code>.</strong> Both <code>workspaceSearch</code>
+(<code>atlomyapp/graphql/schema.py</code>, <code>require_capability_from_info(capability= &quot;can_review_proposals&quot;)</code>) and the new <code>workspaceSearchFacets</code> facet-metadata
+endpoint reuse the same gate. Searching/reading working data — a pure READ —
+requires <em>proposal-review</em> authority. A researcher who can read but not
+review cannot use the section at all. That is the R7 category mismatch in
+one line: there is no read capability; review authority is the de-facto
+read grant.</li>
+<li class=""><strong>Archetype scope piggybacks on the same flag.</strong> <code>_workspace_search_allowed_ archetypes</code> narrows results by <code>permissions_jsonb.scope.archetypes</code> — scope
+semantics again attached to a review capability rather than a read one.</li>
+<li class=""><strong>The UI now surfaces the gate honestly</strong> (capability banner: hidden
+collection count = configured searchable tables − returned groups), so
+whatever this review decides, the section will <em>show</em> the boundary rather
+than silently drop rows — i.e. the surface is ready for either resolution.</li>
+<li class=""><strong>Implication for the simplest model:</strong> if the ratified direction is &quot;the
+common path reads no capability flags&quot; (§ above), the search/read gate is
+the largest remaining <em>read-side</em> consumer of capability flags. Options when
+this review lands: (a) keep one coarse &quot;workspace member&quot; gate for the
+whole working-data read surface (matches the single-researcher pilot
+reality), or (b) introduce a real read capability and stop overloading
+<code>can_review_proposals</code>. Either way, the current state — review authority as
+the implicit read grant — is the kind of accidental layer this review
+exists to simplify.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="next-steps-if-ratified">Next steps (if ratified)<a href="#next-steps-if-ratified" class="hash-link" aria-label="Direct link to Next steps (if ratified)" title="Direct link to Next steps (if ratified)" translate="no">​</a></h2>
+<ol>
+<li class="">Owner ratifies the simplest-model decision (steps 1–4) + the defer list.</li>
+<li class="">ADR-035 amendment (clause + deferred-layer markers); ADR-057 marked superseded.</li>
+<li class="">Bug-fix PR: manual low/medium apply terminal for the sole capable actor via the
+recompute path; batched &quot;Continue to choices&quot; (F30 UX). Verify the F41 wall is
+gone on a live single-researcher import.</li>
+<li class="">Confirm caveat 1 (provision/verify the wizard actor&#x27;s membership) and caveat 2
+(RESTRUCTURE reachability) live.</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="references">References<a href="#references" class="hash-link" aria-label="Direct link to References" title="Direct link to References" translate="no">​</a></h2>
+<ul>
+<li class="">Audit (this session) — full file:line map of ADR-035 vs code.</li>
+<li class="">ADR-035 (permission model), ADR-057 (parked; to be superseded), ADR-033
+(comfort dial — the already-correct automatic path), Spec 0011 (Flow B / F0b
+risk-recompute).</li>
+<li class=""><code>roadmap/board.md</code> § &quot;Permission / apply model simplification review&quot; (the arc
+this closes the analysis phase of).</li>
+<li class="">Retest findings F30 / F41 / F42 / F51 (gitignored evidence packet; devlog
+<code>docs/devlogs/2026_w23/2026-06-07_1238_coda-from-scratch-retest.md</code>).</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/developer/architecture/new_engineer_architectural_onboarding"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">New Engineer Architectural Onboarding</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/developer/architecture/platform_principles"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">KE (Knowledge Environments) Platform Principles</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#the-real-finding-speccode-drift-not-just-over-engineering" class="table-of-contents__link toc-highlight">The real finding: spec/code drift, not just over-engineering</a></li><li><a href="#the-decision-proposed-the-simplest-model" class="table-of-contents__link toc-highlight">The decision (proposed): the simplest model</a><ul><li><a href="#explicit-decision-does-the-common-path-read-capability-flags-at-all--no" class="table-of-contents__link toc-highlight">Explicit decision: does the common path read capability flags at all? — <strong>No.</strong></a></li></ul></li><li><a href="#drop--defer-speculative-for-single-researcher-pilots--keep-the-columns-defer-the-logic" class="table-of-contents__link toc-highlight">Drop / defer (speculative for single-researcher pilots) — keep the columns, defer the logic</a></li><li><a href="#recommended-disposition-of-the-adrs" class="table-of-contents__link toc-highlight">Recommended disposition of the ADRs</a></li><li><a href="#caveats-runtime-questions-the-static-audit-could-not-settle" class="table-of-contents__link toc-highlight">Caveats (runtime questions the static audit could not settle)</a></li><li><a href="#caveat-check-results-2026-06-07-post-ratification--build-unblocked-scoped" class="table-of-contents__link toc-highlight">Caveat-check results (2026-06-07, post-ratification) — build UNBLOCKED, scoped</a></li><li><a href="#evidence-packet--spec-0047-r7-read-sits-behind-a-review-capability-2026-06-11" class="table-of-contents__link toc-highlight">Evidence packet — Spec 0047 R7: read sits behind a REVIEW capability (2026-06-11)</a></li><li><a href="#next-steps-if-ratified" class="table-of-contents__link toc-highlight">Next steps (if ratified)</a></li><li><a href="#references" class="table-of-contents__link toc-highlight">References</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
