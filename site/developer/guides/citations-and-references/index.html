@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-developer docs-version-current docs-doc-page docs-doc-id-guides/citations-and-references" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Citations and References — the Consolidated Guide | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/developer/guides/citations-and-references"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-developer-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-developer-current"><meta data-rh="true" property="og:title" content="Citations and References — the Consolidated Guide | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Audience: Platform engineers and technically-minded tenant admins."><meta data-rh="true" property="og:description" content="Audience: Platform engineers and technically-minded tenant admins."><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/developer/guides/citations-and-references"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/guides/citations-and-references" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/guides/citations-and-references" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Citations and References — the Consolidated Guide","item":"https://atlomy.github.io/ke-docs/developer/guides/citations-and-references"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
+<script src="/ke-docs/assets/js/runtime~main.37ba0bbb.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.cd9de8e3.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/superadmin/">Platform Admins</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/developer/">Developers</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/"><span title="Developer Documentation" class="linkLabel_WmDU">Developer Documentation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/TESTING"><span title="Testing standards — Atlomy Atlas" class="linkLabel_WmDU">Testing standards — Atlomy Atlas</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/ai_schema_adaptation"><span title="Sprint 9 &amp; 10: Developer Guide" class="linkLabel_WmDU">Sprint 9 &amp; 10: Developer Guide</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/architecture/adr/"><span title="architecture" class="categoryLinkLabel_W154">architecture</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/developer_guide"><span title="Developer Guide: Data Sync &amp; Monitoring Systems" class="linkLabel_WmDU">Developer Guide: Data Sync &amp; Monitoring Systems</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ke-docs/developer/guides/citations-and-references"><span title="guides" class="categoryLinkLabel_W154">guides</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/developer/guides/citations-and-references"><span title="Citations and References — the Consolidated Guide" class="linkLabel_WmDU">Citations and References — the Consolidated Guide</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/knowledge_explorer"><span title="Sprint 13: Knowledge Explorer &amp; API Architecture" class="linkLabel_WmDU">Sprint 13: Knowledge Explorer &amp; API Architecture</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/developer/platform_principles_enforcement"><span title="Platform-Principles Enforcement (Code Gates)" class="linkLabel_WmDU">Platform-Principles Enforcement (Code Gates)</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/ke-docs/developer/security/"><span title="Security Architecture" class="categoryLinkLabel_W154">Security Architecture</span></a><button aria-label="Expand sidebar category &#x27;Security Architecture&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/setup/Troubleshooting/troubleshooting_template_conflicts"><span title="setup" class="categoryLinkLabel_W154">setup</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/ke-docs/developer/ui/design_system"><span title="ui" class="categoryLinkLabel_W154">ui</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">guides</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Citations and References — the Consolidated Guide</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Citations and References — the Consolidated Guide</h1></header>
+<blockquote>
+<p><strong>Audience</strong>: Platform engineers and technically-minded tenant admins.
+<strong>Status</strong>: Current as of 2026-06-12 (post ADR-061 ratification).
+<strong>One-line summary</strong>: How published entries get evidence rows and scholarly
+citations — from tenant config, through the attestation walk and the CSL
+citation pipeline, to the public reader&#x27;s row precedence.</p>
+</blockquote>
+<p>This guide consolidates what was previously scattered across ADR-020, ADR-022,
+ADR-061, Spec 0008, the CROSSWALK research docs, and the publication service
+source. It is a <em>clear-guide</em> artifact, not a decision record: where it
+disagrees with an ADR, the ADR wins — file a fix here.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-what-the-system-does">1. What the system does<a href="#1-what-the-system-does" class="hash-link" aria-label="Direct link to 1. What the system does" title="Direct link to 1. What the system does" translate="no">​</a></h2>
+<p>A published entry (a lemma, a person, an object — any anchor entity a tenant
+publishes) carries two reference-shaped things on its public surface:</p>
+<ol>
+<li class=""><strong>Evidence rows</strong> (<code>attestations[]</code>) — &quot;here is where this thing occurs in
+the sources.&quot; One row per occurrence: a passage, a find record, a specimen,
+a manuscript witness. Each row may optionally bridge one or more <em>paired
+editions</em> — e.g. a modern critical edition and an early printed edition of
+the same source.</li>
+<li class=""><strong>Scholarly citations</strong> (<code>citations[]</code>) — properly formatted bibliographic
+strings (Chicago, APA, a journal style, a tenant&#x27;s custom style), produced
+by the CSL citation framework, never by frontend string-building.</li>
+</ol>
+<p>Both are <strong>standards-grounded</strong> (CSL 1.0.2 for citation grammar and styling;
+DOI/ORCID/IIIF/CIDOC in adjacent lanes) and both are <strong>config-driven</strong>: the
+platform ships the walk, the projector, and the renderer; the tenant declares
+which archetypes, edges, and fields mean what. Platform code carries no tenant
+vocabulary (enforced by <code>scripts/lint_no_tenant_vocabulary.py --strict</code>).</p>
+<p>The governing contract for how the public reader renders all of this is
+<strong>ADR-061</strong> (<code>docs/developer/architecture/adr/061-reference-rendering-contract.md</code>).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-the-pipeline">2. The pipeline<a href="#2-the-pipeline" class="hash-link" aria-label="Direct link to 2. The pipeline" title="Direct link to 2. The pipeline" translate="no">​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">Tenant source data (entities + relationship edges)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        ▼</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">selector_rules.attestation_walk            (ADR-020; epistemic/services/publication.py::_attestations)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  anchor ──edge──▶ occurrences ──join──▶ paired edition sources</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        ▼</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">selector_rules.citation_rules              (Spec 0008; publication.py::_citations)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  structural projection ─▶ csl_projector ─▶ CSL JSON ─▶ citeproc + CSL style ─▶ citation text</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        ▼</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">EntryProjection public payload             (ADR-029)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  attestations[]  +  citations[]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        │</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        ▼</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">Public reader                              (ADR-061; spa/src/pages/result_details/EntrySurfaceDetailShadow.jsx)</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  one row per occurrence, ADR-061 text precedence, standalone source citations below</span><br></div></code></pre></div></div>
+<p>Step by step:</p>
+<ol>
+<li class=""><strong>Source data.</strong> The anchor entity (the published entry) is connected to
+occurrence entities by <code>EntityRelationship</code> edges. In v1 substrate terms an
+attestation <em>is</em> an <code>EntityRelationship</code> row whose <code>rule_name</code> matches the
+configured walk (ADR-022 §A.1).</li>
+<li class=""><strong>Attestation walk</strong> (<code>selector_rules.attestation_walk</code>, on the tenant&#x27;s
+<code>TenantEntrySurfaceConfig</code> row — <code>atlomyapp/models.py</code>). The platform walks
+anchor→occurrence edges, then for each occurrence resolves zero or more
+<em>editions</em> by joining a field on the occurrence to a field on a source
+entity (declaratively — no code). Output: <code>attestations[]</code>, one item per
+occurrence, each with optional <code>editions[]</code> carrying locator and
+source-metadata maps.</li>
+<li class=""><strong>Citation rules</strong> (<code>selector_rules.citation_rules</code>). For each rule, the
+platform builds a structural projection (entry + occurrence + source +
+per-edition payloads), projects it to CSL JSON via the declarative field
+grammar (<code>epistemic/services/csl_projector.py</code>), and renders text via
+citeproc with a style resolved from <code>TenantCSLStyle</code> (DB) or the vendored
+CSL catalog (<code>epistemic/services/citation_renderer.py::load_csl_style</code>).
+Output: <code>citations[]</code>, each with <code>text</code>, <code>style</code>, <code>source</code> metadata
+(including <code>occurrence_id</code> for attestation-sourced citations), the raw
+<code>csl_json</code>, provenance, and warnings.</li>
+<li class=""><strong>Public payload.</strong> <code>EntryPublishService</code> writes both arrays into the
+published <code>EntryProjection</code> payload (ADR-029   — the projection-first
+published Entry layer). Dependencies (edges, occurrences, sources, styles)
+are captured so source writes re-trigger projection work.</li>
+<li class=""><strong>Reader rendering.</strong> <code>EntrySurfaceDetailShadow.jsx</code> composes the
+References section per the ADR-061 precedence (§6 below).</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-the-config-reference">3. The config reference<a href="#3-the-config-reference" class="hash-link" aria-label="Direct link to 3. The config reference" title="Direct link to 3. The config reference" translate="no">​</a></h2>
+<p>Both blocks live in <code>TenantEntrySurfaceConfig.selector_rules</code> (JSONB). All
+field names in the examples below — <code>Modern Edition</code>, <code>Quote</code>, <code>Author</code>,
+<code>Editor-Abbreviated</code>, every quoted column — are <strong>tenant data declared in
+tenant config</strong>. None of them exist in platform code.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-attestation_walk">3.1 <code>attestation_walk</code><a href="#31-attestation_walk" class="hash-link" aria-label="Direct link to 31-attestation_walk" title="Direct link to 31-attestation_walk" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Key</th><th>Meaning</th></tr></thead><tbody><tr><td><code>occurrence_archetype</code></td><td>Archetype of the occurrence entities (the evidence rows). Required.</td></tr><tr><td><code>anchor_join_rule_name</code> (or nested <code>anchor_join.rule_name</code>)</td><td><code>EntityRelationship.rule_name</code> that joins anchor↔occurrence. Required.</td></tr><tr><td><code>anchor_join_direction</code> (or <code>anchor_join.direction</code>)</td><td><code>&quot;inbound&quot;</code> (default — occurrence is the edge <em>source</em>, entry the <em>target</em>) or <code>&quot;outbound&quot;</code>.</td></tr><tr><td><code>relationship_statuses</code> (aliases: <code>anchor_join_statuses</code>, <code>statuses</code>)</td><td>Edge statuses to include; string or list. Default: all platform relationship statuses.</td></tr><tr><td><code>occurrence_label_field</code> (alias: <code>occurrence_word_field</code>)</td><td>Occurrence data field used as the row label (often the quote). Fallback: a label heuristic over <code>canonical_form</code>/<code>title</code>/<code>name</code>/<code>label</code>/<code>term</code>/<code>lemma</code>/<code>keyword</code>, then the entity pk.</td></tr><tr><td><code>editions[]</code></td><td>Zero or more paired-edition declarations (below). <strong>Optional</strong> — an occurrence with no resolvable edition still produces a row (ADR-061).</td></tr></tbody></table>
+<p>Each entry in <code>editions[]</code>:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Key</th><th>Meaning</th></tr></thead><tbody><tr><td><code>name</code></td><td>Role key, e.g. <code>modern_edition</code>. Skipped if empty. Also seeds the citation structural key (§3.2).</td></tr><tr><td><code>label</code></td><td>Display label; defaults to title-cased <code>name</code>.</td></tr><tr><td><code>occurrence_join_field</code> (alias: <code>occurrence_field</code>)</td><td>Occurrence data field holding the join value. No value → this edition is skipped for this occurrence (this is what makes editions optional).</td></tr><tr><td><code>source_archetype</code></td><td>Archetype of the source entity (e.g. a bibliography DOCUMENT).</td></tr><tr><td><code>source_canonical_type</code></td><td>Optional extra filter on the source.</td></tr><tr><td><code>source_join_field</code></td><td>Source data field matched against the join value. Source not found → a placeholder source labeled with the join key (the row still renders).</td></tr><tr><td><code>occurrence_locator</code></td><td>Map of <em>output key → occurrence data field</em>. Output keys are platform-conventional (see below).</td></tr><tr><td><code>source_metadata</code></td><td>Map of <em>output key → source data field</em>. Same convention.</td></tr></tbody></table>
+<p><strong>Conventional output keys.</strong> The locator/metadata maps emit whatever keys the
+tenant declares, but the reader&#x27;s structural composition (§6) recognizes a
+conventional set: <code>author</code>, <code>editor</code>, <code>translator</code>, <code>treatise</code>, <code>title</code>
+(source metadata); <code>book</code>, <code>chapter</code>, <code>section</code>, <code>page</code>, <code>line</code>, <code>quote</code>,
+<code>text</code>, <code>word</code>, <code>word_translation</code> (locator); <code>editor_abbreviated</code> /
+<code>abbreviated</code> (bridge abbreviation). Map your tenant columns onto these keys
+to get bridged rendering for free; unmapped keys still travel in the payload.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-citation_rules">3.2 <code>citation_rules</code><a href="#32-citation_rules" class="hash-link" aria-label="Direct link to 32-citation_rules" title="Direct link to 32-citation_rules" translate="no">​</a></h3>
+<p>A list (or single object) under <code>citation_rules</code> (aliases accepted:
+<code>citations</code>, <code>citation</code>). Each rule:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Key</th><th>Meaning</th></tr></thead><tbody><tr><td><code>source</code></td><td><code>&quot;entry&quot;</code> (default — one citation for the entry itself), <code>&quot;attestations&quot;</code> (one citation per occurrence, joined back to its evidence row), or <code>&quot;media&quot;</code> (per media edge, with Anchor-derived locators).</td></tr><tr><td><code>source_role</code></td><td>For <code>source: &quot;attestations&quot;</code> — which edition role&#x27;s source backs the citation (e.g. <code>modern_edition</code>). Falls back to the first edition with a resolved source.</td></tr><tr><td><code>style_id</code></td><td>CSL style id. For catalog/filesystem styles this is the <strong>filename including the <code>.csl</code> extension</strong> (e.g. <code>chicago-author-date.csl</code>). Lookup order: <code>TenantCSLStyle</code> DB row → <code>epistemic/static/csl_styles/tenant/&lt;schema&gt;/</code> → <code>epistemic/static/csl_styles/standard/</code>. Not found → <code>FileNotFoundError</code>, surfaced to admin.</td></tr><tr><td><code>style_version</code></td><td>Optional version override; defaults to the resolved style&#x27;s version (DB <code>version</code> or a file content hash).</td></tr><tr><td><code>locale</code></td><td>citeproc locale, default <code>en-US</code>.</td></tr><tr><td><code>validate_schema</code></td><td>Validate the projected CSL JSON against <code>csl-data.json</code> (default <code>true</code>).</td></tr><tr><td><code>field_mapping</code> (alias: <code>csl_field_mapping</code>)</td><td>The CSL projection declaration (below). Rule is skipped without it.</td></tr></tbody></table>
+<p><code>field_mapping</code> structure:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Key</th><th>Meaning</th></tr></thead><tbody><tr><td><code>csl_type</code></td><td>CSL item type (<code>chapter</code>, <code>book</code>, <code>manuscript</code>, … 45-value enum). Default <code>document</code>.</td></tr><tr><td><code>id</code></td><td>Optional explicit CSL item id; defaults to the structural id, else a content hash.</td></tr><tr><td><code>fields</code></td><td><code>{&lt;csl_variable&gt;: &lt;field spec&gt;}</code> — standard CSL variables only.</td></tr><tr><td><code>custom_extensions</code></td><td><code>{&lt;key&gt;: &lt;field spec&gt;}</code> → CSL <code>custom.*</code> — tenant-rich data that doesn&#x27;t fit the standard schema (abbreviations, locator chains). Standards-conformant consumers ignore unknown keys.</td></tr><tr><td><code>fk_resolutions</code></td><td><code>{&lt;alias&gt;: {from, target_archetype, identity_field, target_data_filters, …}}</code> — pre-resolve a linked entity (e.g. an abbreviation TERM) and expose it under <code>&lt;alias&gt;</code> in structural paths. <code>identity_field</code> supports <code>provenance.source_id</code> (default), <code>ledger.source_id</code>, or <code>data.&lt;key&gt;</code>.</td></tr><tr><td><code>anchor_locator</code></td><td>For media citations: <code>{field, format, delimiter, first_only}</code> — expose resolved Anchor selectors through a standard CSL field (default <code>note</code>).</td></tr><tr><td><code>_target_namespace</code></td><td>ClaimCluster citations only — locked to <code>metadata.citations</code> (namespace contract; anything else raises).</td></tr></tbody></table>
+<p><strong>Field spec grammar</strong> (csl_projector; exactly one selector per spec):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Selector</th><th>Behavior</th></tr></thead><tbody><tr><td><code>from</code></td><td>Resolve a structural path; may be a <strong>list of paths</strong> = first-non-empty fallback chain.</td></tr><tr><td><code>name_object_from</code></td><td>Resolve, then parse into CSL name objects (<code>&quot;Family, Given&quot;</code>, <code>&quot;Given Family&quot;</code>, or <code>{literal}</code>). Lists supported.</td></tr><tr><td><code>date_from</code></td><td>Resolve, then parse into CSL date-parts (<code>1995</code>, <code>1995-03</code>, <code>1995-03-02</code>) or <code>{literal}</code>.</td></tr><tr><td><code>format</code></td><td>Template with <code>{path}</code> placeholders, e.g. <code>&quot;{data[&#x27;Vol&#x27;]}.{data[&#x27;Pg&#x27;]}&quot;</code>.</td></tr><tr><td><code>value</code></td><td>Constant.</td></tr></tbody></table>
+<p>Modifiers: <code>default</code> (used when empty), <code>skip_if_any_empty</code> (with <code>format</code> —
+emit nothing if any placeholder is missing), <code>strip_suffix</code>, <code>transform: &quot;roman_upper&quot;</code> (integer → Roman numeral). No conditionals, no loops —
+conditional rendering belongs to the CSL stylesheet, not the projector.</p>
+<p><strong>Structural paths available to attestation-sourced citations</strong>: <code>entry.*</code>,
+<code>occurrence.*</code>, <code>source.*</code> (the role-selected source), <code>data.*</code> (shorthand for
+the occurrence&#x27;s data), plus <strong>one key per resolved edition</strong>: the edition&#x27;s
+<code>name</code> (and optional <code>structural_key</code> / <code>key</code> / <code>csl_structural_key</code>), and —
+when the role ends in <code>_edition</code> — a <code>&lt;prefix&gt;_doc</code> alias (so <code>modern_edition</code>
+is also reachable as <code>modern_doc</code>). Entry-level citations see <code>entry.*</code>,
+<code>data.*</code>, <code>provenance.*</code>; media citations see <code>entry.*</code>, <code>media.*</code>, <code>edge.*</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-worked-generic-example">3.3 Worked generic example<a href="#33-worked-generic-example" class="hash-link" aria-label="Direct link to 3.3 Worked generic example" title="Direct link to 3.3 Worked generic example" translate="no">​</a></h3>
+<p>A classics-flavored tenant whose occurrences are passages, bridging a modern
+critical edition with an early printed edition. Target rendering on the
+reader: <code>Author, On Anatomy, 3, 11, 21 = 6.366 (Ed.)</code> — modern-edition
+citation parts, then a scholarly equivalence bridge to the early edition&#x27;s
+volume.page plus its abbreviated editor. The abbreviation conventions —
+e.g. the OCD Abbreviations List, Bekker/Kühn pagination — are tenant data
+and CSL-style concerns, never platform code.</p>
+<div class="language-jsonc codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-jsonc codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">{</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  &quot;attestation_walk&quot;: {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    &quot;occurrence_archetype&quot;: &quot;PASSAGE&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    &quot;anchor_join_rule_name&quot;: &quot;term_occurrence&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    &quot;anchor_join_direction&quot;: &quot;inbound&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    &quot;occurrence_label_field&quot;: &quot;Quote&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    &quot;editions&quot;: [</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;name&quot;: &quot;modern_edition&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;label&quot;: &quot;Modern edition&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;occurrence_join_field&quot;: &quot;Modern Edition&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;source_archetype&quot;: &quot;DOCUMENT&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;source_canonical_type&quot;: &quot;EDITION&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;source_join_field&quot;: &quot;Name&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;occurrence_locator&quot;: {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;book&quot;: &quot;Book&quot;, &quot;chapter&quot;: &quot;Chapter&quot;, &quot;section&quot;: &quot;Section&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;line&quot;: &quot;Line Number&quot;, &quot;quote&quot;: &quot;Quote&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;word&quot;: &quot;Word&quot;, &quot;word_translation&quot;: &quot;Translation (EN)&quot;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;source_metadata&quot;: {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;author&quot;: &quot;Author&quot;, &quot;treatise&quot;: &quot;Work&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;editor_name&quot;: &quot;Editor Name&quot;, &quot;year&quot;: &quot;Year of publication&quot;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;name&quot;: &quot;early_edition&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;label&quot;: &quot;Early printed edition&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;occurrence_join_field&quot;: &quot;Early Edition&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;source_archetype&quot;: &quot;DOCUMENT&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;source_join_field&quot;: &quot;Name&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;occurrence_locator&quot;: {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;book&quot;: &quot;Early Volume&quot;, &quot;page&quot;: &quot;Early Page&quot;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;source_metadata&quot;: {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;editor_abbreviated&quot;: &quot;Editor-Abbreviated&quot;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  &quot;citation_rules&quot;: [</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      &quot;source&quot;: &quot;attestations&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      &quot;source_role&quot;: &quot;modern_edition&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      &quot;style_id&quot;: &quot;chicago-author-date.csl&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      &quot;locale&quot;: &quot;en-US&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      &quot;field_mapping&quot;: {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;csl_type&quot;: &quot;chapter&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;fields&quot;: {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;author&quot;: { &quot;name_object_from&quot;: &quot;modern_doc.data.Author&quot; },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;title&quot;: { &quot;from&quot;: &quot;modern_doc.data.Work&quot; },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;editor&quot;: { &quot;name_object_from&quot;: &quot;modern_doc.data[&#x27;Editor Name&#x27;]&quot; },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;issued&quot;: { &quot;date_from&quot;: &quot;modern_doc.data[&#x27;Year of publication&#x27;]&quot; },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;page&quot;: { &quot;from&quot;: &quot;data.Page&quot; }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        &quot;custom_extensions&quot;: {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;editor_short&quot;: { &quot;from&quot;: &quot;early_doc.data[&#x27;Editor-Abbreviated&#x27;]&quot; },</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          &quot;early_locator&quot;: {</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">            &quot;format&quot;: &quot;{data[&#x27;Early Volume&#x27;]}.{data[&#x27;Early Page&#x27;]}&quot;,</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">            &quot;skip_if_any_empty&quot;: true</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">          }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    }</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  ]</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">}</span><br></div></code></pre></div></div>
+<p>Reading the example: the walk finds passages joined to the entry by the
+tenant&#x27;s <code>term_occurrence</code> edge rule. For each passage, <code>Modern Edition</code>
+(a passage column) is matched against <code>Name</code> on DOCUMENT entities to resolve
+the modern edition; <code>Early Edition</code> likewise. The bridge segment <code>= 6.366 (Ed.)</code> is <em>tenant data</em> — early-edition volume/page from the passage row,
+abbreviation from the edition record — routed through the declarative maps.
+The citation rule independently produces a Chicago-style citation per passage
+backed by the modern edition; the reader joins it to the row by occurrence id.</p>
+<p>Again: <strong>every quoted field name above is tenant data</strong>. A prosopography
+tenant would declare a person↔attestation edge and archival-source joins; a
+biodiversity tenant a taxon↔specimen edge — same machinery, zero new code
+(this is the cross-discipline table in ADR-020).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-styles-and-the-scholar-workflow">4. Styles and the scholar workflow<a href="#4-styles-and-the-scholar-workflow" class="hash-link" aria-label="Direct link to 4. Styles and the scholar workflow" title="Direct link to 4. Styles and the scholar workflow" translate="no">​</a></h2>
+<p>Citation <strong>text</strong> is owned by the Spec 0008 framework, end to end:</p>
+<ul>
+<li class=""><strong>Style storage.</strong> <code>TenantCSLStyle</code> (DB; per-tenant, no deploy needed —
+Flow B&#x27;s apply step writes here) takes precedence over the filesystem:
+<code>epistemic/static/csl_styles/tenant/&lt;schema&gt;/</code> (bootstrap-only) and
+<code>epistemic/static/csl_styles/standard/</code> (the vendored CSL catalog,
+platform-managed, refreshed from the citation-style-language/styles repo).
+Filesystem <code>style_id</code>s are filenames — <strong>they include <code>.csl</code></strong>.</li>
+<li class=""><strong>Ground truth.</strong> <code>CitationTestCase</code> rows pin scholar-verified citation
+strings per style (&quot;Pin as test corpus&quot; on any rendered citation).
+Validation re-checks pinned cases against any proposed style change; drift
+blocks the change unless the scholar explicitly re-approves.</li>
+<li class=""><strong>Flow B — AI proposes → scholar reviews → admin applies.</strong>
+<code>citation_ai_proposer</code> adapts an existing catalog style or synthesizes a
+custom one from sample citations the scholar pastes. Proposals land in
+<code>CitationProposal</code> (<code>pending_scholar_review → scholar_approved → admin_applied</code>); AI never mutates production artifacts directly.</li>
+<li class=""><strong>Validation and risk classes.</strong> <code>citation_validation</code> computes blast
+radius, sample render diffs, corpus regressions, and schema validity, and
+routes the proposal as <code>low</code> (express lane), <code>medium</code> (standard review), or
+<code>high</code> (mandatory tenant-admin co-review; never auto-applied). Risk class is
+routing metadata, not an auto-apply gate.</li>
+<li class=""><strong>Per-entity override.</strong> A manual citation stored on
+<code>EpistemicEntity.data.citation_override</code> beats the style for that entity,
+with <code>overridden_by</code> / <code>justification</code> provenance.</li>
+<li class=""><strong>Provenance.</strong> Every rendered citation carries <code>style_id</code>,
+<code>style_version</code>, fields consumed, custom extensions used, and engine —
+powering the &quot;Why this citation?&quot; overlay.</li>
+</ul>
+<p>Style polish (punctuation, separators, abbreviated forms, locale) is <strong>style
+work</strong>, done through Flow B — never frontend string-tuning. Initial seeded
+styles may render roughly until a scholar ratifies a style.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-standards-grounding">5. Standards grounding<a href="#5-standards-grounding" class="hash-link" aria-label="Direct link to 5. Standards grounding" title="Direct link to 5. Standards grounding" translate="no">​</a></h2>
+<p>The platform&#x27;s standards evidence base is the CROSSWALK
+(<code>docs/research/standards/CROSSWALK.md</code> + <code>CROSSWALK_extensions_2026-05-20.md</code>):
+<strong>8 families</strong> spanning <strong>20 matrix rows / ~28 individual standards</strong> (several
+rows bundle sibling standards):</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Family</th><th>Standards (matrix rows)</th></tr></thead><tbody><tr><td>metadata</td><td>TEI-XML (P5); Dublin Core; MODS v3.8; CIDOC-CRM v7.1.3 (+ CRMtex, reinforced by CRMarchaeo + CRMsci); FRBR + LRMoo</td></tr><tr><td>lod</td><td>BIBFRAME 2.4; PeriodO; GeoSPARQL 1.1; PROV-O / W3C PROV</td></tr><tr><td>harvesting</td><td>OAI-PMH 2.0; IIIF (Presentation + Image 3.0)</td></tr><tr><td>identifiers</td><td>DOI / Crossref / DataCite; ORCID + ROR; CSL 1.0.2 + CSL JSON; Pleiades + GeoNames + Wikidata</td></tr><tr><td>stem</td><td>FAIR + DataCite Metadata Schema 4.5</td></tr><tr><td>geospatial</td><td>GeoJSON (RFC 7946)</td></tr><tr><td>biodiversity</td><td>Darwin Core</td></tr><tr><td>packaging</td><td>RO-Crate v1.2</td></tr></tbody></table>
+<p>What matters <em>for this system</em>:</p>
+<ul>
+<li class=""><strong>CSL 1.0.2 + CSL JSON is primary</strong> — the citation grammar, the style
+language, and the bibliographic exchange format. Tenant-rich data that
+doesn&#x27;t fit the standard item schema travels in <code>custom.*</code> extensions.</li>
+<li class=""><strong>CIDOC-CRM / Linked Art + IIIF</strong> are the lane for <strong>non-bibliographic
+evidence</strong> — objects, observations, image regions, 3D meshes (ADR-061
+decision 5). The export profile choice is ADR-030 (still Proposed — do not
+claim conformance until ratified). Media citations already translate W3C
+Anchor selectors to CSL locators via <code>selector_to_locator_map</code>.</li>
+<li class=""><strong><code>complies_with</code> declarations</strong> (ADR-037) — slots declare conformance
+against a platform-canonical allowlist; declarations flow to JSON-LD
+<code>dcterms:conformsTo</code> triples on the published layer and steer export views.</li>
+<li class=""><strong>Export formats</strong> — <code>epistemic/services/bibliographic_export.py</code> emits
+CSL JSON (<code>.csl.json</code>), BibTeX (<code>.bib</code>), and RIS (<code>.ris</code>), schema-validated;
+ecosystem wiring (Zotero, ORCID, Crossref) is the ADR-025 lane.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-the-reader-contract-adr-061--edition-optional-precedence-ordered">6. The reader contract (ADR-061) — edition-optional, precedence-ordered<a href="#6-the-reader-contract-adr-061--edition-optional-precedence-ordered" class="hash-link" aria-label="Direct link to 6. The reader contract (ADR-061) — edition-optional, precedence-ordered" title="Direct link to 6. The reader contract (ADR-061) — edition-optional, precedence-ordered" translate="no">​</a></h2>
+<p>ADR-061&#x27;s core decisions, as implemented in <code>EntrySurfaceDetailShadow.jsx</code>:</p>
+<ol>
+<li class=""><strong>One reference row per attestation (occurrence). Editions are optional.</strong>
+The renderer never gates evidence on the presence of an edition — a
+researcher&#x27;s own catalogued manuscript or fragment with no published
+edition is first-class evidence.</li>
+<li class=""><strong>Row text precedence</strong> (first non-empty wins):
+<ol>
+<li class=""><strong>Structural bridged composition</strong> — primary edition citation parts
+(author/editor/translator, treatise/title/source label, book, chapter,
+section, page, line, joined <code>&quot;, &quot;</code>), then per secondary edition a bridge
+segment <code>= &lt;locator chain&gt; (&lt;abbreviated&gt;)</code> built from the locator keys
+joined with <code>.</code> and the <code>editor_abbreviated</code>/<code>abbreviated</code> metadata key.</li>
+<li class=""><strong>CSL-rendered citation</strong> joined by <code>citation.source.occurrence_id</code> —
+covers edition-less occurrences that still carry a citable source.</li>
+<li class=""><strong>The occurrence&#x27;s own label</strong> (the tenant-declared
+<code>occurrence_label_field</code>, often the quote).</li>
+</ol>
+</li>
+<li class=""><strong>Row extras</strong>: an occurrence sub-line from the <code>word_translation</code>/<code>word</code>
+locator keys; a quote block from the <code>quote</code>/<code>text</code> locator keys (the label
+is not repeated as a quote when the row text already fell back to it).</li>
+<li class=""><strong>Standalone source citations</strong>: joined-but-unconsumed CSL citations and
+entry-level citations render as deduplicated rows after the evidence rows
+(&quot;works cited&quot; behavior).</li>
+</ol>
+<p>Canonical vs tenant split: the walk + grammar + precedence + bridge rule +
+edition-optionality are canonical; which archetypes, edges, fields, styles,
+and abbreviations participate is tenant config.</p>
+<p>Test coverage: <code>spa/src/pages/result_details/EntrySurfaceDetailShadow.test.jsx</code>
+(bridged paired-edition rows, edition-less occurrences via citation and via
+label, ordering).</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-troubleshooting">7. Troubleshooting<a href="#7-troubleshooting" class="hash-link" aria-label="Direct link to 7. Troubleshooting" title="Direct link to 7. Troubleshooting" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>References section renders nothing at all</td><td>No <code>attestation_walk</code> seeded in <code>selector_rules</code> (or <code>occurrence_archetype</code>/<code>anchor_join_rule_name</code> missing — the walk silently yields <code>[]</code>)</td><td>Seed the walk on the entry role&#x27;s <code>TenantEntrySurfaceConfig</code>; verify the edge <code>rule_name</code> and direction against actual <code>EntityRelationship</code> rows.</td></tr><tr><td>Evidence rows render but carry no scholarly citations</td><td>No <code>citation_rules</code> configured, or <code>style_id</code> doesn&#x27;t resolve — remember filesystem style ids <strong>include the <code>.csl</code> extension</strong> (<code>chicago-author-date.csl</code>, not <code>chicago-author-date</code>)</td><td>Add a <code>citation_rules</code> entry with a resolvable <code>style_id</code> and a non-empty <code>field_mapping</code>; check <code>TenantCSLStyle</code> rows and the vendored catalog.</td></tr><tr><td>Citations render with rough punctuation/separators</td><td>The seeded style hasn&#x27;t been scholar-tuned; citeproc output is a pure function of (CSL JSON, style)</td><td>Style tuning via Flow B — propose, review against pinned <code>CitationTestCase</code> rows, apply to <code>TenantCSLStyle</code>. Do <strong>not</strong> patch the frontend.</td></tr><tr><td>Internal-reference values (row ids, opaque keys) leak into rendered rows</td><td>A locator or metadata map key points at a linked-record column (which stores a join/reference value) instead of a plain-text column</td><td>Re-point the map entry at the human-readable column; keep join columns in <code>occurrence_join_field</code>/<code>source_join_field</code> where they belong.</td></tr><tr><td>A row&#x27;s source shows the raw join key as its label</td><td>The edition&#x27;s source entity wasn&#x27;t found (<code>source_archetype</code>/<code>source_join_field</code> mismatch, or the source entity is missing)</td><td>This is the designed placeholder behavior; fix the join declaration or import the missing source entity.</td></tr><tr><td>Edition rows duplicated per edition (legacy behavior)</td><td>Pre-ADR-061 stub rendering</td><td>Should not occur on current code — the stub&#x27;s per-edition duplication was removed; file a bug if seen.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-pointers">8. Pointers<a href="#8-pointers" class="hash-link" aria-label="Direct link to 8. Pointers" title="Direct link to 8. Pointers" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>ADRs</strong>: ADR-061 (reference rendering contract — the governing contract),
+ADR-020 (attestation walk + paired editions + platform-canonical-projection
+principle), ADR-022 (attestation = EntityRelationship; Anchor;
+REVISION/EDITION citation integrity), ADR-029 (projection-first published
+Entry layer), ADR-030 (CIDOC / Linked Art export profile — Proposed),
+ADR-037 (<code>complies_with</code> slot declarations), in
+<code>docs/developer/architecture/adr/</code>.</li>
+<li class=""><strong>Spec</strong>: <code>docs/superpowers/specs/0008-citation-framework-csl/</code> (design.md is
+the deep reference for projector, renderer, proposer, validation, export).</li>
+<li class=""><strong>Standards evidence</strong>: <code>docs/research/standards/CROSSWALK.md</code> +
+<code>CROSSWALK_extensions_2026-05-20.md</code>.</li>
+<li class=""><strong>Code</strong>: <code>epistemic/services/publication.py</code> (<code>_attestations</code>,
+<code>_citations</code>), <code>epistemic/services/csl_projector.py</code>,
+<code>epistemic/services/citation_renderer.py</code>,
+<code>epistemic/services/bibliographic_export.py</code>,
+<code>spa/src/pages/result_details/EntrySurfaceDetailShadow.jsx</code>.</li>
+<li class=""><strong>Audience docs</strong>: <code>docs/tenant_admin/features/standards-and-citations.md</code>,
+<code>docs/tenant_admin/features/citation-integrity.md</code>,
+<code>docs/users/public-reader.md</code>, <code>docs/standards/README.md</code>.</li>
+<li class=""><strong>System map (visual)</strong>:
+<code>docs/design/2026-06-12_citations-references-system-map.html</code>.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/developer/developer_guide"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Developer Guide: Data Sync &amp; Monitoring Systems</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/developer/knowledge_explorer"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Sprint 13: Knowledge Explorer &amp; API Architecture</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-what-the-system-does" class="table-of-contents__link toc-highlight">1. What the system does</a></li><li><a href="#2-the-pipeline" class="table-of-contents__link toc-highlight">2. The pipeline</a></li><li><a href="#3-the-config-reference" class="table-of-contents__link toc-highlight">3. The config reference</a><ul><li><a href="#31-attestation_walk" class="table-of-contents__link toc-highlight">3.1 <code>attestation_walk</code></a></li><li><a href="#32-citation_rules" class="table-of-contents__link toc-highlight">3.2 <code>citation_rules</code></a></li><li><a href="#33-worked-generic-example" class="table-of-contents__link toc-highlight">3.3 Worked generic example</a></li></ul></li><li><a href="#4-styles-and-the-scholar-workflow" class="table-of-contents__link toc-highlight">4. Styles and the scholar workflow</a></li><li><a href="#5-standards-grounding" class="table-of-contents__link toc-highlight">5. Standards grounding</a></li><li><a href="#6-the-reader-contract-adr-061--edition-optional-precedence-ordered" class="table-of-contents__link toc-highlight">6. The reader contract (ADR-061) — edition-optional, precedence-ordered</a></li><li><a href="#7-troubleshooting" class="table-of-contents__link toc-highlight">7. Troubleshooting</a></li><li><a href="#8-pointers" class="table-of-contents__link toc-highlight">8. Pointers</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="footer__bottom text--center"><div class="footer__copyright">KE — Knowledge Environments. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
