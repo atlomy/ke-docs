@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">ADR-061 — Public Reference Rendering Contract (CSL-grounded, edition-optional) | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/developer/architecture/adr/reference-rendering-contract"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-developer-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-developer-current"><meta data-rh="true" property="og:title" content="ADR-061 — Public Reference Rendering Contract (CSL-grounded, edition-optional) | KE — Knowledge Environments"><meta data-rh="true" name="description" content="- Status: Accepted (2026-06-12, owner-directed &quot;go the full way&quot;)"><meta data-rh="true" property="og:description" content="- Status: Accepted (2026-06-12, owner-directed &quot;go the full way&quot;)"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/developer/architecture/adr/reference-rendering-contract"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/adr/reference-rendering-contract" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/architecture/adr/reference-rendering-contract" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Architecture Decision Records (ADRs)","item":"https://atlomy.github.io/ke-docs/developer/architecture/adr/"},{"@type":"ListItem","position":2,"name":"ADR-061 — Public Reference Rendering Contract (CSL-grounded, edition-optional)","item":"https://atlomy.github.io/ke-docs/developer/architecture/adr/reference-rendering-contract"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
-<script src="/ke-docs/assets/js/runtime~main.37ba0bbb.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.e80c9cfe.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.cd9de8e3.js" defer="defer"></script>
 </head>
 <body>
@@ -58,11 +58,21 @@ citeproc + a style from TenantCSLStyle (DB) or the vendored CSL catalog.</li>
 <ol>
 <li class=""><strong>One reference row per attestation (occurrence), editions optional.</strong>
 The public renderer never gates evidence on the presence of an edition.</li>
-<li class=""><strong>Row text precedence</strong> (renderer, <code>EntrySurfaceDetailShadow.jsx</code>):
+<li class=""><strong>Row text precedence</strong> (renderer, <code>EntrySurfaceDetailShadow.jsx</code>;
+<strong>amended 2026-06-12 PM</strong> — CSL first, after the owner&#x27;s format-control
+review: when a tenant deliberately declares per-occurrence
+<code>citation_rules</code>, the CSL lane is the researcher-controllable surface for
+the exact scholarly format — abbreviated author/work forms, <code>p.</code> prefixes,
+bracket layout, ordering — via field mapping + a tenant CSL style, with no
+platform code in the loop):
 <ol>
+<li class=""><strong>CSL-rendered citation</strong> (Spec 0008) joined by
+<code>citation.source.occurrence_id</code> — the tenant-controlled text. Also
+covers occurrences with no edition that still carry a citable source.</li>
 <li class=""><strong>Structural bridged composition</strong> across the attestation&#x27;s paired
-editions: primary edition citation parts, then per secondary edition a
-scholarly equivalence bridge segment <code>= &lt;locator chain&gt; (&lt;abbreviated&gt;)</code>
+editions (the no-citation-rules fallback): primary edition citation
+parts, then per secondary edition a scholarly equivalence bridge
+segment <code>= &lt;locator chain&gt; (&lt;abbreviated&gt;)</code>
 (e.g. <code>Hippocrates, Sacred Disease, 3, 11, 21 = 6.366 (Jouanna)</code>, or a
 Bekker-number equivalence for an Aristotelian passage). All field
 content is tenant data routed through the walk&#x27;s declarative
@@ -71,9 +81,6 @@ content is tenant data routed through the walk&#x27;s declarative
 author/work forms, Bekker/Kühn pagination for edition locators — are
 tenant data + CSL-style concerns (owner correction 2026-06-12; the
 earlier &quot;Liddell-style&quot; label was wrong).</li>
-<li class=""><strong>CSL-rendered citation</strong> (Spec 0008) joined by
-<code>citation.source.occurrence_id</code> — covers occurrences with no edition
-that still carry a citable source.</li>
 <li class=""><strong>The occurrence&#x27;s own label</strong> (tenant-declared field, e.g. the quote).</li>
 </ol>
 </li>

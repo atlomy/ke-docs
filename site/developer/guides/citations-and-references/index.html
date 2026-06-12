@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Citations and References — the Consolidated Guide | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/developer/guides/citations-and-references"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-developer-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-developer-current"><meta data-rh="true" property="og:title" content="Citations and References — the Consolidated Guide | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Audience: Platform engineers and technically-minded tenant admins."><meta data-rh="true" property="og:description" content="Audience: Platform engineers and technically-minded tenant admins."><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/developer/guides/citations-and-references"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/guides/citations-and-references" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/developer/guides/citations-and-references" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Citations and References — the Consolidated Guide","item":"https://atlomy.github.io/ke-docs/developer/guides/citations-and-references"}]}</script><link rel="stylesheet" href="/ke-docs/assets/css/styles.e5cb21b0.css">
-<script src="/ke-docs/assets/js/runtime~main.37ba0bbb.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.e80c9cfe.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.cd9de8e3.js" defer="defer"></script>
 </head>
 <body>
@@ -409,15 +409,23 @@ ecosystem wiring (Zotero, ORCID, Crossref) is the ADR-025 lane.</li>
 The renderer never gates evidence on the presence of an edition — a
 researcher&#x27;s own catalogued manuscript or fragment with no published
 edition is first-class evidence.</li>
-<li class=""><strong>Row text precedence</strong> (first non-empty wins):
+<li class=""><strong>Row text precedence</strong> (first non-empty wins; amended 2026-06-12 PM —
+CSL first, because the CSL lane is the researcher-controllable surface
+for the exact scholarly format):
 <ol>
-<li class=""><strong>Structural bridged composition</strong> — primary edition citation parts
+<li class=""><strong>CSL-rendered citation</strong> joined by <code>citation.source.occurrence_id</code> —
+the tenant-controlled text. The field mapping + tenant CSL style own
+abbreviation forms, <code>p.</code> prefixes, bracket layout, Roman-numeral
+books (<code>transform: roman_upper</code>), compact early-edition locators —
+e.g. <code>Aristotle, Parts of Animals III, 7, p. 87 Louis (669b14)</code> from
+a ~25-line tenant style stored in <code>TenantCSLStyle</code>. Also covers
+edition-less occurrences that still carry a citable source.</li>
+<li class=""><strong>Structural bridged composition</strong> (the no-citation-rules fallback) —
+primary edition citation parts
 (author/editor/translator, treatise/title/source label, book, chapter,
 section, page, line, joined <code>&quot;, &quot;</code>), then per secondary edition a bridge
 segment <code>= &lt;locator chain&gt; (&lt;abbreviated&gt;)</code> built from the locator keys
 joined with <code>.</code> and the <code>editor_abbreviated</code>/<code>abbreviated</code> metadata key.</li>
-<li class=""><strong>CSL-rendered citation</strong> joined by <code>citation.source.occurrence_id</code> —
-covers edition-less occurrences that still carry a citable source.</li>
 <li class=""><strong>The occurrence&#x27;s own label</strong> (the tenant-declared
 <code>occurrence_label_field</code>, often the quote).</li>
 </ol>
