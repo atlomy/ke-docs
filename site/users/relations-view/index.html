@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-relations-view" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">The Relations view: seeing and managing a record&#x27;s connections | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/relations-view"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Relations view: seeing and managing a record&#x27;s connections | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Purpose"><meta data-rh="true" property="og:description" content="Purpose"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/relations-view"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/relations-view" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/relations-view" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Relations view: seeing and managing a record's connections","item":"https://atlomy.github.io/ke-docs/users/relations-view"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
+<script src="/ke-docs/assets/js/runtime~main.495254cf.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.4fcd2a47.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><div class="navbar__logo"><img src="/ke-docs/img/atlomy-mark.svg" alt="KE — Knowledge Environments" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/ke-docs/img/atlomy-mark-dark.svg" alt="KE — Knowledge Environments" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">KE Documentation</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/"><span title="Researcher Guide" class="linkLabel_WmDU">Researcher Guide</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ke-docs/users/getting-started"><span title="Tasks" class="categoryLinkLabel_W154">Tasks</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/getting-started"><span title="Getting started: your first week" class="linkLabel_WmDU">Getting started: your first week</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/workspace-walkthrough"><span title="Workspace Walkthrough" class="linkLabel_WmDU">Workspace Walkthrough</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/searching-and-reading"><span title="Searching and Reading" class="linkLabel_WmDU">Searching and Reading</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/searching-as-a-public-reader"><span title="Searching as a public reader" class="linkLabel_WmDU">Searching as a public reader</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/reading-a-published-collection"><span title="A reader&#x27;s guide to published pages" class="linkLabel_WmDU">A reader&#x27;s guide to published pages</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/adding-and-editing-rows"><span title="Adding and Editing Rows" class="linkLabel_WmDU">Adding and Editing Rows</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/users/relations-view"><span title="The Relations view: seeing and managing a record&#x27;s connections" class="linkLabel_WmDU">The Relations view: seeing and managing a record&#x27;s connections</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/reviewing-team-work"><span title="Reviewing your team&#x27;s work" class="linkLabel_WmDU">Reviewing your team&#x27;s work</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/publish-view"><span title="The Publish view: field visibility and publishing changes" class="linkLabel_WmDU">The Publish view: field visibility and publishing changes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/withdrawing-a-published-record"><span title="Withdrawing a published record" class="linkLabel_WmDU">Withdrawing a published record</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/preparing-material-for-output"><span title="Preparing material for a paper, bibliography, or course" class="linkLabel_WmDU">Preparing material for a paper, bibliography, or course</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/exploring-3d-models"><span title="Exploring 3D models" class="linkLabel_WmDU">Exploring 3D models</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/working-in-multiple-scripts"><span title="Working in multiple scripts and languages" class="linkLabel_WmDU">Working in multiple scripts and languages</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/keyboard-only-session"><span title="A keyboard-only research session" class="linkLabel_WmDU">A keyboard-only research session</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/accessibility"><span title="Accessibility" class="linkLabel_WmDU">Accessibility</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/ke-docs/users/help/"><span title="Quick help" class="categoryLinkLabel_W154">Quick help</span></a><button aria-label="Expand sidebar category &#x27;Quick help&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/ke-docs/users/public-reader"><span title="Concepts" class="categoryLinkLabel_W154">Concepts</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/public-reader"><span title="Public reader" class="linkLabel_WmDU">Public reader</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/table-layout-and-columns"><span title="Table layout: sorting, column controls, and the column manager" class="linkLabel_WmDU">Table layout: sorting, column controls, and the column manager</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/citations-you-can-trust"><span title="Citations you can trust: stability and styles" class="linkLabel_WmDU">Citations you can trust: stability and styles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/workspace-memory-and-undo"><span title="What the workspace remembers — and what you can undo" class="linkLabel_WmDU">What the workspace remembers — and what you can undo</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/privacy-and-safety"><span title="Privacy and Safety" class="linkLabel_WmDU">Privacy and Safety</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/tips-and-guidance"><span title="Tips and Guidance" class="linkLabel_WmDU">Tips and Guidance</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Tasks</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">The Relations view: seeing and managing a record&#x27;s connections</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>The Relations view: seeing and managing a record&#x27;s connections</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="purpose">Purpose<a href="#purpose" class="hash-link" aria-label="Direct link to Purpose" title="Direct link to Purpose" translate="no">​</a></h2>
+<p>Every relation field on a record creates a connection to a record in another
+collection — an author to a text, a passage to a term, a manuscript to an
+edition. The <strong>Relations</strong> view, one of the workspace&#x27;s view tabs alongside
+Table, Details, and Publish, shows all of those connections for one record at
+once: the links it makes, the links other records make to it, and what the
+platform knows about each one — its status, its confidence, and where it came
+from. Read this page when you want to audit a record&#x27;s connections, review
+links that arrived from an import or an automated step, or remove a link with
+its full context in front of you. For quick link editing while you work on a
+record&#x27;s fields, the Table and Details views are usually faster — see
+<a class="" href="/ke-docs/users/help/link-two-records">Link one record to another</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="features">Features<a href="#features" class="hash-link" aria-label="Direct link to Features" title="Direct link to Features" translate="no">​</a></h2>
+<ul>
+<li class=""><strong>Connections in both directions</strong> (Active) — for a focused record, the
+view lists its outgoing links per relation field and, in a separate
+<strong>Incoming</strong> section, every link other records make to it.</li>
+<li class=""><strong>Three layouts</strong> (Active) — Graph, Matrix, and Stream modes present the
+same links as a centered overview, a field-by-field grid, or a flat list
+with status, confidence, anchor, and provenance columns.</li>
+<li class=""><strong>Lifecycle and confidence filters</strong> (Active) — narrow the picture to one
+link status, or hide links below a confidence level you set. The filters
+apply to outgoing and incoming links alike.</li>
+<li class=""><strong>Add a link by search-and-pick</strong> (Active) — search the relation field&#x27;s
+target table and click a match to link it. Links you add are saved
+immediately and recorded under your name.</li>
+<li class=""><strong>Inspector with safe unlink</strong> (Active) — select any link to see its
+status, confidence, provenance, and anchor detail, and remove it behind a
+hold-to-confirm step.</li>
+<li class=""><strong>Approve and Reject buttons</strong> — visible in the Inspector but not yet
+available; changing a link&#x27;s status from this view is not possible.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="usability--how-you-use-it">Usability — how you use it<a href="#usability--how-you-use-it" class="hash-link" aria-label="Direct link to Usability — how you use it" title="Direct link to Usability — how you use it" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="focusing-a-record">Focusing a record<a href="#focusing-a-record" class="hash-link" aria-label="Direct link to Focusing a record" title="Direct link to Focusing a record" translate="no">​</a></h3>
+<p>Open a table and switch to the <strong>Relations</strong> tab. The left-hand <strong>Rows</strong> list
+shows the table&#x27;s records; click one to focus it. A record you already opened
+in the Table or Details view stays focused when you switch to Relations, so
+the usual path is: find the record where you are, then switch tabs. For a
+large table the Rows list shows only the first stretch of records — focus the
+record first and bring it with you.</p>
+<p>Beside the rows, the <strong>Predicate panel</strong> lists the table&#x27;s relation fields —
+each with its label and the collection it points to. Pick a field to see the
+focused record&#x27;s links through it. If the view reports <strong>No relation fields
+in this table</strong>, the table has no relation fields yet; see
+<a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a> for
+creating one between two collections.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-the-picture-outgoing-and-incoming">Reading the picture: outgoing and incoming<a href="#reading-the-picture-outgoing-and-incoming" class="hash-link" aria-label="Direct link to Reading the picture: outgoing and incoming" title="Direct link to Reading the picture: outgoing and incoming" translate="no">​</a></h3>
+<p>The central panel counts the visible links — the view calls each connection
+an <strong>edge</strong> — and offers three modes:</p>
+<ul>
+<li class=""><strong>Graph</strong> places the focused record at the center and lists each link with
+the connected record&#x27;s label, its status, its confidence, and an <strong>A</strong>
+marker when the link points at an anchor.</li>
+<li class=""><strong>Matrix</strong> crosses the linked records against the table&#x27;s relation fields
+(the first five), a dot marking which field carries each link, with its
+confidence beside it.</li>
+<li class=""><strong>Stream</strong> is a flat list: one row per link, with Target, Status,
+Confidence, Anchor, and Provenance columns.</li>
+</ul>
+<p>Below the modes, the <strong>Incoming</strong> section lists the links that point <em>at</em>
+the focused record from elsewhere. Each entry shows the other record, the
+relation field it used, and the link&#x27;s status. These links belong to the
+other record&#x27;s relation fields — Relations is the one place you can see them
+gathered on the receiving side.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-link-statuses-mean-for-your-work">What link statuses mean for your work<a href="#what-link-statuses-mean-for-your-work" class="hash-link" aria-label="Direct link to What link statuses mean for your work" title="Direct link to What link statuses mean for your work" translate="no">​</a></h3>
+<p>Not every link is made by hand: imports create links between the records
+they bring in, and automated analysis can suggest connections it found in
+your material. The status tells you which links are settled:</p>
+<ul>
+<li class=""><strong>approved</strong> — a settled connection. Links you add by hand are approved
+immediately, under your name; links created by an import arrive approved.</li>
+<li class=""><strong>draft</strong> — a link made while its record was still a draft row. It becomes
+approved automatically when the record is activated.</li>
+<li class=""><strong>proposed</strong> — suggested by an automated step rather than a person, and
+not yet settled.</li>
+<li class=""><strong>rejected</strong> — a connection that was rejected. It stays listed under its
+own status rather than disappearing, so the decision remains visible.</li>
+</ul>
+<p>To review what is unsettled, use the <strong>Lifecycle</strong> filter in the Predicate
+panel: each status shows a count of the chosen field&#x27;s links in that state.
+The <strong>Confidence floor</strong> slider beneath it hides links below the level you
+set. Every link can carry a confidence score recorded by whatever created
+it; a link with no recorded score counts as full confidence when approved
+and zero otherwise. Confirming or rejecting a link from this view is not yet
+available — the Inspector&#x27;s <strong>Approve</strong> and <strong>Reject</strong> buttons are visible
+but not yet active.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="adding-a-link">Adding a link<a href="#adding-a-link" class="hash-link" aria-label="Direct link to Adding a link" title="Direct link to Adding a link" translate="no">​</a></h3>
+<ol>
+<li class="">Focus the record in the Rows list and pick the relation field in the
+Predicate panel.</li>
+<li class="">Under <strong>Add target</strong>, type part of the name of the record you want to
+connect. The search runs against the field&#x27;s target table and shows the
+closest matches (up to five).</li>
+<li class="">Click a match. The link is created immediately — approved, under your
+name — with no separate save step.</li>
+</ol>
+<p>Choosing a record that is already linked does not create a second link. Both
+ends must be active records: a draft row cannot be linked from here until it
+is activated — while drafting, use the record&#x27;s own relation field instead,
+as described in <a class="" href="/ke-docs/users/help/link-two-records">Link one record to another</a>. The
+search box stays unavailable until a record is focused and the chosen
+relation field declares a target table.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="inspecting-a-link">Inspecting a link<a href="#inspecting-a-link" class="hash-link" aria-label="Direct link to Inspecting a link" title="Direct link to Inspecting a link" translate="no">​</a></h3>
+<p>Select any link — outgoing or incoming — and the <strong>Inspector</strong> on the right
+shows its relation field, status, the connected record on each side,
+confidence, and provenance (where the link came from: the source recorded by
+the process that created it, or the person&#x27;s name). An <strong>Anchor</strong> card states
+whether the link points at a specific place inside the connected record or
+at the whole record. Below that, the Inspector shows the link&#x27;s full
+recorded detail, useful when you need to check exactly what an import or an
+analysis wrote.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="removing-a-link--and-what-happens-to-the-other-record">Removing a link — and what happens to the other record<a href="#removing-a-link--and-what-happens-to-the-other-record" class="hash-link" aria-label="Direct link to Removing a link — and what happens to the other record" title="Direct link to Removing a link — and what happens to the other record" translate="no">​</a></h3>
+<ol>
+<li class="">Select the link in any mode, or in the Incoming section.</li>
+<li class="">In the Inspector, tick <strong>Hold-to-confirm unlink</strong>.</li>
+<li class="">Click <strong>Unlink edge</strong>.</li>
+</ol>
+<p>Only the connection is removed; both records stay exactly as they are. There
+is one connection between the two records, seen from two sides — so the link
+disappears from the other record&#x27;s relation field at the same time, and an
+incoming link you unlink is removed from the record that made it. Adding and
+removing links requires edit access in your environment; if an attempt is
+declined, contact your environment administrator.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-relations-differs-from-the-table-and-details-views">How Relations differs from the Table and Details views<a href="#how-relations-differs-from-the-table-and-details-views" class="hash-link" aria-label="Direct link to How Relations differs from the Table and Details views" title="Direct link to How Relations differs from the Table and Details views" translate="no">​</a></h3>
+<p>The Table and Details views edit links field by field, as chips on the
+record — the fastest way to add or remove a link while editing, covered in
+<a class="" href="/ke-docs/users/help/link-two-records">Link one record to another</a>. Relations shows the
+whole connection picture for one record: both directions, statuses,
+confidence, provenance, and anchor detail — and it is the only view that
+shows incoming links. Use Table and Details to make links as you work; use
+Relations to audit them.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>The view says no relation fields exist in this table.</td><td>The table&#x27;s fields do not include a relation field.</td><td>Create a relation field between the two collections — see <a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a> — or contact your environment administrator.</td></tr><tr><td>No links show, with a message about the predicate, lifecycle, and confidence filter.</td><td>The filters are narrower than the data.</td><td>Set the Lifecycle filter to <strong>All</strong>, slide the Confidence floor to 0%, and check that the right relation field is selected.</td></tr><tr><td>The Add target search box cannot be typed in.</td><td>No record is focused, or the chosen relation field does not declare a target table.</td><td>Pick a record in the Rows list and a relation field that points at a collection. If the field should have one, contact your environment administrator.</td></tr><tr><td>Adding a link is declined with a message about draft records.</td><td>One of the two records is still a draft.</td><td>Activate the draft first — see <a class="" href="/ke-docs/users/adding-and-editing-rows">Adding and editing rows</a>. To link a row you are still drafting, use its relation field in the Details view.</td></tr><tr><td>The search shows no matching records.</td><td>The target collection has no record matching your term.</td><td>Try a shorter or different term, or add the record to the target collection first.</td></tr><tr><td><strong>Unlink edge</strong> stays gray.</td><td>The hold-to-confirm box is not ticked.</td><td>Tick <strong>Hold-to-confirm unlink</strong>, then click <strong>Unlink edge</strong>.</td></tr><tr><td>Linked records show as &quot;Unnamed record&quot; or as strings of letters and numbers.</td><td>The connected collection has no display field configured, so labels fall back to an internal identifier.</td><td>Contact your environment administrator and ask them to set a display field for that collection.</td></tr><tr><td>Adding or unlinking fails with a permissions message.</td><td>Your role does not include edit access for this environment.</td><td>Contact your environment administrator.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/ke-docs/users/help/link-two-records">Link one record to another</a> — adding and
+removing links from the Table and Details views while you edit.</li>
+<li class=""><a class="" href="/ke-docs/users/workspace-walkthrough">Workspace walkthrough</a> — the view tabs,
+toolbar, and sidebar around the Relations view.</li>
+<li class=""><a class="" href="/ke-docs/users/adding-and-editing-rows">Adding and editing rows</a> — the draft
+lifecycle, and why drafts cannot be linked until activated.</li>
+<li class=""><a class="" href="/ke-docs/users/searching-and-reading">Searching and reading</a> — finding the record
+you want to focus before switching to Relations.</li>
+<li class=""><a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a> —
+creating the relation field that connects two collections.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/users/adding-and-editing-rows"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Adding and Editing Rows</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/users/reviewing-team-work"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Reviewing your team&#x27;s work</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#purpose" class="table-of-contents__link toc-highlight">Purpose</a></li><li><a href="#features" class="table-of-contents__link toc-highlight">Features</a></li><li><a href="#usability--how-you-use-it" class="table-of-contents__link toc-highlight">Usability — how you use it</a><ul><li><a href="#focusing-a-record" class="table-of-contents__link toc-highlight">Focusing a record</a></li><li><a href="#reading-the-picture-outgoing-and-incoming" class="table-of-contents__link toc-highlight">Reading the picture: outgoing and incoming</a></li><li><a href="#what-link-statuses-mean-for-your-work" class="table-of-contents__link toc-highlight">What link statuses mean for your work</a></li><li><a href="#adding-a-link" class="table-of-contents__link toc-highlight">Adding a link</a></li><li><a href="#inspecting-a-link" class="table-of-contents__link toc-highlight">Inspecting a link</a></li><li><a href="#removing-a-link--and-what-happens-to-the-other-record" class="table-of-contents__link toc-highlight">Removing a link — and what happens to the other record</a></li><li><a href="#how-relations-differs-from-the-table-and-details-views" class="table-of-contents__link toc-highlight">How Relations differs from the Table and Details views</a></li></ul></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Researchers</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/">Researcher Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/workspace-walkthrough">Workspace Walkthrough</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/searching-and-reading">Searching and Reading</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/help/">Quick Help</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Environment Admins</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/">Environment Admin Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/features/data_import_wizard">Data Import Wizard</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/user_management">User and Access Management</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Platform</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/standards/">Standards and Compliance</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 KE — Knowledge Environments.</div></div></div></footer></div>
+</body>
+</html>

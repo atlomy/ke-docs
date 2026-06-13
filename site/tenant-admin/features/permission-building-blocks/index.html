@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-tenant_admin docs-version-current docs-doc-page docs-doc-id-features/permission-building-blocks" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Permission building blocks: the named set | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/tenant-admin/features/permission-building-blocks"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-tenant_admin-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-tenant_admin-current"><meta data-rh="true" property="og:title" content="Permission building blocks: the named set | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Purpose"><meta data-rh="true" property="og:description" content="Purpose"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/tenant-admin/features/permission-building-blocks"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/tenant-admin/features/permission-building-blocks" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/tenant-admin/features/permission-building-blocks" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Permission building blocks: the named set","item":"https://atlomy.github.io/ke-docs/tenant-admin/features/permission-building-blocks"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
+<script src="/ke-docs/assets/js/runtime~main.495254cf.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.4fcd2a47.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><div class="navbar__logo"><img src="/ke-docs/img/atlomy-mark.svg" alt="KE — Knowledge Environments" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/ke-docs/img/atlomy-mark-dark.svg" alt="KE — Knowledge Environments" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">KE Documentation</b></a><a class="navbar__item navbar__link" href="/ke-docs/users/">Researchers</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/tenant-admin/"><span title="Environment Admin Guide" class="linkLabel_WmDU">Environment Admin Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/tenant-admin/setting-up-your-environment"><span title="Setting Up Your Environment" class="linkLabel_WmDU">Setting Up Your Environment</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/ke-docs/tenant-admin/features/ai-assisted-bootstrap"><span title="Features" class="categoryLinkLabel_W154">Features</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/ai-assisted-bootstrap"><span title="AI-Assisted Vocabulary Bootstrap" class="linkLabel_WmDU">AI-Assisted Vocabulary Bootstrap</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/citation-integrity"><span title="Citation Integrity and DOI Safety" class="linkLabel_WmDU">Citation Integrity and DOI Safety</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/citation-style-administration"><span title="Citation Style Administration" class="linkLabel_WmDU">Citation Style Administration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/credentials"><span title="Saved connections and credentials" class="linkLabel_WmDU">Saved connections and credentials</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/data_import_wizard"><span title="Data Import Wizard" class="linkLabel_WmDU">Data Import Wizard</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/efficiency-tips"><span title="Efficiency Tips" class="linkLabel_WmDU">Efficiency Tips</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/entry-surface-configuration"><span title="Entry Surface Configuration" class="linkLabel_WmDU">Entry Surface Configuration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/entry_surface_readiness"><span title="Entry Surface Readiness" class="linkLabel_WmDU">Entry Surface Readiness</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/environment-settings"><span title="Environment-Level Settings" class="linkLabel_WmDU">Environment-Level Settings</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/field-configuration"><span title="Field configuration: kinds, scopes, resolvers, and language behavior" class="linkLabel_WmDU">Field configuration: kinds, scopes, resolvers, and language behavior</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/media_review_surface"><span title="Media Review Surface" class="linkLabel_WmDU">Media Review Surface</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/tenant-admin/features/permission-building-blocks"><span title="Permission building blocks: the named set" class="linkLabel_WmDU">Permission building blocks: the named set</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/permissions-panel"><span title="Permissions Panel" class="linkLabel_WmDU">Permissions Panel</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/public-stream-profiles"><span title="Public stream profiles: how published pages are composed" class="linkLabel_WmDU">Public stream profiles: how published pages are composed</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/search-exposure"><span title="Making fields searchable: search, facets, and autocomplete" class="linkLabel_WmDU">Making fields searchable: search, facets, and autocomplete</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/standards-and-citations"><span title="Standards and Citations" class="linkLabel_WmDU">Standards and Citations</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/telemetry"><span title="Telemetry and Privacy" class="linkLabel_WmDU">Telemetry and Privacy</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/vocabulary-grounding"><span title="Vocabulary Grounding" class="linkLabel_WmDU">Vocabulary Grounding</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/voice-and-vocabulary"><span title="Voice and Vocabulary" class="linkLabel_WmDU">Voice and Vocabulary</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/tenant-admin/features/workspace-configuration"><span title="Workspace configuration: tables, labels, and shared views" class="linkLabel_WmDU">Workspace configuration: tables, labels, and shared views</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/tenant-admin/onboarding-a-collaborator"><span title="Onboarding a Collaborator" class="linkLabel_WmDU">Onboarding a Collaborator</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/tenant-admin/user_management"><span title="User and Access Management" class="linkLabel_WmDU">User and Access Management</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/tenant-admin/planning-a-reimport"><span title="Planning a Re-import" class="linkLabel_WmDU">Planning a Re-import</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Features</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Permission building blocks: the named set</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Permission building blocks: the named set</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="purpose">Purpose<a href="#purpose" class="hash-link" aria-label="Direct link to Purpose" title="Direct link to Purpose" translate="no">​</a></h2>
+<p>The standard roles in your environment — and any custom role you compose — are
+built from one fixed set of permission building blocks. There are nine. Each
+block is a single capability: it is either granted or not. A role is a chosen
+combination of these blocks.</p>
+<p>This page names every block, says exactly what each one lets a contributor do,
+gives the default combination a new contributor starts from, and shows how the
+blocks combine into a reviewer, a supervisor, and an exporter. Read it when you
+are composing a custom role on the <a class="" href="/ke-docs/tenant-admin/features/permissions-panel">Permissions Panel</a> and
+want to know precisely what each checkbox controls.</p>
+<p>The building blocks are fixed by the platform: you combine them, you cannot
+invent new ones. Composing roles and assigning them is yours to do as an
+administrator. Adding the contributor accounts those roles attach to is handled
+by your platform operator — see <a class="" href="/ke-docs/tenant-admin/onboarding-a-collaborator">Onboarding a collaborator</a>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-nine-building-blocks">The nine building blocks<a href="#the-nine-building-blocks" class="hash-link" aria-label="Direct link to The nine building blocks" title="Direct link to The nine building blocks" translate="no">​</a></h2>
+<p>Each block below lists its name, what it gates, and its impact tier — low,
+medium, or high. The impact tier tells you how cautious to be when granting it;
+the three high-impact blocks are called out again in the next section.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="review-suggestions">Review suggestions<a href="#review-suggestions" class="hash-link" aria-label="Direct link to Review suggestions" title="Direct link to Review suggestions" translate="no">​</a></h3>
+<p><strong>Gates:</strong> reading and commenting on suggested changes before they are saved.
+A contributor with only this block can examine every proposed change and leave
+comments, but cannot save anything. <strong>Impact tier:</strong> medium.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="save-additive-changes">Save additive changes<a href="#save-additive-changes" class="hash-link" aria-label="Direct link to Save additive changes" title="Direct link to Save additive changes" translate="no">​</a></h3>
+<p><strong>Gates:</strong> saving additive changes — new records or new fields — that do not
+alter existing work. This is the lowest-impact save permission. <strong>Impact tier:</strong>
+low.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="save-normal-changes">Save normal changes<a href="#save-normal-changes" class="hash-link" aria-label="Direct link to Save normal changes" title="Direct link to Save normal changes" translate="no">​</a></h3>
+<p><strong>Gates:</strong> saving edits that change existing records. These are the everyday
+changes a working contributor makes, and they remain reviewable. <strong>Impact
+tier:</strong> medium.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="run-high-impact-changes">Run high-impact changes<a href="#run-high-impact-changes" class="hash-link" aria-label="Direct link to Run high-impact changes" title="Direct link to Run high-impact changes" translate="no">​</a></h3>
+<p><strong>Gates:</strong> running broad merges, deletes, and reorganizations — the changes that
+touch the most records at once. <strong>Impact tier:</strong> high.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="use-the-undo-window">Use the undo window<a href="#use-the-undo-window" class="hash-link" aria-label="Direct link to Use the undo window" title="Direct link to Use the undo window" translate="no">​</a></h3>
+<p><strong>Gates:</strong> reversing a just-saved change while the short undo window is still
+open. Without this block, a contributor can save but cannot self-reverse.
+<strong>Impact tier:</strong> low.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="manage-import-templates">Manage import templates<a href="#manage-import-templates" class="hash-link" aria-label="Direct link to Manage import templates" title="Direct link to Manage import templates" translate="no">​</a></h3>
+<p><strong>Gates:</strong> creating and updating the saved import setups the project reuses.
+<strong>Impact tier:</strong> medium.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="change-field-setup">Change field setup<a href="#change-field-setup" class="hash-link" aria-label="Direct link to Change field setup" title="Direct link to Change field setup" translate="no">​</a></h3>
+<p><strong>Gates:</strong> changing the fields contributors use when they edit — which fields
+exist and how they behave. This reshapes the editing surface for everyone, which
+is why it sits in the high tier. <strong>Impact tier:</strong> high. See
+<a class="" href="/ke-docs/tenant-admin/features/field-configuration">Field Configuration</a> for what this controls.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="manage-roles">Manage roles<a href="#manage-roles" class="hash-link" aria-label="Direct link to Manage roles" title="Direct link to Manage roles" translate="no">​</a></h3>
+<p><strong>Gates:</strong> inviting contributors into roles and deciding what each person can do
+— in other words, composing roles and assigning the other eight blocks. A
+contributor needs this block to open the role-management surfaces at all.
+<strong>Impact tier:</strong> high.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="export-suggestion-metrics">Export suggestion metrics<a href="#export-suggestion-metrics" class="hash-link" aria-label="Direct link to Export suggestion metrics" title="Direct link to Export suggestion metrics" translate="no">​</a></h3>
+<p><strong>Gates:</strong> downloading aggregate metrics about suggestion quality and review
+patterns. The numbers are aggregate, never individual review text. <strong>Impact
+tier:</strong> medium.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="defaults-for-new-contributors">Defaults for new contributors<a href="#defaults-for-new-contributors" class="hash-link" aria-label="Direct link to Defaults for new contributors" title="Direct link to Defaults for new contributors" translate="no">​</a></h2>
+<p>When a contributor account first appears in your environment, it starts from a
+fixed default combination — the set the platform treats as a safe working
+baseline for a project team member. The five blocks below are <strong>on</strong> by default;
+the other four are <strong>off</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Building block</th><th>Default</th></tr></thead><tbody><tr><td>Review suggestions</td><td>On</td></tr><tr><td>Save additive changes</td><td>On</td></tr><tr><td>Save normal changes</td><td>On</td></tr><tr><td>Use the undo window</td><td>On</td></tr><tr><td>Manage import templates</td><td>On</td></tr><tr><td>Run high-impact changes</td><td>Off</td></tr><tr><td>Change field setup</td><td>Off</td></tr><tr><td>Manage roles</td><td>Off</td></tr><tr><td>Export suggestion metrics</td><td>Off</td></tr></tbody></table>
+<p>The default is a starting point, not a fixed role: from the
+<a class="" href="/ke-docs/tenant-admin/features/permissions-panel">Permissions Panel</a> you assign a standard role or compose a
+custom one over it. The three high-impact blocks — run high-impact changes,
+change field setup, and manage roles — are off by default, and so is exporting
+metrics.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-high-impact-blocks-and-the-project-rules">The high-impact blocks and the project rules<a href="#the-high-impact-blocks-and-the-project-rules" class="hash-link" aria-label="Direct link to The high-impact blocks and the project rules" title="Direct link to The high-impact blocks and the project rules" translate="no">​</a></h2>
+<p>Three blocks are high-impact: <strong>run high-impact changes</strong>, <strong>change field
+setup</strong>, and <strong>manage roles</strong>. Granting one of these gives a contributor a
+capability that can affect a large share of the project&#x27;s work, or affect what
+other contributors can do.</p>
+<p>These blocks decide <em>who is allowed</em> to make a high-impact change. They are
+separate from your environment&#x27;s <strong>project rules</strong>, which decide <em>how</em> such a
+change is confirmed when it happens. The two work together: a block grants the
+capability; a project rule can require a second pair of hands before the change
+goes through. For example, your environment can require that a high-impact save
+is confirmed by a contributor who did not author it, and can require that
+destructive changes are confirmed either by two contributors or by a single
+contributor through an elevated confirmation step.</p>
+<p>So even a contributor who holds <strong>run high-impact changes</strong> is still subject to
+the project rules at the moment they apply a change. Granting the block does not
+bypass the rules; it only makes the contributor eligible to start the change.
+You set these rules on the Project rules tab — see the project rules described in
+the <a class="" href="/ke-docs/tenant-admin/features/permissions-panel">Permissions Panel</a>.</p>
+<blockquote>
+<p><strong>Manage roles</strong> is the one block that controls access to permission
+management itself. A contributor cannot open the role-management surfaces, or
+change anyone&#x27;s permissions, without it.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="composition-examples-by-capability-shape">Composition examples by capability shape<a href="#composition-examples-by-capability-shape" class="hash-link" aria-label="Direct link to Composition examples by capability shape" title="Direct link to Composition examples by capability shape" translate="no">​</a></h2>
+<p>These three shapes show how the blocks combine. They are illustrations, not
+extra preset roles — compose the equivalent as a custom role, or start from the
+matching standard role and adjust.</p>
+<p><strong>A reviewer</strong> — someone who reads and comments but never saves. One block:</p>
+<ul>
+<li class="">Review suggestions</li>
+</ul>
+<p>Everything else is off. This shape can examine and annotate proposed changes and
+nothing more.</p>
+<p><strong>A supervisor</strong> — a senior contributor who does the full editing job and can
+reorganize, but does not manage people or reshape the field setup. The save and
+undo blocks plus high-impact changes:</p>
+<ul>
+<li class="">Review suggestions</li>
+<li class="">Save additive changes</li>
+<li class="">Save normal changes</li>
+<li class="">Run high-impact changes</li>
+<li class="">Use the undo window</li>
+<li class="">Manage import templates</li>
+</ul>
+<p>Change field setup, manage roles, and export metrics stay off. This contributor
+can do every kind of save — including high-impact reorganizations — but reshaping
+the editing surface and managing other people&#x27;s access remain with an
+administrator.</p>
+<p><strong>An exporter</strong> — someone whose job is to pull aggregate metrics, with read
+access to the review stream but no save authority. Two blocks:</p>
+<ul>
+<li class="">Review suggestions</li>
+<li class="">Export suggestion metrics</li>
+</ul>
+<p>All save and management blocks stay off. This shape can read suggestions and
+download the aggregate quality and review-pattern metrics, without the ability
+to save changes or alter anyone&#x27;s access.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="who-does-what">Who does what<a href="#who-does-what" class="hash-link" aria-label="Direct link to Who does what" title="Direct link to Who does what" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Action</th><th>Who</th></tr></thead><tbody><tr><td>Compose a custom role from the building blocks</td><td>Administrator (self-serve, on the Permissions Panel)</td></tr><tr><td>Assign a standard or custom role to a contributor</td><td>Administrator (self-serve)</td></tr><tr><td>Adjust a single contributor&#x27;s blocks</td><td>Administrator (self-serve)</td></tr><tr><td>Add a new contributor account for a role to attach to</td><td>Platform operator</td></tr><tr><td>Add new building blocks beyond the nine</td><td>Not available — the set is fixed by the platform</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/ke-docs/tenant-admin/features/permissions-panel">Permissions Panel</a> — where you compose roles, assign
+them, and set the project rules these blocks work alongside.</li>
+<li class=""><a class="" href="/ke-docs/tenant-admin/user_management">User and Access Management</a> — the standard role set and
+how the four pre-loaded roles map onto these blocks.</li>
+<li class=""><a class="" href="/ke-docs/tenant-admin/features/field-configuration">Field Configuration</a> — what the <strong>change field setup</strong>
+block controls.</li>
+<li class=""><a class="" href="/ke-docs/tenant-admin/onboarding-a-collaborator">Onboarding a collaborator</a> — how a new
+contributor account is created before you assign a role to it.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/tenant-admin/features/media_review_surface"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Media Review Surface</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/tenant-admin/features/permissions-panel"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Permissions Panel</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#purpose" class="table-of-contents__link toc-highlight">Purpose</a></li><li><a href="#the-nine-building-blocks" class="table-of-contents__link toc-highlight">The nine building blocks</a><ul><li><a href="#review-suggestions" class="table-of-contents__link toc-highlight">Review suggestions</a></li><li><a href="#save-additive-changes" class="table-of-contents__link toc-highlight">Save additive changes</a></li><li><a href="#save-normal-changes" class="table-of-contents__link toc-highlight">Save normal changes</a></li><li><a href="#run-high-impact-changes" class="table-of-contents__link toc-highlight">Run high-impact changes</a></li><li><a href="#use-the-undo-window" class="table-of-contents__link toc-highlight">Use the undo window</a></li><li><a href="#manage-import-templates" class="table-of-contents__link toc-highlight">Manage import templates</a></li><li><a href="#change-field-setup" class="table-of-contents__link toc-highlight">Change field setup</a></li><li><a href="#manage-roles" class="table-of-contents__link toc-highlight">Manage roles</a></li><li><a href="#export-suggestion-metrics" class="table-of-contents__link toc-highlight">Export suggestion metrics</a></li></ul></li><li><a href="#defaults-for-new-contributors" class="table-of-contents__link toc-highlight">Defaults for new contributors</a></li><li><a href="#the-high-impact-blocks-and-the-project-rules" class="table-of-contents__link toc-highlight">The high-impact blocks and the project rules</a></li><li><a href="#composition-examples-by-capability-shape" class="table-of-contents__link toc-highlight">Composition examples by capability shape</a></li><li><a href="#who-does-what" class="table-of-contents__link toc-highlight">Who does what</a></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Researchers</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/">Researcher Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/workspace-walkthrough">Workspace Walkthrough</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/searching-and-reading">Searching and Reading</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/help/">Quick Help</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Environment Admins</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/">Environment Admin Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/features/data_import_wizard">Data Import Wizard</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/user_management">User and Access Management</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Platform</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/standards/">Standards and Compliance</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 KE — Knowledge Environments.</div></div></div></footer></div>
+</body>
+</html>
