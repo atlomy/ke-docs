@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">See which mesh maps to which term | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/help/see-which-mesh-maps-to-which-term"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="See which mesh maps to which term | KE — Knowledge Environments"><meta data-rh="true" name="description" content="A 3D model in the workspace has a Mesh→term tab beside its viewer — the"><meta data-rh="true" property="og:description" content="A 3D model in the workspace has a Mesh→term tab beside its viewer — the"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/help/see-which-mesh-maps-to-which-term"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/see-which-mesh-maps-to-which-term" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/see-which-mesh-maps-to-which-term" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Quick help","item":"https://atlomy.github.io/ke-docs/users/help/"},{"@type":"ListItem","position":2,"name":"See which mesh maps to which term","item":"https://atlomy.github.io/ke-docs/users/help/see-which-mesh-maps-to-which-term"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.7a85811a.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.ea2136ba.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.d9e20e9f.js" defer="defer"></script>
 </head>
 <body>
@@ -21,20 +21,19 @@ opening media, see
 <a class="" href="/ke-docs/users/help/work-with-media-in-the-workspace">Work with media in the workspace</a>.)</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="read-the-bindings">Read the bindings<a href="#read-the-bindings" class="hash-link" aria-label="Direct link to Read the bindings" title="Direct link to Read the bindings" translate="no">​</a></h2>
 <p>The tab opens with three counts — how many parts are <strong>mapped</strong>, how many are
-<strong>override</strong>, and how many are <strong>auto</strong> — above a list with one row per
+<strong>edited</strong>, and how many are <strong>auto</strong> — above a list with one row per
 binding. Each row shows the model part&#x27;s raw name as written in the model
 file, the term it is matched to, and a state chip.</p>
 <p>The state chip tells you where a binding came from and how settled it is:</p>
 <ul>
 <li class=""><strong>auto</strong> — the platform extracted this binding from the part&#x27;s name. It is
 awaiting your review.</li>
-<li class=""><strong>manual</strong> — you (or a colleague) confirmed or set this binding by hand.</li>
-<li class=""><strong>override</strong> — a binding a reviewer set in place of what the platform would
-have proposed; this is the strongest claim on the part.</li>
+<li class=""><strong>edited</strong> — you (or a colleague) changed an existing binding on this part.</li>
+<li class=""><strong>linked</strong> — you bound a previously-unmapped part to a term by hand.</li>
 <li class=""><strong>unmapped</strong> — the part has no term matched to it yet.</li>
 </ul>
 <p>The header count of <strong>mapped</strong> parts covers every part that has a term matched
-to it — that is, the manual and override parts together with the auto parts
+to it — that is, the edited and linked parts together with the auto parts
 still awaiting review.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="highlight-a-part">Highlight a part<a href="#highlight-a-part" class="hash-link" aria-label="Direct link to Highlight a part" title="Direct link to Highlight a part" translate="no">​</a></h2>
 <p>The list and the model are linked, so you can move between them either way:</p>
@@ -54,9 +53,11 @@ binding came from, followed by the actions for that part:</p>
 binding so a later re-run leaves it alone. (Approve appears only while the
 part is still <strong>auto</strong>.)</li>
 <li class=""><strong>Reassign</strong> (or <strong>Assign term</strong>, when the part has no term yet) — open a
-picker to bind the part to a different term. Search your vocabulary by typing,
-or paste a term record&#x27;s id directly, then choose the term. This writes the
-link between the part and the term.</li>
+picker to bind the part to a different term. Search your vocabulary by typing
+and choose from the results, each shown by its display label. Searching a
+word in one language can surface a term that carries that word in another
+language. You can also paste a term record&#x27;s id directly to bind it.
+This writes the link between the part and the term.</li>
 <li class=""><strong>Strip</strong> — remove the term from the part, leaving it <strong>unmapped</strong>.</li>
 </ul>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
@@ -95,7 +96,7 @@ link between the part and the term.</li>
 
 
 
-<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>There is no <strong>Mesh→term</strong> tab.</td><td>The tab appears only on 3D models.</td><td>Open a media record whose type is a 3D model.</td></tr><tr><td>The tab shows no bindings.</td><td>No parts of this model are matched to a term.</td><td>Open a 3D model whose parts are already matched to terms, or bind a part with <strong>Assign term</strong>.</td></tr><tr><td>Clicking a row does not highlight anything in the model.</td><td>The row&#x27;s part may not be present in the model that is loaded.</td><td>Compare the part name in the row with the model, and try a row whose part you can see.</td></tr><tr><td>There is no <strong>Approve</strong> button on a part.</td><td>Approve appears only for <strong>auto</strong> parts awaiting review; a part you already confirmed shows as <strong>manual</strong> or <strong>override</strong>.</td><td>Use <strong>Reassign</strong> to change the term, or <strong>Strip</strong> to clear it.</td></tr><tr><td>The term picker finds nothing when you type.</td><td>Search may not be activated for your environment, or there is no match for your query.</td><td>Paste the term record&#x27;s id into the picker instead — that path works regardless of search.</td></tr></tbody></table>
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>There is no <strong>Mesh→term</strong> tab.</td><td>The tab appears only on 3D models.</td><td>Open a media record whose type is a 3D model.</td></tr><tr><td>The tab shows no bindings.</td><td>No parts of this model are matched to a term.</td><td>Open a 3D model whose parts are already matched to terms, or bind a part with <strong>Assign term</strong>.</td></tr><tr><td>Clicking a row does not highlight anything in the model.</td><td>The row&#x27;s part may not be present in the model that is loaded.</td><td>Compare the part name in the row with the model, and try a row whose part you can see.</td></tr><tr><td>There is no <strong>Approve</strong> button on a part.</td><td>Approve appears only for <strong>auto</strong> parts awaiting review; a part you already changed shows as <strong>edited</strong> or <strong>linked</strong>.</td><td>Use <strong>Reassign</strong> to change the term, or <strong>Strip</strong> to clear it.</td></tr><tr><td>The term picker finds nothing when you type.</td><td>Search may not be activated for your environment, or there is no match for your query.</td><td>Paste the term record&#x27;s id into the picker instead — that path works regardless of search.</td></tr></tbody></table>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
 <ul>
 <li class=""><a class="" href="/ke-docs/users/help/work-with-media-in-the-workspace">Work with media in the workspace</a> —
