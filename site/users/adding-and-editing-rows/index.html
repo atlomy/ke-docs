@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Adding and Editing Rows | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/adding-and-editing-rows"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Adding and Editing Rows | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Purpose"><meta data-rh="true" property="og:description" content="Purpose"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/adding-and-editing-rows"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/adding-and-editing-rows" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/adding-and-editing-rows" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Adding and Editing Rows","item":"https://atlomy.github.io/ke-docs/users/adding-and-editing-rows"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.46a478f3.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.4dcfc4a0.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.0e510472.js" defer="defer"></script>
 </head>
 <body>
@@ -55,6 +55,11 @@
 <li class=""><strong>In the Details panel</strong> — click a row to open its Details panel. Click into a field, change the value, then leave the field or press Enter. The panel header shows <strong>Saving…</strong> and then <strong>Saved</strong>.</li>
 </ul>
 <p>A value you did not change is not re-saved.</p>
+<p>Date fields use your browser&#x27;s date picker in table cells, new-row fields,
+and the Details panel.  Choosing a date stores the date itself, such as
+<code>2025-10-19</code>; the workspace does not add a time or timezone.  A field that
+only looks like a timestamp but is configured as Text remains a text field
+until its type is changed or a future conversion workflow is used.</p>
 <p>Not every field takes typed input:</p>
 <ul>
 <li class="">Fields marked with a <strong>Read</strong> badge are not editable in place. These are derived fields (computed from other fields), media fields, and field types that do not have an in-place editor yet. To change a derived value, edit the fields it is computed from.</li>
