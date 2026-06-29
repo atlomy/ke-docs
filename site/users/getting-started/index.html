@@ -4,8 +4,8 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Getting started: your first week | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/getting-started"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Getting started: your first week | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Purpose"><meta data-rh="true" property="og:description" content="Purpose"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/getting-started"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/getting-started" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/getting-started" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Getting started: your first week","item":"https://atlomy.github.io/ke-docs/users/getting-started"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.4dcfc4a0.js" defer="defer"></script>
-<script src="/ke-docs/assets/js/main.0e510472.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.21ef3c78.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.284987b8.js" defer="defer"></script>
 </head>
 <body>
 <svg style="display: none;"><defs>
@@ -21,7 +21,8 @@
 <li class="">a <strong>left sidebar</strong> listing the tables you can work with — figures, terms, manuscript editions, whatever your project tracks;</li>
 <li class="">a <strong>top bar</strong> with a search control and a command palette;</li>
 <li class="">a <strong>toolbar</strong> of table controls; and</li>
-<li class=""><strong>view tabs</strong> that switch between Table, Details, Relations, and Publish.</li>
+<li class=""><strong>view tabs</strong> that switch between Table, Details, Relations, and Publish.
+Media tables also show a Media view.</li>
 </ul>
 <p>Click a table in the sidebar. You land in that table&#x27;s workspace at an address like <code>/app/workspace/&lt;record-type&gt;/</code>, and you can bookmark or share that address. If your project has several record types, each has its own workspace.</p>
 <p>Do not try to set anything up yet. Just open two or three tables and notice that they all open into the same shell. The full tour of every control is in the <a class="" href="/ke-docs/users/workspace-walkthrough">Workspace walkthrough</a> — read it when you are ready, but you do not need it to keep going here.</p>
@@ -29,7 +30,7 @@
 <p>What you are looking at is your team&#x27;s shared workspace. Other researchers see the same tables; you are not alone in here.</p>
 </blockquote>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="find-the-view-your-team-starts-from">Find the view your team starts from<a href="#find-the-view-your-team-starts-from" class="hash-link" aria-label="Direct link to Find the view your team starts from" title="Direct link to Find the view your team starts from" translate="no">​</a></h2>
-<p>Above the table sit <strong>view tabs</strong>. A view is a saved arrangement — which filters are on, how the rows are sorted, which columns show, and how tall the rows are. Your environment may have set one view as the <strong>default</strong>: the view the table opens with. When no other view has been chosen, the table opens to a sensible starting arrangement of all its rows.</p>
+<p>Above the table sit <strong>view tabs</strong>. A view is a saved arrangement — which filters are on, how the rows are sorted, which columns show, how tall the rows are, and which view kind opens first. Your environment may have set one view as the <strong>default</strong>: the shared view and view kind the table opens with when you do not follow a link to another view.</p>
 <p>For now, stay on whichever view opens first. Look at the columns and ask yourself what each record represents. You are reading the shape of your team&#x27;s data — what a &quot;record&quot; is here, and what fields describe it. You will arrange your own views later; <a class="" href="/ke-docs/users/workspace-walkthrough">Workspace walkthrough</a> covers saving and switching them when you get there.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="read-before-you-write">Read before you write<a href="#read-before-you-write" class="hash-link" aria-label="Direct link to Read before you write" title="Direct link to Read before you write" translate="no">​</a></h2>
 <p>The instinct on a new project is to start adding records. Resist it for a day. Reading first tells you the conventions your team already follows.</p>
@@ -54,7 +55,10 @@
 <li class=""><strong>Undo exists.</strong> The toolbar&#x27;s <strong>Undo</strong> and <strong>Redo</strong> step your view changes — filters, sort, columns, density — backward and forward.</li>
 </ul>
 <p>Required fields can stay empty while you draft; they only need filling before the row can leave the draft stage and become an active record. Nothing reaches the public reading site until a record is completed and published, and that is a deliberate step you take, never an accident. The full lifecycle — drafts, activation, linking, and what each badge means — is in <a class="" href="/ke-docs/users/adding-and-editing-rows">Adding and editing rows</a>.</p>
-<p>Make one small edit to a draft you create yourself. Watch it save. Then undo it. That is the whole safety model, in your hands.</p>
+<p>Make one small edit to a draft you create yourself and watch it save. If you want
+to practice Undo, change the view instead — hide a column, change density, or
+add a harmless filter — then use <strong>Undo view change</strong>. Record-value edits are
+fixed by editing the value again, not by the view Undo button.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="a-first-full-session-end-to-end">A first full session, end to end<a href="#a-first-full-session-end-to-end" class="hash-link" aria-label="Direct link to A first full session, end to end" title="Direct link to A first full session, end to end" translate="no">​</a></h2>
 <p>Now string the pieces together into one loop you will repeat for the rest of the project:</p>
 <ol>
