@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-create-and-manage-collections" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Create, rename, and delete a collection | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/create-and-manage-collections"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Create, rename, and delete a collection | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Purpose"><meta data-rh="true" property="og:description" content="Purpose"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/create-and-manage-collections"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/create-and-manage-collections" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/create-and-manage-collections" hreflang="x-default"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
+<script src="/ke-docs/assets/js/runtime~main.487e9f2a.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.3d50184d.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><div class="navbar__logo"><img src="/ke-docs/img/atlomy-mark.svg" alt="KE — Knowledge Environments" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/ke-docs/img/atlomy-mark-dark.svg" alt="KE — Knowledge Environments" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">KE Documentation</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Create, rename, and delete a collection</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="purpose">Purpose<a href="#purpose" class="hash-link" aria-label="Direct link to Purpose" title="Direct link to Purpose" translate="no">​</a></h2>
+<p>A collection is one of the kinds of things you keep track of in your workspace —
+people, manuscripts, terms, events, and so on. You can create a new collection,
+rename one, and remove one, all from the workspace sidebar, without leaving for
+an administration screen. This page covers those three actions and what each one
+does to your records.</p>
+<blockquote>
+<p>Your records are never deleted by anything on this page. Removing a collection
+only removes it from your sidebar — the records underneath stay.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="create-a-new-collection">Create a new collection<a href="#create-a-new-collection" class="hash-link" aria-label="Direct link to Create a new collection" title="Direct link to Create a new collection" translate="no">​</a></h2>
+<ol>
+<li class="">Open the workspace.</li>
+<li class="">In the sidebar, select <strong>Add table</strong>.</li>
+<li class="">Give the collection a name in <strong>Table name</strong> — for example, &quot;Glossary&quot;,
+&quot;Sources&quot;, or &quot;People&quot;.</li>
+<li class="">Choose a <strong>Table meaning</strong> — what each row in this collection represents. The
+choices are:
+<ul>
+<li class=""><strong>Terms &amp; concepts</strong> — a glossary or controlled vocabulary.</li>
+<li class=""><strong>Documents &amp; texts</strong> — works or sources you cite or read as a whole.</li>
+<li class=""><strong>Named things</strong> — people, places, organizations, or other named things.</li>
+<li class=""><strong>Events</strong> — things that happened in time.</li>
+<li class=""><strong>Passages</strong> — excerpts or quoted spans drawn from documents.</li>
+<li class=""><strong>Annotations &amp; notes</strong> — notes or comments attached to other records.</li>
+<li class=""><strong>Media</strong> — images, audio, video, or 3D models.</li>
+</ul>
+</li>
+<li class="">Optionally pick a <strong>Sidebar icon</strong>.</li>
+<li class="">Select <strong>Create table</strong>.</li>
+</ol>
+<p>The collection meaning sets how the platform stores and connects the records, so
+choose the one that best fits what you are recording. A new collection starts
+empty and with no project-specific fields; you add fields and rows next (see
+<a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch without importing</a>).</p>
+<blockquote>
+<p>&quot;3D&quot; is a property of an individual media item, not a separate kind of
+collection. Choose <strong>Media</strong> for images, audio, video, and 3D models alike.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="register-a-collection-the-platform-built-for-you">Register a collection the platform built for you<a href="#register-a-collection-the-platform-built-for-you" class="hash-link" aria-label="Direct link to Register a collection the platform built for you" title="Direct link to Register a collection the platform built for you" translate="no">​</a></h2>
+<p>When you import data, the platform shows your records grouped into collections
+automatically. A collection that came from your data this way can be
+<strong>registered</strong> — turned into a collection you can rename, configure, and delete —
+while keeping all of its records exactly as they are.</p>
+<ol>
+<li class="">In the sidebar, open the actions menu for the collection (right-click it, or
+use its actions control).</li>
+<li class="">Select <strong>Register this table…</strong>.</li>
+<li class="">Confirm the name, adjust the icon if you wish, and create it.</li>
+</ol>
+<p>Registering does not change or move your records; it gives the collection a
+permanent home in your sidebar so its name, icon, and settings are yours to
+manage. A collection that holds no records yet cannot be registered — start one
+from scratch with <strong>Add table</strong> instead.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="rename-a-collection">Rename a collection<a href="#rename-a-collection" class="hash-link" aria-label="Direct link to Rename a collection" title="Direct link to Rename a collection" translate="no">​</a></h2>
+<ol>
+<li class="">In the sidebar, open the actions menu for the collection.</li>
+<li class="">Select <strong>Rename table…</strong>.</li>
+<li class="">Change the <strong>Table name</strong> or the <strong>Sidebar icon</strong>.</li>
+<li class="">Select <strong>Save changes</strong>.</li>
+</ol>
+<p>Renaming changes only how the collection appears in your sidebar. It does not
+touch the records inside it.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="remove-a-collection">Remove a collection<a href="#remove-a-collection" class="hash-link" aria-label="Direct link to Remove a collection" title="Direct link to Remove a collection" translate="no">​</a></h2>
+<ol>
+<li class="">In the sidebar, open the actions menu for the collection.</li>
+<li class="">Select <strong>Delete table…</strong>.</li>
+<li class="">Read the confirmation, then select <strong>Delete table</strong>.</li>
+</ol>
+<p>Removing a collection <strong>unregisters</strong> it — it takes the collection out of your
+sidebar but never deletes the records underneath. If the collection still holds
+records, it remains browsable as an automatic collection built from your data.</p>
+<blockquote>
+<p>If the collection has published entries, its curated publish settings are
+reset, and the next time you publish it falls back to defaults. Pages and
+citations you already published stay exactly as they are.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="who-can-do-this">Who can do this<a href="#who-can-do-this" class="hash-link" aria-label="Direct link to Who can do this" title="Direct link to Who can do this" translate="no">​</a></h2>
+<p>Creating, renaming, and removing collections is available to editors and
+administrators. If these actions appear dimmed in your sidebar, your role does
+not include them — the sidebar shows the reason in place. Ask your environment
+administrator if you need access.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch without importing</a> —
+adding fields and relations to a new collection.</li>
+<li class=""><a class="" href="/ke-docs/users/table-layout-and-columns">Table layout: sorting, column controls, and the column manager</a> —
+arranging the columns once a collection has fields.</li>
+<li class=""><a class="" href="/ke-docs/users/workspace-walkthrough">The workspace walkthrough</a> — the whole workspace in
+one tour.
+
+</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#purpose" class="table-of-contents__link toc-highlight">Purpose</a></li><li><a href="#create-a-new-collection" class="table-of-contents__link toc-highlight">Create a new collection</a></li><li><a href="#register-a-collection-the-platform-built-for-you" class="table-of-contents__link toc-highlight">Register a collection the platform built for you</a></li><li><a href="#rename-a-collection" class="table-of-contents__link toc-highlight">Rename a collection</a></li><li><a href="#remove-a-collection" class="table-of-contents__link toc-highlight">Remove a collection</a></li><li><a href="#who-can-do-this" class="table-of-contents__link toc-highlight">Who can do this</a></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Researchers</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/">Researcher Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/workspace-walkthrough">Workspace Walkthrough</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/searching-and-reading">Searching and Reading</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/help/">Quick Help</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Environment Admins</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/">Environment Admin Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/features/data_import_wizard">Data Import Wizard</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/user_management">User and Access Management</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Platform</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/standards/">Standards and Compliance</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 KE — Knowledge Environments.</div></div></div></footer></div>
+</body>
+</html>
