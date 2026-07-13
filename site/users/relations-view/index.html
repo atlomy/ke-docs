@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">The Relations view: seeing and managing a record&#x27;s connections | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/relations-view"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Relations view: seeing and managing a record&#x27;s connections | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Purpose"><meta data-rh="true" property="og:description" content="Purpose"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/relations-view"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/relations-view" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/relations-view" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Relations view: seeing and managing a record's connections","item":"https://atlomy.github.io/ke-docs/users/relations-view"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.f5e10ab4.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.2d505003.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.0c7769b3.js" defer="defer"></script>
 </head>
 <body>
@@ -17,8 +17,9 @@
 collection — an author to a text, a passage to a term, a manuscript to an
 edition. The <strong>Relations</strong> view, one of the workspace&#x27;s view tabs alongside
 Table, Details, and Publish, shows all of those connections for one record at
-once: the links it makes, the links other records make to it, and what the
-platform knows about each one — its status, its confidence, and where it came
+once: the links it makes, the links other records make to it — including
+connections an import created that no relation field declares — and what the
+platform knows about each one: its status, its confidence, and where it came
 from. Read this page when you want to audit a record&#x27;s connections, review
 links that arrived from an import or an automated step, or remove a link with
 its full context in front of you. For quick link editing while you work on a
@@ -34,7 +35,14 @@ same links as a centered overview, a field-by-field grid, or a flat list
 with status, confidence, anchor, and provenance columns.</li>
 <li class=""><strong>Lifecycle and confidence filters</strong> (Active) — narrow the picture to one
 link status, or hide links below a confidence level you set. The filters
-apply to outgoing and incoming links alike.</li>
+apply to outgoing and incoming links alike; the <strong>Other linked records</strong>
+section is deliberately not filtered, so nothing it shows is ever hidden.</li>
+<li class=""><strong>Linked records without a relation field</strong> (Active) — connections that
+arrived from an import can exist even when no relation field declares them.
+They appear read-only in an <strong>Other linked records (from imported
+relationships)</strong> section, grouped by the relationship rule that created
+them — so the view shows the same connections a published entry shows its
+readers.</li>
 <li class=""><strong>Add a link by search-and-pick</strong> (Active) — search the relation field&#x27;s
 target table and click a match to link it. Links you add are saved
 immediately and recorded under your name.</li>
@@ -54,10 +62,15 @@ large table the Rows list shows only the first stretch of records — focus the
 record first and bring it with you.</p>
 <p>Beside the rows, the <strong>Predicate panel</strong> lists the table&#x27;s relation fields —
 each with its label and the collection it points to. Pick a field to see the
-focused record&#x27;s links through it. If the view reports <strong>No relation fields
-in this table</strong>, the table has no relation fields yet; see
-<a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a> for
-creating one between two collections.</p>
+focused record&#x27;s links through it.</p>
+<p>A table with no relation fields still shows its connections: instead of the
+Predicate panel, the view lists the focused record&#x27;s linked records grouped
+by relationship rule — the connections an import created — with incoming
+links marked by a <strong>←</strong> arrow and &quot;links here&quot;. These are read-only here;
+to make links of your own from such a table, create a relation field first —
+see <a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a>.
+The message <strong>No relation fields declared and no linked records found for
+this row</strong> appears only when the focused record has neither.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="reading-the-picture-outgoing-and-incoming">Reading the picture: outgoing and incoming<a href="#reading-the-picture-outgoing-and-incoming" class="hash-link" aria-label="Direct link to Reading the picture: outgoing and incoming" title="Direct link to Reading the picture: outgoing and incoming" translate="no">​</a></h3>
 <p>The central panel counts the visible links — the view calls each connection
 an <strong>edge</strong> — and offers three modes:</p>
@@ -71,6 +84,13 @@ confidence beside it.</li>
 <li class=""><strong>Stream</strong> is a flat list: one row per link, with Target, Status,
 Confidence, Anchor, and Provenance columns.</li>
 </ul>
+<p>When the focused record also has connections that no relation field
+declares — links created by an import under a rule of their own — they are
+listed beneath the modes in an <strong>Other linked records (from imported
+relationships)</strong> section, grouped by relationship rule, each with a <strong>→</strong>
+arrow and its status. These entries are read-only: there is no relation
+field behind them to edit through, and the lifecycle and confidence filters
+do not hide them.</p>
 <p>Below the modes, the <strong>Incoming</strong> section lists the links that point <em>at</em>
 the focused record from elsewhere. Each entry shows the other record, the
 relation field it used, and the link&#x27;s status. These links belong to the
@@ -194,7 +214,12 @@ Relations to audit them.</p>
 
 
 
-<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>The view says no relation fields exist in this table.</td><td>The table&#x27;s fields do not include a relation field.</td><td>Create a relation field between the two collections — see <a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a> — or contact your environment administrator.</td></tr><tr><td>No links show, with a message about the predicate, lifecycle, and confidence filter.</td><td>The filters are narrower than the data.</td><td>Set the Lifecycle filter to <strong>All</strong>, slide the Confidence floor to 0%, and check that the right relation field is selected.</td></tr><tr><td>The Add target search box cannot be typed in.</td><td>No record is focused, or the chosen relation field does not declare a target table.</td><td>Pick a record in the Rows list and a relation field that points at a collection. If the field should have one, contact your environment administrator.</td></tr><tr><td>Adding a link is declined with a message about draft records.</td><td>One of the two records is still a draft.</td><td>Activate the draft first — see <a class="" href="/ke-docs/users/adding-and-editing-rows">Adding and editing rows</a>. To link a row you are still drafting, use its relation field in the Details view.</td></tr><tr><td>The search shows no matching records.</td><td>The target collection has no record matching your term.</td><td>Try a shorter or different term, or add the record to the target collection first.</td></tr><tr><td><strong>Unlink edge</strong> stays gray.</td><td>The hold-to-confirm box is not ticked.</td><td>Tick <strong>Hold-to-confirm unlink</strong>, then click <strong>Unlink edge</strong>.</td></tr><tr><td>Linked records show as &quot;Unnamed record&quot; or as strings of letters and numbers.</td><td>The connected collection has no display field configured, so labels fall back to an internal identifier.</td><td>Contact your environment administrator and ask them to set a display field for that collection.</td></tr><tr><td>Adding or unlinking fails with a permissions message.</td><td>Your role does not include edit access for this environment.</td><td>Contact your environment administrator.</td></tr></tbody></table>
+
+
+
+
+
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>The view says no relation fields are declared and no linked records were found for this row.</td><td>The table has no relation field and the focused record has no imported connections either.</td><td>Create a relation field between the two collections — see <a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a> — or contact your environment administrator.</td></tr><tr><td>Some linked records sit in an &quot;Other linked records&quot; section and cannot be edited or removed.</td><td>Those connections came from an import under a rule no relation field declares, so the view can only show them.</td><td>This is by design — they are the same connections a published entry shows. To manage links yourself, use a relation field.</td></tr><tr><td>No links show, with a message about the predicate, lifecycle, and confidence filter.</td><td>The filters are narrower than the data.</td><td>Set the Lifecycle filter to <strong>All</strong>, slide the Confidence floor to 0%, and check that the right relation field is selected.</td></tr><tr><td>The Add target search box cannot be typed in.</td><td>No record is focused, or the chosen relation field does not declare a target table.</td><td>Pick a record in the Rows list and a relation field that points at a collection. If the field should have one, contact your environment administrator.</td></tr><tr><td>Adding a link is declined with a message about draft records.</td><td>One of the two records is still a draft.</td><td>Activate the draft first — see <a class="" href="/ke-docs/users/adding-and-editing-rows">Adding and editing rows</a>. To link a row you are still drafting, use its relation field in the Details view.</td></tr><tr><td>The search shows no matching records.</td><td>The target collection has no record matching your term.</td><td>Try a shorter or different term, or add the record to the target collection first.</td></tr><tr><td><strong>Unlink edge</strong> stays gray.</td><td>The hold-to-confirm box is not ticked.</td><td>Tick <strong>Hold-to-confirm unlink</strong>, then click <strong>Unlink edge</strong>.</td></tr><tr><td>Linked records show as &quot;Unnamed record&quot; or as strings of letters and numbers.</td><td>The connected collection has no display field configured, so labels fall back to an internal identifier.</td><td>Contact your environment administrator and ask them to set a display field for that collection.</td></tr><tr><td>Adding or unlinking fails with a permissions message.</td><td>Your role does not include edit access for this environment.</td><td>Contact your environment administrator.</td></tr></tbody></table>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
 <ul>
 <li class=""><a class="" href="/ke-docs/users/help/link-two-records">Link one record to another</a> — adding and
