@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Standards and Citations | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/tenant-admin/features/standards-and-citations"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-tenant_admin-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-tenant_admin-current"><meta data-rh="true" property="og:title" content="Standards and Citations | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Purpose"><meta data-rh="true" property="og:description" content="Purpose"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/tenant-admin/features/standards-and-citations"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/tenant-admin/features/standards-and-citations" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/tenant-admin/features/standards-and-citations" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Standards and Citations","item":"https://atlomy.github.io/ke-docs/tenant-admin/features/standards-and-citations"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.460d330c.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.5f27c54d.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.e08526c3.js" defer="defer"></script>
 </head>
 <body>
@@ -103,7 +103,7 @@
 </ul>
 <p>The split reflects what each citation is for. The page citation serves the venue a reader is writing for, so the reader gets flexibility there. The evidence rows carry your discipline&#x27;s own scholarly conventions, so they stay under your environment&#x27;s authority.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ways-to-shape-a-reference-path">Ways to shape a reference path<a href="#ways-to-shape-a-reference-path" class="hash-link" aria-label="Direct link to Ways to shape a reference path" title="Direct link to Ways to shape a reference path" translate="no">​</a></h3>
-<p>A reference walk reads locators and source details out of your data, and your data can hold them in more than one shape. All of these shapes are available today: column-backed shapes are picked directly in the citation binding section described in the worked example below, and a keyed shape (like the per-edition locus) is addressed by its key through a composed binding.</p>
+<p>A reference walk reads locators and source details out of your data, and your data can hold them in more than one shape. All of these shapes are available today and are picked directly in the citation binding section described in the worked example below — a keyed shape (like the per-edition locus) offers a key selector alongside the column picker.</p>
 <ul>
 <li class=""><strong>Linked relation columns.</strong> An occurrence row reaches its source and edition records through link columns, and the reference walk follows those links to gather the author, work, and editor details. This is the usual shape when your sources and editions are tables of their own.</li>
 <li class=""><strong>A per-edition locus field.</strong> One field on the occurrence holds a keyed locator per edition — the page in a modern critical edition alongside the locus in an early printed one — so a single passage carries its position in every edition it is catalogued against. This is the shape behind paired-edition bridging.</li>
@@ -163,12 +163,13 @@
 <li class="">
 <p><strong>Evidence rows in your own convention</strong>, each one a link to the published edition page. In this classics environment a row reads:</p>
 <blockquote>
-<p>Arist., HA III, 4, p. 136 Balme (514a29 Bekker)</p>
+<p>Hipp., Morb. Sacr. 3.4 = 6 Jones (11,21 Jouanna = VI.366 L.):</p>
 </blockquote>
 <blockquote>
-<p>Hipp., Sacred Disease, 3, p. 11 Jouanna (366 L.)</p>
+<p>Arist., HA III, 4, p. 138 Balme (515a3):</p>
 </blockquote>
-<p>The anatomy: the abbreviated author from your abbreviations vocabulary; the treatise short form where the vocabulary carries one; the book as a Roman numeral; the page and editor abbreviation for the modern edition; and, in parentheses, the equivalent locus in the paired early edition. Every piece is your data rendered through your declared conventions.</p>
+<p>The anatomy: the abbreviated author and treatise from your abbreviations vocabulary (resolved through the linked abbreviation rows); chapter and section; an equals-bridge to the modern edition&#x27;s page and editor; and, in parentheses, the equivalent loci in the paired early editions — comma&#x27;d page,line with the editor&#x27;s abbreviation where your data names one, a bare classical locus (a Bekker number) where it doesn&#x27;t. Every piece is your data rendered through your declared conventions; the same declared bindings produce both shapes with no per-author rules anywhere.</p>
+<p>Hovering (or keyboard-focusing) an occurrence reference reveals its full details — author, work, and locus — with the author and work linking to their published entry pages when those exist.</p>
 </li>
 <li class="">
 <p><strong>The page&#x27;s own citation</strong>, with a citation format selector: your environment&#x27;s style — the default, shown as the project style — plus APA, MLA, Chicago author-date, Chicago notes &amp; bibliography, and Harvard. Switching re-renders the one copyable citation line in the reader&#x27;s browser from the citation&#x27;s structured data. Your style stays the default for every new reader, and the switch never changes your evidence rows.</p>
