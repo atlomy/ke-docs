@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">The Relations view: seeing and managing a record&#x27;s connections | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/relations-view"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Relations view: seeing and managing a record&#x27;s connections | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Purpose"><meta data-rh="true" property="og:description" content="Purpose"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/relations-view"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/relations-view" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/relations-view" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Relations view: seeing and managing a record's connections","item":"https://atlomy.github.io/ke-docs/users/relations-view"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.111f90a0.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.8aaf2859.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.de2868b7.js" defer="defer"></script>
 </head>
 <body>
@@ -21,7 +21,7 @@ once: the links it makes, the links other records make to it — including
 connections an import created that no relation field declares — and what the
 platform knows about each one: its status, its confidence, and where it came
 from. Read this page when you want to audit a record&#x27;s connections, review
-links that arrived from an import or an automated step, or remove a link with
+links that arrived from an import or a reviewed process, or remove a link with
 its full context in front of you. For quick link editing while you work on a
 record&#x27;s fields, the Table and Details views are usually faster — see
 <a class="" href="/ke-docs/users/help/link-two-records">Link one record to another</a>.</p>
@@ -49,6 +49,10 @@ immediately and recorded under your name.</li>
 <li class=""><strong>Inspector with safe unlink</strong> (Active) — select any link to see its
 status, confidence, provenance, and anchor detail, and remove it behind a
 hold-to-confirm step.</li>
+<li class=""><strong>Undo and redo with exact relationship detail</strong> (Active) — link changes
+join the same table history as edits made in Table and Details. Undoing an
+unlink restores the connection&#x27;s recorded status, provenance, detail,
+anchor, and attribution rather than creating a new generic link.</li>
 <li class=""><strong>Approve and Reject buttons</strong> — visible in the Inspector but not yet
 available; changing a link&#x27;s status from this view is not possible.</li>
 </ul>
@@ -60,6 +64,10 @@ in the Table or Details view stays focused when you switch to Relations, so
 the usual path is: find the record where you are, then switch tabs. For a
 large table the Rows list shows only the first stretch of records — focus the
 record first and bring it with you.</p>
+<p>The Rows list uses the collection&#x27;s shared row-title field, the same title used
+in Details and the Publish row picker. If a row has no value in that field, it
+is shown as unnamed rather than being labelled with the collection&#x27;s generic
+record type or a guessed field.</p>
 <p>Beside the rows, the <strong>Predicate panel</strong> lists the table&#x27;s relation fields —
 each with its label and the collection it points to. Pick a field to see the
 focused record&#x27;s links through it.</p>
@@ -97,16 +105,20 @@ relation field it used, and the link&#x27;s status. These links belong to the
 other record&#x27;s relation fields — Relations is the one place you can see them
 gathered on the receiving side.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-link-statuses-mean-for-your-work">What link statuses mean for your work<a href="#what-link-statuses-mean-for-your-work" class="hash-link" aria-label="Direct link to What link statuses mean for your work" title="Direct link to What link statuses mean for your work" translate="no">​</a></h3>
-<p>Not every link is made by hand: imports create links between the records
-they bring in, and automated analysis can suggest connections it found in
-your material. The status tells you which links are settled:</p>
+<p>Not every link is made by hand. Imports can create links between the records
+they bring in. AI can originate or refine a proposed relationship during
+import, but a person approves that proposal before the platform creates the
+relationship field and its approved links; AI cannot write arbitrary links
+directly. The status tells you which links are settled:</p>
 <ul>
 <li class=""><strong>approved</strong> — a settled connection. Links you add by hand are approved
 immediately, under your name; links created by an import arrive approved.</li>
 <li class=""><strong>draft</strong> — a link made while its record was still a draft row. It becomes
 approved automatically when the record is activated.</li>
-<li class=""><strong>proposed</strong> — suggested by an automated step rather than a person, and
-not yet settled.</li>
+<li class=""><strong>proposed</strong> — an unsettled lifecycle value the view can display when a
+process recorded it. The current AI-assisted import path does not directly
+create individual proposed links; approved import decisions materialize
+approved links.</li>
 <li class=""><strong>rejected</strong> — a connection that was rejected. It stays listed under its
 own status rather than disappearing, so the decision remains visible.</li>
 </ul>
@@ -142,7 +154,7 @@ the process that created it, or the person&#x27;s name). An <strong>Anchor</stro
 whether the link points at a specific place inside the connected record or
 at the whole record. Below that, the Inspector shows the link&#x27;s full
 recorded detail, useful when you need to check exactly what an import or an
-analysis wrote.</p>
+approved review process recorded.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="removing-a-link--and-what-happens-to-the-other-record">Removing a link — and what happens to the other record<a href="#removing-a-link--and-what-happens-to-the-other-record" class="hash-link" aria-label="Direct link to Removing a link — and what happens to the other record" title="Direct link to Removing a link — and what happens to the other record" translate="no">​</a></h3>
 <ol>
 <li class="">Select the link in any mode, or in the Incoming section.</li>
@@ -155,13 +167,25 @@ disappears from the other record&#x27;s relation field at the same time, and an
 incoming link you unlink is removed from the record that made it. Adding and
 removing links requires edit access in your environment; if an attempt is
 declined, contact your environment administrator.</p>
+<p>The unlink joins the active table&#x27;s workspace history. Select <strong>Undo</strong> in
+Relations, Table, or Details — or press <code>Ctrl/Cmd+Z</code> outside an editor — to
+restore the same recorded connection. Redo accepts <code>Ctrl/Cmd+Y</code> or
+<code>Shift+Ctrl/Cmd+Z</code>. Restore is allowed only for the same signed-in person and
+environment, within 90 days, while the current relationship field still
+permits the link. A stale, already-used, duplicated, or no-longer-valid restore
+is refused instead of widening the current relationship rule.</p>
+<p>An import run itself is not undoable here. If an import created an approved
+link through a declared relationship field and you later unlink it in the
+workspace, that later unlink can be undone. Connections in <strong>Other linked
+records</strong> have no editable field behind them and remain read-only.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-relations-differs-from-the-table-and-details-views">How Relations differs from the Table and Details views<a href="#how-relations-differs-from-the-table-and-details-views" class="hash-link" aria-label="Direct link to How Relations differs from the Table and Details views" title="Direct link to How Relations differs from the Table and Details views" translate="no">​</a></h3>
 <p>The Table and Details views edit links field by field, as chips on the
 record — the fastest way to add or remove a link while editing, covered in
 <a class="" href="/ke-docs/users/help/link-two-records">Link one record to another</a>. Relations shows the
 whole connection picture for one record: both directions, statuses,
 confidence, provenance, and anchor detail — and it is the only view that
-shows incoming links. Use Table and Details to make links as you work; use
+shows incoming links. All three views contribute to one chronological edit
+history for the table. Use Table and Details to make links as you work; use
 Relations to audit them.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
 
@@ -219,7 +243,12 @@ Relations to audit them.</p>
 
 
 
-<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>The view says no relation fields are declared and no linked records were found for this row.</td><td>The table has no relation field and the focused record has no imported connections either.</td><td>Create a relation field between the two collections — see <a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a> — or contact your environment administrator.</td></tr><tr><td>Some linked records sit in an &quot;Other linked records&quot; section and cannot be edited or removed.</td><td>Those connections came from an import under a rule no relation field declares, so the view can only show them.</td><td>This is by design — they are the same connections a published entry shows. To manage links yourself, use a relation field.</td></tr><tr><td>No links show, with a message about the predicate, lifecycle, and confidence filter.</td><td>The filters are narrower than the data.</td><td>Set the Lifecycle filter to <strong>All</strong>, slide the Confidence floor to 0%, and check that the right relation field is selected.</td></tr><tr><td>The Add target search box cannot be typed in.</td><td>No record is focused, or the chosen relation field does not declare a target table.</td><td>Pick a record in the Rows list and a relation field that points at a collection. If the field should have one, contact your environment administrator.</td></tr><tr><td>Adding a link is declined with a message about draft records.</td><td>One of the two records is still a draft.</td><td>Activate the draft first — see <a class="" href="/ke-docs/users/adding-and-editing-rows">Adding and editing rows</a>. To link a row you are still drafting, use its relation field in the Details view.</td></tr><tr><td>The search shows no matching records.</td><td>The target collection has no record matching your term.</td><td>Try a shorter or different term, or add the record to the target collection first.</td></tr><tr><td><strong>Unlink edge</strong> stays gray.</td><td>The hold-to-confirm box is not ticked.</td><td>Tick <strong>Hold-to-confirm unlink</strong>, then click <strong>Unlink edge</strong>.</td></tr><tr><td>Linked records show as &quot;Unnamed record&quot; or as strings of letters and numbers.</td><td>The connected collection has no display field configured, so labels fall back to an internal identifier.</td><td>Contact your environment administrator and ask them to set a display field for that collection.</td></tr><tr><td>Adding or unlinking fails with a permissions message.</td><td>Your role does not include edit access for this environment.</td><td>Contact your environment administrator.</td></tr></tbody></table>
+
+
+
+
+
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>The view says no relation fields are declared and no linked records were found for this row.</td><td>The table has no relation field and the focused record has no imported connections either.</td><td>Create a relation field between the two collections — see <a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a> — or contact your environment administrator.</td></tr><tr><td>Some linked records sit in an &quot;Other linked records&quot; section and cannot be edited or removed.</td><td>Those connections came from an import under a rule no relation field declares, so the view can only show them.</td><td>This is by design — they are the same connections a published entry shows. To manage links yourself, use a relation field.</td></tr><tr><td>No links show, with a message about the predicate, lifecycle, and confidence filter.</td><td>The filters are narrower than the data.</td><td>Set the Lifecycle filter to <strong>All</strong>, slide the Confidence floor to 0%, and check that the right relation field is selected.</td></tr><tr><td>The Add target search box cannot be typed in.</td><td>No record is focused, or the chosen relation field does not declare a target table.</td><td>Pick a record in the Rows list and a relation field that points at a collection. If the field should have one, contact your environment administrator.</td></tr><tr><td>Adding a link is declined with a message about draft records.</td><td>One of the two records is still a draft.</td><td>Activate the draft first — see <a class="" href="/ke-docs/users/adding-and-editing-rows">Adding and editing rows</a>. To link a row you are still drafting, use its relation field in the Details view.</td></tr><tr><td>The search shows no matching records.</td><td>The target collection has no record matching your term.</td><td>Try a shorter or different term, or add the record to the target collection first.</td></tr><tr><td><strong>Unlink edge</strong> stays gray.</td><td>The hold-to-confirm box is not ticked.</td><td>Tick <strong>Hold-to-confirm unlink</strong>, then click <strong>Unlink edge</strong>.</td></tr><tr><td>A row or linked record shows as unnamed.</td><td>Its collection has no row-title field, or that record has no value in the configured title field. The workspace does not guess another field.</td><td>Contact your environment administrator and ask them to set a row-title field that the records fill.</td></tr><tr><td>Undoing an unlink is refused.</td><td>The restore belongs to another person or environment, was already used, is older than 90 days, would duplicate a current link, or the relationship field changed.</td><td>Refresh the view and inspect the current relationship rule and links. Add the link again only if the current rule permits it.</td></tr><tr><td>Adding or unlinking fails with a permissions message.</td><td>Your role does not include edit access for this environment.</td><td>Contact your environment administrator.</td></tr></tbody></table>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
 <ul>
 <li class=""><a class="" href="/ke-docs/users/help/link-two-records">Link one record to another</a> — adding and

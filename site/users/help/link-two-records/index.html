@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Link one record to another | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/help/link-two-records"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Link one record to another | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Relation fields connect a record in one collection to one or more records in"><meta data-rh="true" property="og:description" content="Relation fields connect a record in one collection to one or more records in"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/help/link-two-records"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/link-two-records" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/link-two-records" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Quick help","item":"https://atlomy.github.io/ke-docs/users/help/"},{"@type":"ListItem","position":2,"name":"Link one record to another","item":"https://atlomy.github.io/ke-docs/users/help/link-two-records"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.111f90a0.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.8aaf2859.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.de2868b7.js" defer="defer"></script>
 </head>
 <body>
@@ -40,10 +40,20 @@ pick steps.  A record that is already linked is not offered again.</p>
 <li class="">Click the <strong>×</strong> on the chip.  The link is removed and the change saves
 straight away.</li>
 </ol>
+<p>The link change joins the active table&#x27;s workspace history. Use <strong>Undo</strong> in
+Table, Details, or Relations, or press <code>Ctrl/Cmd+Z</code> outside an editor, to reverse
+the most recent link change. Redo accepts <code>Ctrl/Cmd+Y</code> or
+<code>Shift+Ctrl/Cmd+Z</code>.</p>
+<p>Undoing an unlink restores the same recorded connection, including its status,
+provenance, detail, anchor, and attribution. The restore works only for the same
+signed-in person and environment, within 90 days, and while the current relation
+field still permits the link. If any of those checks fail, the workspace refuses
+the restore rather than creating a different connection.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="reviewing-a-records-links">Reviewing a record&#x27;s links<a href="#reviewing-a-records-links" class="hash-link" aria-label="Direct link to Reviewing a record&#x27;s links" title="Direct link to Reviewing a record&#x27;s links" translate="no">​</a></h2>
 <p>The <strong>Relations</strong> view shows every link for a selected record — both the
 links it makes and the links other records make to it.  Select a link there
-to see its details, or to remove it.</p>
+to see its details, or to remove it. Link changes from Relations share the same
+table history as changes from Table and Details.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="links-and-new-draft-rows">Links and new draft rows<a href="#links-and-new-draft-rows" class="hash-link" aria-label="Direct link to Links and new draft rows" title="Direct link to Links and new draft rows" translate="no">​</a></h2>
 <p>A newly created row begins as a draft.</p>
 <blockquote>
@@ -98,7 +108,12 @@ kept.</p>
 
 
 
-<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>The search box shows no results when I type.</td><td>The target collection has no records yet, or your search term does not match any.</td><td>Add a record to the target collection first, or try a shorter or different search term.</td></tr><tr><td>The record I want to link to does not appear in the results.</td><td>It may still be a draft — links can only point to active records.</td><td>Activate that record first, then search again.</td></tr><tr><td>The relation field in a new row is not editable yet.</td><td>The platform creates your draft after you fill in a first value.</td><td>Enter a value in another field and click out of it, then return to the relation field.</td></tr><tr><td>The relation field is not visible in the Details view.</td><td>The field may be hidden in the current view.</td><td>Open <strong>Manage columns</strong> from the Table view toolbar and make sure the field is shown.</td></tr><tr><td>I cannot add a link to my row from the table.</td><td>The row is still a draft.</td><td>Fill in the row&#x27;s required fields and activate it, then add the link.</td></tr><tr><td>The <strong>×</strong> to remove a link is not showing.</td><td>Your role may not include edit access for this collection.</td><td>Contact your environment administrator.</td></tr></tbody></table>
+
+
+
+
+
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>The search box shows no results when I type.</td><td>The target collection has no records yet, or your search term does not match any.</td><td>Add a record to the target collection first, or try a shorter or different search term.</td></tr><tr><td>The record I want to link to does not appear in the results.</td><td>It may still be a draft — links can only point to active records.</td><td>Activate that record first, then search again.</td></tr><tr><td>The relation field in a new row is not editable yet.</td><td>The platform creates your draft after you fill in a first value.</td><td>Enter a value in another field and click out of it, then return to the relation field.</td></tr><tr><td>The relation field is not visible in the Details view.</td><td>The field may be hidden in the current view.</td><td>Open <strong>Manage columns</strong> from the Table view toolbar and make sure the field is shown.</td></tr><tr><td>I cannot add a link to my row from the table.</td><td>The row is still a draft.</td><td>Fill in the row&#x27;s required fields and activate it, then add the link.</td></tr><tr><td>The <strong>×</strong> to remove a link is not showing.</td><td>Your role may not include edit access for this collection.</td><td>Contact your environment administrator.</td></tr><tr><td>Undoing a removed link is refused.</td><td>The restore is stale, already used, belongs to another person or environment, would duplicate a current link, or the relation field changed.</td><td>Refresh the record and review its current links. Add the link again only if the current field permits it.</td></tr></tbody></table>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
 <ul>
 <li class=""><a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch without importing</a> —
