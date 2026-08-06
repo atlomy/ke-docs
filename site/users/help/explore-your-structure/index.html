@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">See the shape of your environment in the Schema Visualizer | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/help/explore-your-structure"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="See the shape of your environment in the Schema Visualizer | KE — Knowledge Environments"><meta data-rh="true" name="description" content="The Schema Visualizer draws your whole environment as one picture: every"><meta data-rh="true" property="og:description" content="The Schema Visualizer draws your whole environment as one picture: every"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/help/explore-your-structure"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/explore-your-structure" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/explore-your-structure" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Quick help","item":"https://atlomy.github.io/ke-docs/users/help/"},{"@type":"ListItem","position":2,"name":"See the shape of your environment in the Schema Visualizer","item":"https://atlomy.github.io/ke-docs/users/help/explore-your-structure"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.17de94ef.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.2ca9231e.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.de2868b7.js" defer="defer"></script>
 </head>
 <body>
@@ -16,8 +16,10 @@
 collection, and every relation between collections, laid out so you can see how
 the pieces fit together.</p>
 <p>Open it from the <strong>Visualizer</strong> section of your environment&#x27;s management area,
-or go straight to <code>/visualizer/schema/</code>. If it is not in your navigation, your
-role may not include the management tools — ask a project admin.</p>
+or go straight to <code>/app/workspace/visualize/schema</code>. Any active viewer, editor,
+or administrator can open it. The management navigation can be narrower than
+the route itself, so a missing link does not mean that the visualizer is
+administrator-only.</p>
 <p>It reads your <strong>live schema</strong> — the structure exactly as it stands right now.
 The header tells you how many collections and relations it found, and <strong>Sync
 schema</strong> re-reads them if you have just changed something in the workspace.</p>
@@ -28,7 +30,9 @@ collections and the same relations; only the drawing changes, so pick whichever
 one makes your structure easiest to read.</p>
 <ul>
 <li class=""><strong>Schema</strong> — each collection is a card that lists its fields, with labelled
-arrows for the relations between them. The most literal view.</li>
+arrows for the relations between them. The most literal view. Focus a
+collection name and use the arrow keys to move its card; hold Shift for a
+larger step.</li>
 <li class=""><strong>Constellation</strong> — each collection is a glowing orb; related orbs are joined
 by lines. The most-connected collection anchors the centre and glows
 brightest; the others gather around it by how closely they relate to that
@@ -133,7 +137,12 @@ already see and do in the workspace and the other views.</p>
 
 
 
-<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>A collection I just created is not on the map.</td><td>The map is showing the schema from before your change.</td><td>Select <strong>Sync schema</strong> in the header to re-read the live structure.</td></tr><tr><td>The map looks empty or nearly empty.</td><td>A brand-new environment has few collections and no relations yet.</td><td>Add collections and relations in the workspace; see <a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a>.</td></tr><tr><td>I clicked a collection but nothing changed.</td><td>The detail panel may have opened off to the side, or you clicked empty space.</td><td>Click directly on the orb, station, room, or card; the panel opens beside the map.</td></tr><tr><td>I cannot edit anything here.</td><td>The visualizer is read-only by design.</td><td>Make structural changes in the workspace, then use <strong>Sync schema</strong>.</td></tr></tbody></table>
+
+
+
+
+
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>A collection I just created is not on the map.</td><td>The map is showing the schema from before your change.</td><td>Select <strong>Sync schema</strong> in the header to re-read the live structure.</td></tr><tr><td>The map looks empty or nearly empty.</td><td>A brand-new environment has few collections and no relations yet.</td><td>Add collections and relations in the workspace; see <a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a>.</td></tr><tr><td>I clicked a collection but nothing changed.</td><td>The detail panel may have opened off to the side, or you clicked empty space.</td><td>Click directly on the orb, station, room, or card; the panel opens beside the map.</td></tr><tr><td>I cannot edit anything here.</td><td>The visualizer is read-only by design.</td><td>Make structural changes in the workspace, then use <strong>Sync schema</strong>.</td></tr><tr><td>The schema could not be loaded.</td><td>The live structure request failed.</td><td>Select <strong>Retry</strong>. The message deliberately does not show server or database details.</td></tr></tbody></table>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
 <ul>
 <li class=""><a class="" href="/ke-docs/users/help/build-from-empty">Build a knowledge environment from scratch</a> — creating
