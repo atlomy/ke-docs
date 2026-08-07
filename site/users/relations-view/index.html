@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">The Relations view: seeing and managing a record&#x27;s connections | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/relations-view"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="The Relations view: seeing and managing a record&#x27;s connections | KE — Knowledge Environments"><meta data-rh="true" name="description" content="Purpose"><meta data-rh="true" property="og:description" content="Purpose"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/relations-view"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/relations-view" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/relations-view" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"The Relations view: seeing and managing a record's connections","item":"https://atlomy.github.io/ke-docs/users/relations-view"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.2ca9231e.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.c0191066.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.de2868b7.js" defer="defer"></script>
 </head>
 <body>
@@ -64,10 +64,11 @@ in the Table or Details view stays focused when you switch to Relations, so
 the usual path is: find the record where you are, then switch tabs. For a
 large table the Rows list shows only the first stretch of records — focus the
 record first and bring it with you.</p>
-<p>The Rows list uses the collection&#x27;s shared row-title field, the same title used
-in Details and the Publish row picker. If a row has no value in that field, it
-is shown as unnamed rather than being labelled with the collection&#x27;s generic
-record type or a guessed field.</p>
+<p>When a collection declares a shared row-title field, the Rows list uses it, as
+do Details and the Publish row picker. If a row has no value in that configured
+field, it is shown as unnamed rather than being labelled with the collection&#x27;s
+generic record type or another guessed field. A collection without a declared
+row-title field may use the platform&#x27;s conventional label fallback.</p>
 <p>Beside the rows, the <strong>Predicate panel</strong> lists the table&#x27;s relation fields —
 each with its label and the collection it points to. Pick a field to see the
 focused record&#x27;s links through it.</p>
@@ -106,7 +107,7 @@ other record&#x27;s relation fields — Relations is the one place you can see t
 gathered on the receiving side.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-link-statuses-mean-for-your-work">What link statuses mean for your work<a href="#what-link-statuses-mean-for-your-work" class="hash-link" aria-label="Direct link to What link statuses mean for your work" title="Direct link to What link statuses mean for your work" translate="no">​</a></h3>
 <p>Not every link is made by hand. Imports can create links between the records
-they bring in. AI can originate or refine a proposed relationship during
+they bring in. AI can confirm or refine a parser-surfaced relationship during
 import, but a person approves that proposal before the platform creates the
 relationship field and its approved links; AI cannot write arbitrary links
 directly. The status tells you which links are settled:</p>
