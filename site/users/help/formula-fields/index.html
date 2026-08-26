@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-help/formula-fields" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.1">
+<title data-rh="true">Build a formula column | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/help/formula-fields"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Build a formula column | KE — Knowledge Environments"><meta data-rh="true" name="description" content="A formula column is computed from the row&#x27;s other columns.  You write the"><meta data-rh="true" property="og:description" content="A formula column is computed from the row&#x27;s other columns.  You write the"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/help/formula-fields"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/formula-fields" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/formula-fields" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Quick help","item":"https://atlomy.github.io/ke-docs/users/help/"},{"@type":"ListItem","position":2,"name":"Build a formula column","item":"https://atlomy.github.io/ke-docs/users/help/formula-fields"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
+<script src="/ke-docs/assets/js/runtime~main.c11ac621.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/main.87d9d64e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/ke-docs/"><div class="navbar__logo"><img src="/ke-docs/img/atlomy-mark.svg" alt="KE — Knowledge Environments" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/ke-docs/img/atlomy-mark-dark.svg" alt="KE — Knowledge Environments" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">KE Documentation</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/ke-docs/users/">Researchers</a><a class="navbar__item navbar__link" href="/ke-docs/tenant-admin/">Environment Admins</a><a class="navbar__item navbar__link" href="/ke-docs/standards/">Standards</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/"><span title="Researcher Guide" class="linkLabel_WmDU">Researcher Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/ke-docs/users/faq"><span title="Frequently asked questions" class="linkLabel_WmDU">Frequently asked questions</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/ke-docs/users/getting-started"><span title="Tasks" class="categoryLinkLabel_W154">Tasks</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/getting-started"><span title="Getting started: your first week" class="linkLabel_WmDU">Getting started: your first week</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/workspace-walkthrough"><span title="Workspace Walkthrough" class="linkLabel_WmDU">Workspace Walkthrough</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/searching-and-reading"><span title="Searching and Reading" class="linkLabel_WmDU">Searching and Reading</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/searching-as-a-public-reader"><span title="Searching as a public reader" class="linkLabel_WmDU">Searching as a public reader</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/reading-a-published-collection"><span title="A reader&#x27;s guide to published pages" class="linkLabel_WmDU">A reader&#x27;s guide to published pages</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/adding-and-editing-rows"><span title="Adding and Editing Rows" class="linkLabel_WmDU">Adding and Editing Rows</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/dating-temporal-values"><span title="Dating Temporal Values" class="linkLabel_WmDU">Dating Temporal Values</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/relations-view"><span title="The Relations view: seeing and managing a record&#x27;s connections" class="linkLabel_WmDU">The Relations view: seeing and managing a record&#x27;s connections</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/reviewing-team-work"><span title="Reviewing your team&#x27;s work" class="linkLabel_WmDU">Reviewing your team&#x27;s work</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/publish-view"><span title="The Publish view: field visibility and publishing changes" class="linkLabel_WmDU">The Publish view: field visibility and publishing changes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/withdrawing-a-published-record"><span title="Withdrawing a published record" class="linkLabel_WmDU">Withdrawing a published record</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/preparing-material-for-output"><span title="Preparing material for a paper, bibliography, or course" class="linkLabel_WmDU">Preparing material for a paper, bibliography, or course</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/exploring-3d-models"><span title="Exploring 3D models" class="linkLabel_WmDU">Exploring 3D models</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/working-in-multiple-scripts"><span title="Working in multiple scripts and languages" class="linkLabel_WmDU">Working in multiple scripts and languages</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/keyboard-only-session"><span title="A keyboard-only research session" class="linkLabel_WmDU">A keyboard-only research session</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/accessibility"><span title="Accessibility" class="linkLabel_WmDU">Accessibility</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href="/ke-docs/users/help/"><span title="Quick help" class="categoryLinkLabel_W154">Quick help</span></a><button aria-label="Collapse sidebar category &#x27;Quick help&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/add-a-new-record"><span title="Add a new record" class="linkLabel_WmDU">Add a new record</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/add-a-value-in-another-language"><span title="Add a value in another language" class="linkLabel_WmDU">Add a value in another language</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/browse-by-index"><span title="Browse entries by index" class="linkLabel_WmDU">Browse entries by index</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/build-from-empty"><span title="Build a knowledge environment from scratch without importing" class="linkLabel_WmDU">Build a knowledge environment from scratch without importing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/change-a-column-type"><span title="Change what kind of value a column holds" class="linkLabel_WmDU">Change what kind of value a column holds</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/color-rows-by-rule"><span title="Color rows by rule" class="linkLabel_WmDU">Color rows by rule</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/copy-a-citation"><span title="Copy a citation for a record or media item" class="linkLabel_WmDU">Copy a citation for a record or media item</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/copy-and-paste-table-values"><span title="Copy and paste table values" class="linkLabel_WmDU">Copy and paste table values</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/date-a-value"><span title="Date a value" class="linkLabel_WmDU">Date a value</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/discard-an-import"><span title="Discard an import you no longer want" class="linkLabel_WmDU">Discard an import you no longer want</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/edit-a-time-range"><span title="Edit a time range" class="linkLabel_WmDU">Edit a time range</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/explore-your-structure"><span title="See the shape of your environment in the Schema Visualizer" class="linkLabel_WmDU">See the shape of your environment in the Schema Visualizer</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/export-selected-rows"><span title="Export selected rows" class="linkLabel_WmDU">Export selected rows</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/filter-the-current-table"><span title="Narrow the current table with filters" class="linkLabel_WmDU">Narrow the current table with filters</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/find-fields-in-no-collection"><span title="Find fields that no collection shows" class="linkLabel_WmDU">Find fields that no collection shows</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/find-help-on-a-topic"><span title="Find help on a topic" class="linkLabel_WmDU">Find help on a topic</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/fix-colliding-column-names"><span title="Fix colliding column names during import" class="linkLabel_WmDU">Fix colliding column names during import</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/ke-docs/users/help/formula-fields"><span title="Build a formula column" class="linkLabel_WmDU">Build a formula column</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/keep-non-standard-values-as-is"><span title="Keep non-standard values as-is during import" class="linkLabel_WmDU">Keep non-standard values as-is during import</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/link-two-records"><span title="Link one record to another" class="linkLabel_WmDU">Link one record to another</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/make-field-required"><span title="Make a field required" class="linkLabel_WmDU">Make a field required</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/manage-public-views"><span title="Manage public views and readiness" class="linkLabel_WmDU">Manage public views and readiness</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/multiple-values-column"><span title="Let a column hold several values" class="linkLabel_WmDU">Let a column hold several values</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/organize-the-sidebar"><span title="Pin and group tables in the sidebar" class="linkLabel_WmDU">Pin and group tables in the sidebar</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/preview-before-publishing"><span title="Preview an entry before publishing" class="linkLabel_WmDU">Preview an entry before publishing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/publish-a-record"><span title="Publish a record — and why saving is not publishing" class="linkLabel_WmDU">Publish a record — and why saving is not publishing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/quick-search-vs-search-and-read"><span title="Choose between the quick search bar and Search &amp; Read" class="linkLabel_WmDU">Choose between the quick search bar and Search &amp; Read</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/register-a-collection"><span title="Register a collection the platform built from your data" class="linkLabel_WmDU">Register a collection the platform built from your data</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/remove-a-collection"><span title="Remove a collection without deleting its records" class="linkLabel_WmDU">Remove a collection without deleting its records</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/rename-a-field-label"><span title="Rename a field label" class="linkLabel_WmDU">Rename a field label</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/save-a-view"><span title="Save your table arrangement as a view" class="linkLabel_WmDU">Save your table arrangement as a view</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/saved-views-and-reimports"><span title="What happens to saved views after a re-import" class="linkLabel_WmDU">What happens to saved views after a re-import</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/search-cant-find-a-record"><span title="Find a record when search returns nothing" class="linkLabel_WmDU">Find a record when search returns nothing</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/see-related-records-in-a-cell"><span title="See related records in a cell" class="linkLabel_WmDU">See related records in a cell</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/see-what-you-decided-in-an-import"><span title="See what you decided in an import, table by table" class="linkLabel_WmDU">See what you decided in an import, table by table</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/see-which-mesh-maps-to-which-term"><span title="See which mesh maps to which term" class="linkLabel_WmDU">See which mesh maps to which term</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/share-a-search"><span title="Share a search so a colleague sees the same results" class="linkLabel_WmDU">Share a search so a colleague sees the same results</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/sign-in-and-password"><span title="Sign in and manage your password" class="linkLabel_WmDU">Sign in and manage your password</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/tune-the-3d-camera-view"><span title="Tune the 3D camera view" class="linkLabel_WmDU">Tune the 3D camera view</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/understand-references-section"><span title="Read the references section on a published entry" class="linkLabel_WmDU">Read the references section on a published entry</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/what-changed-after-reimport"><span title="Understand what changed after a re-import" class="linkLabel_WmDU">Understand what changed after a re-import</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/why-collections-are-hidden"><span title="See why some collections are hidden in Search &amp; Read" class="linkLabel_WmDU">See why some collections are hidden in Search &amp; Read</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/work-with-media-in-the-workspace"><span title="Work with media in the workspace" class="linkLabel_WmDU">Work with media in the workspace</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/workspace-experiments"><span title="Turn workspace experiments on and off" class="linkLabel_WmDU">Turn workspace experiments on and off</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/help/write-formatted-text"><span title="Write formatted text" class="linkLabel_WmDU">Write formatted text</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/ke-docs/users/public-reader"><span title="Concepts" class="categoryLinkLabel_W154">Concepts</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/public-reader"><span title="Public reader" class="linkLabel_WmDU">Public reader</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/table-layout-and-columns"><span title="Table layout: sorting, column controls, and the column manager" class="linkLabel_WmDU">Table layout: sorting, column controls, and the column manager</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/citations-you-can-trust"><span title="Citations you can trust: stability and styles" class="linkLabel_WmDU">Citations you can trust: stability and styles</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/workspace-memory-and-undo"><span title="What the workspace remembers — and what you can undo" class="linkLabel_WmDU">What the workspace remembers — and what you can undo</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/privacy-and-safety"><span title="Privacy and Safety" class="linkLabel_WmDU">Privacy and Safety</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/ke-docs/users/tips-and-guidance"><span title="Tips and Guidance" class="linkLabel_WmDU">Tips and Guidance</span></a></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/ke-docs/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/ke-docs/users/help/"><span>Quick help</span></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Build a formula column</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Build a formula column</h1></header>
+<p>A formula column is computed from the row&#x27;s other columns.  You write the
+rule once; every row shows its own result, and the result follows the
+columns it reads — change a value in one of them and the formula&#x27;s value
+changes with it.  The column is read-only in the table: you edit the
+columns it reads, not the result.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="add-a-formula">Add a formula<a href="#add-a-formula" class="hash-link" aria-label="Direct link to Add a formula" title="Direct link to Add a formula" translate="no">​</a></h2>
+<p>A formula is something a column <em>has</em>, not a separate kind of column.  You
+can give one to a column you already have, or start a new column with one.</p>
+<p><strong>Give a formula to a column you already have</strong></p>
+<ol>
+<li class="">Open the column&#x27;s menu — <strong>Column actions</strong> on the column header, or
+right-click the header.</li>
+<li class="">Choose <strong>Add formula…</strong>.  The column editor opens with the formula
+editor already showing.</li>
+<li class="">Build the formula (below).  The preview under <strong>With your rows</strong> shows
+the result on five of the rows already loaded in your table, updating as
+you type.</li>
+<li class="">Click <strong>Save changes</strong>.  The column becomes read-only in the table and
+shows a computed value in every row.</li>
+</ol>
+<p>The column keeps the formatting it already had wherever the result can
+still use it — a money column whose formula returns a number is still shown
+as money, and a web-address column whose formula returns text is still
+shown as a link.</p>
+<p><strong>Start a new column with a formula</strong></p>
+<ol>
+<li class="">Click <strong>+</strong> at the right end of the column headers (or <strong>Insert column…</strong>
+in a column&#x27;s menu).</li>
+<li class="">Give the column a label, then open <strong>Change type…</strong> and pick <strong>Formula</strong>
+under <strong>Built from other fields</strong>.  The card shows a sample formula and
+an <strong>Open the formula editor…</strong> button that takes you straight there.</li>
+<li class="">Build the formula and click <strong>Add column</strong>.</li>
+</ol>
+<blockquote>
+<p>A linked-record column cannot take a formula.  Its structure comes from
+the source it was linked from, so the menu shows <strong>Add formula…</strong> greyed
+out with the reason.  Add a separate column for the formula instead.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sentence-mode-columns-and-text">Sentence mode: columns and text<a href="#sentence-mode-columns-and-text" class="hash-link" aria-label="Direct link to Sentence mode: columns and text" title="Direct link to Sentence mode: columns and text" translate="no">​</a></h2>
+<p>Sentence mode is for joining columns with text between them — a full name,
+a citation line, a label with a dash in it.</p>
+<ul>
+<li class="">Type <code>{</code> where the column should go and pick it from the list that
+opens; the letters you type after <code>{</code> narrow the list.  Or press
+<strong>Insert column</strong> at the end of the sentence to pick one for the caret.
+Chips move as one piece; a focused chip is removed with Backspace or
+Delete.</li>
+<li class="">Type the text you want between chips straight into the sentence box.</li>
+<li class=""><strong>When a column is empty, skip it — and the text glued to it</strong> (checked by
+default) drops the text next to a column when that column is empty in a
+row, so you do not get a stray dash after a missing translation.</li>
+</ul>
+<p>Under <strong>Result</strong> the editor names what kind of value the formula produces —
+a sentence produces text.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="expression-mode-functions-and-operators">Expression mode: functions and operators<a href="#expression-mode-functions-and-operators" class="hash-link" aria-label="Direct link to Expression mode: functions and operators" title="Direct link to Expression mode: functions and operators" translate="no">​</a></h2>
+<p>Switch the toggle to <strong>Expression</strong> to see the same formula written out —
+a sentence appears as <code>Template(&quot;{column_key} — {other_key}&quot;, true)</code> — and
+to go beyond what a sentence can say.</p>
+<ul>
+<li class="">A column in the formula shows as a <strong>pill</strong> with the column&#x27;s label (its
+key on hover).  Typing <code>{</code> opens the list of columns to pick from, and
+the letters after it narrow the list.
+A pill is one piece: Delete or Backspace on a selected pill removes it
+whole.  To swap a pill for another column, press Enter on it, double-click
+it, or press Backspace right after it — it reopens as text with the column
+list filtered to its label; Escape puts it back.</li>
+<li class="">Text goes in double quotes; <code>&amp;</code> joins pieces of text.</li>
+<li class="">As you type a name, a list of matching columns and functions opens
+(columns first).  Arrow keys move, Tab or Enter accepts, Escape closes;
+a function is inserted as <code>Name(</code> with the caret inside the parentheses,
+a column as a pill.  After <code>Link(</code> the list offers your relation columns,
+after <code>.Field(</code> the linked table&#x27;s columns, and after <code>.</code> the functions
+that apply to the value on the left.</li>
+<li class="">Inside a function call a hint above the caret shows its signature with
+the argument you are on highlighted, plus a one-line description and an
+example.  <strong>Functions</strong> below the box lists the whole catalogue with a
+search box.</li>
+<li class="">The editor checks the expression as you type.  The piece with a problem
+is underlined and the problem is explained under the box in words —
+&quot;‘translatoin’ is not a column — did you mean Translation?&quot; with a button
+that makes the replacement, or &quot;Expected a comma or a closing parenthesis
+after Length(…)&quot;.  While the expression has a problem the preview is
+empty, and the column cannot be saved until it is fixed.</li>
+<li class="">Resting the caret on a piece of the formula (or hovering a pill) shows
+its value on the first preview row — a pill shows that row&#x27;s cell, any
+other piece shows the whole formula&#x27;s result for that row.</li>
+</ul>
+<p>A formula that uses functions or operators the sentence cannot show stays
+in expression mode; the note &quot;This formula uses functions the sentence
+cannot show&quot; explains why the <strong>Sentence</strong> button is greyed out.</p>
+<p>Some formulas produce a number, a date, or a yes/no value rather than text.
+<strong>Result</strong> names which, and the column is shown accordingly.
+Tick <strong>Store as text</strong> to keep the result as plain text instead.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="describe-it-instead-of-writing-it">Describe it instead of writing it<a href="#describe-it-instead-of-writing-it" class="hash-link" aria-label="Direct link to Describe it instead of writing it" title="Direct link to Describe it instead of writing it" translate="no">​</a></h2>
+<p>If your project has drafting turned on and you are allowed to change
+columns, the editor offers <strong>Describe it</strong> — say what the column should
+show in your own words and get a formula back to check.</p>
+<ol>
+<li class="">Type the description under <strong>In your words</strong>, naming your own columns — for
+example <em>&quot;the title in capitals, then a dash, then the short summary&quot;</em>.</li>
+<li class="">Click <strong>Draft it</strong>.</li>
+<li class="">The draft appears marked <strong>Proposed. Nothing is saved yet.</strong></li>
+<li class="">Choose <strong>Use this</strong> to put the formula in the editor, <strong>Adjust by hand</strong>
+to edit it there, or <strong>Discard</strong> to drop it.</li>
+</ol>
+<p>Sometimes there is no formula to choose between: if what you wrote left the
+platform with a question it cannot answer — a column it could not place, a rule
+it could not read — it comes back with the questions and no formula at all.
+<strong>Use this</strong> and <strong>Adjust by hand</strong> are not offered then, because there is
+nothing yet to use or edit.  Answer what it asked by rewriting the description,
+and draft again.</p>
+<p>A draft shows you four things:</p>
+<ul>
+<li class=""><strong>the formula itself</strong>, not only a description of it — shown as column
+chips and the text between them when the draft is simple enough for the
+sentence view, and as the expression written out when it is not,</li>
+<li class="">a sentence restating what it understood, in words,</li>
+<li class="">how many of your columns it used and whether it found them all,</li>
+<li class="">the result on your first rows.</li>
+</ul>
+<p>Your column is not changed until you accept the draft and then save the
+column, so discarding one leaves the column exactly as it was.  Each request
+does use part of the session&#x27;s drafting allowance, and that is spent whether or
+not you keep the result — so a draft you discard is free of consequence for
+your data, not free of allowance.</p>
+<p>A drafted formula is shown to you, not applied, and that matters when it names
+something your table does not have.  The draft is returned as written — the
+unknown name still in it — with the problem stated as a question beside it,
+rather than quietly swapped for a guess.  So a draft can carry a name that will
+not resolve until you change it.</p>
+<p>That case also has no row results: the preview needs a formula the platform can
+read, so a draft naming something unresolved shows its questions and leaves the
+rows blank.  Read the questions and the restating sentence, and where there are
+rows, read those too — a formula can be valid and still not be the one you
+meant.</p>
+<blockquote>
+<p>If you do not see <strong>Describe it</strong>, either your account cannot change columns
+— which a project administrator can grant — or drafting is not turned on for
+your environment, which is set by the platform operator rather than from any
+project setting.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="comparing-different-spellings-of-the-same-word">Comparing different spellings of the same word<a href="#comparing-different-spellings-of-the-same-word" class="hash-link" aria-label="Direct link to Comparing different spellings of the same word" title="Direct link to Comparing different spellings of the same word" translate="no">​</a></h2>
+<p>Formula comparisons are exact by default. That is useful when a spelling
+difference is part of the evidence, but it also means two visually similar
+forms can compare as different text.</p>
+<p>Use <code>Fold()</code> on both sides when you want the comparison to behave like search:</p>
+<ul>
+<li class=""><code>Fold({Word}) = Fold({Variant})</code></li>
+<li class=""><code>Contains(Fold({Title}), Fold(&quot;βίος&quot;))</code></li>
+</ul>
+<p><code>Fold()</code> follows the column&#x27;s comparison setting. A column configured for
+exact comparison keeps its marks, so use an ordinary comparison there. Use
+<code>Fold()</code> inside a comparison rather than as the whole column value: it produces
+a search key, not display text. When an empty preview would gain answers from
+this change, the editor shows a notice with the number of affected rows.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="patterns">Patterns<a href="#patterns" class="hash-link" aria-label="Direct link to Patterns" title="Direct link to Patterns" translate="no">​</a></h2>
+<p>Three functions, <code>RegexMatch</code>, <code>RegexExtract</code> and <code>RegexReplace</code>, take a
+<strong>pattern</strong>: a description of a shape of text rather than the exact text.
+<code>RegexExtract({Citation}, &quot;\d+&quot;)</code> pulls the first run of digits out of a
+citation; <code>RegexReplace({Note}, &quot;\s+&quot;, &quot; &quot;)</code> squeezes every run of spaces down
+to one.</p>
+<p>Patterns here are written the way they are almost everywhere else, with these
+things worth knowing.</p>
+<ul>
+<li class=""><strong><code>\w</code>, <code>\d</code> and <code>\s</code> read whatever alphabet your text is written in.</strong>
+<code>\w</code> is a letter, digit or underscore in any script, so <code>\w+</code> matches
+<code>λόγος</code> and <code>café</code> whole; <code>\d</code> is a digit in any numbering system, including
+<code>٤٢</code> and <code>४२</code>; <code>\s</code> is any space, including the no-break space you get from
+pasted documents.  <code>\W</code>, <code>\D</code> and <code>\S</code> are their opposites.</li>
+<li class=""><strong><code>\p{Greek}</code> names a script</strong>, and so do <code>\p{Hebrew}</code>, <code>\p{Cyrillic}</code>,
+<code>\p{Han}</code> and <code>\p{Latin}</code>; <code>\p{L}</code> is a letter in any of them.  This is the
+dependable way to say &quot;Greek letters&quot;; a hand-written range like
+<code>[Α-Ωα-ω]</code> leaves out every accented form.</li>
+<li class=""><strong>There is no <code>\b</code>.</strong>  A word edge is refused rather than accepted, because
+the only kind available recognises <code>A-Z</code>, <code>0-9</code> and <code>_</code> and nothing else: it
+would step straight over a word in Greek, Hebrew, Cyrillic or accented Latin
+and report that nothing was found.  Write the edge as characters instead.
+To find or take out the word, <code>(?:^|[^\w])(κόσμος)(?:[^\w]|$)</code> hands back the
+word itself.  To replace it, <code>(^|[^\w])κόσμος([^\w]|$)</code> with <code>$1</code> and <code>$2</code> in
+the new text, because the characters either side are part of what matched and
+would otherwise be replaced along with the word.</li>
+<li class=""><strong>Replacing a word takes two passes when it can occur twice in a row.</strong>  The
+character between two occurrences belongs to the first match, so a single
+replace resumes past the second and leaves it alone:
+<code>RegexReplace(&quot;κόσμος κόσμος&quot;, &quot;(^|[^\w])κόσμος([^\w]|$)&quot;, &quot;$1λόγος$2&quot;)</code>
+gives <code>λόγος κόσμος</code>.  Feed that call into a second one with the same pattern
+and new text and every occurrence is replaced, however long the run.  The
+<strong>RegexReplace</strong> entry in the function list shows the nested form to copy.</li>
+<li class=""><strong><code>$</code> means the end of the value, not the end of a line.</strong>  If a value ends
+in a line break, <code>&quot;ology$&quot;</code> will not match it; write <code>&quot;ology\n?$&quot;</code>, or put
+<code>(?m)</code> at the front to make <code>^</code> and <code>$</code> mean the start and end of each line.
+The value is searched exactly as it is stored, line breaks and all, so
+<code>RegexReplace({Note}, &quot;\s+$&quot;, &quot;&quot;)</code> takes a trailing line break off.</li>
+<li class="">The flags you can set are <code>(?i)</code> to ignore case, <code>(?m)</code> for <code>^</code> and <code>$</code> per
+line, and <code>(?s)</code> to let <code>.</code> match a line break.</li>
+<li class=""><strong><code>(?i)</code> reads the dotted and dotless I as one letter.</strong>  <code>I</code>, <code>i</code>, <code>İ</code> and
+<code>ı</code> all match each other, so <code>(?i)istanbul</code> finds <code>İstanbul</code> and
+<code>ıstanbul</code> as well.  Every other letter ignores case the way you would
+expect; this is the one pair where two scripts disagree about which capital
+belongs to which small letter, and ignoring case here joins all four.  To
+keep them apart, leave <code>(?i)</code> off and write the letters you mean.</li>
+<li class=""><strong>Write the pattern out in quotes.</strong>  A pattern is part of the formula, not
+something read from a column, so <code>RegexExtract({Citation}, {Pattern})</code> is
+refused as you type.  A pattern taken from a column would be a different
+pattern in every row, which is both unknowable before you save and slow: on
+a preview of several rows it is seconds of preparing patterns before any
+searching starts.</li>
+<li class="">A few things a pattern can do elsewhere are unavailable, so that no pattern
+can ever be slow on a large table: looking ahead or behind (<code>(?=…)</code>,
+<code>(?&lt;=…)</code>) and referring back to a group (<code>\1</code>).  A pattern that uses one is
+refused as you type, in words, with what to write in its place.  A pattern
+may be 500 characters long, searches at most 10,000 characters of a value,
+and a part in <code>{}</code> may repeat at most 1,000 times.</li>
+<li class=""><strong>Those limits are not the only thing that can make a pattern too big.</strong>
+A part such as <code>\w</code> or <code>\p{L}</code> stands for every letter in every alphabet, so
+repeating one builds far more than its two characters suggest.  A repeated
+<code>\w</code> reaches a few hundred rather than the full thousand, and a long run of
+such parts inside something that itself repeats can be refused as too large
+to build well before either published limit.  The message says so, and the
+fix is smaller counts in <code>{}</code> or fewer parts.  Nothing about <code>\w+</code> or an
+unrepeated part is affected.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="change-or-remove-a-formula">Change or remove a formula<a href="#change-or-remove-a-formula" class="hash-link" aria-label="Direct link to Change or remove a formula" title="Direct link to Change or remove a formula" translate="no">​</a></h2>
+<p>Open the column&#x27;s menu and choose <strong>Edit formula…</strong> — the same editor opens
+on the formula the column already has.</p>
+<p>To remove the formula, clear the expression in the editor and save.  The
+column stops being computed and becomes editable again, keeping the kind of
+value it was producing: a formula that returned a number leaves a number
+column behind.  Nothing is lost by removing it, because a formula&#x27;s values
+were never stored — they were worked out each time the column was read.</p>
+<blockquote>
+<p>A column that was created <em>as</em> a formula has no data path to fall back
+on, so clearing it cannot turn it into an ordinary column.  The editor
+says so and asks you to add a new column instead.  Columns that already
+held values before you gave them a formula are not affected.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="in-the-table">In the table<a href="#in-the-table" class="hash-link" aria-label="Direct link to In the table" title="Direct link to In the table" translate="no">​</a></h2>
+<ul>
+<li class="">Cells of a formula column are read-only.  To change a value, edit the
+columns the formula reads.</li>
+<li class="">The column header names the kind of value it produces:
+<strong>Formula → text</strong>, <strong>Formula → number</strong>, and so on.  The same line
+appears under <strong>Field key</strong> in the column&#x27;s menu.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="publishing">Publishing<a href="#publishing" class="hash-link" aria-label="Direct link to Publishing" title="Direct link to Publishing" translate="no">​</a></h2>
+<p>A formula column is published like any other column, with the value it
+holds at the time of publishing.  Use <strong>Check before publishing</strong> (the
+<strong>Publish preflight</strong> experiment in Labs) to review what will be published
+before you do.</p>
+<p><strong>A published formula is only as open as the columns it reads.</strong>  A formula
+carries the values of the columns it draws on, so publishing it would
+publish those values too — even where those columns are not public
+themselves.  So the publish refuses instead.</p>
+<p>If you publish a table whose public formula reads a workspace-only or
+private column, the receipt reads <strong>Published 0 · skipped …</strong> and every
+affected row is listed under <strong>… entries skipped — why</strong>.  The entry for
+the formula names three things — the formula column, the visibility of the
+column it reads, and that column&#x27;s name — with two buttons:</p>
+<ul>
+<li class=""><strong>Make field public</strong> — raises the read column&#x27;s visibility, resolving
+the block where you stand.</li>
+<li class=""><strong>Remove from label</strong> — opens the Appearance settings, where what the
+published row is built from is declared.  It moves you to the setting
+rather than changing it, so make the edit there and publish again.</li>
+</ul>
+<blockquote>
+<p>The wording of these two buttons is written for a row&#x27;s title rather
+than for a column.  On a formula column they do what is described above,
+whichever noun they use.</p>
+</blockquote>
+<p>Fixing the cause and publishing again is the whole remedy — nothing is
+partly published in the meantime, because a row that cannot publish
+cleanly is skipped whole.</p>
+<p>The same refusal applies when the platform cannot work out what a formula
+reads: a formula it cannot analyse cannot be checked, so it does not
+publish until the formula is fixed.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="troubleshooting">Troubleshooting<a href="#troubleshooting" class="hash-link" aria-label="Direct link to Troubleshooting" title="Direct link to Troubleshooting" translate="no">​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>I want a formula on a column I already have.</td><td>The formula lives on the column, so you do not need a new one.</td><td>Open the column&#x27;s menu and choose <strong>Add formula…</strong>.</td></tr><tr><td><strong>Add formula…</strong> is greyed out.</td><td>The column is a linked-record column, whose structure comes from the source it was linked from.</td><td>Add a separate column for the formula.</td></tr><tr><td>I cleared the formula but it will not save.</td><td>The column was created as a formula, so it has no data path to become an ordinary column with.</td><td>Add a new column of the kind you want, and delete this one.</td></tr><tr><td>The preview is empty.</td><td>The expression has a problem (underlined, and explained under the box), or no rows are loaded in the table yet.</td><td>Fix the problem named under the box; or load some rows and reopen the editor.</td></tr><tr><td>A column I typed as <code>{key}</code> did not become a pill.</td><td>The caret is still inside the braces, or the braces are inside quotes — text in quotes is text.</td><td>Move the caret past the closing brace; take the reference out of the quotes.</td></tr><tr><td>A dash or comma appears in a row where one of the columns is empty.</td><td>The formula uses <code>&amp;</code> in expression mode, which joins pieces as written.</td><td>Use sentence mode with the skip-when-empty box checked, or write the formula so the empty case is handled.</td></tr><tr><td>The <strong>Sentence</strong> button is greyed out.</td><td>The formula uses functions or operators the sentence cannot show.</td><td>Keep editing in expression mode, or simplify the formula to columns and text only.</td></tr><tr><td>I cannot type in the column.</td><td>Formula columns are computed, not entered.</td><td>Edit the columns the formula reads; the result updates.</td></tr><tr><td>The editor says the formula is too long to read.</td><td>A formula may be up to 10,000 characters. That is far more than any formula that can run: one is limited to 2,000 steps, and 2,000 steps written out is under 4,000 characters.</td><td>Shorten the formula, or build the value across several columns and read one from the other.</td></tr><tr><td>A date formula says the pattern is too long.</td><td><code>DateFormat</code> and <code>DateParse</code> read a pattern of up to 200 characters, whether you write it out or read it from a column.</td><td>Write the layout of a single date, such as <code>DD/MM/YYYY</code>. A pattern longer than this is not a date layout.</td></tr><tr><td>A number column shows blank and says the number is too large to record.</td><td>Multiplying or adding two very large values makes a number past what the platform can store.</td><td>Divide before you multiply, or scale the values down first, so the working numbers stay in range.</td></tr><tr><td>My pattern with <code>\b</code> in it is refused.</td><td>The only word edge available recognises <code>A-Z</code>, <code>0-9</code> and <code>_</code>, so it would miss words in every other alphabet.</td><td>Write the edge as characters instead. The form differs by function, so take it from the examples on <strong>RegexMatch</strong>, <strong>RegexExtract</strong> and <strong>RegexReplace</strong> in the function list, where each one is shown working.</td></tr><tr><td>My pattern is refused as too large to build, and it is well under 500 characters.</td><td>A part such as <code>\w</code>, <code>\d</code> or <code>\p{L}</code> stands for every letter or digit in every alphabet, so repeating one many times builds far more than its length suggests.</td><td>Use smaller counts in <code>{}</code>, or fewer repeated parts.</td></tr><tr><td>A formula is refused for a pattern that is in another column, not in what I wrote.</td><td>A formula prepares the patterns of every column it reads as well as its own, and there is one allowance for all of them together. Several columns that each hold a large pattern are each fine on their own and too much to prepare at once.</td><td>The message names the column whose pattern would not fit and the columns that used the allowance before it. Make one of those patterns smaller, or read fewer of those columns from one formula.</td></tr><tr><td>I put a column reference where the pattern goes and it was refused.</td><td>A pattern is part of the formula. Read from a column it would differ in every row, so nothing about it could be checked before saving.</td><td>Write the pattern out in quotes. If different rows need different handling, use one formula column per pattern, or use <code>If</code> on the result rather than on the pattern.</td></tr><tr><td>A pattern ending in <code>$</code> matches nothing, on values that look right.</td><td>The values end in a line break, and <code>$</code> is the end of the value.</td><td>Write <code>\n?$</code> instead of <code>$</code>, or put <code>(?m)</code> at the front of the pattern.</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
+<ul>
+<li class=""><a class="" href="/ke-docs/users/help/rename-a-field-label">Rename a field label</a> — the label is separate
+from the column key the formula uses.</li>
+<li class=""><a class="" href="/ke-docs/users/help/publish-a-record">Publish a record</a> — what publishing does with a
+column&#x27;s values.</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/ke-docs/users/help/fix-colliding-column-names"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Fix colliding column names during import</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/ke-docs/users/help/keep-non-standard-values-as-is"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Keep non-standard values as-is during import</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#add-a-formula" class="table-of-contents__link toc-highlight">Add a formula</a></li><li><a href="#sentence-mode-columns-and-text" class="table-of-contents__link toc-highlight">Sentence mode: columns and text</a></li><li><a href="#expression-mode-functions-and-operators" class="table-of-contents__link toc-highlight">Expression mode: functions and operators</a></li><li><a href="#describe-it-instead-of-writing-it" class="table-of-contents__link toc-highlight">Describe it instead of writing it</a></li><li><a href="#comparing-different-spellings-of-the-same-word" class="table-of-contents__link toc-highlight">Comparing different spellings of the same word</a></li><li><a href="#patterns" class="table-of-contents__link toc-highlight">Patterns</a></li><li><a href="#change-or-remove-a-formula" class="table-of-contents__link toc-highlight">Change or remove a formula</a></li><li><a href="#in-the-table" class="table-of-contents__link toc-highlight">In the table</a></li><li><a href="#publishing" class="table-of-contents__link toc-highlight">Publishing</a></li><li><a href="#troubleshooting" class="table-of-contents__link toc-highlight">Troubleshooting</a></li><li><a href="#related" class="table-of-contents__link toc-highlight">Related</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Researchers</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/">Researcher Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/workspace-walkthrough">Workspace Walkthrough</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/searching-and-reading">Searching and Reading</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/users/help/">Quick Help</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Environment Admins</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/">Environment Admin Guide</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/features/data_import_wizard">Data Import Wizard</a></li><li class="footer__item"><a class="footer__link-item" href="/ke-docs/tenant-admin/user_management">User and Access Management</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Platform</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/ke-docs/standards/">Standards and Compliance</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 KE — Knowledge Environments.</div></div></div></footer></div>
+</body>
+</html>
