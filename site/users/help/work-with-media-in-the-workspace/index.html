@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="generator" content="Docusaurus v3.10.1">
 <title data-rh="true">Work with media in the workspace | KE — Knowledge Environments</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:url" content="https://atlomy.github.io/ke-docs/users/help/work-with-media-in-the-workspace"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Work with media in the workspace | KE — Knowledge Environments"><meta data-rh="true" name="description" content="A collection that holds media records — images, 3D models, and other files —"><meta data-rh="true" property="og:description" content="A collection that holds media records — images, 3D models, and other files —"><link data-rh="true" rel="icon" href="/ke-docs/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://atlomy.github.io/ke-docs/users/help/work-with-media-in-the-workspace"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/work-with-media-in-the-workspace" hreflang="en"><link data-rh="true" rel="alternate" href="https://atlomy.github.io/ke-docs/users/help/work-with-media-in-the-workspace" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Quick help","item":"https://atlomy.github.io/ke-docs/users/help/"},{"@type":"ListItem","position":2,"name":"Work with media in the workspace","item":"https://atlomy.github.io/ke-docs/users/help/work-with-media-in-the-workspace"}]}</script><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap"><link rel="stylesheet" href="/ke-docs/assets/css/styles.eaa42f93.css">
-<script src="/ke-docs/assets/js/runtime~main.1f28b674.js" defer="defer"></script>
+<script src="/ke-docs/assets/js/runtime~main.689d347d.js" defer="defer"></script>
 <script src="/ke-docs/assets/js/main.d750160a.js" defer="defer"></script>
 </head>
 <body>
@@ -69,11 +69,24 @@ record.</li>
 <p>The record&#x27;s name, author, and description are not set here — those are fields
 edited in the <strong>Details</strong> view of the collection, and the sheet says so; it
 only attaches the file.</p>
-<p>Once the file is attached, the sheet closes and the record fills in: a 3D model
-opens in the viewer, and other media show their files and versions. If you
-attach media that is already on the record, the sheet stays open and reports
-that the media is already attached and nothing new was created. If an attach is
-refused — for example, the file is protected — the sheet shows the reason.</p>
+<p>An environment that explicitly enables direct Azure transfer sends cloud-stored
+file bytes from your browser to the platform&#x27;s storage rather than through the
+workspace server. The sheet then shows the real percentage while the transfer
+is running, and <strong>Cancel upload</strong> stops an in-flight browser transfer. At 100%,
+the control changes to <strong>Finishing upload…</strong>: the bytes may already be durable,
+so the platform checks the upload status instead of promising that no version
+will be created. Production environments that have not enabled that capability
+use the server-owned upload path instead. After either transfer completes, the
+sheet stays open while the platform verifies the bytes and, for a 3D model,
+extracts its mesh data. It then says whether the file is ready or failed. Do not
+close or retry a file while it says processing: the status refreshes
+automatically.</p>
+<p>Once processing succeeds, the record fills in: a 3D model opens in the viewer,
+and other media show their files and versions. If you attach media that is
+already on the record, the sheet stays open and reports that the media is
+already attached and nothing new was created. If an attach is refused — for
+example, the file is protected or exceeds the configured size limit — the sheet
+shows the reason.</p>
 <p><strong>Referencing a URL is offered only on a record that has no version yet.</strong> Once
 a record already has a version, the <strong>Reference a URL</strong> tab explains that URL
 references are unavailable for a record that already has one; add another file
@@ -171,7 +184,22 @@ descriptive fields yet, the Info tab says so.</p>
 
 
 
-<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>There is no <strong>Media</strong> button above my table.</td><td>The <strong>Media</strong> button appears only on collections that hold media records.</td><td>Open a collection whose records are images, 3D models, or other files.</td></tr><tr><td>The gallery says there is no media yet.</td><td>The collection holds no media records.</td><td>Add a media record, or open a collection that already has some.</td></tr><tr><td>A card shows a generic media icon instead of a thumbnail.</td><td>That record has no thumbnail set — thumbnails are optional and the icon is the normal fallback.</td><td>This is expected; open the card to work with the record. An environment admin can add a thumbnail reference for the record if one is wanted.</td></tr><tr><td>A record says <strong>Attach a file first</strong> and nothing renders.</td><td>The record has no primary file yet, so the viewer stays locked.</td><td>Editors and admins: select <strong>Attach media</strong> and either reference a URL or upload a file. Other roles: ask an editor or admin to attach one.</td></tr><tr><td>I see <strong>Attach a file first</strong> but no <strong>Attach media</strong> button.</td><td>Attaching a file is limited to editors and environment admins.</td><td>Ask an editor or admin, or sign in with an editor or admin role.</td></tr><tr><td>The <strong>Attach media</strong> sheet won&#x27;t let me reference a URL.</td><td>Referencing a URL is offered only on a record with no version yet; this record already has one.</td><td>Use <strong>Upload a file</strong> instead — it adds the file as a new version.</td></tr><tr><td>The sheet says the media is already attached and nothing was created.</td><td>The URL or file you gave matches what the record already points to.</td><td>Nothing to do — the record is unchanged. Give a different URL or file if you meant to change it.</td></tr><tr><td>I changed the title in the Info tab but nothing happened.</td><td>The Info tab shows the title and description; it does not edit them.</td><td>Open the <strong>Details</strong> view of the collection and edit the record&#x27;s fields there.</td></tr><tr><td>The Version tab won&#x27;t let me re-extract or pin an edition.</td><td>Those two actions are shown only to environment admins; other roles see the version list read-only.</td><td>Ask an environment admin, or sign in with an admin role.</td></tr><tr><td>Re-extraction says it is refused on a frozen edition.</td><td>The current version is a pinned, frozen edition, which never changes.</td><td>Re-import the file to start a new working revision, then re-extract that.</td></tr></tbody></table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead><tbody><tr><td>There is no <strong>Media</strong> button above my table.</td><td>The <strong>Media</strong> button appears only on collections that hold media records.</td><td>Open a collection whose records are images, 3D models, or other files.</td></tr><tr><td>The gallery says there is no media yet.</td><td>The collection holds no media records.</td><td>Add a media record, or open a collection that already has some.</td></tr><tr><td>A card shows a generic media icon instead of a thumbnail.</td><td>That record has no thumbnail set — thumbnails are optional and the icon is the normal fallback.</td><td>This is expected; open the card to work with the record. An environment admin can add a thumbnail reference for the record if one is wanted.</td></tr><tr><td>A record says <strong>Attach a file first</strong> and nothing renders.</td><td>The record has no primary file yet, so the viewer stays locked.</td><td>Editors and admins: select <strong>Attach media</strong> and either reference a URL or upload a file. Other roles: ask an editor or admin to attach one.</td></tr><tr><td>I see <strong>Attach a file first</strong> but no <strong>Attach media</strong> button.</td><td>Attaching a file is limited to editors and environment admins.</td><td>Ask an editor or admin, or sign in with an editor or admin role.</td></tr><tr><td>The <strong>Attach media</strong> sheet won&#x27;t let me reference a URL.</td><td>Referencing a URL is offered only on a record with no version yet; this record already has one.</td><td>Use <strong>Upload a file</strong> instead — it adds the file as a new version.</td></tr><tr><td>The sheet says the media is already attached and nothing was created.</td><td>The URL or file you gave matches what the record already points to.</td><td>Nothing to do — the record is unchanged. Give a different URL or file if you meant to change it.</td></tr><tr><td>Upload stops before it reaches 100%.</td><td>The browser could not finish its direct storage transfer, or you cancelled it.</td><td>Check your connection and select <strong>Upload a file</strong> again. The platform does not treat partial bytes as a file version.</td></tr><tr><td>The upload reaches 100% but says it is processing.</td><td>The platform is verifying and storing the uploaded bytes; a 3D model also needs mesh extraction.</td><td>Leave the sheet open. It refreshes the status automatically and reports a failure instead of silently treating the file as ready.</td></tr><tr><td>A 3D model is ready but has no Mesh→term results.</td><td>The model may contain no extractable named meshes, or extraction may have failed.</td><td>Open <strong>Mesh→term</strong> after processing finishes. If it reports a failure, give the platform operator the displayed status and record link.</td></tr><tr><td>I changed the title in the Info tab but nothing happened.</td><td>The Info tab shows the title and description; it does not edit them.</td><td>Open the <strong>Details</strong> view of the collection and edit the record&#x27;s fields there.</td></tr><tr><td>The Version tab won&#x27;t let me re-extract or pin an edition.</td><td>Those two actions are shown only to environment admins; other roles see the version list read-only.</td><td>Ask an environment admin, or sign in with an admin role.</td></tr><tr><td>Re-extraction says it is refused on a frozen edition.</td><td>The current version is a pinned, frozen edition, which never changes.</td><td>Re-import the file to start a new working revision, then re-extract that.</td></tr></tbody></table>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="related">Related<a href="#related" class="hash-link" aria-label="Direct link to Related" title="Direct link to Related" translate="no">​</a></h2>
 <ul>
 <li class=""><a class="" href="/ke-docs/users/help/see-which-mesh-maps-to-which-term">See which mesh maps to which term</a> —
